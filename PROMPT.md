@@ -4,7 +4,7 @@ Dois caminhos levam ao mesmo lugar. O **primeiro** é melhor: instala uma vez e 
 
 ## Caminho 1 · A skill (recomendado)
 
-1. Baixe: <https://lebeninca.github.io/api-capital-design-system/skill/api-capital-claude-skill.zip>
+1. Baixe: <https://design.apicapital.com.br/skill/api-capital-claude-skill.zip>
 2. No Claude, abra **Configurações → Recursos → Skills** e suba o arquivo `.zip`.
    (Se a opção não aparecer, ligue **execução de código** na mesma tela de Recursos.)
    Se você já tinha uma versão instalada, **apague a antiga antes de subir a nova** — o Claude não
@@ -25,11 +25,11 @@ Antes de criar qualquer peça, leia por inteiro, nesta ordem:
 3. https://design.apicapital.com.br/INDICE_ATIVOS.md — a URL de cada ativo
 
 Se esses endereços não responderem, use os mesmos caminhos em
-https://lebeninca.github.io/api-capital-design-system/ — servem o mesmo conteúdo.
+https://design.apicapital.com.br/ — servem o mesmo conteúdo.
 
 Regras que não se negociam:
 - Toda peça de tela começa com esta linha no <head>:
-  <link rel="stylesheet" href="https://lebeninca.github.io/api-capital-design-system/tokens/api-capital.css">
+  <link rel="stylesheet" href="https://design.apicapital.com.br/tokens/api-capital.css">
 - Cor sai de variável (var(--api-acao)), nunca de código hexadecimal escrito à mão.
 - Componente sai das classes .api-* da folha oficial; não invente botão, card ou tabela.
 - Logo e imagem entram pela URL do índice de ativos. O logo nunca se remonta nem se recolore.

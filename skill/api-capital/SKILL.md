@@ -9,7 +9,7 @@ A API Capital é uma consultoria de investimentos independente. O visual traduz 
 sobriedade: azul-meia-noite e latão sobre branco, Playfair Display no título e Inter em todo o
 resto, zero sombra, canto de 15 px.
 
-**Versão desta skill: 2**
+**Versão desta skill: 3**
 
 **Esta skill não carrega o design system dentro dela.** Ela aponta para a fonte viva, e o material
 é lido a cada trabalho. O que está publicado é o que vale — sempre.
@@ -20,11 +20,12 @@ Use o primeiro que responder:
 
 ```
 BASE = https://design.apicapital.com.br                       (oficial)
-BASE = https://lebeninca.github.io/api-capital-design-system  (reserva, se o oficial não responder)
+BASE = https://lebeninca.github.io/api-capital-design-system  (reserva)
 ```
 
-O endereço oficial pode ainda não estar no ar — nesse caso o reserva atende normalmente e não há
-nada a avisar. Os dois servem exatamente o mesmo conteúdo.
+Use o oficial. A reserva serve o mesmo conteúdo e existe para o caso de o oficial não responder —
+hoje ela redireciona para ele, então **se nenhum dos dois responder, PARE e avise**, como manda o
+passo 1.
 
 ## Protocolo obrigatório
 
@@ -42,8 +43,8 @@ Busque, nesta ordem:
 
 **Leia o `DESIGN.md` e o catálogo de vetos por inteiro antes de desenhar qualquer coisa.**
 
-🔴 **Se `skill.json` trouxer `skill_versao` maior que 2, avise a pessoa ANTES de produzir**, nestas
-palavras: *"A skill da API Capital que você tem instalada é a versão 2, e já existe a versão N.
+🔴 **Se `skill.json` trouxer `skill_versao` maior que 3, avise a pessoa ANTES de produzir**, nestas
+palavras: *"A skill da API Capital que você tem instalada é a versão 3, e já existe a versão N.
 Baixe a nova em BASE/skill/api-capital-claude-skill.zip e suba em Configurações → Recursos →
 Skills, apagando a antiga."* Depois de avisar, siga o trabalho normalmente — o material que você
 acabou de ler é o atual de qualquer jeito.

@@ -10,7 +10,7 @@ Rode depois de acrescentar ou renomear ativo:  python3 gerar_indice_ativos.py
 import json, pathlib, collections
 
 RAIZ = pathlib.Path(__file__).parent
-BASE = "https://lebeninca.github.io/api-capital-design-system"
+BASE = "https://design.apicapital.com.br"
 EXT_OK = {".svg", ".png", ".pdf", ".woff2", ".otf", ".ttf", ".ase", ".gpl", ".json", ".txt", ".css"}
 
 arquivos = sorted(

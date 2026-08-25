@@ -3,10 +3,10 @@
 Todo ativo deste pacote tem endereço público e estável. A URL se monta assim:
 
 ```
-https://lebeninca.github.io/api-capital-design-system/<caminho do arquivo>
+https://design.apicapital.com.br/<caminho do arquivo>
 ```
 
-Exemplo: `https://lebeninca.github.io/api-capital-design-system/assets/logo/svg/api_capital_logo01_azul.svg`
+Exemplo: `https://design.apicapital.com.br/assets/logo/svg/api_capital_logo01_azul.svg`
 
 **A lista completa, com os 2147 arquivos, está em `ativos.json`** — no mesmo padrão de URL.
 
@@ -32,14 +32,14 @@ Exemplo: `https://lebeninca.github.io/api-capital-design-system/assets/logo/svg/
 
 | O que é | URL |
 |---|---|
-| Logo principal, azul, para fundo claro | `https://lebeninca.github.io/api-capital-design-system/assets/logo/svg/api_capital_logo01_azul.svg` |
-| Logo principal, branco, para fundo escuro | `https://lebeninca.github.io/api-capital-design-system/assets/logo/svg/api_capital_logo01_branco.svg` |
-| Selo do pelicano, azul | `https://lebeninca.github.io/api-capital-design-system/assets/logo/svg/api_capital_logo05_azul.svg` |
-| Ícone temático da API (24 deles em assets/icone/svg/) | `https://lebeninca.github.io/api-capital-design-system/assets/icone/svg/api_capital_icone_carteira.svg` |
-| Favicon | `https://lebeninca.github.io/api-capital-design-system/assets/favicon/svg/api_capital_favicon.svg` |
-| Ladrilho do ninho, azul | `https://lebeninca.github.io/api-capital-design-system/assets/textura/svg/api_capital_textura_ninho_azul.svg` |
-| Gradiente azul | `https://lebeninca.github.io/api-capital-design-system/assets/gradiente/svg/api_capital_gradiente_azul.svg` |
-| Foto de céu com rastro de avião | `https://lebeninca.github.io/api-capital-design-system/assets/foto/png/api_capital_foto_ceu_aviao_rastro.png` |
+| Logo principal, azul, para fundo claro | `https://design.apicapital.com.br/assets/logo/svg/api_capital_logo01_azul.svg` |
+| Logo principal, branco, para fundo escuro | `https://design.apicapital.com.br/assets/logo/svg/api_capital_logo01_branco.svg` |
+| Selo do pelicano, azul | `https://design.apicapital.com.br/assets/logo/svg/api_capital_logo05_azul.svg` |
+| Ícone temático da API (24 deles em assets/icone/svg/) | `https://design.apicapital.com.br/assets/icone/svg/api_capital_icone_carteira.svg` |
+| Favicon | `https://design.apicapital.com.br/assets/favicon/svg/api_capital_favicon.svg` |
+| Ladrilho do ninho, azul | `https://design.apicapital.com.br/assets/textura/svg/api_capital_textura_ninho_azul.svg` |
+| Gradiente azul | `https://design.apicapital.com.br/assets/gradiente/svg/api_capital_gradiente_azul.svg` |
+| Foto de céu com rastro de avião | `https://design.apicapital.com.br/assets/foto/png/api_capital_foto_ceu_aviao_rastro.png` |
 
 ## Regra de uso
 
