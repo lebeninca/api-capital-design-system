@@ -21,9 +21,9 @@
   .hero { background: var(--api-fundo-secao); padding: 72px 24px; }
   .hero .dentro { display: grid; grid-template-columns: minmax(0, 460px) minmax(0, 1fr);
                   gap: 48px; align-items: center; }
-  .hero .arte { height: 360px; overflow: hidden;
+  .hero .arte { height: 430px; overflow: hidden;
                 background: url("assets/hero/api_capital_hero_mosaico.png")
-                            no-repeat center right; background-size: contain; }
+                            no-repeat left center; background-size: auto 100%; }
   .hero h1 { margin-bottom: 20px; }
   .hero p { margin-bottom: 0; }
   @media (max-width: 1100px) { .hero .arte { display: none; }
@@ -32,7 +32,7 @@
   .faixa--escura { background: var(--api-fundo-escuro); color: var(--api-sobre-escuro); }
   .dentro { max-width: 1180px; margin: 0 auto; }
   h1, h2, h3 { margin: 0 0 24px; }
-  p { margin: 0 0 16px; max-width: 62ch; }
+  p { margin: 0 0 16px; max-width: 78ch; }
   ol { margin: 0 0 24px; padding-left: 22px; }
   li { margin-bottom: 12px; }
   a { color: var(--api-acao-secundaria); }
@@ -69,8 +69,7 @@
     <div>
       <h1 class="api-display">Sistema de Design<br>API Capital</h1>
       <p class="api-corpo-grande">Tudo que é preciso para produzir uma peça da API Capital dentro
-        do padrão: a especificação, os vetos, os tokens e os ativos de marca. É deste endereço que
-        as peças bebem — atualizou aqui, atualizou em todo lugar.</p>
+        do padrão: a especificação, os vetos, os tokens e os ativos de marca.</p>
     </div>
     <div class="arte" aria-hidden="true"></div>
   </div>
