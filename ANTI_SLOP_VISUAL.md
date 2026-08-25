@@ -38,12 +38,12 @@ peça.
 |---|---|---|---|
 | `cor-fora-da-paleta` | Hex que não existe na paleta do `DESIGN.md` | Consumir token, nunca escrever hex | `css` `pen`: extrair todo hex e `rgb()` e cruzar com a paleta |
 | `preto-puro` | `#000000` em texto ou fundo | Quase-preto `#171717` | `css` `pen`: procurar `#000`, `#000000`, `rgb(0,0,0)` |
-| `bege-de-fundo` | Creme ou papel como fundo do documento, ou creme alternando as seções de uma peça longa | Branco puro `#FFFFFF` no `body`. O ritmo da peça longa é off-white `#F2F0EF` ou cinza-claro `#F0F0F0`, nunca creme | `css`: fundo do `body` ou do container raiz em `#F1EAD8`, `#FBF9F3` ou similar; `#F1EAD8` em 2 ou mais blocos de seção irmãos |
-| `parede-sem-divisao` | Peça longa com todas as seções em branco, sem nada que marque onde uma termina e a outra começa | Alternar a faixa da seção entre `#FFFFFF` e UMA superfície de seção — off-white `#F2F0EF` ou cinza-claro `#F0F0F0` (`DESIGN.md` §Ritmo de superfície) | `css`: 4 ou mais blocos de seção irmãos, todos sem `background` próprio ou todos em `{colors.fundo}` |
-| `superficie-arlequim` | A alternância vira festa: três ou mais superfícies claras na mesma peça, ou cada card com o seu fundo | Duas claras no máximo — branco mais UMA de seção; a faixa pinta a seção inteira, o card de dentro volta ao branco | `css`: mais de duas cores claras distintas em fundo de bloco na mesma peça |
+| `bege-de-fundo` | Creme ou papel como fundo do documento, ou creme alternando as seções de uma peça longa | Branco puro `#FFFFFF` no `body`. O ritmo da peça longa é o cinza-claro `#F4F4F4`, nunca creme | `css`: fundo do `body` ou do container raiz em `#F1EAD8`, `#FBF9F3` ou similar; `#F1EAD8` em 2 ou mais blocos de seção irmãos |
+| `parede-sem-divisao` | Peça longa com todas as seções em branco, sem nada que marque onde uma termina e a outra começa | Alternar a faixa da seção entre `#FFFFFF` e o cinza-claro `#F4F4F4` (`DESIGN.md` §Ritmo de superfície) | `css`: 4 ou mais blocos de seção irmãos, todos sem `background` próprio ou todos em `{colors.fundo}` |
+| `superficie-arlequim` | A alternância vira festa: três ou mais superfícies claras na mesma peça, ou cada card com o seu fundo | Duas claras e só: branco e o cinza-claro; a faixa pinta a seção inteira, o card de dentro volta ao branco | `css`: mais de duas cores claras distintas em fundo de bloco na mesma peça |
 | `vermelho-verde-livre` | Vermelho ou verde da marca usados por gosto | Vermelho só no `m` da tagline e em erro; verde só em confirmação | `css` `pen`: uso de `#B71313` ou `#0E7A47` fora de elemento de erro, alerta ou confirmação |
 | `opacidade-em-vez-de-cor` | Cor sólida rebaixada com alpha para simular um tom mais claro | A variação da cor, que já existe na paleta | `css` `pen`: preenchimento com `opacity` entre 0,05 e 0,6 em retângulo, célula ou fundo de bloco |
-| `cinza-de-fabrica` | Cinza genérico de framework (`#F5F5F5`, `#EEE`, `#CCC`, `gray-100`) | `#E6E7E8`, a variação do branco | `css`: cinza fora da paleta em fundo ou borda |
+| `cinza-de-fabrica` | Cinza genérico de framework (`#F5F5F5`, `#EEE`, `#CCC`, `gray-100`) | `#E6E7E8` em bloco e borda; `#F4F4F4` em faixa de seção | `css`: cinza fora da paleta em fundo ou borda |
 
 ## 2 · Sombra, brilho e profundidade
 

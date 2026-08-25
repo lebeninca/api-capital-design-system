@@ -24,11 +24,9 @@ Use `var(--api-acao)`, não `#0D2A54`. Use `.api-botao-primario`, não um botão
 **Valor que não existe no `DESIGN.md` é erro.** Se faltar um valor, pergunte. Não invente.
 
 **Peça longa alterna a superfície das seções.** Apresentação, relatório, proposta, página de
-muitas dobras: a seção alterna entre `var(--api-fundo)` e UMA superfície de seção —
-`var(--api-fundo-secao)` (off-white `#F2F0EF`, o padrão) ou `var(--api-cinza-claro)` (`#F0F0F0`).
-**Creme nunca alterna seção.** Duas claras por peça
-no máximo, a faixa pinta a seção inteira e não o card de dentro, e o `body` fica sempre em
-`var(--api-fundo)`. Régua no `DESIGN.md` §Ritmo de superfície em peça longa. Peça curta nasce
+muitas dobras: a seção alterna entre `var(--api-fundo)` e `var(--api-fundo-secao)`
+(cinza-claro `#F4F4F4`). **Creme nunca alterna seção.** A faixa pinta a seção inteira e não o card
+de dentro, não entra fio entre uma seção e outra, e o `body` fica sempre em `var(--api-fundo)`. Régua no `DESIGN.md` §Ritmo de superfície em peça longa. Peça curta nasce
 branca e não alterna.
 
 **Use os ativos que existem.** Logo, ícone, textura, gradiente, favicon, foto e fonte estão em

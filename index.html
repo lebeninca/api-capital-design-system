@@ -10,11 +10,24 @@
   * { box-sizing: border-box; }
   body { margin: 0; background: var(--api-fundo); color: var(--api-texto);
          font-family: var(--api-corpo-font-family); }
+  .topo { position: sticky; top: 0; z-index: 10; background: var(--api-fundo);
+          border-bottom: 1px solid var(--api-borda); padding: 18px 24px; }
+  .topo .dentro { display: flex; align-items: center; gap: 18px; }
+  .topo img { height: 34px; display: block; }
+  .topo span { font-family: var(--api-corpo-font-family); font-size: 17px; font-weight: 500;
+               color: var(--api-texto); letter-spacing: -0.01em; }
   .faixa { padding: 96px 24px; }
   .faixa--apoio { background: var(--api-fundo-secao); }
+  .hero { background: var(--api-fundo-secao)
+            url("assets/hero/api_capital_hero_design_system.png") no-repeat right center;
+          background-size: auto 100%; min-height: 460px; padding: 0 24px;
+          display: flex; align-items: center; }
+  .hero .dentro { width: 100%; }
+  .hero h1 { margin-bottom: 20px; }
+  .hero p { max-width: 46ch; }
+  @media (max-width: 1024px) { .hero { background-image: none; min-height: 0; padding: 88px 24px; } }
   .faixa--escura { background: var(--api-fundo-escuro); color: var(--api-sobre-escuro); }
   .dentro { max-width: 860px; margin: 0 auto; }
-  .logo { height: 88px; display: block; margin-bottom: 48px; }
   h1, h2, h3 { margin: 0 0 24px; }
   p { margin: 0 0 16px; max-width: 62ch; }
   ol { margin: 0 0 24px; padding-left: 22px; }
@@ -30,7 +43,6 @@
         padding: 24px; overflow-x: auto; font-size: 13px; line-height: 1.6;
         white-space: pre-wrap; word-break: break-word; }
   .faixa--escura pre { background: var(--api-azul-var); }
-  .fio { border: 0; border-top: 1px solid var(--api-fio); margin: 0; }
   table { border-collapse: collapse; width: 100%; margin-bottom: 24px; }
   td, th { text-align: left; padding: 12px 16px; }
   tbody tr:nth-child(odd) { background: var(--api-fundo-bloco); }
@@ -42,17 +54,21 @@
 </head>
 <body>
 
-<section class="faixa">
+<header class="topo">
   <div class="dentro">
-    <img class="logo" src="assets/logo/svg/api_capital_logo01_azul.svg" alt="API Capital">
+    <img src="assets/logo/svg/api_capital_logo03_azul.svg" alt="API Capital">
+    <span>Design System</span>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="dentro">
     <h1 class="api-display">Design System</h1>
     <p class="api-corpo-grande">Tudo que é preciso para produzir uma peça da API Capital dentro
       do padrão: a especificação, os vetos, os tokens e os ativos de marca. É deste endereço que
       as peças bebem — atualizou aqui, atualizou em todo lugar.</p>
   </div>
 </section>
-
-<hr class="fio">
 
 <section class="faixa faixa--apoio">
   <div class="dentro">
@@ -72,8 +88,6 @@
   </div>
 </section>
 
-<hr class="fio">
-
 <section class="faixa">
   <div class="dentro">
     <h2 class="api-titulo">O que tem aqui</h2>
@@ -90,8 +104,6 @@
     </table>
   </div>
 </section>
-
-<hr class="fio">
 
 <section class="faixa faixa--escura">
   <div class="dentro">
