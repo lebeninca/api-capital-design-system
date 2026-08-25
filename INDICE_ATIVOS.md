@@ -8,7 +8,7 @@ https://lebeninca.github.io/api-capital-design-system/<caminho do arquivo>
 
 Exemplo: `https://lebeninca.github.io/api-capital-design-system/assets/logo/svg/api_capital_logo01_azul.svg`
 
-**A lista completa, com os 2145 arquivos, está em `ativos.json`** — no mesmo padrão de URL.
+**A lista completa, com os 2147 arquivos, está em `ativos.json`** — no mesmo padrão de URL.
 
 ## O que existe, por categoria
 
@@ -18,6 +18,7 @@ Exemplo: `https://lebeninca.github.io/api-capital-design-system/assets/logo/svg/
 | `assets/fonte/` | 13 |
 | `assets/foto/` | 5 |
 | `assets/gradiente/` | 15 |
+| `assets/hero/` | 2 |
 | `assets/icone/` | 1887 |
 | `assets/logo/` | 130 |
 | `assets/paleta/` | 9 |

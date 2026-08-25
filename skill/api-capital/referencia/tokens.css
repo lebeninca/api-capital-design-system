@@ -15,8 +15,7 @@
   --api-azul-claro-var: #3E82B9;
   --api-preto-var: #020102;
   --api-quadro: #E6E7E8;
-  --api-off-white: #F2F0EF;
-  --api-cinza-claro: #F0F0F0;
+  --api-cinza-claro: #F4F4F4;
   --api-creme-var: #DBD4C5;
   --api-areia-var: #D0B980;
   --api-erro: #B71313;
@@ -31,7 +30,7 @@
   --api-fundo: var(--api-branco);
   --api-fundo-bloco: var(--api-quadro);
   --api-fundo-quente: var(--api-creme);
-  --api-fundo-secao: var(--api-off-white);
+  --api-fundo-secao: var(--api-cinza-claro);
   --api-fundo-escuro: var(--api-azul);
   --api-borda: var(--api-quadro);
   --api-fio: var(--api-azul);
@@ -40,7 +39,7 @@
 
   /* rounded */
   --api-canto-vivo: 0px;
-  --api-x4: 15px;
+  --api-canto: 15px;
 
   /* spacing */
   --api-x1: 4px;

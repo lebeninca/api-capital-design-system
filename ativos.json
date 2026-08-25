@@ -1,6 +1,6 @@
 {
  "base": "https://lebeninca.github.io/api-capital-design-system",
- "total": 2145,
+ "total": 2147,
  "categorias": {
   "favicon": [
    "assets/favicon/pdf/api_capital_favicon.pdf",
@@ -52,6 +52,10 @@
    "assets/gradiente/svg/api_capital_gradiente_azul.svg",
    "assets/gradiente/svg/api_capital_gradiente_branco.svg",
    "assets/gradiente/svg/api_capital_gradiente_preto.svg"
+  ],
+  "hero": [
+   "assets/hero/api_capital_hero_design_system.png",
+   "assets/hero/api_capital_hero_mosaico.png"
   ],
   "icone": [
    "assets/icone/lucide/a-arrow-down.svg",

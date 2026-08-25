@@ -1,5 +1,5 @@
 ---
-version: "3.0"
+version: "3.1"
 name: "API Capital"
 description: "Consultoria de investimentos independente. Clássico moderno e autoridade tranquila: azul-meia-noite e latão sobre branco puro, Playfair Display em título e Inter em todo o resto, incluindo cada número apresentado. Zero sombra, canto de 15, grade de 12 colunas. O sistema atende impresso e tela com a mesma régua, e o padrão é sempre o registro mais sóbrio."
 
@@ -18,8 +18,7 @@ colors:
   azul-claro-var: "#3E82B9"
   preto-var: "#020102"
   quadro: "#E6E7E8"
-  off-white: "#F2F0EF"
-  cinza-claro: "#F0F0F0"
+  cinza-claro: "#F4F4F4"
   creme-var: "#DBD4C5"
   areia-var: "#D0B980"
   # Escopo fechado
@@ -36,7 +35,7 @@ colors:
   fundo: "{colors.branco}"
   fundo-bloco: "{colors.quadro}"
   fundo-quente: "{colors.creme}"
-  fundo-secao: "{colors.off-white}"
+  fundo-secao: "{colors.cinza-claro}"
   fundo-escuro: "{colors.azul}"
   borda: "{colors.quadro}"
   fio: "{colors.azul}"
@@ -129,7 +128,7 @@ typography:
 
 rounded:
   canto-vivo: 0px
-  x4: 15px
+  canto: 15px
 
 spacing:
   x1: 4px
@@ -307,7 +306,7 @@ zona: publica
 dominio: design
 bandeira: 06_marketing_api_capital
 produto: api_capital
-versao: 3.0
+versao: 3.1
 resumo: >-
   Especificação de design da API Capital, no formato design.md: tokens de cor, tipografia,
   espaço, forma e componente, mais as regras de layout, logo, ícone, imagem, estado e veto.
@@ -321,8 +320,8 @@ resumo: >-
 A API Capital é uma consultoria de investimentos que não recebe comissão de produto. O sistema
 visual traduz isso em sobriedade: **azul-meia-noite** (`{colors.azul}`) como cor de autoridade
 e de ação, **latão** (`{colors.latao}`) como o único calor da paleta, e **branco puro**
-(`{colors.branco}`) como fundo padrão. Em peça longa, a seção alterna com um off-white ou um
-cinza-claro para marcar onde uma parte termina e a outra começa (§Ritmo de superfície).
+(`{colors.branco}`) como fundo padrão. Em peça longa, a seção alterna com o cinza-claro para
+marcar onde uma parte termina e a outra começa (§Ritmo de superfície).
 
 A tipografia trabalha em par fixo: **Playfair Display** carrega título e abertura, com tracking
 negativo nos tamanhos grandes; **Inter** carrega todo o resto, e **todo número apresentado**, com
@@ -387,7 +386,7 @@ Os nomes e a divisão em papéis são derivação. Use o token de papel na peça
 | `{colors.fundo}` | `{colors.branco}` | Fundo de página |
 | `{colors.fundo-bloco}` | `{colors.quadro}` | Zebra de tabela, card de dado, campo, caixa de apoio |
 | `{colors.fundo-quente}` | `{colors.creme}` | Bloco de respiro entre seções frias. **Nunca como faixa de seção em peça longa** |
-| `{colors.fundo-secao}` | `{colors.off-white}` | Faixa de seção em peça longa. A alternativa neutra é `{colors.cinza-claro}` |
+| `{colors.fundo-secao}` | `{colors.cinza-claro}` | Faixa de seção em peça longa |
 | `{colors.fundo-escuro}` | `{colors.azul}` | Card de destaque, cabeçalho de tabela, navegação escura |
 | `{colors.borda}` | `{colors.quadro}` | Borda de campo e de bloco neutro |
 | `{colors.fio}` | `{colors.azul}` | Fio de título, régua de seção, contorno de card |
@@ -400,25 +399,21 @@ Peça de rolagem longa — apresentação em seções, relatório, proposta, pá
 precisa que o leitor veja onde uma parte termina e a outra começa. Branco do topo ao pé apaga essa
 divisão e entrega uma parede sem articulação.
 
-**A régua:** a seção de uma peça longa alterna a superfície entre `{colors.fundo}` e **uma** das
-duas superfícies de seção:
-
-| Token | Hex | Registro |
-|---|---|---|
-| `{colors.fundo-secao}` → `{colors.off-white}` | `#F2F0EF` | Off-white. O padrão |
-| `{colors.cinza-claro}` | `#F0F0F0` | Cinza-claro neutro |
-
-A faixa `{colors.fundo-escuro}` continua sendo o degrau de destaque, usada com parcimônia.
+**A régua:** a seção de uma peça longa alterna entre `{colors.fundo}` e `{colors.fundo-secao}`
+(`{colors.cinza-claro}`, `#F4F4F4`) — um cinza neutro puro, sem nenhum vermelho nem amarelo na
+mistura. A faixa `{colors.fundo-escuro}` continua sendo o degrau de destaque, usada com
+parcimônia.
 
 🔴 **Creme não alterna seção.** `{colors.fundo-quente}` (`#F1EAD8`) é bloco de respiro pontual e
-papel de peça impressa. Off-white e cinza-claro é que carregam o ritmo da peça longa.
+papel de peça impressa. Quem carrega o ritmo da peça longa é o cinza-claro.
 
 Os limites, que são o que impede a válvula de virar carnaval:
 
-- **Duas superfícies claras por peça, no máximo.** Branco mais uma de seção; escolher entre o off-white e o cinza-claro, nunca os dois na mesma peça.
+- **Duas superfícies claras por peça:** branco e o cinza-claro. Não existe uma terceira.
 - **A superfície pinta a FAIXA da seção inteira**, de borda a borda — nunca o card de dentro. Card sobre faixa de seção volta ao branco, ou se resolve por linha.
 - **Zero cor nova.** A alternância consome token; hex escrito à mão segue vetado.
 - **O padrão continua branco.** Peça curta — uma dobra, um card, um e-mail, uma folha A4 — nasce branca e não alterna.
+- **A troca de superfície basta.** Não se põe fio entre uma seção e a outra: o degrau de fundo já divide.
 - **O documento inteiro nunca é de apoio.** A superfície é faixa dentro da peça; `body` e container raiz ficam em `{colors.fundo}`.
 
 ### Escopo fechado
