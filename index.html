@@ -13,7 +13,9 @@
   .topo { position: sticky; top: 0; z-index: 10; background: var(--api-fundo);
           border-bottom: 1px solid var(--api-borda); padding: 18px 24px; }
   .topo .dentro { display: flex; align-items: center; gap: 18px; }
-  .topo img { height: 88px; display: block; margin: -14px 0; }
+  /* o SVG do logo tem folga interna: 18,7% à esquerda e a marca ocupa 30,4% da altura.
+     As margens negativas descontam essa folga para o desenho alinhar com o conteúdo. */
+  .topo img { height: 99px; display: block; margin: -36px 0 -33px -39px; }
   .topo span { font-family: var(--api-display-font-family); font-size: 24px; font-weight: 500;
                color: var(--api-texto); letter-spacing: -0.01em; }
   .faixa { padding: 96px 24px; }
