@@ -1,0 +1,53 @@
+/* Fontes da API Capital. Os arquivos ficam em assets/fonte/.
+   Caminhos relativos a esta folha (tokens/). */
+
+@font-face {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonte/playfair-display/PlayfairDisplay-Regular-latino.woff2") format("woff2"),
+       url("../assets/fonte/playfair-display/PlayfairDisplay-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonte/playfair-display/PlayfairDisplay-Bold-latino.woff2") format("woff2"),
+       url("../assets/fonte/playfair-display/PlayfairDisplay-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonte/playfair-display/PlayfairDisplay-Italic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonte/playfair-display/PlayfairDisplay-BoldItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../assets/fonte/inter/Inter-latino.woff2") format("woff2"),
+       url("../assets/fonte/inter/Inter-VariableFont_opsz,wght.ttf") format("truetype-variations");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../assets/fonte/inter/Inter-Italic-VariableFont_opsz,wght.ttf") format("truetype-variations");
+}

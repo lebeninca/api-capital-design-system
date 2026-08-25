@@ -1,0 +1,4 @@
+/* Folha única da API Capital. Importe só este arquivo. */
+@import url("fontes.css");
+@import url("tokens.css");
+@import url("componentes.css");

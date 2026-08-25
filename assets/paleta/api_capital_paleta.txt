@@ -1,0 +1,16 @@
+api-azul	#0D2A54
+api-latao	#AA7D41
+api-azul-claro	#418ECE
+api-preto	#171717
+api-branco	#FFFFFF
+api-creme	#F1EAD8
+api-areia	#E4CB8D
+api-azul-var	#152548
+api-latao-var	#9A7239
+api-azul-claro-var	#3E82B9
+api-preto-var	#020102
+api-quadro	#E6E7E8
+api-creme-var	#DBD4C5
+api-areia-var	#D0B980
+api-erro	#B71313
+api-ok	#0E7A47

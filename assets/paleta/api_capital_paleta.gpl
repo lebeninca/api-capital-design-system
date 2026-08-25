@@ -1,0 +1,20 @@
+GIMP Palette
+Name: API Capital
+Columns: 8
+#
+ 13  42  84	api-azul
+170 125  65	api-latao
+ 65 142 206	api-azul-claro
+ 23  23  23	api-preto
+255 255 255	api-branco
+241 234 216	api-creme
+228 203 141	api-areia
+ 21  37  72	api-azul-var
+154 114  57	api-latao-var
+ 62 130 185	api-azul-claro-var
+  2   1   2	api-preto-var
+230 231 232	api-quadro
+219 212 197	api-creme-var
+208 185 128	api-areia-var
+183  19  19	api-erro
+ 14 122  71	api-ok
