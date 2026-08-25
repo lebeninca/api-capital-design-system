@@ -37,8 +37,13 @@ Para publicar o que mudou:
 /Users/leandrobeninca/Developer/second-brain/engenharia/infra/scripts/publicar_design_system_api.sh "o que mudou"
 ```
 
-Antes disso, se mexeu em ativo ou nos tokens: `python3 gerar_tokens.py`, `python3
-gerar_indice_ativos.py` e `./empacotar_skill.sh`.
+Antes disso, se mexeu nos tokens rode `python3 tokens/gerar_tokens.py`; se acrescentou ou
+renomeou ativo, `python3 gerar_indice_ativos.py`.
+
+**A skill do Claude é um ponteiro** (`skill/api-capital/SKILL.md`): nenhum pedaço do design system
+viaja dentro dela — o material é lido deste endereço a cada trabalho. Por isso quem instalou uma
+vez nunca fica com a régua velha, e o `.zip` só precisa ser refeito (`./empacotar_skill.sh`) quando
+o protocolo dela ou o endereço mudarem.
 
 ## Por onde começar
 
