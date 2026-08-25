@@ -1,0 +1,342 @@
+/* Componentes da API Capital. GERADO por tokens/gerar_tokens.py a partir de DESIGN.md.
+   Nao edite este arquivo: edite o DESIGN.md e rode o gerador.
+   Depende de tokens.css (variaveis) e fontes.css (@font-face). */
+
+.api-botao-primario {
+  font-family: var(--api-botao-font-family);
+  font-size: var(--api-botao-font-size);
+  font-weight: var(--api-botao-font-weight);
+  line-height: var(--api-botao-line-height);
+  letter-spacing: var(--api-botao-letter-spacing);
+  background-color: var(--api-acao);
+  color: var(--api-sobre-escuro);
+  border-radius: var(--api-canto);
+  padding: 0 24px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.api-botao-primario-hover {
+  font-family: var(--api-botao-font-family);
+  font-size: var(--api-botao-font-size);
+  font-weight: var(--api-botao-font-weight);
+  line-height: var(--api-botao-line-height);
+  letter-spacing: var(--api-botao-letter-spacing);
+  background-color: var(--api-acao-hover);
+  color: var(--api-sobre-escuro);
+  border-radius: var(--api-canto);
+  padding: 0 24px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.api-botao-secundario {
+  font-family: var(--api-botao-font-family);
+  font-size: var(--api-botao-font-size);
+  font-weight: var(--api-botao-font-weight);
+  line-height: var(--api-botao-line-height);
+  letter-spacing: var(--api-botao-letter-spacing);
+  background-color: var(--api-fundo);
+  color: var(--api-acao);
+  border-color: var(--api-acao);
+  border-width: 1px;
+  border-radius: var(--api-canto);
+  padding: 0 24px;
+  height: 48px;
+  border-style: solid;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.api-botao-azul-claro {
+  font-family: var(--api-botao-font-family);
+  font-size: var(--api-botao-font-size);
+  font-weight: var(--api-botao-font-weight);
+  line-height: var(--api-botao-line-height);
+  letter-spacing: var(--api-botao-letter-spacing);
+  background-color: var(--api-acao-secundaria);
+  color: var(--api-sobre-escuro);
+  border-radius: var(--api-canto);
+  padding: 0 24px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.api-botao-sobre-escuro {
+  font-family: var(--api-botao-font-family);
+  font-size: var(--api-botao-font-size);
+  font-weight: var(--api-botao-font-weight);
+  line-height: var(--api-botao-line-height);
+  letter-spacing: var(--api-botao-letter-spacing);
+  background-color: var(--api-branco);
+  color: var(--api-azul);
+  border-radius: var(--api-canto);
+  padding: 0 24px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.api-botao-texto {
+  font-family: var(--api-botao-font-family);
+  font-size: var(--api-botao-font-size);
+  font-weight: var(--api-botao-font-weight);
+  line-height: var(--api-botao-line-height);
+  letter-spacing: var(--api-botao-letter-spacing);
+  background-color: transparent;
+  color: var(--api-acao);
+  border-radius: var(--api-canto-vivo);
+  padding: 0;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.api-campo {
+  font-family: var(--api-corpo-font-family);
+  font-size: var(--api-corpo-font-size);
+  font-weight: var(--api-corpo-font-weight);
+  line-height: var(--api-corpo-line-height);
+  letter-spacing: var(--api-corpo-letter-spacing);
+  background-color: var(--api-fundo);
+  color: var(--api-texto);
+  border-color: var(--api-borda);
+  border-width: 1px;
+  border-radius: var(--api-canto);
+  padding: 0 16px;
+  height: 48px;
+  border-style: solid;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.api-campo-foco {
+  font-family: var(--api-corpo-font-family);
+  font-size: var(--api-corpo-font-size);
+  font-weight: var(--api-corpo-font-weight);
+  line-height: var(--api-corpo-line-height);
+  letter-spacing: var(--api-corpo-letter-spacing);
+  background-color: var(--api-fundo);
+  color: var(--api-texto);
+  border-color: var(--api-acao);
+  border-width: 1px;
+  outline: 3px solid var(--api-acao-secundaria);
+  outline-offset: 2px;
+  border-radius: var(--api-canto);
+  padding: 0 16px;
+  height: 48px;
+  border-style: solid;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.api-campo-erro {
+  font-family: var(--api-corpo-font-family);
+  font-size: var(--api-corpo-font-size);
+  font-weight: var(--api-corpo-font-weight);
+  line-height: var(--api-corpo-line-height);
+  letter-spacing: var(--api-corpo-letter-spacing);
+  background-color: var(--api-fundo);
+  color: var(--api-texto);
+  border-color: var(--api-erro);
+  border-width: 1px;
+  border-radius: var(--api-canto);
+  padding: 0 16px;
+  height: 48px;
+  border-style: solid;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.api-card-conteudo {
+  font-family: var(--api-corpo-font-family);
+  font-size: var(--api-corpo-font-size);
+  font-weight: var(--api-corpo-font-weight);
+  line-height: var(--api-corpo-line-height);
+  letter-spacing: var(--api-corpo-letter-spacing);
+  background-color: var(--api-fundo);
+  color: var(--api-texto);
+  border-color: var(--api-fio);
+  border-width: 1px;
+  border-radius: var(--api-canto);
+  padding: 40px;
+  border-style: solid;
+}
+
+.api-card-dado {
+  font-family: var(--api-corpo-font-family);
+  font-size: var(--api-corpo-font-size);
+  font-weight: var(--api-corpo-font-weight);
+  line-height: var(--api-corpo-line-height);
+  letter-spacing: var(--api-corpo-letter-spacing);
+  background-color: var(--api-fundo-bloco);
+  color: var(--api-texto);
+  border-radius: var(--api-canto);
+  padding: 40px;
+}
+
+.api-card-destaque {
+  font-family: var(--api-corpo-font-family);
+  font-size: var(--api-corpo-font-size);
+  font-weight: var(--api-corpo-font-weight);
+  line-height: var(--api-corpo-line-height);
+  letter-spacing: var(--api-corpo-letter-spacing);
+  background-color: var(--api-fundo-escuro);
+  color: var(--api-sobre-escuro);
+  border-radius: var(--api-canto);
+  padding: 40px;
+}
+
+.api-card-quente {
+  font-family: var(--api-corpo-font-family);
+  font-size: var(--api-corpo-font-size);
+  font-weight: var(--api-corpo-font-weight);
+  line-height: var(--api-corpo-line-height);
+  letter-spacing: var(--api-corpo-letter-spacing);
+  background-color: var(--api-fundo-quente);
+  color: var(--api-azul);
+  border-radius: var(--api-canto);
+  padding: 40px;
+}
+
+.api-caixa-latao {
+  font-family: var(--api-titulo-font-family);
+  font-size: var(--api-titulo-font-size);
+  font-weight: var(--api-titulo-font-weight);
+  line-height: var(--api-titulo-line-height);
+  letter-spacing: var(--api-titulo-letter-spacing);
+  background-color: var(--api-destaque);
+  color: var(--api-sobre-escuro);
+  border-radius: var(--api-canto);
+  padding: 24px;
+}
+
+.api-caixa-ocre {
+  font-family: var(--api-corpo-font-family);
+  font-size: var(--api-corpo-font-size);
+  font-weight: var(--api-corpo-font-weight);
+  line-height: var(--api-corpo-line-height);
+  letter-spacing: var(--api-corpo-letter-spacing);
+  background-color: var(--api-realce);
+  color: var(--api-azul);
+  border-radius: var(--api-canto);
+  padding: 24px;
+}
+
+.api-nav-clara {
+  font-family: var(--api-corpo-font-family);
+  font-size: var(--api-corpo-font-size);
+  font-weight: var(--api-corpo-font-weight);
+  line-height: var(--api-corpo-line-height);
+  letter-spacing: var(--api-corpo-letter-spacing);
+  background-color: var(--api-fundo);
+  color: var(--api-texto);
+  padding: 0 40px;
+  height: 96px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.api-nav-escura {
+  font-family: var(--api-corpo-font-family);
+  font-size: var(--api-corpo-font-size);
+  font-weight: var(--api-corpo-font-weight);
+  line-height: var(--api-corpo-line-height);
+  letter-spacing: var(--api-corpo-letter-spacing);
+  background-color: var(--api-fundo-escuro);
+  color: var(--api-sobre-escuro);
+  padding: 0 40px;
+  height: 96px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.api-aviso-erro {
+  font-family: var(--api-corpo-pequeno-font-family);
+  font-size: var(--api-corpo-pequeno-font-size);
+  font-weight: var(--api-corpo-pequeno-font-weight);
+  line-height: var(--api-corpo-pequeno-line-height);
+  letter-spacing: var(--api-corpo-pequeno-letter-spacing);
+  background-color: var(--api-fundo);
+  color: var(--api-texto);
+  border-color: var(--api-erro);
+  border-width: 1px;
+  border-radius: var(--api-canto);
+  padding: 16px;
+  border-style: solid;
+}
+
+.api-aviso-ok {
+  font-family: var(--api-corpo-pequeno-font-family);
+  font-size: var(--api-corpo-pequeno-font-size);
+  font-weight: var(--api-corpo-pequeno-font-weight);
+  line-height: var(--api-corpo-pequeno-line-height);
+  letter-spacing: var(--api-corpo-pequeno-letter-spacing);
+  background-color: var(--api-fundo);
+  color: var(--api-texto);
+  border-color: var(--api-ok);
+  border-width: 1px;
+  border-radius: var(--api-canto);
+  padding: 16px;
+  border-style: solid;
+}
+
+.api-tabela-cabecalho {
+  font-family: var(--api-rotulo-font-family);
+  font-size: var(--api-rotulo-font-size);
+  font-weight: var(--api-rotulo-font-weight);
+  line-height: var(--api-rotulo-line-height);
+  letter-spacing: var(--api-rotulo-letter-spacing);
+  text-transform: var(--api-rotulo-text-transform);
+  background-color: var(--api-fundo-escuro);
+  color: var(--api-sobre-escuro);
+  border-radius: var(--api-canto-vivo);
+  padding: 16px;
+}
+
+.api-tabela-linha {
+  font-family: var(--api-corpo-pequeno-font-family);
+  font-size: var(--api-corpo-pequeno-font-size);
+  font-weight: var(--api-corpo-pequeno-font-weight);
+  line-height: var(--api-corpo-pequeno-line-height);
+  letter-spacing: var(--api-corpo-pequeno-letter-spacing);
+  background-color: var(--api-fundo);
+  color: var(--api-texto);
+  padding: 16px;
+}
+
+.api-tabela-zebra {
+  font-family: var(--api-corpo-pequeno-font-family);
+  font-size: var(--api-corpo-pequeno-font-size);
+  font-weight: var(--api-corpo-pequeno-font-weight);
+  line-height: var(--api-corpo-pequeno-line-height);
+  letter-spacing: var(--api-corpo-pequeno-letter-spacing);
+  background-color: var(--api-fundo-bloco);
+  color: var(--api-texto);
+  padding: 16px;
+}
+
+.api-rodape {
+  font-family: var(--api-legenda-font-family);
+  font-size: var(--api-legenda-font-size);
+  font-weight: var(--api-legenda-font-weight);
+  line-height: var(--api-legenda-line-height);
+  letter-spacing: var(--api-legenda-letter-spacing);
+  background-color: var(--api-fundo);
+  color: var(--api-texto-fraco);
+  padding: 64px 40px;
+}
