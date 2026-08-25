@@ -20,6 +20,26 @@ apresentação de primeira reunião"*, *"faz a proposta de trabalho em HTML"*.
 Peça montada fora desta pasta não herda nada disso. Se for produzir em outro projeto, copie
 `DESIGN.md`, `ANTI_SLOP_VISUAL.md`, `CLAUDE.md` e `tokens/` para lá.
 
+## O pacote está publicado
+
+| Onde | Endereço |
+|---|---|
+| Portal, com a skill e o prompt | <https://lebeninca.github.io/api-capital-design-system/> |
+| Repositório | <https://github.com/lebeninca/api-capital-design-system> |
+
+**É deste endereço que as peças bebem.** Peça de tela importa
+`tokens/api-capital.css` por link e referencia logo, ícone e imagem pela URL do
+`INDICE_ATIVOS.md` — atualizou aqui, atualizou em toda peça já entregue.
+
+Para publicar o que mudou:
+
+```
+/Users/leandrobeninca/Developer/second-brain/engenharia/infra/scripts/publicar_design_system_api.sh "o que mudou"
+```
+
+Antes disso, se mexeu em ativo ou nos tokens: `python3 gerar_tokens.py`, `python3
+gerar_indice_ativos.py` e `./empacotar_skill.sh`.
+
 ## Por onde começar
 
 | Você quer | Abra |
