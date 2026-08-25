@@ -18,17 +18,17 @@
                color: var(--api-texto); letter-spacing: -0.01em; }
   .faixa { padding: 96px 24px; }
   .faixa--apoio { background: var(--api-fundo-secao); }
-  .hero { position: relative; overflow: hidden; background: var(--api-fundo-secao);
-          min-height: 440px; padding: 0 24px; display: flex; align-items: center; }
-  .hero .arte { position: absolute; top: 0; right: 0; bottom: 0; width: 54%;
+  .hero { background: var(--api-fundo-secao); padding: 72px 24px; }
+  .hero .dentro { display: grid; grid-template-columns: minmax(0, 460px) minmax(0, 1fr);
+                  gap: 48px; align-items: center; }
+  .hero .arte { height: 340px; overflow: hidden;
                 background: url("assets/hero/api_capital_hero_design_system.png")
-                            no-repeat right center; background-size: auto 100%; }
-  .hero .dentro { position: relative; z-index: 1; width: 100%; }
-  .hero .dentro > * { max-width: 480px; }
+                            no-repeat center right; background-size: auto 100%; }
   .hero h1 { margin-bottom: 20px; }
-  .hero p { max-width: 480px; }
+  .hero p { margin-bottom: 0; }
   @media (max-width: 1100px) { .hero .arte { display: none; }
-                               .hero { min-height: 0; padding: 88px 24px; } }
+                               .hero .dentro { grid-template-columns: 1fr; }
+                               .hero { padding: 88px 24px; } }
   .faixa--escura { background: var(--api-fundo-escuro); color: var(--api-sobre-escuro); }
   .dentro { max-width: 1180px; margin: 0 auto; }
   h1, h2, h3 { margin: 0 0 24px; }
@@ -65,12 +65,14 @@
 </header>
 
 <section class="hero">
-  <div class="arte" aria-hidden="true"></div>
   <div class="dentro">
-    <h1 class="api-display">Sistema de Design<br>API Capital</h1>
-    <p class="api-corpo-grande">Tudo que é preciso para produzir uma peça da API Capital dentro
-      do padrão: a especificação, os vetos, os tokens e os ativos de marca. É deste endereço que
-      as peças bebem — atualizou aqui, atualizou em todo lugar.</p>
+    <div>
+      <h1 class="api-display">Sistema de Design<br>API Capital</h1>
+      <p class="api-corpo-grande">Tudo que é preciso para produzir uma peça da API Capital dentro
+        do padrão: a especificação, os vetos, os tokens e os ativos de marca. É deste endereço que
+        as peças bebem — atualizou aqui, atualizou em todo lugar.</p>
+    </div>
+    <div class="arte" aria-hidden="true"></div>
   </div>
 </section>
 
