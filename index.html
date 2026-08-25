@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design System · API Capital</title>
+<link rel="icon" href="assets/favicon/svg/api_capital_favicon.svg">
+<link rel="stylesheet" href="tokens/api-capital.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--api-fundo); color: var(--api-texto);
+         font-family: var(--api-corpo-font-family); }
+  .faixa { padding: 96px 24px; }
+  .faixa--apoio { background: var(--api-fundo-secao); }
+  .faixa--escura { background: var(--api-fundo-escuro); color: var(--api-sobre-escuro); }
+  .dentro { max-width: 860px; margin: 0 auto; }
+  .logo { height: 56px; display: block; margin-bottom: 40px; }
+  h1, h2, h3 { margin: 0 0 24px; }
+  p { margin: 0 0 16px; max-width: 62ch; }
+  ol { margin: 0 0 24px; padding-left: 22px; }
+  li { margin-bottom: 12px; }
+  a { color: var(--api-acao-secundaria); }
+  .faixa--escura a { color: var(--api-sobre-escuro); }
+  .botao { display: inline-block; margin-top: 16px; text-decoration: none;
+           background: var(--api-acao); color: var(--api-sobre-escuro);
+           padding: 14px 28px; border-radius: var(--api-canto);
+           font-family: var(--api-corpo-font-family); font-weight: 600; }
+  .botao:hover { background: var(--api-acao-hover); }
+  pre { background: var(--api-fundo-bloco); border-radius: var(--api-canto);
+        padding: 24px; overflow-x: auto; font-size: 13px; line-height: 1.6;
+        white-space: pre-wrap; word-break: break-word; }
+  .faixa--escura pre { background: var(--api-azul-var); }
+  .fio { border: 0; border-top: 1px solid var(--api-fio); margin: 0; }
+  table { border-collapse: collapse; width: 100%; margin-bottom: 24px; }
+  td, th { text-align: left; padding: 12px 16px; }
+  tbody tr:nth-child(odd) { background: var(--api-fundo-bloco); }
+  th { background: var(--api-fundo-escuro); color: var(--api-sobre-escuro);
+       font-family: var(--api-rotulo-font-family); font-size: 13px;
+       letter-spacing: .08em; text-transform: uppercase; }
+  .rodape { padding: 40px 24px; }
+</style>
+</head>
+<body>
+
+<section class="faixa">
+  <div class="dentro">
+    <img class="logo" src="assets/logo/svg/api_capital_logo01_azul.svg" alt="API Capital">
+    <h1 class="api-display">Design System</h1>
+    <p class="api-corpo-grande">Tudo que é preciso para produzir uma peça da API Capital dentro
+      do padrão: a especificação, os vetos, os tokens e os ativos de marca. É deste endereço que
+      as peças bebem — atualizou aqui, atualizou em todo lugar.</p>
+  </div>
+</section>
+
+<hr class="fio">
+
+<section class="faixa faixa--apoio">
+  <div class="dentro">
+    <h2 class="api-titulo">Trabalhar com o Claude</h2>
+    <p class="api-corpo">Instale uma vez e peça as peças em português, todo dia, em qualquer
+      conversa: <em>“faz uma proposta comercial com a cara da API Capital”</em>.</p>
+    <ol class="api-corpo">
+      <li>Baixe a skill no botão abaixo.</li>
+      <li>No Claude, abra <strong>Configurações → Recursos → Skills</strong> e suba o arquivo
+        <code>.zip</code>. Se a opção não aparecer, ligue <strong>execução de código</strong> na
+        mesma tela.</li>
+      <li>Pronto. É só pedir.</li>
+    </ol>
+    <a class="botao" href="skill/api-capital-claude-skill.zip">Baixar a skill</a>
+    <p class="api-corpo-pequeno" style="margin-top:24px">Prefere não instalar nada? O texto para
+      colar nas instruções de um Projeto está em <a href="PROMPT.md">PROMPT.md</a>.</p>
+  </div>
+</section>
+
+<hr class="fio">
+
+<section class="faixa">
+  <div class="dentro">
+    <h2 class="api-titulo">O que tem aqui</h2>
+    <table class="api-corpo">
+      <thead><tr><th>Você quer</th><th>Abra</th></tr></thead>
+      <tbody>
+        <tr><td>As regras: cor, tipografia, layout, componentes</td><td><a href="DESIGN.md">DESIGN.md</a></td></tr>
+        <tr><td>O que <strong>não</strong> se faz</td><td><a href="ANTI_SLOP_VISUAL.md">ANTI_SLOP_VISUAL.md</a></td></tr>
+        <tr><td>A URL de cada logo, ícone, textura e foto</td><td><a href="INDICE_ATIVOS.md">INDICE_ATIVOS.md</a></td></tr>
+        <tr><td>Usar em código</td><td><a href="tokens/api-capital.css">tokens/api-capital.css</a></td></tr>
+        <tr><td>Baixar um arquivo de marca</td><td><a href="https://github.com/lebeninca/api-capital-design-system/tree/main/assets">assets/</a></td></tr>
+        <tr><td>Quem é dono de quê</td><td><a href="LICENSE.md">LICENSE.md</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<hr class="fio">
+
+<section class="faixa faixa--escura">
+  <div class="dentro">
+    <h2 class="api-titulo">Em código, comece por esta linha</h2>
+    <p class="api-corpo">Ela traz as fontes, as variáveis de cor e as 23 classes de componente.
+      Consuma a variável, nunca escreva o valor.</p>
+<pre>&lt;link rel="stylesheet" href="https://lebeninca.github.io/api-capital-design-system/tokens/api-capital.css"&gt;</pre>
+  </div>
+</section>
+
+<footer class="rodape">
+  <div class="dentro">
+    <p class="api-legenda">API Capital · consultoria de investimentos independente.
+      A marca é propriedade da API Capital; fontes, ícones e fotos seguem as licenças descritas em
+      <a href="LICENSE.md">LICENSE.md</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>

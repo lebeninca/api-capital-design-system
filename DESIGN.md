@@ -129,7 +129,7 @@ typography:
 
 rounded:
   canto-vivo: 0px
-  x4: 15px
+  canto: 15px
 
 spacing:
   x1: 4px
