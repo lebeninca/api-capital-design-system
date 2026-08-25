@@ -13,7 +13,7 @@
   .topo { position: sticky; top: 0; z-index: 10; background: var(--api-fundo);
           border-bottom: 1px solid var(--api-borda); padding: 18px 24px; }
   .topo .dentro { display: flex; align-items: center; gap: 18px; }
-  .topo img { height: 60px; display: block; }
+  .topo img { height: 88px; display: block; margin: -14px 0; }
   .topo span { font-family: var(--api-display-font-family); font-size: 24px; font-weight: 500;
                color: var(--api-texto); letter-spacing: -0.01em; }
   .faixa { padding: 96px 24px; }
@@ -21,9 +21,9 @@
   .hero { background: var(--api-fundo-secao); padding: 72px 24px; }
   .hero .dentro { display: grid; grid-template-columns: minmax(0, 460px) minmax(0, 1fr);
                   gap: 48px; align-items: center; }
-  .hero .arte { height: 340px; overflow: hidden;
-                background: url("assets/hero/api_capital_hero_design_system.png")
-                            no-repeat center right; background-size: auto 100%; }
+  .hero .arte { height: 360px; overflow: hidden;
+                background: url("assets/hero/api_capital_hero_mosaico.png")
+                            no-repeat center right; background-size: contain; }
   .hero h1 { margin-bottom: 20px; }
   .hero p { margin-bottom: 0; }
   @media (max-width: 1100px) { .hero .arte { display: none; }
