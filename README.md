@@ -20,19 +20,6 @@ apresentação de primeira reunião"*, *"faz a proposta de trabalho em HTML"*.
 Peça montada fora desta pasta não herda nada disso. Se for produzir em outro projeto, copie
 `DESIGN.md`, `ANTI_SLOP_VISUAL.md`, `CLAUDE.md` e `tokens/` para lá.
 
-## Para quem não usa Claude Code (site ou aplicativo)
-
-Quem trabalha no `claude.ai` ou no aplicativo não clona repositório. Para essas pessoas existe o
-**arquivo único**: `design_system_api_capital_v3_completo.md`, que traz a especificação, os vetos,
-os tokens em CSS e o logo em SVG num documento só. A pessoa anexa esse arquivo na conversa (ou o
-sobe uma vez no Conhecimento de um Projeto) e pede a peça em português.
-
-O arquivo é **gerado**, nunca editado à mão. Mexeu no `DESIGN.md` ou nos vetos, rode:
-
-```
-python3 gerar_arquivo_unico.py
-```
-
 ## Por onde começar
 
 | Você quer | Abra |
