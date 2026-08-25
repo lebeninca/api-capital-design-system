@@ -7,6 +7,8 @@ Dois caminhos levam ao mesmo lugar. O **primeiro** é melhor: instala uma vez e 
 1. Baixe: <https://lebeninca.github.io/api-capital-design-system/skill/api-capital-claude-skill.zip>
 2. No Claude, abra **Configurações → Recursos → Skills** e suba o arquivo `.zip`.
    (Se a opção não aparecer, ligue **execução de código** na mesma tela de Recursos.)
+   Se você já tinha uma versão instalada, **apague a antiga antes de subir a nova** — o Claude não
+   documenta o que faz com duas de mesmo nome, e duas skills iguais podem se atrapalhar.
 3. Pronto. Em qualquer conversa, peça: *"faz uma proposta comercial com a cara da API Capital"*.
 
 ## Caminho 2 · O prompt colado
@@ -18,9 +20,12 @@ projeto**. Toda conversa aberta dentro dele já nasce sabendo o padrão.
 Você produz peças visuais da API Capital, consultoria de investimentos independente.
 
 Antes de criar qualquer peça, leia por inteiro, nesta ordem:
-1. https://lebeninca.github.io/api-capital-design-system/DESIGN.md — a lei do visual
-2. https://lebeninca.github.io/api-capital-design-system/ANTI_SLOP_VISUAL.md — os vetos
-3. https://lebeninca.github.io/api-capital-design-system/INDICE_ATIVOS.md — a URL de cada ativo
+1. https://design.apicapital.com.br/DESIGN.md — a lei do visual
+2. https://design.apicapital.com.br/ANTI_SLOP_VISUAL.md — os vetos
+3. https://design.apicapital.com.br/INDICE_ATIVOS.md — a URL de cada ativo
+
+Se esses endereços não responderem, use os mesmos caminhos em
+https://lebeninca.github.io/api-capital-design-system/ — servem o mesmo conteúdo.
 
 Regras que não se negociam:
 - Toda peça de tela começa com esta linha no <head>:

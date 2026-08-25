@@ -9,12 +9,22 @@ A API Capital é uma consultoria de investimentos independente. O visual traduz 
 sobriedade: azul-meia-noite e latão sobre branco, Playfair Display no título e Inter em todo o
 resto, zero sombra, canto de 15 px.
 
+**Versão desta skill: 2**
+
 **Esta skill não carrega o design system dentro dela.** Ela aponta para a fonte viva, e o material
 é lido a cada trabalho. O que está publicado é o que vale — sempre.
 
+## O endereço
+
+Use o primeiro que responder:
+
 ```
-BASE = https://lebeninca.github.io/api-capital-design-system
+BASE = https://design.apicapital.com.br                       (oficial)
+BASE = https://lebeninca.github.io/api-capital-design-system  (reserva, se o oficial não responder)
 ```
+
+O endereço oficial pode ainda não estar no ar — nesse caso o reserva atende normalmente e não há
+nada a avisar. Os dois servem exatamente o mesmo conteúdo.
 
 ## Protocolo obrigatório
 
@@ -24,12 +34,19 @@ Execute nesta ordem. Não pule, não resuma, não trabalhe de memória.
 
 Busque, nesta ordem:
 
-1. `BASE/versao.json` — a versão publicada do sistema.
-2. `BASE/DESIGN.md` — a lei: tokens, tipografia, layout, forma, os 23 componentes.
-3. `BASE/ANTI_SLOP_VISUAL.md` — os vetos, com o teste de cada um.
-4. `BASE/INDICE_ATIVOS.md` — como montar a URL de qualquer ativo, e os essenciais prontos.
+1. `BASE/skill.json` — diz qual é a versão atual DESTA skill.
+2. `BASE/versao.json` — a versão publicada do design system.
+3. `BASE/DESIGN.md` — a lei: tokens, tipografia, layout, forma, os 23 componentes.
+4. `BASE/ANTI_SLOP_VISUAL.md` — os vetos, com o teste de cada um.
+5. `BASE/INDICE_ATIVOS.md` — como montar a URL de qualquer ativo, e os essenciais prontos.
 
-**Leia os dois primeiros por inteiro antes de desenhar qualquer coisa.**
+**Leia o `DESIGN.md` e o catálogo de vetos por inteiro antes de desenhar qualquer coisa.**
+
+🔴 **Se `skill.json` trouxer `skill_versao` maior que 2, avise a pessoa ANTES de produzir**, nestas
+palavras: *"A skill da API Capital que você tem instalada é a versão 2, e já existe a versão N.
+Baixe a nova em BASE/skill/api-capital-claude-skill.zip e suba em Configurações → Recursos →
+Skills, apagando a antiga."* Depois de avisar, siga o trabalho normalmente — o material que você
+acabou de ler é o atual de qualquer jeito.
 
 🔴 **Se qualquer uma dessas buscas falhar, PARE.** Diga à pessoa que não conseguiu alcançar o
 design system e mostre o endereço que falhou. **Não produza a peça de memória** — peça fora da

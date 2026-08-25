@@ -4,7 +4,9 @@
 # endereço publicado, a cada trabalho. Por isso ela não envelhece: mudou o repo, mudou a peça.
 # A pasta "api-capital" tem que ser a RAIZ do zip — é exigência do Claude.
 set -euo pipefail
-cd "$(dirname "$0")/skill"
+cd "$(dirname "$0")"
+python3 gerar_skill_json.py
+cd skill
 rm -f api-capital-claude-skill.zip
 zip -qr api-capital-claude-skill.zip api-capital -x '*.DS_Store'
 echo "skill/api-capital-claude-skill.zip: $(du -h api-capital-claude-skill.zip | cut -f1)"
