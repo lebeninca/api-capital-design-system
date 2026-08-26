@@ -11,6 +11,9 @@
 .anatomia{display:flex;gap:6px;height:160px;background:var(--api-fundo);border-radius:var(--api-canto);padding:0 32px;}
 .anatomia .col{flex:1;background:rgba(65,142,206,.25);}
 .legenda-grid{display:flex;flex-wrap:wrap;gap:24px;margin-top:16px;font-size:14px;color:var(--api-texto-fraco);}
+.folha{width:100%;display:block;border-radius:var(--api-canto);border:1px solid var(--api-borda);}
+.duas-folhas{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;}
+@media(max-width:900px){.duas-folhas{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -62,6 +65,12 @@
           <tr><td>A4 paisagem</td><td>3036 × 1914 px</td><td>17,75 mm (210 px)</td><td>5 a 7 colunas</td></tr>
         </tbody>
       </table>
+      <div class="palco">
+        <img class="folha" src="/exemplos/png/api_capital_ds_grade_e_margens.png" loading="lazy"
+          alt="Folha do sistema com a grade nos dois formatos A4: retrato e paisagem, com o contorno da área útil e as 12 colunas de guia">
+      </div>
+      <p class="anota">O contorno marca a área útil; as colunas são guia de composição e não se
+        imprimem.</p>
     </div>
 
     <div class="secao">
@@ -104,7 +113,29 @@
     <div class="secao">
       <h2>Modelos de composição</h2>
       <p>Uma coluna · duas em 50/50 · três em terços · duas em 7+5 · duas em 9+3. Larguras
-        diferentes convivem na mesma página.</p>
+        diferentes convivem na mesma página; o que não se admite é bloco que comece ou termine
+        no meio de uma coluna.</p>
+      <div class="palco">
+        <img class="folha" src="/exemplos/png/api_capital_ds_colunas.png" loading="lazy"
+          alt="Folha do sistema com os cinco modelos de coluna desenhados em barras: uma coluna, duas em 50/50, três colunas, duas em 7+5 e duas em 9+3, com as larguras de cada formato">
+      </div>
+    </div>
+
+    <div class="secao">
+      <h2>Na prática</h2>
+      <p>Duas páginas de exemplo, com texto fictício. Cada bloco usa um modelo de coluna, e
+        nenhum começa ou termina no meio de uma.</p>
+      <div class="palco">
+        <div class="duas-folhas">
+          <img class="folha" src="/exemplos/png/api_capital_ds_exemplo_paisagem.png" loading="lazy"
+            alt="Página de exemplo em A4 paisagem: seção O mês em duas colunas 50/50, tabela A carteira em uma coluna e Destaques em três colunas">
+          <img class="folha" src="/exemplos/png/api_capital_ds_exemplo_retrato.png" loading="lazy"
+            alt="Página de exemplo em A4 retrato: O plano e Próximos passos em duas colunas 50/50, tabela Posição em uma coluna e Indicadores em três colunas">
+        </div>
+      </div>
+      <p class="anota">Paisagem: O MÊS em duas colunas 50/50 · A CARTEIRA em uma coluna ·
+        DESTAQUES em três. Retrato: O PLANO e PRÓXIMOS PASSOS em 50/50 · POSIÇÃO em uma ·
+        INDICADORES em três.</p>
     </div>
   </main>
 </div>
