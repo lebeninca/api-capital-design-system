@@ -1,5 +1,5 @@
 ---
-version: "3.1"
+version: "3.2"
 name: "API Capital"
 description: "Consultoria de investimentos independente. Clássico moderno e autoridade tranquila: azul-meia-noite e latão sobre branco puro, Playfair Display em título e Inter em todo o resto, incluindo cada número apresentado. Zero sombra, canto de 15, grade de 12 colunas. O sistema atende impresso e tela com a mesma régua, e o padrão é sempre o registro mais sóbrio."
 
@@ -41,6 +41,7 @@ colors:
   fio: "{colors.azul}"
   destaque: "{colors.latao}"
   realce: "{colors.areia}"
+  selecao: "{colors.azul}"
 
 typography:
   display:
@@ -299,6 +300,24 @@ components:
     textColor: "{colors.texto-fraco}"
     typography: "{typography.legenda}"
     padding: 64px 40px
+  barra-topo:
+    backgroundColor: "{colors.fundo-escuro}"
+    textColor: "{colors.sobre-escuro}"
+    typography: "{typography.titulo}"
+    padding: 0 40px
+    height: 96px
+  numero-passo:
+    backgroundColor: transparent
+    textColor: "{colors.azul}"
+    typography: "{typography.numero}"
+  checkbox:
+    backgroundColor: "{colors.fundo}"
+    borderColor: "{colors.borda}"
+    borderWidth: 1px
+    accentColor: "{colors.acao}"
+    rounded: 4px
+    height: 18px
+    width: 18px
 
 tipo: diretriz
 status: ativo
@@ -306,7 +325,7 @@ zona: publica
 dominio: design
 bandeira: 06_marketing_api_capital
 produto: api_capital
-versao: 3.1
+versao: 3.2
 resumo: >-
   Especificação de design da API Capital, no formato design.md: tokens de cor, tipografia,
   espaço, forma e componente, mais as regras de layout, logo, ícone, imagem, estado e veto.
@@ -391,6 +410,12 @@ Os nomes e a divisão em papéis são derivação. Use o token de papel na peça
 | `{colors.borda}` | `{colors.quadro}` | Borda de campo e de bloco neutro |
 | `{colors.fio}` | `{colors.azul}` | Fio de título, régua de seção, contorno de card |
 | `{colors.destaque}` | `{colors.latao}` | Destaque quente. **Nunca em elemento clicável** |
+| `{colors.selecao}` | `{colors.azul}` | Marca de checkbox e rádio (`accent-color`) |
+
+🔴 **O latão é detalhe, não segunda cor.** Numa tela ele aparece **poucas vezes**: um número que
+importa, o fio do item ativo, no máximo uma caixa quente. Latão em botão, checkbox, texto de
+rótulo, borda de campo ou espalhado por vários elementos da mesma tela é veto
+(`latao-segunda-cor`). Na dúvida, a cor é azul ou neutra — nunca latão.
 | `{colors.realce}` | `{colors.areia}` | Caixa de destaque com texto de leitura |
 
 ### Ritmo de superfície em peça longa
@@ -696,6 +721,26 @@ de 44 px.
 3 px, afastado 2 px. Em erro, `{components.campo-erro}` troca a borda
 por `{colors.erro}`, **com a mensagem escrita ao lado**.
 
+**Formulário vive direto sobre o fundo do card ou da seção.** Não se cria contêiner de fundo
+cinza para agrupar campos dentro de um card: caixa dentro de caixa é veto
+(`box-dentro-de-box`). Grupo de campos se marca com título de grupo e espaço, nunca com um
+segundo fundo.
+
+**Botão dentro de formulário é um dos cinco declarados em §Botão.** Utilidade pequena ao lado de
+um campo — "Hoje", "Anexar arquivo", "Limpar" — é `{components.botao-secundario}` em altura
+40 px. Não se inventa botão novo, e texto de botão nunca é latão. Anexo de arquivo usa o ícone
+Lucide `paperclip`, nunca emoji.
+
+### Caixa de seleção
+
+**`{components.checkbox}`** é a caixa de marcar: 18 × 18 px, fundo `{colors.fundo}`, borda de
+1 px em `{colors.borda}`, canto de 4 px, e a marca em `{colors.acao}` — em HTML,
+`accent-color: var(--api-acao)`. Rádio segue a mesma régua, redondo. **Checkbox nunca é latão,
+nem qualquer outra cor fora de `{colors.acao}`.**
+
+Entre a caixa e o rótulo entra respiro de `{spacing.x2}` 8 px, sempre — caixa colada no texto é
+erro. O rótulo do checkbox fica em `{typography.corpo}`, sem caixa alta.
+
 ### Card
 
 | Componente | Fundo | Texto | Quando |
@@ -726,6 +771,24 @@ O item ativo se marca com fio de 2 pt embaixo: `{colors.acao}` no fundo claro, `
 no escuro. No fundo escuro o logo entra na versão branca vazada, nunca na azul.
 
 Em celular os itens viram menu; a ação continua visível.
+
+### Barra de topo
+
+Toda ferramenta, gerador ou página interna abre com **`{components.barra-topo}`** — não se
+inventa cabeçalho novo. Fundo `{colors.fundo-escuro}`, título em `{typography.titulo}` com
+`{colors.sobre-escuro}`, subtítulo opcional em `{typography.legenda}` com o branco a 65%. Mesmas
+alturas da navegação: 96 px em tela cheia, 72 px em tablet, 64 px em celular; respiro lateral de
+40 px. Quando a logo entra, é a versão branca vazada, à esquerda; no máximo **uma ação à
+direita**, em `{components.botao-sobre-escuro}`.
+
+### Passo numerado
+
+Formulário ou fluxo em etapas numera o passo **dentro do próprio título**, com
+**`{components.numero-passo}`**: o número em `{typography.numero}` (Inter 700, figura tabular),
+na cor do título `{colors.azul}`, seguido de ponto e do nome do passo — `1. Cliente e consultor`.
+
+**Sem círculo, sem bolinha, sem fundo, sem latão.** Número de passo dentro de disco colorido é
+veto (`passo-em-bolinha`).
 
 ### Aviso
 
@@ -801,8 +864,14 @@ vez de encolher a fonte.
 - Percentual escrito sobre a fatia da rosca
 - Fio entre linhas de tabela
 - Mais de uma caixa quente por página
-- Emoji decorativo
+- Emoji, em qualquer papel — inclusive no lugar de ícone. Ícone é Lucide
 - Símbolo que remeta a mercado financeiro: gráfico, seta, candelabro japonês
+- Latão como segunda cor da tela: em botão, checkbox, texto de rótulo, borda, ou repetido em vários elementos
+- Botão fora dos cinco declarados em §Botão
+- Contêiner de fundo cinza agrupando campos dentro de um card (box dentro de box)
+- Número de passo dentro de círculo ou bolinha colorida
+- Checkbox ou rádio em cor que não seja `{colors.selecao}`
+- Cabeçalho de página inventado no lugar de `{components.barra-topo}`
 
 ## Guia de iteração
 

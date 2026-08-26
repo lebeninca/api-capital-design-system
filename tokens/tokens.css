@@ -36,6 +36,7 @@
   --api-fio: var(--api-azul);
   --api-destaque: var(--api-latao);
   --api-realce: var(--api-areia);
+  --api-selecao: var(--api-azul);
 
   /* rounded */
   --api-canto-vivo: 0px;

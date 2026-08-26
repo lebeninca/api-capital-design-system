@@ -44,6 +44,8 @@ peça.
 | `vermelho-verde-livre` | Vermelho ou verde da marca usados por gosto | Vermelho só no `m` da tagline e em erro; verde só em confirmação | `css` `pen`: uso de `#B71313` ou `#0E7A47` fora de elemento de erro, alerta ou confirmação |
 | `opacidade-em-vez-de-cor` | Cor sólida rebaixada com alpha para simular um tom mais claro | A variação da cor, que já existe na paleta | `css` `pen`: preenchimento com `opacity` entre 0,05 e 0,6 em retângulo, célula ou fundo de bloco |
 | `cinza-de-fabrica` | Cinza genérico de framework (`#F5F5F5`, `#EEE`, `#CCC`, `gray-100`) | `#E6E7E8` em bloco e borda; `#F4F4F4` em faixa de seção | `css`: cinza fora da paleta em fundo ou borda |
+| `latao-segunda-cor` | Latão espalhado pela tela: botão, checkbox, texto de rótulo, borda, ícone corrente — vira uma "segunda cor" forçada | Latão é detalhe: um número que importa, o fio do item ativo, no máximo uma caixa quente por página | `css` `pen`: `#AA7D41` ou `#9A7239` em 4 ou mais elementos distintos da mesma tela, ou em botão, checkbox, borda de campo ou rótulo |
+| `checkbox-colorido` | Checkbox ou rádio em latão ou outra cor fora do sistema | Caixa branca com borda `#E6E7E8`, marca em `accent-color` azul `#0D2A54`, 8 px até o rótulo | `css`: `accent-color` diferente de `#0D2A54`; input de seleção com fundo ou borda latão |
 
 ## 2 · Sombra, brilho e profundidade
 
@@ -87,6 +89,10 @@ peça.
 | `fora-da-coluna` | Elemento que começa ou termina no meio de uma coluna | Começar e terminar em coluna | `pen` `css`: cruzar as bordas com as posições da grade de 12 |
 | `margem-fora-da-regua` | Margem que não é a do formato | 20 mm no A4, nas duas orientações; 4% em tela | `pen` `css`: medir a caixa útil |
 | `elemento-esticado-para-tapar-buraco` | Elemento crescido para preencher o pé da página | Sobra branca no fim é aceitável | `—` |
+| `box-dentro-de-box` | Contêiner de fundo cinza agrupando campos dentro de um card que já tem fundo e borda | Campos direto sobre o fundo do card; grupo se marca com título e espaço, nunca com um segundo fundo | `css`: bloco com `background` de apoio contendo inputs, dentro de elemento que já tem borda ou fundo próprio |
+| `passo-em-bolinha` | Número de passo dentro de disco ou bolinha colorida antes do título | Número no próprio título, Inter 700 tabular, na cor do título, seguido de ponto | `css`: elemento circular (`border-radius` ≥ 50%) de menos de 40 px contendo só um número |
+| `botao-inventado` | Botão fora dos cinco declarados: fundo novo, texto latão, borda improvisada | Um dos cinco de §Botão; utilidade pequena é o secundário em 40 px | `css`: elemento clicável cuja combinação fundo/texto/borda não bate com nenhum dos cinco botões |
+| `cabecalho-inventado` | Barra de topo de ferramenta ou página montada fora do componente | `barra-topo`: fundo azul-meia-noite, título Playfair, alturas 96/72/64 | `css`: header de página sem as propriedades do componente |
 
 ## 6 · Dado e gráfico
 
@@ -117,7 +123,7 @@ peça.
 | `forma-nao-e-x-e-y` | A fôrma `não é X, é Y` | Reescrever no jeito falado | `txt`: expressão regular |
 | `canonizar` | O verbo e suas variações | Aprovar, fechar, oficializar | `txt`: `canoniz`, `canônic` |
 | `corporativês` | Mindset, disrupção, alavancar, sinergia | Palavra comum | `txt`: lista de termos |
-| `emoji-decorativo` | Emoji em peça séria | Nada, ou um ícone Lucide | `txt`: caractere emoji fora de contexto de interface |
+| `emoji-decorativo` | Emoji em qualquer papel — decoração ou no lugar de ícone (📎 num botão de anexo) | Nada, ou o ícone Lucide equivalente | `txt` `css`: caractere emoji em qualquer lugar da peça |
 | `jargao-sem-traducao` | Termo técnico solto para quem não é do ramo | Traduzir antes de usar | `—` |
 
 ## 9 · Acessibilidade
@@ -149,7 +155,7 @@ viram documento passivo de novo, que é exatamente o que esta frente existe para
 
 | Estado | Contagem |
 |---|---|
-| Vetos catalogados | 48 |
-| Com teste declarado | 45 |
+| Vetos catalogados | 55 |
+| Com teste declarado | 52 |
 | Só olho humano (`—`) | 3 |
 | **Implementados no validador** | **0 (o validador ainda não existe)** |

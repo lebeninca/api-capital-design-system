@@ -340,3 +340,43 @@
   color: var(--api-texto-fraco);
   padding: 64px 40px;
 }
+
+.api-barra-topo {
+  font-family: var(--api-titulo-font-family);
+  font-size: var(--api-titulo-font-size);
+  font-weight: var(--api-titulo-font-weight);
+  line-height: var(--api-titulo-line-height);
+  letter-spacing: var(--api-titulo-letter-spacing);
+  background-color: var(--api-fundo-escuro);
+  color: var(--api-sobre-escuro);
+  padding: 0 40px;
+  height: 96px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.api-numero-passo {
+  font-family: var(--api-numero-font-family);
+  font-size: var(--api-numero-font-size);
+  font-weight: var(--api-numero-font-weight);
+  line-height: var(--api-numero-line-height);
+  letter-spacing: var(--api-numero-letter-spacing);
+  font-feature-settings: "tnum";
+  background-color: transparent;
+  color: var(--api-azul);
+}
+
+.api-checkbox {
+  background-color: var(--api-fundo);
+  border-color: var(--api-borda);
+  border-width: 1px;
+  accent-color: var(--api-acao);
+  border-radius: 4px;
+  height: 18px;
+  width: 18px;
+  border-style: solid;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -105,6 +105,7 @@ def escrever_componentes(dados, destino):
         "backgroundColor": "background-color", "textColor": "color",
         "borderColor": "border-color", "borderWidth": "border-width",
         "rounded": "border-radius", "padding": "padding", "height": "height",
+        "width": "width", "accentColor": "accent-color",
         "outline": "outline", "outlineOffset": "outline-offset",
     }
     linhas = [
