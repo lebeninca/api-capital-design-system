@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grid e margens · Design System API Capital</title>
+<link rel="icon" href="/assets/favicon/svg/api_capital_favicon.svg">
+<link rel="stylesheet" href="/tokens/api-capital.css">
+<link rel="stylesheet" href="/docs.css">
+<style>
+.anatomia{display:flex;gap:6px;height:160px;background:var(--api-fundo);border-radius:var(--api-canto);padding:0 32px;}
+.anatomia .col{flex:1;background:rgba(65,142,206,.25);}
+.legenda-grid{display:flex;flex-wrap:wrap;gap:24px;margin-top:16px;font-size:14px;color:var(--api-texto-fraco);}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="dentro">
+    <a href="/"><img src="/assets/logo/svg/api_capital_logo01_azul.svg" alt="API Capital"></a>
+    <a class="nome" href="/">Design System</a>
+    <a class="acao" href="/como-utilizar/usando-claude/">Baixar a skill</a>
+  </div>
+</header>
+
+<div class="casco">
+  <div id="nav-lateral"></div>
+
+  <main class="conteudo">
+    <div class="subcabecalho">
+      <h1>Grid e margens</h1>
+      <p class="linhafina">Doze colunas nos dois territórios: no impresso, com margem de 20 mm;
+        em tela, com margem de 4% da largura. Todo bloco começa e termina em borda de coluna.</p>
+      <hr class="fio">
+    </div>
+
+    <div class="secao">
+      <h2>Anatomia</h2>
+      <div class="palco">
+        <div class="anatomia">
+          <div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div>
+        </div>
+        <div class="legenda-grid">
+          <span><strong>Margem:</strong> o vazio nas bordas externas</span>
+          <span><strong>Coluna:</strong> as 12 guias verticais</span>
+          <span><strong>Medianiz:</strong> o vão entre colunas, que não é área útil</span>
+        </div>
+      </div>
+      <p class="anota">Quando o conteúdo não cabe, quem cede é a largura do bloco, nunca a
+        medianiz.</p>
+    </div>
+
+    <div class="secao">
+      <h2>Impresso</h2>
+      <p>Margem de 20 mm nos quatro lados, medianiz de 4 mm, nos dois formatos. Margem e
+        espaçamento se medem a partir da altura de maiúscula do texto, não da caixa
+        delimitadora.</p>
+      <table class="espec">
+        <thead><tr><th>Formato</th><th>Área útil (300 dpi)</th><th>Coluna</th><th>Medida de linha</th></tr></thead>
+        <tbody>
+          <tr><td>A4 retrato</td><td>2008 × 3036 px</td><td>10,5 mm (124 px)</td><td>6 a 8 colunas</td></tr>
+          <tr><td>A4 paisagem</td><td>3036 × 1914 px</td><td>17,75 mm (210 px)</td><td>5 a 7 colunas</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="secao">
+      <h2>Em tela</h2>
+      <p>Margem de 4% da largura, 12 colunas, medianiz de um quarto da coluna. A grade responde
+        em três faixas:</p>
+      <table class="espec">
+        <thead><tr><th>Faixa</th><th>Largura</th><th>Mudanças</th></tr></thead>
+        <tbody>
+          <tr><td>Tela cheia</td><td>&gt; 1024 px</td><td>12 colunas, margem 4%, nav 96 px, display 48 px</td></tr>
+          <tr><td>Tablet</td><td>640 a 1024 px</td><td>2 colunas, margem 24, nav 72 px, display 36 px</td></tr>
+          <tr><td>Celular</td><td>&lt; 640 px</td><td>1 coluna, margem 16, nav 64 px, display 28 px</td></tr>
+        </tbody>
+      </table>
+      <p class="anota">Card de três colunas vira duas e depois uma. Tabela larga rola na
+        horizontal dentro do próprio bloco, em vez de encolher a fonte.</p>
+    </div>
+
+    <div class="secao">
+      <h2>Larguras de coluna no impresso</h2>
+      <table class="espec">
+        <thead><tr><th>Colunas</th><th style="text-align:right">Paisagem (px)</th><th style="text-align:right">Retrato (px)</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1</td><td class="num">210</td><td class="num">124</td></tr>
+          <tr><td class="num">2</td><td class="num">467</td><td class="num">295</td></tr>
+          <tr><td class="num">3</td><td class="num">724</td><td class="num">467</td></tr>
+          <tr><td class="num">4</td><td class="num">981</td><td class="num">638</td></tr>
+          <tr><td class="num">5</td><td class="num">1.237</td><td class="num">809</td></tr>
+          <tr><td class="num">6</td><td class="num">1.494</td><td class="num">980</td></tr>
+          <tr><td class="num">7</td><td class="num">1.751</td><td class="num">1.152</td></tr>
+          <tr><td class="num">8</td><td class="num">2.008</td><td class="num">1.323</td></tr>
+          <tr><td class="num">9</td><td class="num">2.265</td><td class="num">1.494</td></tr>
+          <tr><td class="num">10</td><td class="num">2.522</td><td class="num">1.665</td></tr>
+          <tr><td class="num">11</td><td class="num">2.779</td><td class="num">1.837</td></tr>
+          <tr><td class="num">12</td><td class="num">3.036</td><td class="num">2.008</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="secao">
+      <h2>Modelos de composição</h2>
+      <p>Uma coluna · duas em 50/50 · três em terços · duas em 7+5 · duas em 9+3. Larguras
+        diferentes convivem na mesma página.</p>
+    </div>
+  </main>
+</div>
+
+<script>
+fetch('/nav.html', {cache: 'no-store'}).then(r => r.text()).then(html => {
+  const alvo = document.getElementById('nav-lateral');
+  alvo.outerHTML = html;
+  const atual = document.querySelector('[data-nav="grid-e-margens"]');
+  if (atual) atual.classList.add('ativo');
+});
+</script>
+</body>
+</html>

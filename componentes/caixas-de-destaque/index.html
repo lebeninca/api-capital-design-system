@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Caixas de destaque · Design System API Capital</title>
+<link rel="icon" href="/assets/favicon/svg/api_capital_favicon.svg">
+<link rel="stylesheet" href="/tokens/api-capital.css">
+<link rel="stylesheet" href="/docs.css">
+<style>
+.duas{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+@media(max-width:800px){.duas{grid-template-columns:1fr;}}
+.api-caixa-latao .numerao{font-family:Inter,system-ui,sans-serif;font-size:40px;font-weight:700;letter-spacing:-0.4px;font-feature-settings:"tnum";}
+.api-caixa-latao .rotulo-caixa{font-size:14px;font-weight:400;font-family:Inter,system-ui,sans-serif;opacity:.85;margin-top:4px;}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="dentro">
+    <a href="/"><img src="/assets/logo/svg/api_capital_logo01_azul.svg" alt="API Capital"></a>
+    <a class="nome" href="/">Design System</a>
+    <a class="acao" href="/como-utilizar/usando-claude/">Baixar a skill</a>
+  </div>
+</header>
+
+<div class="casco">
+  <div id="nav-lateral"></div>
+
+  <main class="conteudo">
+    <div class="subcabecalho">
+      <h1>Caixas de destaque</h1>
+      <p class="linhafina">Duas caixas quentes, cada uma com o seu conteúdo: a latão carrega só
+        título grande ou número; a ocre carrega texto de leitura. No máximo uma quente por
+        página.</p>
+      <hr class="fio">
+    </div>
+
+    <div class="secao">
+      <h2>As duas caixas</h2>
+      <div class="palco">
+        <div class="duas">
+          <div class="api-caixa-latao">
+            <div class="numerao">R$ 48,2 mi</div>
+            <div class="rotulo-caixa">sob consultoria</div>
+          </div>
+          <div class="api-caixa-ocre">
+            A caixa ocre carrega texto de leitura em azul: um lembrete, uma condição, um
+            contexto que merece a atenção do leitor.
+          </div>
+        </div>
+      </div>
+      <table class="espec">
+        <thead><tr><th>Componente</th><th>Fundo</th><th>Conteúdo</th></tr></thead>
+        <tbody>
+          <tr><td>caixa-latao</td><td><code>--api-destaque</code> (latão)</td><td>Só título grande ou número, em branco</td></tr>
+          <tr><td>caixa-ocre</td><td><code>--api-realce</code> (areia)</td><td>Texto de leitura em <code>--api-azul</code></td></tr>
+        </tbody>
+      </table>
+      <p class="anota">Respiro interno de 24 px, canto de 15.</p>
+    </div>
+
+    <div class="secao">
+      <h2>Regras</h2>
+      <ul>
+        <li><strong>Máximo de uma caixa quente por página.</strong></li>
+        <li>Texto de leitura sobre latão não passa no contraste (3,67:1); por isso a latão só
+          carrega título grande ou número.</li>
+        <li>Caixa de destaque com faixa colorida na lateral ou no topo é veto.</li>
+      </ul>
+    </div>
+  </main>
+</div>
+
+<script>
+fetch('/nav.html', {cache: 'no-store'}).then(r => r.text()).then(html => {
+  const alvo = document.getElementById('nav-lateral');
+  alvo.outerHTML = html;
+  const atual = document.querySelector('[data-nav="caixas-de-destaque"]');
+  if (atual) atual.classList.add('ativo');
+});
+</script>
+</body>
+</html>

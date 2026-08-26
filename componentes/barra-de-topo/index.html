@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Barra de topo (componente) · Design System API Capital</title>
+<link rel="icon" href="/assets/favicon/svg/api_capital_favicon.svg">
+<link rel="stylesheet" href="/tokens/api-capital.css">
+<link rel="stylesheet" href="/docs.css">
+<style>
+.exemplo{border-radius:var(--api-canto);overflow:hidden;}
+.barra{background:var(--api-fundo-escuro);color:var(--api-sobre-escuro);display:flex;align-items:center;gap:24px;padding:0 40px;}
+.barra img{display:block;}
+.barra .tp{font-family:var(--api-titulo-pagina-font-family);font-weight:400;}
+.b96{height:96px;}.b96 img{height:56px;}.b96 .tp{font-size:26px;}
+.b72{height:72px;}.b72 img{height:44px;}.b72 .tp{font-size:24px;}
+.b64{height:64px;}.b64 img{height:36px;}.b64 .tp{font-size:22px;}
+.rot{font-family:var(--api-rotulo-font-family);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--api-texto-fraco);margin:24px 0 8px;}
+.rot:first-child{margin-top:0;}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="dentro">
+    <a href="/"><img src="/assets/logo/svg/api_capital_logo01_azul.svg" alt="API Capital"></a>
+    <a class="nome" href="/">Design System</a>
+    <a class="acao" href="/como-utilizar/usando-claude/">Baixar a skill</a>
+  </div>
+</header>
+
+<div class="casco">
+  <div id="nav-lateral"></div>
+
+  <main class="conteudo">
+    <div class="subcabecalho">
+      <h1>Barra de topo</h1>
+      <p class="linhafina">Toda ferramenta, gerador ou página interna abre com ela: não se
+        inventa cabeçalho novo. Logo branca à esquerda, título da página ao lado, e nada mais.</p>
+      <hr class="fio">
+    </div>
+
+    <div class="secao">
+      <h2>Anatomia</h2>
+      <div class="palco">
+        <div class="rot">Tela cheia · 96 px</div>
+        <div class="exemplo"><div class="barra b96"><img src="/assets/logo/svg/api_capital_logo01_branco.svg" alt="API Capital"><span class="tp">Gerador de propostas</span></div></div>
+        <div class="rot">Tablet · 72 px</div>
+        <div class="exemplo"><div class="barra b72"><img src="/assets/logo/svg/api_capital_logo01_branco.svg" alt="API Capital"><span class="tp">Gerador de propostas</span></div></div>
+        <div class="rot">Celular · 64 px</div>
+        <div class="exemplo"><div class="barra b64"><img src="/assets/logo/svg/api_capital_logo01_branco.svg" alt="API Capital"><span class="tp">Gerador de propostas</span></div></div>
+      </div>
+      <table class="espec">
+        <thead><tr><th>Altura da barra</th><th>Logo (logo01)</th><th>Título</th></tr></thead>
+        <tbody>
+          <tr><td class="num">96 px</td><td>56 px</td><td>Playfair regular 26</td></tr>
+          <tr><td class="num">72 px</td><td>44 px</td><td>Playfair regular 24</td></tr>
+          <tr><td class="num">64 px</td><td>36 px</td><td>Playfair regular 22</td></tr>
+        </tbody>
+      </table>
+      <p class="anota">Fundo <code>--api-fundo-escuro</code>, respiro lateral de 40 px, 24 px
+        entre a logo e o título.</p>
+    </div>
+
+    <div class="secao">
+      <h2>Regras</h2>
+      <ul>
+        <li><strong>Só logo e título.</strong> Sem subtítulo, sem descrição, sem nenhum outro
+          texto.</li>
+        <li>O título é Playfair Display regular, o mesmo peso da palavra «Capital» do
+          logotipo.</li>
+        <li><strong>O título alinha pelo centro do conjunto «API Capital» da logo, ignorando o
+          pelicano</strong>: o desenho do pássaro puxa o centro geométrico pra fora da linha
+          óptica do texto.</li>
+        <li>Item de navegação, quando houver, em Inter 500, 15 px; o ativo sobe pra 600 e ganha
+          o fio de 2 pt.</li>
+        <li>Cabeçalho inventado no lugar da barra é veto.</li>
+      </ul>
+      <p>O padrão completo de uso (barra clara de site, comportamento no rolar, exemplos) está
+        em <a href="/padroes/sites-e-aplicacoes/barra-de-topo/">Padrões · Barra de topo</a>.</p>
+    </div>
+  </main>
+</div>
+
+<script>
+fetch('/nav.html', {cache: 'no-store'}).then(r => r.text()).then(html => {
+  const alvo = document.getElementById('nav-lateral');
+  alvo.outerHTML = html;
+  const atual = document.querySelector('[data-nav="comp-barra-de-topo"]');
+  if (atual) atual.classList.add('ativo');
+});
+</script>
+</body>
+</html>

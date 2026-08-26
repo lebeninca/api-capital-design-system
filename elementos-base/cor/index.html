@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cor · Design System API Capital</title>
+<link rel="icon" href="/assets/favicon/svg/api_capital_favicon.svg">
+<link rel="stylesheet" href="/tokens/api-capital.css">
+<link rel="stylesheet" href="/docs.css">
+<style>
+.paleta{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:24px;margin:24px 0 8px;}
+.amostra{border-radius:var(--api-canto);overflow:hidden;border:1px solid var(--api-borda);}
+.amostra .cor{height:96px;}
+.amostra .dados{padding:16px;background:var(--api-fundo);}
+.amostra .nome{font-size:15px;font-weight:600;color:var(--api-texto);}
+.amostra .hex{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:13px;color:var(--api-texto-fraco);margin-top:2px;}
+.amostra .papel{font-size:13px;color:var(--api-texto-fraco);margin-top:6px;line-height:1.45;}
+.par{display:flex;height:64px;border-radius:var(--api-canto);overflow:hidden;border:1px solid var(--api-borda);}
+.par div{flex:1;}
+.veu{height:180px;border-radius:var(--api-canto);background:url('/assets/foto/png/api_capital_foto_ceu_nuvem.png') center/cover no-repeat;position:relative;overflow:hidden;}
+.veu::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,#0D2A54 0%,rgba(13,42,84,.79) 25%,rgba(13,42,84,.25) 79%,rgba(13,42,84,0) 100%);}
+.veu img{position:absolute;left:40px;bottom:24px;height:32px;z-index:1;}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="dentro">
+    <a href="/"><img src="/assets/logo/svg/api_capital_logo01_azul.svg" alt="API Capital"></a>
+    <a class="nome" href="/">Design System</a>
+    <a class="acao" href="/como-utilizar/usando-claude/">Baixar a skill</a>
+  </div>
+</header>
+
+<div class="casco">
+  <div id="nav-lateral"></div>
+
+  <main class="conteudo">
+    <div class="subcabecalho">
+      <h1>Cor</h1>
+      <p class="linhafina">Azul-meia-noite como cor de autoridade e de ação, latão como o único
+        calor da paleta, branco como fundo padrão. Consuma o token de papel na peça, nunca o
+        hex escrito à mão.</p>
+      <hr class="fio">
+    </div>
+
+    <div class="secao">
+      <h2>Marca</h2>
+      <div class="paleta">
+        <div class="amostra"><div class="cor" style="background:#0D2A54"></div><div class="dados"><div class="nome">azul</div><div class="hex">#0D2A54</div><div class="papel">Cor principal. Título, ação, fundo sólido, marca</div></div></div>
+        <div class="amostra"><div class="cor" style="background:#AA7D41"></div><div class="dados"><div class="nome">latão</div><div class="hex">#AA7D41</div><div class="papel">Único calor da paleta. Número que importa, item ativo</div></div></div>
+        <div class="amostra"><div class="cor" style="background:#418ECE"></div><div class="dados"><div class="nome">azul-claro</div><div class="hex">#418ECE</div><div class="papel">Ação secundária, link, série de gráfico</div></div></div>
+        <div class="amostra"><div class="cor" style="background:#171717"></div><div class="dados"><div class="nome">preto</div><div class="hex">#171717</div><div class="papel">Texto de leitura</div></div></div>
+        <div class="amostra"><div class="cor" style="background:#FFFFFF;border-bottom:1px solid var(--api-borda)"></div><div class="dados"><div class="nome">branco</div><div class="hex">#FFFFFF</div><div class="papel">Fundo padrão</div></div></div>
+        <div class="amostra"><div class="cor" style="background:#F1EAD8"></div><div class="dados"><div class="nome">creme</div><div class="hex">#F1EAD8</div><div class="papel">Fundo de bloco, papel de peça impressa</div></div></div>
+        <div class="amostra"><div class="cor" style="background:#E4CB8D"></div><div class="dados"><div class="nome">areia</div><div class="hex">#E4CB8D</div><div class="papel">Caixa de destaque suave, textura, série de gráfico</div></div></div>
+      </div>
+    </div>
+
+    <div class="secao">
+      <h2>Variações</h2>
+      <p>Uma por cor de marca. Servem para o estado sobre, para fundo de bloco sobre o próprio
+        fundo e para a textura. Os valores são fixos.</p>
+      <div class="paleta">
+        <div class="amostra"><div class="par"><div style="background:#0D2A54"></div><div style="background:#152548"></div></div><div class="dados"><div class="nome">azul → azul-var</div><div class="hex">#0D2A54 → #152548</div></div></div>
+        <div class="amostra"><div class="par"><div style="background:#AA7D41"></div><div style="background:#9A7239"></div></div><div class="dados"><div class="nome">latão → latão-var</div><div class="hex">#AA7D41 → #9A7239</div></div></div>
+        <div class="amostra"><div class="par"><div style="background:#418ECE"></div><div style="background:#3E82B9"></div></div><div class="dados"><div class="nome">azul-claro → azul-claro-var</div><div class="hex">#418ECE → #3E82B9</div></div></div>
+        <div class="amostra"><div class="par"><div style="background:#171717"></div><div style="background:#020102"></div></div><div class="dados"><div class="nome">preto → preto-var</div><div class="hex">#171717 → #020102</div></div></div>
+        <div class="amostra"><div class="par"><div style="background:#FFFFFF;border-right:1px solid var(--api-borda)"></div><div style="background:#E6E7E8"></div></div><div class="dados"><div class="nome">branco → quadro</div><div class="hex">#FFFFFF → #E6E7E8</div></div></div>
+        <div class="amostra"><div class="par"><div style="background:#F1EAD8"></div><div style="background:#DBD4C5"></div></div><div class="dados"><div class="nome">creme → creme-var</div><div class="hex">#F1EAD8 → #DBD4C5</div></div></div>
+        <div class="amostra"><div class="par"><div style="background:#E4CB8D"></div><div style="background:#D0B980"></div></div><div class="dados"><div class="nome">areia → areia-var</div><div class="hex">#E4CB8D → #D0B980</div></div></div>
+      </div>
+    </div>
+
+    <div class="secao">
+      <h2>Papéis</h2>
+      <p>Use o token de papel na peça, não o de marca. Trocar uma cor da marca passa a ser uma
+        linha.</p>
+      <table class="espec">
+        <thead><tr><th>Token</th><th>Aponta para</th><th>Onde</th></tr></thead>
+        <tbody>
+          <tr><td>--api-acao</td><td>azul</td><td>Botão cheio, link em destaque</td></tr>
+          <tr><td>--api-acao-hover</td><td>azul-var</td><td>O mesmo botão sob o cursor</td></tr>
+          <tr><td>--api-acao-secundaria</td><td>azul-claro</td><td>Botão secundário, link em corpo de texto</td></tr>
+          <tr><td>--api-texto</td><td>preto</td><td>Texto de leitura</td></tr>
+          <tr><td>--api-texto-fraco</td><td>preto a 50%</td><td>Legenda, fonte, crédito, nota</td></tr>
+          <tr><td>--api-sobre-escuro</td><td>branco</td><td>Texto sobre fundo escuro</td></tr>
+          <tr><td>--api-fundo</td><td>branco</td><td>Fundo de página</td></tr>
+          <tr><td>--api-fundo-bloco</td><td>quadro</td><td>Zebra de tabela, card de dado, campo, caixa de apoio</td></tr>
+          <tr><td>--api-fundo-quente</td><td>creme</td><td>Bloco de respiro entre seções frias. Nunca como faixa de seção em peça longa</td></tr>
+          <tr><td>--api-fundo-secao</td><td>cinza-claro #F4F4F4</td><td>Faixa de seção em peça longa</td></tr>
+          <tr><td>--api-fundo-escuro</td><td>azul</td><td>Card de destaque, cabeçalho de tabela, navegação escura</td></tr>
+          <tr><td>--api-borda</td><td>quadro</td><td>Borda de campo e de bloco neutro</td></tr>
+          <tr><td>--api-fio</td><td>azul</td><td>Fio de título, régua de seção, contorno de card</td></tr>
+          <tr><td>--api-destaque</td><td>latão</td><td>Destaque quente. Nunca em elemento clicável</td></tr>
+          <tr><td>--api-selecao</td><td>azul</td><td>Marca de checkbox e rádio (accent-color)</td></tr>
+          <tr><td>--api-realce</td><td>areia</td><td>Caixa de destaque com texto de leitura</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="secao">
+      <h2>O latão é detalhe, não segunda cor</h2>
+      <p>Numa tela ele aparece poucas vezes: um número que importa, o fio do item ativo, no
+        máximo uma caixa quente. Latão em botão, checkbox, texto de rótulo, borda de campo ou
+        espalhado por vários elementos da mesma tela é veto (<code>latao-segunda-cor</code>).
+        Na dúvida, a cor é azul ou neutra, nunca latão.</p>
+    </div>
+
+    <div class="secao">
+      <h2>Mensagens</h2>
+      <p>Duas cores de escopo fechado, só para interface.</p>
+      <table class="espec">
+        <thead><tr><th>Token</th><th>Hex</th><th>Único uso</th></tr></thead>
+        <tbody>
+          <tr><td>--api-erro</td><td>#B71313</td><td>Erro e alerta em interface. Na marca, o «m» da tagline</td></tr>
+          <tr><td>--api-ok</td><td>#0E7A47</td><td>Confirmação em interface</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="secao">
+      <h2>Gradiente</h2>
+      <p>Só como véu de legibilidade: uma cor, do transparente ao cheio, sobre fundo complexo,
+        para o texto ou o logo entrarem limpos. Nunca entre duas cores, nunca em texto, botão,
+        ícone, caixa ou elemento de interface.</p>
+      <div class="palco">
+        <div class="veu"><img src="/assets/logo/svg/api_capital_logo01_branco.svg" alt="API Capital"></div>
+      </div>
+      <p class="anota">Véu azul do transparente ao cheio (curva 0 · 25% · 79% · cheio) sobre foto.
+        Famílias: branco, azul e preto. Os arquivos estão em <code>assets/gradiente/</code>.</p>
+    </div>
+  </main>
+</div>
+
+<script>
+fetch('/nav.html', {cache: 'no-store'}).then(r => r.text()).then(html => {
+  const alvo = document.getElementById('nav-lateral');
+  alvo.outerHTML = html;
+  const atual = document.querySelector('[data-nav="cor"]');
+  if (atual) atual.classList.add('ativo');
+});
+</script>
+</body>
+</html>

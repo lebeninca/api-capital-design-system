@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Componentes · Design System API Capital</title>
+<link rel="icon" href="/assets/favicon/svg/api_capital_favicon.svg">
+<link rel="stylesheet" href="/tokens/api-capital.css">
+<link rel="stylesheet" href="/docs.css">
+<style>
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:40px;}
+@media(max-width:900px){.grid3{grid-template-columns:1fr;}}
+.ccard{display:block;background:var(--api-fundo);border:1px solid var(--api-fio);border-radius:var(--api-canto);padding:40px;text-decoration:none;color:var(--api-texto);transition:background .15s;}
+.ccard:hover{background:var(--api-fundo-bloco);}
+.ccard:focus-visible{outline:3px solid var(--api-acao-secundaria);outline-offset:2px;}
+.ccard h2{font-family:var(--api-titulo-font-family);font-size:20px;font-weight:600;color:var(--api-azul);margin:0 0 8px;display:flex;align-items:center;gap:8px;}
+.ccard p{font-size:15px;line-height:1.6;margin:0;color:var(--api-texto);}
+svg.ic{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none;}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="dentro">
+    <a href="/"><img src="/assets/logo/svg/api_capital_logo01_azul.svg" alt="API Capital"></a>
+    <a class="nome" href="/">Design System</a>
+    <a class="acao" href="/como-utilizar/usando-claude/">Baixar a skill</a>
+  </div>
+</header>
+
+<div class="casco">
+  <div id="nav-lateral"></div>
+
+  <main class="conteudo">
+    <div class="subcabecalho">
+      <h1>Componentes</h1>
+      <p class="linhafina">Os blocos declarados do sistema. Toda peça monta com eles: não se
+        inventa botão, card ou cabeçalho novo.</p>
+      <hr class="fio">
+    </div>
+
+    <div class="grid3">
+      <a class="ccard" href="/componentes/botoes/">
+        <h2>Botões <svg class="ic" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></h2>
+        <p>Os cinco botões do sistema, as alturas e os estados.</p>
+      </a>
+      <a class="ccard" href="/componentes/cards-de-conteudo/">
+        <h2>Cards de conteúdo <svg class="ic" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></h2>
+        <p>A família de card de ferramenta, painel e página interna.</p>
+      </a>
+      <a class="ccard" href="/componentes/campos/">
+        <h2>Campos de formulário <svg class="ic" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></h2>
+        <p>O campo de texto, os estados e as regras de formulário.</p>
+      </a>
+      <a class="ccard" href="/componentes/caixas-de-selecao/">
+        <h2>Caixas de seleção <svg class="ic" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></h2>
+        <p>Checkbox e rádio, sempre com a marca em azul.</p>
+      </a>
+      <a class="ccard" href="/componentes/barra-de-topo/">
+        <h2>Barra de topo <svg class="ic" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></h2>
+        <p>O cabeçalho de toda ferramenta e página interna.</p>
+      </a>
+      <a class="ccard" href="/componentes/navegacao/">
+        <h2>Navegação <svg class="ic" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></h2>
+        <p>A navegação clara e a escura, com o item ativo no fio.</p>
+      </a>
+      <a class="ccard" href="/componentes/caixas-de-destaque/">
+        <h2>Caixas de destaque <svg class="ic" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></h2>
+        <p>A caixa latão e a ocre, no máximo uma quente por página.</p>
+      </a>
+      <a class="ccard" href="/componentes/avisos/">
+        <h2>Avisos <svg class="ic" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></h2>
+        <p>Erro e confirmação, sempre com ícone, título e o que fazer.</p>
+      </a>
+      <a class="ccard" href="/componentes/tabelas/">
+        <h2>Tabelas <svg class="ic" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></h2>
+        <p>Cabeçalho escuro, zebra sem fio, número à direita.</p>
+      </a>
+      <a class="ccard" href="/componentes/passo-numerado/">
+        <h2>Passo numerado <svg class="ic" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></h2>
+        <p>O número do passo dentro do próprio título, sem bolinha.</p>
+      </a>
+    </div>
+  </main>
+</div>
+
+<script>
+fetch('/nav.html', {cache: 'no-store'}).then(r => r.text()).then(html => {
+  const alvo = document.getElementById('nav-lateral');
+  alvo.outerHTML = html;
+  const atual = document.querySelector('[data-nav="comp-visao-geral"]');
+  if (atual) atual.classList.add('ativo');
+});
+</script>
+</body>
+</html>

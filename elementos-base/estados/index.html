@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estados · Design System API Capital</title>
+<link rel="icon" href="/assets/favicon/svg/api_capital_favicon.svg">
+<link rel="stylesheet" href="/tokens/api-capital.css">
+<link rel="stylesheet" href="/docs.css">
+<style>
+.fila{display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start;}
+.fila .caso{display:flex;flex-direction:column;gap:12px;align-items:flex-start;}
+.fila .rot{font-family:var(--api-rotulo-font-family);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--api-texto-fraco);}
+.api-botao-primario{border:none;font-size:17px;}
+.foco-demo{outline:3px solid var(--api-acao-secundaria);outline-offset:2px;}
+.desab-demo{background:var(--api-fundo-bloco);color:rgba(23,23,23,.4);}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="dentro">
+    <a href="/"><img src="/assets/logo/svg/api_capital_logo01_azul.svg" alt="API Capital"></a>
+    <a class="nome" href="/">Design System</a>
+    <a class="acao" href="/como-utilizar/usando-claude/">Baixar a skill</a>
+  </div>
+</header>
+
+<div class="casco">
+  <div id="nav-lateral"></div>
+
+  <main class="conteudo">
+    <div class="subcabecalho">
+      <h1>Estados</h1>
+      <p class="linhafina">Nenhum elemento clicável entra na peça sem os cinco estados. Cada um
+        se mostra sempre do mesmo jeito, em todo componente.</p>
+      <hr class="fio">
+    </div>
+
+    <div class="secao">
+      <h2>Os cinco estados</h2>
+      <table class="espec">
+        <thead><tr><th>Estado</th><th>Como se mostra</th></tr></thead>
+        <tbody>
+          <tr><td>Normal</td><td>A cor de papel do elemento</td></tr>
+          <tr><td>Sobre</td><td>Escurece 18%. O cursor vira mão</td></tr>
+          <tr><td>Foco</td><td>Anel de 3 px, afastado 2 px. Chega pelo teclado</td></tr>
+          <tr><td>Carregando</td><td>O rótulo troca e o elemento trava</td></tr>
+          <tr><td>Desabilitado</td><td>Fundo <code>--api-fundo-bloco</code>, texto a 40%</td></tr>
+        </tbody>
+      </table>
+      <div class="palco">
+        <div class="fila">
+          <div class="caso"><span class="rot">Normal</span><button class="api-botao-primario">Enviar proposta</button></div>
+          <div class="caso"><span class="rot">Sobre</span><button class="api-botao-primario-hover" style="border:none">Enviar proposta</button></div>
+          <div class="caso"><span class="rot">Foco</span><button class="api-botao-primario foco-demo">Enviar proposta</button></div>
+          <div class="caso"><span class="rot">Carregando</span><button class="api-botao-primario" disabled>Enviando…</button></div>
+          <div class="caso"><span class="rot">Desabilitado</span><button class="api-botao-primario desab-demo" disabled>Enviar proposta</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="secao">
+      <h2>Alvo de interação</h2>
+      <ul>
+        <li><strong>Foco nunca some.</strong> <code>outline: none</code> sem substituto é erro.</li>
+        <li><strong>Alvo de toque de 44 px</strong> de altura, e 44 × 44 quando for só ícone.</li>
+        <li><strong>Erro, sucesso e alerta se dizem em texto</strong>, não só em cor.</li>
+      </ul>
+    </div>
+  </main>
+</div>
+
+<script>
+fetch('/nav.html', {cache: 'no-store'}).then(r => r.text()).then(html => {
+  const alvo = document.getElementById('nav-lateral');
+  alvo.outerHTML = html;
+  const atual = document.querySelector('[data-nav="estados"]');
+  if (atual) atual.classList.add('ativo');
+});
+</script>
+</body>
+</html>

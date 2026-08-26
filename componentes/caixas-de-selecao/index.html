@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Caixas de seleção · Design System API Capital</title>
+<link rel="icon" href="/assets/favicon/svg/api_capital_favicon.svg">
+<link rel="stylesheet" href="/tokens/api-capital.css">
+<link rel="stylesheet" href="/docs.css">
+<style>
+.grupo{display:flex;flex-direction:column;gap:16px;}
+.opcao{display:flex;align-items:center;gap:8px;font-size:17px;color:var(--api-texto);}
+.opcao input{accent-color:var(--api-acao);width:18px;height:18px;margin:0;flex:none;}
+.duas{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:640px;}
+@media(max-width:800px){.duas{grid-template-columns:1fr;}}
+.rot{font-family:var(--api-rotulo-font-family);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--api-texto-fraco);margin-bottom:16px;}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="dentro">
+    <a href="/"><img src="/assets/logo/svg/api_capital_logo01_azul.svg" alt="API Capital"></a>
+    <a class="nome" href="/">Design System</a>
+    <a class="acao" href="/como-utilizar/usando-claude/">Baixar a skill</a>
+  </div>
+</header>
+
+<div class="casco">
+  <div id="nav-lateral"></div>
+
+  <main class="conteudo">
+    <div class="subcabecalho">
+      <h1>Caixas de seleção</h1>
+      <p class="linhafina">Checkbox para escolhas independentes, rádio para escolha única.
+        A marca é sempre azul, nunca latão nem qualquer outra cor.</p>
+      <hr class="fio">
+    </div>
+
+    <div class="secao">
+      <h2>Anatomia</h2>
+      <p>Caixa de 18 × 18 px, fundo branco, borda de 1 px em <code>--api-borda</code>, canto de
+        4 px, e a marca em <code>--api-acao</code>. Em HTML,
+        <code>accent-color: var(--api-acao)</code>. Rádio segue a mesma régua, redondo.</p>
+      <div class="palco">
+        <div class="duas">
+          <div>
+            <div class="rot">Checkbox</div>
+            <div class="grupo">
+              <label class="opcao"><input type="checkbox" checked> Relatório mensal</label>
+              <label class="opcao"><input type="checkbox" checked> Carta do gestor</label>
+              <label class="opcao"><input type="checkbox"> Avisos de evento</label>
+            </div>
+          </div>
+          <div>
+            <div class="rot">Rádio</div>
+            <div class="grupo">
+              <label class="opcao"><input type="radio" name="perfil" checked> Por e-mail</label>
+              <label class="opcao"><input type="radio" name="perfil"> Por WhatsApp</label>
+              <label class="opcao"><input type="radio" name="perfil"> Não quero receber</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="secao">
+      <h2>Regras</h2>
+      <ul>
+        <li>Entre a caixa e o rótulo entra respiro de 8 px, sempre: caixa colada no texto é
+          erro.</li>
+        <li>O rótulo fica em corpo normal (17 px), sem caixa alta.</li>
+        <li><strong>Checkbox nunca é latão</strong>, nem qualquer outra cor fora de
+          <code>--api-acao</code>. Checkbox colorido é veto.</li>
+      </ul>
+    </div>
+  </main>
+</div>
+
+<script>
+fetch('/nav.html', {cache: 'no-store'}).then(r => r.text()).then(html => {
+  const alvo = document.getElementById('nav-lateral');
+  alvo.outerHTML = html;
+  const atual = document.querySelector('[data-nav="caixas-de-selecao"]');
+  if (atual) atual.classList.add('ativo');
+});
+</script>
+</body>
+</html>

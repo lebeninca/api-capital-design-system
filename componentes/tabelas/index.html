@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tabelas · Design System API Capital</title>
+<link rel="icon" href="/assets/favicon/svg/api_capital_favicon.svg">
+<link rel="stylesheet" href="/tokens/api-capital.css">
+<link rel="stylesheet" href="/docs.css">
+<style>
+.tab-ex{width:100%;border-collapse:collapse;font-size:15px;background:var(--api-fundo);border-radius:var(--api-canto);overflow:hidden;}
+.tab-ex th{background:var(--api-fundo-escuro);color:var(--api-sobre-escuro);font-family:var(--api-rotulo-font-family);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-align:left;padding:16px;}
+.tab-ex th.dir{text-align:right;}
+.tab-ex td{padding:16px;line-height:1.5;}
+.tab-ex tbody tr:nth-child(even){background:var(--api-fundo-bloco);}
+.tab-ex td.num{text-align:right;font-family:Inter,system-ui,sans-serif;font-weight:700;font-feature-settings:"tnum";}
+.fonte-tab{font-family:var(--api-legenda-font-family);font-size:var(--api-legenda-font-size);color:var(--api-texto-fraco);margin-top:12px;}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="dentro">
+    <a href="/"><img src="/assets/logo/svg/api_capital_logo01_azul.svg" alt="API Capital"></a>
+    <a class="nome" href="/">Design System</a>
+    <a class="acao" href="/como-utilizar/usando-claude/">Baixar a skill</a>
+  </div>
+</header>
+
+<div class="casco">
+  <div id="nav-lateral"></div>
+
+  <main class="conteudo">
+    <div class="subcabecalho">
+      <h1>Tabelas</h1>
+      <p class="linhafina">Cabeçalho escuro, linhas em zebra sem fio, texto à esquerda e número
+        à direita. Toda tabela fecha com fonte e data de apuração.</p>
+      <hr class="fio">
+    </div>
+
+    <div class="secao">
+      <h2>Anatomia</h2>
+      <div class="palco">
+        <table class="tab-ex">
+          <thead><tr><th>Classe</th><th class="dir">Rentabilidade 12m</th><th class="dir">Participação</th></tr></thead>
+          <tbody>
+            <tr><td>Renda fixa pós-fixada</td><td class="num">13,2%</td><td class="num">42,0%</td></tr>
+            <tr><td>Renda fixa inflação</td><td class="num">11,8%</td><td class="num">23,5%</td></tr>
+            <tr><td>Renda variável Brasil</td><td class="num">18,4%</td><td class="num">21,0%</td></tr>
+            <tr><td>Internacional</td><td class="num">9,6%</td><td class="num">13,5%</td></tr>
+          </tbody>
+        </table>
+        <div class="fonte-tab">Fonte: BTG Pactual. Dados de 31/07/2026.</div>
+      </div>
+      <table class="espec">
+        <thead><tr><th>Parte</th><th>Como</th></tr></thead>
+        <tbody>
+          <tr><td>Cabeçalho</td><td><code>tabela-cabecalho</code>: fundo escuro, rótulo em caixa alta</td></tr>
+          <tr><td>Linhas</td><td>Alternam <code>tabela-linha</code> (branco) e <code>tabela-zebra</code> (<code>--api-fundo-bloco</code>)</td></tr>
+          <tr><td>Número</td><td>À direita, Inter 700 com figuras tabulares</td></tr>
+          <tr><td>Fecho</td><td>Fonte e data de apuração, em legenda</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="secao">
+      <h2>Regras</h2>
+      <ul>
+        <li><strong>Entre linhas não entra fio</strong>: quem separa é a zebra.</li>
+        <li>Texto à esquerda, número à direita.</li>
+        <li>Número sem figura tabular em tabela é veto: a coluna dança.</li>
+        <li>Tabela larga rola na horizontal dentro do próprio bloco, em vez de encolher a
+          fonte.</li>
+      </ul>
+    </div>
+  </main>
+</div>
+
+<script>
+fetch('/nav.html', {cache: 'no-store'}).then(r => r.text()).then(html => {
+  const alvo = document.getElementById('nav-lateral');
+  alvo.outerHTML = html;
+  const atual = document.querySelector('[data-nav="tabelas"]');
+  if (atual) atual.classList.add('ativo');
+});
+</script>
+</body>
+</html>

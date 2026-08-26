@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formas · Design System API Capital</title>
+<link rel="icon" href="/assets/favicon/svg/api_capital_favicon.svg">
+<link rel="stylesheet" href="/tokens/api-capital.css">
+<link rel="stylesheet" href="/docs.css">
+<style>
+.fios{display:flex;flex-direction:column;gap:32px;}
+.fio-ex{display:flex;align-items:center;gap:24px;}
+.fio-ex .rot{width:120px;flex:none;font-size:15px;font-weight:600;}
+.fio-ex .linha{flex:1;background:var(--api-azul);}
+.fio-ex .med{font-size:14px;color:var(--api-texto-fraco);width:120px;flex:none;}
+.cantos{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+@media(max-width:800px){.cantos{grid-template-columns:1fr;}}
+.canto-ex{background:var(--api-fundo);border:1px solid var(--api-fio);padding:24px;font-size:15px;min-height:100px;}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="dentro">
+    <a href="/"><img src="/assets/logo/svg/api_capital_logo01_azul.svg" alt="API Capital"></a>
+    <a class="nome" href="/">Design System</a>
+    <a class="acao" href="/como-utilizar/usando-claude/">Baixar a skill</a>
+  </div>
+</header>
+
+<div class="casco">
+  <div id="nav-lateral"></div>
+
+  <main class="conteudo">
+    <div class="subcabecalho">
+      <h1>Formas</h1>
+      <p class="linhafina">Quatro espessuras de fio, um raio de canto em tela e canto vivo no
+        impresso. Cápsula é vetada.</p>
+      <hr class="fio">
+    </div>
+
+    <div class="secao">
+      <h2>Fio</h2>
+      <div class="palco">
+        <div class="fios">
+          <div class="fio-ex"><span class="rot">Capilar</span><div class="linha" style="height:0.5pt"></div><span class="med">0,5 pt</span></div>
+          <div class="fio-ex"><span class="rot">Fino</span><div class="linha" style="height:1pt"></div><span class="med">1 pt</span></div>
+          <div class="fio-ex"><span class="rot">Médio</span><div class="linha" style="height:2pt"></div><span class="med">2 pt</span></div>
+          <div class="fio-ex"><span class="rot">Grosso</span><div class="linha" style="height:6pt"></div><span class="med">6 pt</span></div>
+        </div>
+      </div>
+      <table class="espec">
+        <thead><tr><th>Nome</th><th>Espessura</th><th>Onde</th></tr></thead>
+        <tbody>
+          <tr><td>Capilar</td><td>0,5 pt</td><td>Fio de tabela, separador de linha</td></tr>
+          <tr><td>Fino</td><td>1 pt</td><td>Divisória de bloco, contorno de caixa</td></tr>
+          <tr><td>Médio</td><td>2 pt</td><td>Fio sob título, régua de seção</td></tr>
+          <tr><td>Grosso</td><td>6 pt</td><td>Fio de abertura, marcação de capa</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="secao">
+      <h2>Canto</h2>
+      <p><code>--api-canto</code> 15 px em tela, em card, botão, campo, aviso e amostra de cor.
+        Canto vivo no impresso. Cápsula (<code>9999px</code>) é vetada.</p>
+      <div class="palco">
+        <div class="cantos">
+          <div class="canto-ex" style="border-radius:var(--api-canto)"><strong>Tela:</strong> canto de 15 px</div>
+          <div class="canto-ex"><strong>Impresso:</strong> canto vivo</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="secao">
+      <h2>Divisória</h2>
+      <p>A horizontal atravessa as 12 colunas. A vertical separa colunas de texto e tem sempre
+        1 pt. Entre linhas de tabela não entra fio: use separação de zebra.</p>
+    </div>
+  </main>
+</div>
+
+<script>
+fetch('/nav.html', {cache: 'no-store'}).then(r => r.text()).then(html => {
+  const alvo = document.getElementById('nav-lateral');
+  alvo.outerHTML = html;
+  const atual = document.querySelector('[data-nav="formas"]');
+  if (atual) atual.classList.add('ativo');
+});
+</script>
+</body>
+</html>

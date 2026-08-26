@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Botões · Design System API Capital</title>
+<link rel="icon" href="/assets/favicon/svg/api_capital_favicon.svg">
+<link rel="stylesheet" href="/tokens/api-capital.css">
+<link rel="stylesheet" href="/docs.css">
+<style>
+button{border:none;cursor:pointer;}
+button.api-botao-secundario{border:1px solid var(--api-acao);}
+.fila{display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start;}
+.caso{display:flex;flex-direction:column;gap:12px;align-items:flex-start;}
+.rot{font-family:var(--api-rotulo-font-family);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--api-texto-fraco);}
+.palco-escuro{background:var(--api-fundo-escuro);border-radius:var(--api-canto);padding:40px;margin:24px 0 4px;}
+.palco-escuro .rot{color:rgba(255,255,255,.7);}
+.alturas{display:flex;flex-wrap:wrap;gap:40px;align-items:flex-end;}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="dentro">
+    <a href="/"><img src="/assets/logo/svg/api_capital_logo01_azul.svg" alt="API Capital"></a>
+    <a class="nome" href="/">Design System</a>
+    <a class="acao" href="/como-utilizar/usando-claude/">Baixar a skill</a>
+  </div>
+</header>
+
+<div class="casco">
+  <div id="nav-lateral"></div>
+
+  <main class="conteudo">
+    <div class="subcabecalho">
+      <h1>Botões</h1>
+      <p class="linhafina">Cinco botões cobrem toda ação do sistema. Botão fora dos cinco é
+        veto, e o latão nunca é clicável.</p>
+      <hr class="fio">
+    </div>
+
+    <div class="secao">
+      <h2>Os cinco</h2>
+      <div class="palco">
+        <div class="fila">
+          <div class="caso"><span class="rot">Primário</span><button class="api-botao-primario">Enviar proposta</button></div>
+          <div class="caso"><span class="rot">Secundário</span><button class="api-botao-secundario">Ver detalhe</button></div>
+          <div class="caso"><span class="rot">Azul-claro</span><button class="api-botao-azul-claro">Ação secundária</button></div>
+          <div class="caso"><span class="rot">Texto</span><button class="api-botao-texto">Cancelar</button></div>
+        </div>
+      </div>
+      <div class="palco-escuro">
+        <div class="fila">
+          <div class="caso"><span class="rot">Sobre escuro</span><button class="api-botao-sobre-escuro">Falar com a API</button></div>
+        </div>
+      </div>
+      <table class="espec">
+        <thead><tr><th>Componente</th><th>Fundo</th><th>Texto</th><th>Quando</th></tr></thead>
+        <tbody>
+          <tr><td>botao-primario</td><td><code>--api-acao</code></td><td>branco</td><td>A ação dominante da tela</td></tr>
+          <tr><td>botao-secundario</td><td>branco, borda de 1 px em <code>--api-acao</code></td><td><code>--api-acao</code></td><td>A alternativa de contorno</td></tr>
+          <tr><td>botao-azul-claro</td><td><code>--api-acao-secundaria</code></td><td>branco</td><td>Ação secundária</td></tr>
+          <tr><td>botao-sobre-escuro</td><td>branco</td><td><code>--api-azul</code></td><td>Ação sobre fundo escuro</td></tr>
+          <tr><td>botao-texto</td><td>transparente</td><td><code>--api-acao</code></td><td>Ação sem caixa</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="secao">
+      <h2>Alturas</h2>
+      <div class="palco">
+        <div class="alturas">
+          <div class="caso"><span class="rot">Abertura · 56</span><button class="api-botao-primario" style="height:56px">Começar</button></div>
+          <div class="caso"><span class="rot">Padrão · 48</span><button class="api-botao-primario">Começar</button></div>
+          <div class="caso"><span class="rot">Barra e tabela · 40</span><button class="api-botao-primario" style="height:40px;font-size:15px">Começar</button></div>
+        </div>
+      </div>
+      <p class="anota">Em toque, mínimo de 44 px.</p>
+    </div>
+
+    <div class="secao">
+      <h2>Estados</h2>
+      <p>Sob o cursor, o primário troca o fundo pela variação (<code>--api-acao-hover</code>).
+        Os cinco estados da página <a href="/elementos-base/estados/">Estados</a> valem em todo
+        botão.</p>
+    </div>
+
+    <div class="secao">
+      <h2>Regras</h2>
+      <ul>
+        <li>Botão fora dos cinco declarados é veto (<code>botao-inventado</code>).</li>
+        <li>Texto de botão nunca é latão; o latão nunca é clicável.</li>
+        <li>Utilidade pequena ao lado de um campo («Hoje», «Anexar arquivo», «Limpar») é o
+          secundário em altura 40 px.</li>
+        <li>Cápsula é vetada: o canto é 15 px.</li>
+      </ul>
+    </div>
+  </main>
+</div>
+
+<script>
+fetch('/nav.html', {cache: 'no-store'}).then(r => r.text()).then(html => {
+  const alvo = document.getElementById('nav-lateral');
+  alvo.outerHTML = html;
+  const atual = document.querySelector('[data-nav="botoes"]');
+  if (atual) atual.classList.add('ativo');
+});
+</script>
+</body>
+</html>

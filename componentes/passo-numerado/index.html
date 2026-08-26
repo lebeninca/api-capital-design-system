@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Passo numerado · Design System API Capital</title>
+<link rel="icon" href="/assets/favicon/svg/api_capital_favicon.svg">
+<link rel="stylesheet" href="/tokens/api-capital.css">
+<link rel="stylesheet" href="/docs.css">
+<style>
+.passos{display:flex;flex-direction:column;gap:32px;max-width:560px;}
+.passo h3{font-family:var(--api-titulo-font-family);font-size:20px;font-weight:600;color:var(--api-azul);margin:0 0 8px;}
+.passo h3 .n{font-family:Inter,system-ui,sans-serif;font-weight:700;font-feature-settings:"tnum";}
+.passo p{font-size:15px;line-height:1.6;margin:0;color:var(--api-texto);}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="dentro">
+    <a href="/"><img src="/assets/logo/svg/api_capital_logo01_azul.svg" alt="API Capital"></a>
+    <a class="nome" href="/">Design System</a>
+    <a class="acao" href="/como-utilizar/usando-claude/">Baixar a skill</a>
+  </div>
+</header>
+
+<div class="casco">
+  <div id="nav-lateral"></div>
+
+  <main class="conteudo">
+    <div class="subcabecalho">
+      <h1>Passo numerado</h1>
+      <p class="linhafina">Formulário ou fluxo em etapas numera o passo dentro do próprio
+        título. Sem círculo, sem bolinha, sem fundo, sem latão.</p>
+      <hr class="fio">
+    </div>
+
+    <div class="secao">
+      <h2>Anatomia</h2>
+      <div class="palco">
+        <div class="passos">
+          <div class="passo">
+            <h3><span class="n">1.</span> Cliente e consultor</h3>
+            <p>O número em Inter 700 com figura tabular, na cor do título, seguido de ponto e
+              do nome do passo.</p>
+          </div>
+          <div class="passo">
+            <h3><span class="n">2.</span> Perfil e objetivos</h3>
+            <p>O passo seguinte segue a mesma régua, no mesmo nível tipográfico.</p>
+          </div>
+          <div class="passo">
+            <h3><span class="n">3.</span> Proposta</h3>
+            <p>E assim até o fim do fluxo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="secao">
+      <h2>Regras</h2>
+      <ul>
+        <li>O número usa <code>numero-passo</code>: Inter 700, figura tabular, na cor do título
+          (<code>--api-azul</code>).</li>
+        <li><strong>Número de passo dentro de círculo ou bolinha colorida é veto</strong>
+          (<code>passo-em-bolinha</code>).</li>
+        <li>Sem fundo, sem latão.</li>
+      </ul>
+    </div>
+  </main>
+</div>
+
+<script>
+fetch('/nav.html', {cache: 'no-store'}).then(r => r.text()).then(html => {
+  const alvo = document.getElementById('nav-lateral');
+  alvo.outerHTML = html;
+  const atual = document.querySelector('[data-nav="passo-numerado"]');
+  if (atual) atual.classList.add('ativo');
+});
+</script>
+</body>
+</html>

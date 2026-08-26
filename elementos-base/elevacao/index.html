@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elevação · Design System API Capital</title>
+<link rel="icon" href="/assets/favicon/svg/api_capital_favicon.svg">
+<link rel="stylesheet" href="/tokens/api-capital.css">
+<link rel="stylesheet" href="/docs.css">
+<style>
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+@media(max-width:900px){.grid4{grid-template-columns:1fr 1fr;}}
+.nivel{border-radius:var(--api-canto);padding:24px;min-height:120px;font-size:15px;}
+.nivel .rot{font-family:var(--api-rotulo-font-family);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--api-texto-fraco);margin-bottom:8px;}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="dentro">
+    <a href="/"><img src="/assets/logo/svg/api_capital_logo01_azul.svg" alt="API Capital"></a>
+    <a class="nome" href="/">Design System</a>
+    <a class="acao" href="/como-utilizar/usando-claude/">Baixar a skill</a>
+  </div>
+</header>
+
+<div class="casco">
+  <div id="nav-lateral"></div>
+
+  <main class="conteudo">
+    <div class="subcabecalho">
+      <h1>Elevação</h1>
+      <p class="linhafina">Profundidade se faz com fundo sólido ou com linha, nunca com sombra.
+        Quatro níveis cobrem toda separação entre superfícies.</p>
+      <hr class="fio">
+    </div>
+
+    <div class="secao">
+      <h2>Os quatro níveis</h2>
+      <table class="espec">
+        <thead><tr><th>Nível</th><th>Tratamento</th><th>Uso</th></tr></thead>
+        <tbody>
+          <tr><td class="num">0</td><td>Plano</td><td>Superfície padrão</td></tr>
+          <tr><td class="num">1</td><td>Linha de 1 px em <code>--api-borda</code></td><td>Campo, bloco neutro</td></tr>
+          <tr><td class="num">2</td><td>Linha de 1 px em <code>--api-fio</code></td><td>Card de conteúdo, contorno de destaque</td></tr>
+          <tr><td class="num">3</td><td>Fundo sólido: <code>--api-fundo-bloco</code>, <code>--api-fundo-quente</code> ou <code>--api-fundo-escuro</code></td><td>Card de dado, bloco de respiro, card de destaque</td></tr>
+        </tbody>
+      </table>
+      <div class="palco">
+        <div class="grid4">
+          <div class="nivel" style="background:var(--api-fundo)"><div class="rot">Nível 0</div>Plano, sobre a superfície</div>
+          <div class="nivel" style="background:var(--api-fundo);border:1px solid var(--api-borda)"><div class="rot">Nível 1</div>Linha em borda neutra</div>
+          <div class="nivel" style="background:var(--api-fundo);border:1px solid var(--api-fio)"><div class="rot">Nível 2</div>Linha no fio azul</div>
+          <div class="nivel" style="background:var(--api-fundo-escuro);color:var(--api-sobre-escuro)"><div class="rot" style="color:rgba(255,255,255,.7)">Nível 3</div>Fundo sólido</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="secao">
+      <h2>Sombra não existe neste sistema</h2>
+      <p>Em nenhum nível. Nem em card, nem em botão, nem em painel flutuante, nem em logo sobre
+        foto. Onde a separação for insuficiente, sobe-se um nível de profundidade.</p>
+    </div>
+  </main>
+</div>
+
+<script>
+fetch('/nav.html', {cache: 'no-store'}).then(r => r.text()).then(html => {
+  const alvo = document.getElementById('nav-lateral');
+  alvo.outerHTML = html;
+  const atual = document.querySelector('[data-nav="elevacao"]');
+  if (atual) atual.classList.add('ativo');
+});
+</script>
+</body>
+</html>

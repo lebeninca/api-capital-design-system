@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gráficos · Design System API Capital</title>
+<link rel="icon" href="/assets/favicon/svg/api_capital_favicon.svg">
+<link rel="stylesheet" href="/tokens/api-capital.css">
+<link rel="stylesheet" href="/docs.css">
+<style>
+.series{display:flex;flex-wrap:wrap;gap:24px;}
+.serie{display:flex;align-items:center;gap:12px;font-size:15px;}
+.serie .cor{width:40px;height:40px;border-radius:var(--api-canto);flex:none;}
+.serie .hex{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:13px;color:var(--api-texto-fraco);display:block;}
+.grafico{background:var(--api-fundo);border-radius:var(--api-canto);padding:40px;max-width:640px;}
+.grafico .titulo-g{font-family:var(--api-titulo-font-family);font-size:20px;font-weight:600;color:var(--api-azul);margin-bottom:24px;}
+.plot{display:grid;grid-template-columns:56px 1fr;gap:8px;}
+.eixo-y{display:flex;flex-direction:column;justify-content:space-between;text-align:right;font-size:13px;color:var(--api-texto-fraco);font-feature-settings:"tnum";padding-bottom:24px;}
+.area{border-left:1px solid var(--api-borda);border-bottom:1px solid var(--api-borda);display:flex;align-items:flex-end;gap:32px;height:200px;padding:0 24px;position:relative;}
+.barra-g{width:56px;display:flex;flex-direction:column;justify-content:flex-end;}
+.barra-g .b{background:var(--api-azul);}
+.rot-x{display:flex;gap:32px;padding:8px 24px 0 88px;font-size:13px;color:var(--api-texto);}
+.rot-x span{width:56px;text-align:center;}
+.fonte-g{font-family:var(--api-legenda-font-family);font-size:var(--api-legenda-font-size);color:var(--api-texto-fraco);margin-top:16px;}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="dentro">
+    <a href="/"><img src="/assets/logo/svg/api_capital_logo01_azul.svg" alt="API Capital"></a>
+    <a class="nome" href="/">Design System</a>
+    <a class="acao" href="/como-utilizar/usando-claude/">Baixar a skill</a>
+  </div>
+</header>
+
+<div class="casco">
+  <div id="nav-lateral"></div>
+
+  <main class="conteudo">
+    <div class="subcabecalho">
+      <h1>Gráficos</h1>
+      <p class="linhafina">Cinco cores de série em ordem fixa, eixo sempre com valores, barra
+        partindo do zero. Todo gráfico fecha com fonte e data de apuração.</p>
+      <hr class="fio">
+    </div>
+
+    <div class="secao">
+      <h2>Cores de série</h2>
+      <p>Nesta ordem, sempre:</p>
+      <div class="palco">
+        <div class="series">
+          <div class="serie"><div class="cor" style="background:#0D2A54"></div><div>1. azul<span class="hex">#0D2A54</span></div></div>
+          <div class="serie"><div class="cor" style="background:#AA7D41"></div><div>2. latão<span class="hex">#AA7D41</span></div></div>
+          <div class="serie"><div class="cor" style="background:#418ECE"></div><div>3. azul-claro<span class="hex">#418ECE</span></div></div>
+          <div class="serie"><div class="cor" style="background:#171717"></div><div>4. preto<span class="hex">#171717</span></div></div>
+          <div class="serie"><div class="cor" style="background:#E4CB8D"></div><div>5. areia<span class="hex">#E4CB8D</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="secao">
+      <h2>Construção</h2>
+      <div class="palco">
+        <div class="grafico">
+          <div class="titulo-g">Patrimônio sob consultoria, por ano</div>
+          <div class="plot">
+            <div class="eixo-y"><span>R$ 60 mi</span><span>R$ 40 mi</span><span>R$ 20 mi</span><span>R$ 0</span></div>
+            <div>
+              <div class="area">
+                <div class="barra-g" style="height:100%"><div class="b" style="height:38%"></div></div>
+                <div class="barra-g" style="height:100%"><div class="b" style="height:56%"></div></div>
+                <div class="barra-g" style="height:100%"><div class="b" style="height:80%"></div></div>
+              </div>
+              <div class="rot-x" style="padding-left:24px"><span>2024</span><span>2025</span><span>2026</span></div>
+            </div>
+          </div>
+          <div class="fonte-g">Fonte: BTG Pactual. Dados de 31/07/2026.</div>
+        </div>
+      </div>
+      <table class="espec">
+        <thead><tr><th>Regra</th><th>Como</th></tr></thead>
+        <tbody>
+          <tr><td>Eixo Y</td><td>Sempre com valores</td></tr>
+          <tr><td>Barra</td><td>Parte do zero, sem eixo cortado</td></tr>
+          <tr><td>Rosca</td><td>Sempre com furo; o percentual nunca escrito sobre a fatia</td></tr>
+          <tr><td>Fecho</td><td>Fonte e data de apuração, em legenda</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="secao">
+      <h2>Vetos</h2>
+      <ul>
+        <li>Eixo de gráfico cortado e gráfico sem escala.</li>
+        <li>Minigráfico decorativo (sparkline sem eixo nem valor).</li>
+        <li>Percentual escrito sobre a fatia da rosca.</li>
+        <li>Número apresentado fora de Inter com figuras tabulares.</li>
+      </ul>
+    </div>
+  </main>
+</div>
+
+<script>
+fetch('/nav.html', {cache: 'no-store'}).then(r => r.text()).then(html => {
+  const alvo = document.getElementById('nav-lateral');
+  alvo.outerHTML = html;
+  const atual = document.querySelector('[data-nav="graficos"]');
+  if (atual) atual.classList.add('ativo');
+});
+</script>
+</body>
+</html>

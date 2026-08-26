@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Campos de formulário · Design System API Capital</title>
+<link rel="icon" href="/assets/favicon/svg/api_capital_favicon.svg">
+<link rel="stylesheet" href="/tokens/api-capital.css">
+<link rel="stylesheet" href="/docs.css">
+<style>
+.form-ex{display:flex;flex-direction:column;gap:6px;max-width:360px;}
+.form-ex label{font-size:15px;font-weight:600;color:var(--api-texto);}
+.form-ex input{width:100%;justify-content:flex-start;}
+.form-ex .msg-erro{font-size:14px;color:var(--api-erro);}
+.fila{display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start;}
+.utilidade{display:flex;gap:8px;align-items:flex-end;max-width:460px;}
+.utilidade .form-ex{flex:1;}
+button.api-botao-secundario{border:1px solid var(--api-acao);cursor:pointer;height:40px;font-size:15px;display:inline-flex;align-items:center;gap:8px;flex:none;}
+svg.ic{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="dentro">
+    <a href="/"><img src="/assets/logo/svg/api_capital_logo01_azul.svg" alt="API Capital"></a>
+    <a class="nome" href="/">Design System</a>
+    <a class="acao" href="/como-utilizar/usando-claude/">Baixar a skill</a>
+  </div>
+</header>
+
+<div class="casco">
+  <div id="nav-lateral"></div>
+
+  <main class="conteudo">
+    <div class="subcabecalho">
+      <h1>Campos de formulário</h1>
+      <p class="linhafina">Campo de texto com o rótulo sempre acima. Formulário vive direto
+        sobre o fundo do card ou da seção, sem caixa dentro de caixa.</p>
+      <hr class="fio">
+    </div>
+
+    <div class="secao">
+      <h2>Anatomia</h2>
+      <div class="palco">
+        <div class="form-ex">
+          <label for="ex1">Nome completo</label>
+          <input class="api-campo" id="ex1" type="text" placeholder="Como está no documento">
+        </div>
+      </div>
+      <p class="anota">Fundo branco, borda de 1 px em <code>--api-borda</code>, canto de 15,
+        altura 48 px, respiro lateral de 16 px.</p>
+    </div>
+
+    <div class="secao">
+      <h2>Estados</h2>
+      <div class="palco">
+        <div class="fila">
+          <div class="form-ex">
+            <label for="ex2">Em foco</label>
+            <input class="api-campo-foco" id="ex2" type="text" value="API Capital">
+          </div>
+          <div class="form-ex">
+            <label for="ex3">Em erro</label>
+            <input class="api-campo-erro" id="ex3" type="text" value="31/02/2026">
+            <span class="msg-erro">Essa data não existe. Confira o dia.</span>
+          </div>
+        </div>
+      </div>
+      <p class="anota">Em foco, anel de 3 px afastado 2 px. Em erro, a borda vira
+        <code>--api-erro</code>, sempre com a mensagem escrita ao lado, nunca só a cor.</p>
+    </div>
+
+    <div class="secao">
+      <h2>Botão de utilidade</h2>
+      <div class="palco">
+        <div class="utilidade">
+          <div class="form-ex">
+            <label for="ex4">Comprovante</label>
+            <input class="api-campo" id="ex4" type="text" placeholder="Nenhum arquivo">
+          </div>
+          <button class="api-botao-secundario"><svg class="ic" viewBox="0 0 24 24"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg> Anexar</button>
+        </div>
+      </div>
+      <p class="anota">Utilidade ao lado de um campo é o botão secundário em 40 px. Anexo usa o
+        ícone Lucide <code>paperclip</code>, nunca emoji.</p>
+    </div>
+
+    <div class="secao">
+      <h2>Regras</h2>
+      <ul>
+        <li><strong>O rótulo fica sempre acima do campo.</strong></li>
+        <li><strong>Não se cria contêiner de fundo cinza para agrupar campos dentro de um
+          card</strong>: caixa dentro de caixa é veto (<code>box-dentro-de-box</code>). Grupo
+          de campos se marca com título de grupo e espaço.</li>
+        <li>Botão dentro de formulário é um dos <a href="/componentes/botoes/">cinco
+          declarados</a>. Não se inventa botão novo, e texto de botão nunca é latão.</li>
+      </ul>
+    </div>
+  </main>
+</div>
+
+<script>
+fetch('/nav.html', {cache: 'no-store'}).then(r => r.text()).then(html => {
+  const alvo = document.getElementById('nav-lateral');
+  alvo.outerHTML = html;
+  const atual = document.querySelector('[data-nav="campos"]');
+  if (atual) atual.classList.add('ativo');
+});
+</script>
+</body>
+</html>

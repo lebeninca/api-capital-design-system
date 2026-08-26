@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Espaçamento · Design System API Capital</title>
+<link rel="icon" href="/assets/favicon/svg/api_capital_favicon.svg">
+<link rel="stylesheet" href="/tokens/api-capital.css">
+<link rel="stylesheet" href="/docs.css">
+<style>
+.escala{display:flex;flex-direction:column;gap:16px;}
+.degrau{display:flex;align-items:center;gap:24px;}
+.degrau .barra{background:var(--api-acao-secundaria);height:24px;border-radius:2px;}
+.degrau .rot{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:14px;color:var(--api-texto);width:120px;flex:none;}
+.degrau .med{font-size:14px;color:var(--api-texto-fraco);}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="dentro">
+    <a href="/"><img src="/assets/logo/svg/api_capital_logo01_azul.svg" alt="API Capital"></a>
+    <a class="nome" href="/">Design System</a>
+    <a class="acao" href="/como-utilizar/usando-claude/">Baixar a skill</a>
+  </div>
+</header>
+
+<div class="casco">
+  <div id="nav-lateral"></div>
+
+  <main class="conteudo">
+    <div class="subcabecalho">
+      <h1>Espaçamento</h1>
+      <p class="linhafina">Base de 8 px, com 4 px para trabalho fino. Recuo e respiro são sempre
+        um degrau declarado da escala, nunca um valor solto.</p>
+      <hr class="fio">
+    </div>
+
+    <div class="secao">
+      <h2>Escala</h2>
+      <div class="palco">
+        <div class="escala">
+          <div class="degrau"><span class="rot">--api-x1</span><div class="barra" style="width:4px"></div><span class="med">4 px</span></div>
+          <div class="degrau"><span class="rot">--api-x2</span><div class="barra" style="width:8px"></div><span class="med">8 px</span></div>
+          <div class="degrau"><span class="rot">--api-x4</span><div class="barra" style="width:16px"></div><span class="med">16 px</span></div>
+          <div class="degrau"><span class="rot">--api-x6</span><div class="barra" style="width:24px"></div><span class="med">24 px</span></div>
+          <div class="degrau"><span class="rot">--api-x10</span><div class="barra" style="width:40px"></div><span class="med">40 px</span></div>
+          <div class="degrau"><span class="rot">--api-x16</span><div class="barra" style="width:64px"></div><span class="med">64 px</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="secao">
+      <h2>Respiros declarados</h2>
+      <table class="espec">
+        <thead><tr><th>Onde</th><th>Medida</th></tr></thead>
+        <tbody>
+          <tr><td>Respiro interno de card</td><td><code>--api-x10</code> 40 px</td></tr>
+          <tr><td>Respiro interno de caixa e de aviso</td><td><code>--api-x6</code> 24 px</td></tr>
+          <tr><td>Altura de seção em tela</td><td>64 a 96 px</td></tr>
+          <tr><td>Junta entre cards de um painel</td><td><code>--api-x6</code> 24 px</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="secao">
+      <h2>Entre blocos, no impresso</h2>
+      <p>Blocos de texto, imagem, gráfico ou tabela têm espaçamento mínimo de <strong>120 px</strong>
+        a 300 dpi. A exceção é linha-fina, subtítulo e legenda, que podem ter
+        <strong>60 px</strong>.</p>
+      <p>Espaço que sobra até a margem vira respiro entre as seções, mantendo a proporção do
+        ritmo, nunca elemento maior.</p>
+    </div>
+  </main>
+</div>
+
+<script>
+fetch('/nav.html', {cache: 'no-store'}).then(r => r.text()).then(html => {
+  const alvo = document.getElementById('nav-lateral');
+  alvo.outerHTML = html;
+  const atual = document.querySelector('[data-nav="espacamento"]');
+  if (atual) atual.classList.add('ativo');
+});
+</script>
+</body>
+</html>

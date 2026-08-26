@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Navegação · Design System API Capital</title>
+<link rel="icon" href="/assets/favicon/svg/api_capital_favicon.svg">
+<link rel="stylesheet" href="/tokens/api-capital.css">
+<link rel="stylesheet" href="/docs.css">
+<style>
+.exemplo{border-radius:var(--api-canto);overflow:hidden;border:1px solid var(--api-borda);}
+.nav-ex{height:96px;padding:0 40px;display:flex;align-items:stretch;gap:32px;}
+.nav-ex.clara{background:var(--api-fundo);}
+.nav-ex.escura{background:var(--api-fundo-escuro);border:none;}
+.nav-ex img{height:56px;display:block;align-self:center;}
+.nav-ex .itens{display:flex;gap:32px;margin-left:8px;align-self:stretch;}
+.nav-ex a{font-family:Inter,system-ui,sans-serif;font-size:15px;font-weight:500;text-decoration:none;display:inline-flex;align-items:center;border-bottom:2pt solid transparent;}
+.nav-ex .acao-nav{align-self:center;}
+.nav-ex.clara a{color:var(--api-texto);}
+.nav-ex.escura a{color:var(--api-sobre-escuro);}
+.nav-ex.clara a.ativo{font-weight:600;color:var(--api-acao);border-bottom-color:var(--api-acao);}
+.nav-ex.escura a.ativo{font-weight:600;border-bottom-color:var(--api-destaque);}
+.nav-ex .acao-nav{margin-left:auto;}
+button{border:none;cursor:pointer;}
+.rot{font-family:var(--api-rotulo-font-family);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--api-texto-fraco);margin:24px 0 8px;}
+.rot:first-child{margin-top:0;}
+.api-botao-primario,.api-botao-sobre-escuro{height:40px;font-size:15px;}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="dentro">
+    <a href="/"><img src="/assets/logo/svg/api_capital_logo01_azul.svg" alt="API Capital"></a>
+    <a class="nome" href="/">Design System</a>
+    <a class="acao" href="/como-utilizar/usando-claude/">Baixar a skill</a>
+  </div>
+</header>
+
+<div class="casco">
+  <div id="nav-lateral"></div>
+
+  <main class="conteudo">
+    <div class="subcabecalho">
+      <h1>Navegação</h1>
+      <p class="linhafina">Duas navegações, clara e escura: logo à esquerda, itens no meio, uma
+        ação à direita, a mesma em todos os tamanhos.</p>
+      <hr class="fio">
+    </div>
+
+    <div class="secao">
+      <h2>Clara e escura</h2>
+      <div class="palco">
+        <div class="rot">Navegação clara</div>
+        <div class="exemplo">
+          <div class="nav-ex clara">
+            <img src="/assets/logo/svg/api_capital_logo01_azul.svg" alt="API Capital">
+            <div class="itens"><a href="#" class="ativo">Início</a><a href="#">Cartas</a><a href="#">Sobre</a></div>
+            <span class="acao-nav"><button class="api-botao-primario">Falar com a API</button></span>
+          </div>
+        </div>
+        <div class="rot">Navegação escura</div>
+        <div class="exemplo" style="border:none">
+          <div class="nav-ex escura">
+            <img src="/assets/logo/svg/api_capital_logo01_branco.svg" alt="API Capital">
+            <div class="itens"><a href="#" class="ativo">Início</a><a href="#">Cartas</a><a href="#">Sobre</a></div>
+            <span class="acao-nav"><button class="api-botao-sobre-escuro">Falar com a API</button></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="secao">
+      <h2>Especificação</h2>
+      <table class="espec">
+        <thead><tr><th>O que</th><th>Medida</th></tr></thead>
+        <tbody>
+          <tr><td>Altura</td><td>96 px em tela cheia · 72 px em tablet · 64 px em celular</td></tr>
+          <tr><td>Respiro lateral</td><td>40 px</td></tr>
+          <tr><td>Entre itens</td><td>32 px</td></tr>
+          <tr><td>Item</td><td>Inter 500, 15 px; o ativo sobe pra 600</td></tr>
+          <tr><td>Item ativo</td><td>Fio de 2 pt embaixo: <code>--api-acao</code> no claro, <code>--api-destaque</code> no escuro</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="secao">
+      <h2>Regras</h2>
+      <ul>
+        <li>No fundo escuro o logo entra na versão branca vazada, nunca na azul.</li>
+        <li><strong>Uma ação à direita</strong>, a mesma em todos os tamanhos.</li>
+        <li>Em celular os itens viram menu; a ação continua visível.</li>
+      </ul>
+    </div>
+  </main>
+</div>
+
+<script>
+fetch('/nav.html', {cache: 'no-store'}).then(r => r.text()).then(html => {
+  const alvo = document.getElementById('nav-lateral');
+  alvo.outerHTML = html;
+  const atual = document.querySelector('[data-nav="navegacao"]');
+  if (atual) atual.classList.add('ativo');
+});
+</script>
+</body>
+</html>

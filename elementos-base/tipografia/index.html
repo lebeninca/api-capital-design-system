@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tipografia · Design System API Capital</title>
+<link rel="icon" href="/assets/favicon/svg/api_capital_favicon.svg">
+<link rel="stylesheet" href="/tokens/api-capital.css">
+<link rel="stylesheet" href="/docs.css">
+<style>
+.familia{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+@media(max-width:800px){.familia{grid-template-columns:1fr;}}
+.fam{background:var(--api-fundo);border-radius:var(--api-canto);padding:40px;}
+.fam .espec-fam{font-size:14px;color:var(--api-texto-fraco);margin-top:16px;}
+.fam .amostra-p{font-family:"Playfair Display",Georgia,serif;font-size:44px;font-weight:700;letter-spacing:-0.88px;color:var(--api-azul);line-height:1.15;}
+.fam .amostra-i{font-family:Inter,system-ui,sans-serif;font-size:44px;font-weight:400;color:var(--api-azul);line-height:1.15;}
+.ramp{display:flex;flex-direction:column;}
+.ramp .nivel{display:grid;grid-template-columns:1fr 340px;gap:40px;align-items:baseline;padding:24px 0;border-bottom:1px solid var(--api-borda);}
+.ramp .nivel:last-child{border-bottom:none;}
+.ramp .meta{font-size:14px;color:var(--api-texto-fraco);line-height:1.6;}
+.ramp .meta .tok{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:13px;color:var(--api-texto);display:block;}
+@media(max-width:900px){.ramp .nivel{grid-template-columns:1fr;gap:8px;}}
+.esp{color:var(--api-azul);margin:0;}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="dentro">
+    <a href="/"><img src="/assets/logo/svg/api_capital_logo01_azul.svg" alt="API Capital"></a>
+    <a class="nome" href="/">Design System</a>
+    <a class="acao" href="/como-utilizar/usando-claude/">Baixar a skill</a>
+  </div>
+</header>
+
+<div class="casco">
+  <div id="nav-lateral"></div>
+
+  <main class="conteudo">
+    <div class="subcabecalho">
+      <h1>Tipografia</h1>
+      <p class="linhafina">Duas famílias em par fixo: Playfair Display em título e abertura,
+        Inter em todo o resto, incluindo cada número apresentado. Uma terceira família quebra
+        o sistema.</p>
+      <hr class="fio">
+    </div>
+
+    <div class="secao">
+      <h2>Famílias</h2>
+      <div class="palco">
+        <div class="familia">
+          <div class="fam">
+            <div class="amostra-p">Playfair Display</div>
+            <div class="espec-fam">Título, abertura e citação. Tracking negativo nos tamanhos
+              grandes. Substituto: Georgia.</div>
+          </div>
+          <div class="fam">
+            <div class="amostra-i">Inter</div>
+            <div class="espec-fam">Todo o resto, e todo número apresentado, com figuras
+              tabulares. Substituto: a fonte de sistema.</div>
+          </div>
+        </div>
+      </div>
+      <p class="anota">Licença livre para uso comercial. Os arquivos estão em
+        <code>assets/fonte/</code>: OTF e TTF para instalar, WOFF2 para web.</p>
+    </div>
+
+    <div class="secao">
+      <h2>Escala em tela</h2>
+      <p>Em página de documentação, o título pesa menos: página e seção em Playfair medium.
+        Hero, abertura de peça e chamada gritante seguem no display bold.</p>
+      <div class="ramp">
+        <div class="nivel"><div class="esp api-display">Título de abertura</div><div class="meta"><span class="tok">display</span>Playfair 48 · 700 · entrelinha 1,15 · tracking −0,96px</div></div>
+        <div class="nivel"><div class="esp api-secao">Título de seção</div><div class="meta"><span class="tok">secao</span>Playfair 36 · 700 · 1,20 · −0,72px</div></div>
+        <div class="nivel"><div class="esp api-titulo">Título de bloco e de card</div><div class="meta"><span class="tok">titulo</span>Inter 28 · 600 · 1,30 (Inter, não Playfair)</div></div>
+        <div class="nivel"><div class="esp api-titulo-documento">Título de página de documentação</div><div class="meta"><span class="tok">titulo-documento</span>Playfair 36 · 500 · 1,20 · −0,4px</div></div>
+        <div class="nivel"><div class="esp api-titulo-de-secao">Título de seção em documentação</div><div class="meta"><span class="tok">titulo-de-secao</span>Playfair 28 · 500 · 1,25 · −0,4px</div></div>
+        <div class="nivel"><div class="esp api-subtitulo">Subtítulo dentro de seção</div><div class="meta"><span class="tok">subtitulo</span>Inter 19 · 500 · 1,35</div></div>
+        <div class="nivel"><div class="esp api-titulo-pagina">Título de página na barra de topo</div><div class="meta"><span class="tok">titulo-pagina</span>Playfair 26 · 400 · 1,20</div></div>
+        <div class="nivel"><div class="esp api-citacao">Citação, frase isolada</div><div class="meta"><span class="tok">citacao</span>Playfair 22 · 400 itálico · 1,45</div></div>
+        <div class="nivel"><div class="esp api-corpo-grande" style="color:var(--api-texto)">Parágrafo de abertura, o primeiro da peça.</div><div class="meta"><span class="tok">corpo-grande</span>Inter 19 · 400 · 1,60</div></div>
+        <div class="nivel"><div class="esp api-corpo" style="color:var(--api-texto)">Leitura corrida, o corpo padrão de todo texto.</div><div class="meta"><span class="tok">corpo</span>Inter 17 · 400 · 1,60</div></div>
+        <div class="nivel"><div class="esp api-corpo-pequeno" style="color:var(--api-texto)">Célula de tabela e texto de apoio.</div><div class="meta"><span class="tok">corpo-pequeno</span>Inter 15 · 400 · 1,50</div></div>
+        <div class="nivel"><div class="esp api-rotulo">Rótulo de seção</div><div class="meta"><span class="tok">rotulo</span>Inter 13 · 600 · tracking 4px · caixa alta</div></div>
+        <div class="nivel"><div class="esp api-numero-grande">R$ 48,2 mi</div><div class="meta"><span class="tok">numero-grande</span>Inter 40 · 700 · −0,4px · figuras tabulares</div></div>
+        <div class="nivel"><div class="esp api-numero">11,4%</div><div class="meta"><span class="tok">numero</span>Inter 17 · 700 · figuras tabulares</div></div>
+        <div class="nivel"><div class="esp api-botao">Rótulo de botão</div><div class="meta"><span class="tok">botao</span>Inter 17 · 600</div></div>
+        <div class="nivel"><div class="esp api-botao-pequeno">Rótulo de botão compacto</div><div class="meta"><span class="tok">botao-pequeno</span>Inter 15 · 600</div></div>
+        <div class="nivel"><div class="esp api-legenda" style="color:var(--api-texto-fraco)">Fonte, nota, crédito.</div><div class="meta"><span class="tok">legenda</span>Inter 14 · 400 · 1,40</div></div>
+      </div>
+    </div>
+
+    <div class="secao">
+      <h2>Escala impressa (A4, 300 dpi)</h2>
+      <table class="espec">
+        <thead><tr><th>Nível</th><th>Tamanho e entrelinha</th></tr></thead>
+        <tbody>
+          <tr><td>Título</td><td>Playfair Display Bold 130</td></tr>
+          <tr><td>Linha-fina</td><td>Inter Regular 44 / 1,40</td></tr>
+          <tr><td>Corpo</td><td>Inter Regular 34 / 1,62</td></tr>
+          <tr><td>Citação</td><td>Playfair Display Italic 56</td></tr>
+          <tr><td>Rótulo de seção</td><td>Inter SemiBold 28, tracking 4</td></tr>
+          <tr><td>Legenda</td><td>Inter Regular 24, em texto fraco</td></tr>
+        </tbody>
+      </table>
+      <p class="anota">Alinhamento à esquerda, sem justificar.</p>
+    </div>
+
+    <div class="secao">
+      <h2>Princípios</h2>
+      <ul>
+        <li><strong>Tracking negativo no título.</strong> De −0,96 px em 48 px até 0 no corpo,
+          proporcional ao tamanho. É o que dá acabamento ao título grande.</li>
+        <li><strong>Figuras tabulares em número.</strong> <code>font-feature-settings: "tnum"</code>
+          em toda célula com dinheiro, contagem ou percentual. Sem isso, a coluna de número dança.</li>
+        <li><strong>Número apresentado sai em Inter.</strong> A exceção é o número dentro de uma
+          frase que já esteja em Playfair.</li>
+        <li><strong>Duas famílias.</strong> Uma terceira quebra o sistema. A Playfair embarcada
+          cobre os seis pesos e os dois itálicos; consuma o peso que o token declara, nunca um
+          sintetizado.</li>
+      </ul>
+    </div>
+
+    <div class="secao">
+      <h2>Número, moeda e data</h2>
+      <table class="espec">
+        <thead><tr><th>O que</th><th>Assim</th><th>Nunca</th></tr></thead>
+        <tbody>
+          <tr><td>Decimal</td><td>11,4%</td><td>11.4%</td></tr>
+          <tr><td>Milhar</td><td>1.250.000</td><td>1,250,000</td></tr>
+          <tr><td>Moeda</td><td>R$ 1.250,00</td><td>R$1250.00</td></tr>
+          <tr><td>Percentual</td><td>11,4%</td><td>11,4 %</td></tr>
+          <tr><td>Variação</td><td>+3,0 p.p.</td><td>+3,0pp</td></tr>
+          <tr><td>Data</td><td>31/07/2026 em tabela · 31 de julho de 2026 em texto</td><td>07/31/2026</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+
+<script>
+fetch('/nav.html', {cache: 'no-store'}).then(r => r.text()).then(html => {
+  const alvo = document.getElementById('nav-lateral');
+  alvo.outerHTML = html;
+  const atual = document.querySelector('[data-nav="tipografia"]');
+  if (atual) atual.classList.add('ativo');
+});
+</script>
+</body>
+</html>

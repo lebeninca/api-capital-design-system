@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Avisos · Design System API Capital</title>
+<link rel="icon" href="/assets/favicon/svg/api_capital_favicon.svg">
+<link rel="stylesheet" href="/tokens/api-capital.css">
+<link rel="stylesheet" href="/docs.css">
+<style>
+.avisos{display:flex;flex-direction:column;gap:24px;max-width:640px;}
+.aviso-corpo{display:flex;gap:12px;align-items:flex-start;}
+.aviso-corpo svg{width:20px;height:20px;flex:none;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-top:2px;}
+.api-aviso-erro svg{stroke:var(--api-erro);}
+.api-aviso-ok svg{stroke:var(--api-ok);}
+.aviso-corpo .tit{font-weight:600;margin-bottom:2px;}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="dentro">
+    <a href="/"><img src="/assets/logo/svg/api_capital_logo01_azul.svg" alt="API Capital"></a>
+    <a class="nome" href="/">Design System</a>
+    <a class="acao" href="/como-utilizar/usando-claude/">Baixar a skill</a>
+  </div>
+</header>
+
+<div class="casco">
+  <div id="nav-lateral"></div>
+
+  <main class="conteudo">
+    <div class="subcabecalho">
+      <h1>Avisos</h1>
+      <p class="linhafina">Mensagens de erro e de confirmação. Todo aviso tem ícone, título e o
+        que fazer: a cor sozinha não comunica.</p>
+      <hr class="fio">
+    </div>
+
+    <div class="secao">
+      <h2>Erro e confirmação</h2>
+      <div class="palco">
+        <div class="avisos">
+          <div class="api-aviso-erro">
+            <div class="aviso-corpo">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+              <div>
+                <div class="tit">O envio não fechou</div>
+                A data de nascimento está vazia. Preencha o campo e envie de novo.
+              </div>
+            </div>
+          </div>
+          <div class="api-aviso-ok">
+            <div class="aviso-corpo">
+              <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <div>
+                <div class="tit">Proposta enviada</div>
+                O cliente recebe por e-mail em alguns minutos. Nada mais a fazer aqui.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <table class="espec">
+        <thead><tr><th>Componente</th><th>Borda</th><th>Quando</th></tr></thead>
+        <tbody>
+          <tr><td>aviso-erro</td><td>1 px em <code>--api-erro</code></td><td>Erro e alerta</td></tr>
+          <tr><td>aviso-ok</td><td>1 px em <code>--api-ok</code></td><td>Confirmação</td></tr>
+        </tbody>
+      </table>
+      <p class="anota">Fundo branco, canto de 15, respiro de 16 px. Ícone Lucide na cor do
+        estado.</p>
+    </div>
+
+    <div class="secao">
+      <h2>Regras</h2>
+      <ul>
+        <li><strong>Ícone, título e o que fazer</strong>: os três, sempre.</li>
+        <li>Erro, sucesso e alerta se dizem em texto, não só em cor.</li>
+        <li>Faixa colorida na lateral ou no topo é veto.</li>
+      </ul>
+    </div>
+  </main>
+</div>
+
+<script>
+fetch('/nav.html', {cache: 'no-store'}).then(r => r.text()).then(html => {
+  const alvo = document.getElementById('nav-lateral');
+  alvo.outerHTML = html;
+  const atual = document.querySelector('[data-nav="avisos"]');
+  if (atual) atual.classList.add('ativo');
+});
+</script>
+</body>
+</html>

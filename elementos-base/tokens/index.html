@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tokens · Design System API Capital</title>
+<link rel="icon" href="/assets/favicon/svg/api_capital_favicon.svg">
+<link rel="stylesheet" href="/tokens/api-capital.css">
+<link rel="stylesheet" href="/docs.css">
+</head>
+<body>
+
+<header class="topo">
+  <div class="dentro">
+    <a href="/"><img src="/assets/logo/svg/api_capital_logo01_azul.svg" alt="API Capital"></a>
+    <a class="nome" href="/">Design System</a>
+    <a class="acao" href="/como-utilizar/usando-claude/">Baixar a skill</a>
+  </div>
+</header>
+
+<div class="casco">
+  <div id="nav-lateral"></div>
+
+  <main class="conteudo">
+    <div class="subcabecalho">
+      <h1>Tokens</h1>
+      <p class="linhafina">Todo valor do sistema (cor, tipografia, espaço, forma) vive em uma
+        folha única de estilo. Consuma o token, nunca escreva o valor.</p>
+      <hr class="fio">
+    </div>
+
+    <div class="secao">
+      <h2>Passo 1: importar a folha</h2>
+      <p>Uma linha traz o sistema inteiro: as fontes (@font-face), as variáveis e as classes
+        de componente:</p>
+      <div class="codigo">&lt;link rel="stylesheet" href="https://design.apicapital.com.br/tokens/api-capital.css"&gt;</div>
+      <p class="anota">A folha importa <code>fontes.css</code>, <code>tokens.css</code> e
+        <code>componentes.css</code>. A peça bebe do endereço, não de cópia.</p>
+    </div>
+
+    <div class="secao">
+      <h2>Passo 2: consumir variável</h2>
+      <p>Toda variável tem o prefixo <code>--api-</code>. Use a variável de papel, nunca o hex:</p>
+      <div class="codigo">color: var(--api-texto);
+background: var(--api-fundo-bloco);
+border-radius: var(--api-canto);
+gap: var(--api-x6);</div>
+      <p class="anota"><code>var(--api-acao)</code>, não <code>#0D2A54</code>. Valor que não
+        existe no sistema é erro. Se faltar um, pergunte, não invente.</p>
+    </div>
+
+    <div class="secao">
+      <h2>Passo 3: usar as classes de componente</h2>
+      <p>Os componentes declarados existem como classes <code>.api-*</code>, e a tipografia
+        como classes de nível:</p>
+      <div class="codigo">&lt;button class="api-botao-primario"&gt;Enviar proposta&lt;/button&gt;
+&lt;h1 class="api-display"&gt;Título de abertura&lt;/h1&gt;
+&lt;p class="api-corpo"&gt;Leitura corrida.&lt;/p&gt;</div>
+      <p class="anota">Use <code>.api-botao-primario</code>, não um botão novo.</p>
+    </div>
+
+    <div class="secao">
+      <h2>Os arquivos</h2>
+      <table class="espec">
+        <thead><tr><th>Arquivo</th><th>O que traz</th></tr></thead>
+        <tbody>
+          <tr><td>tokens/api-capital.css</td><td>A porta de entrada: importa as três folhas abaixo</td></tr>
+          <tr><td>tokens/fontes.css</td><td>@font-face de Playfair Display e Inter</td></tr>
+          <tr><td>tokens/tokens.css</td><td>As variáveis e as classes de tipografia</td></tr>
+          <tr><td>tokens/componentes.css</td><td>As classes <code>.api-*</code> de componente</td></tr>
+          <tr><td>tokens/tokens.json</td><td>Os mesmos valores em JSON, para ferramenta</td></tr>
+        </tbody>
+      </table>
+      <p>Os arquivos são gerados a partir do <code>DESIGN.md</code>, que é a fonte única.
+        Não se editam à mão.</p>
+    </div>
+  </main>
+</div>
+
+<script>
+fetch('/nav.html', {cache: 'no-store'}).then(r => r.text()).then(html => {
+  const alvo = document.getElementById('nav-lateral');
+  alvo.outerHTML = html;
+  const atual = document.querySelector('[data-nav="tokens"]');
+  if (atual) atual.classList.add('ativo');
+});
+</script>
+</body>
+</html>
