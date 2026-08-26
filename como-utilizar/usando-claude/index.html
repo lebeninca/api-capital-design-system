@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Usando Claude · Design System API Capital</title>
+<link rel="icon" href="/assets/favicon/svg/api_capital_favicon.svg">
+<link rel="stylesheet" href="/tokens/api-capital.css">
+<link rel="stylesheet" href="/docs.css">
+<style>
+.secao p,.secao li{font-size:17px;line-height:1.6;color:var(--api-texto);max-width:72ch;}
+.secao ol{padding-left:22px;margin:0 0 24px;max-width:72ch;}
+.secao li{margin-bottom:12px;}
+.secao a{color:var(--api-acao-secundaria);}
+.botao{display:inline-block;margin-top:16px;text-decoration:none;
+       background:var(--api-acao);color:var(--api-sobre-escuro) !important;
+       padding:14px 28px;border-radius:var(--api-canto);
+       font-family:var(--api-corpo-font-family);font-weight:600;}
+.botao:hover{background:var(--api-acao-hover);}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="dentro">
+    <a href="/"><img src="/assets/logo/svg/api_capital_logo01_azul.svg" alt="API Capital"></a>
+    <a class="nome" href="/">Design System</a>
+    <a class="acao" href="/como-utilizar/usando-claude/">Baixar a skill</a>
+  </div>
+</header>
+
+<div class="casco">
+  <div id="nav-lateral"></div>
+
+  <main class="conteudo secao">
+    <div class="subcabecalho">
+      <h1>Usando Claude</h1>
+      <p class="linhafina">Instale a skill uma vez e produza peças no padrão da API Capital em
+        qualquer conversa com o Claude.</p>
+      <hr class="fio">
+    </div>
+
+    <p>Instale uma vez e peça as peças em português, todo dia, em qualquer conversa:
+      <em>“faz uma proposta comercial com a cara da API Capital”</em>.</p>
+    <ol>
+      <li>Baixe a skill no botão abaixo.</li>
+      <li>No Claude, abra <strong>Configurações → Recursos → Skills</strong> e suba o arquivo
+        <code>.zip</code>. Se a opção não aparecer, ligue <strong>execução de código</strong> na
+        mesma tela. Já tinha uma versão instalada? Apague a antiga antes de subir.</li>
+      <li>Pronto. É só pedir.</li>
+    </ol>
+    <p style="font-size:15px;">A skill não guarda o design system dentro dela: lê tudo deste
+      endereço a cada trabalho. Mudou aqui, mudou na próxima peça, sem baixar nada de novo. Ela
+      só avisa quando a própria skill tiver versão nova.</p>
+    <a class="botao" href="/skill/api-capital-claude-skill.zip">Baixar a skill</a>
+    <p style="font-size:15px;margin-top:24px;">Prefere não instalar nada? O texto para colar nas
+      instruções de um Projeto está em <a href="/PROMPT.md">PROMPT.md</a>.</p>
+  </main>
+</div>
+
+<script>
+fetch('/nav.html', {cache: 'no-store'}).then(r => r.text()).then(html => {
+  document.getElementById('nav-lateral').outerHTML = html;
+  const atual = document.querySelector('[data-nav="usando-claude"]');
+  if (atual) atual.classList.add('ativo');
+});
+</script>
+</body>
+</html>

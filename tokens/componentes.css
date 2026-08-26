@@ -342,11 +342,11 @@
 }
 
 .api-barra-topo {
-  font-family: var(--api-titulo-font-family);
-  font-size: var(--api-titulo-font-size);
-  font-weight: var(--api-titulo-font-weight);
-  line-height: var(--api-titulo-line-height);
-  letter-spacing: var(--api-titulo-letter-spacing);
+  font-family: var(--api-titulo-pagina-font-family);
+  font-size: var(--api-titulo-pagina-font-size);
+  font-weight: var(--api-titulo-pagina-font-weight);
+  line-height: var(--api-titulo-pagina-line-height);
+  letter-spacing: var(--api-titulo-pagina-letter-spacing);
   background-color: var(--api-fundo-escuro);
   color: var(--api-sobre-escuro);
   padding: 0 40px;
@@ -354,6 +354,31 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+.api-content-card {
+  font-family: var(--api-corpo-font-family);
+  font-size: var(--api-corpo-font-size);
+  font-weight: var(--api-corpo-font-weight);
+  line-height: var(--api-corpo-line-height);
+  letter-spacing: var(--api-corpo-letter-spacing);
+  background-color: var(--api-fundo);
+  color: var(--api-texto);
+  border-radius: var(--api-canto);
+  padding: 40px;
+}
+
+.api-content-card-numero {
+  font-family: var(--api-numero-grande-font-family);
+  font-size: var(--api-numero-grande-font-size);
+  font-weight: var(--api-numero-grande-font-weight);
+  line-height: var(--api-numero-grande-line-height);
+  letter-spacing: var(--api-numero-grande-letter-spacing);
+  font-feature-settings: "tnum";
+  background-color: var(--api-fundo);
+  color: var(--api-azul);
+  border-radius: var(--api-canto);
+  padding: 40px;
 }
 
 .api-numero-passo {

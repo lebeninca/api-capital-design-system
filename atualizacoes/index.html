@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atualizações · Design System API Capital</title>
+<link rel="icon" href="/assets/favicon/svg/api_capital_favicon.svg">
+<link rel="stylesheet" href="/tokens/api-capital.css">
+<link rel="stylesheet" href="/docs.css">
+<style>
+.secao h2{font-family:var(--api-titulo-de-secao-font-family);font-size:var(--api-titulo-de-secao-font-size);font-weight:var(--api-titulo-de-secao-font-weight);
+  letter-spacing:var(--api-titulo-de-secao-letter-spacing);color:var(--api-azul);margin:120px 0 24px;}
+.secao p,.secao li{font-size:17px;line-height:1.6;color:var(--api-texto);max-width:72ch;}
+.secao ul{padding-left:22px;margin:0 0 24px;}
+.secao li{margin-bottom:12px;}
+.repo{display:inline-flex;align-items:center;gap:10px;font-size:17px;font-weight:600;color:var(--api-acao-secundaria);text-decoration:none;}
+.repo svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+
+.versao{margin:0 0 64px;}
+.versao .cabeca{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin:0 0 8px;}
+.versao .num{font-family:var(--api-numero-font-family);font-size:22px;font-weight:700;font-feature-settings:"tnum";color:var(--api-azul);}
+.versao .data{font-family:var(--api-legenda-font-family);font-size:var(--api-legenda-font-size);color:var(--api-texto-fraco);}
+.versao h3{font-family:var(--api-subtitulo-font-family);font-size:var(--api-subtitulo-font-size);font-weight:var(--api-subtitulo-font-weight);color:var(--api-azul);margin:0 0 16px;}
+.versao + .versao{border-top:1px solid var(--api-borda);padding-top:48px;}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="dentro">
+    <a href="/"><img src="/assets/logo/svg/api_capital_logo01_azul.svg" alt="API Capital"></a>
+    <a class="nome" href="/">Design System</a>
+    <a class="acao" href="/como-utilizar/usando-claude/">Baixar a skill</a>
+  </div>
+</header>
+
+<div class="casco">
+  <div id="nav-lateral"></div>
+
+  <main class="conteudo secao">
+    <div class="subcabecalho">
+      <h1>Atualizações</h1>
+      <p class="linhafina">As últimas atualizações no Sistema de Design da API Capital e o
+        histórico de releases oficiais.</p>
+      <hr class="fio">
+    </div>
+
+    <p>O sistema vive num repositório público. Toda mudança passa por lá antes de chegar a
+      este site e à skill do Claude:</p>
+    <p><a class="repo" href="https://github.com/lebeninca/api-capital-design-system">
+      <svg viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+      github.com/lebeninca/api-capital-design-system</a></p>
+
+    <h2>Histórico de versões</h2>
+
+    <div class="versao">
+      <div class="cabeca"><span class="num">v1.2</span><span class="data">26 de agosto de 2026</span></div>
+      <h3>O site de documentação, os arquivos de logo justos e a régua de alinhamento</h3>
+      <p>O endereço deixa de ser uma página única e vira documentação navegável, e duas classes
+        de defeito recorrente nas peças geradas morrem pela raiz.</p>
+      <ul>
+        <li><strong>Site de documentação</strong> com barra lateral, sub-cabeçalho padrão e as
+          primeiras páginas: Cards de conteúdo, Barra de topo (padrão de navegação horizontal,
+          com anatomia e exemplos), Usando Claude e esta página de atualizações.</li>
+        <li><strong>Regra nova de alinhamento</strong>: toda borda de alinhamento é uma linha
+          só. Topo, navegação e conteúdo sentam na mesma vertical; elemento fora da vertical dos
+          vizinhos é defeito. Veto novo no catálogo: <code>borda-serrilhada</code>.</li>
+        <li><strong>Arquivos de logo justos</strong>: os 130 arquivos (SVG, PNG e PDF) foram
+          substituídos por versões em que o canvas é a caixa exata da arte. Dimensionar pelo
+          arquivo passou a dar o tamanho certo; a área livre virou régua de aplicação.</li>
+        <li><strong>Família content-card</strong>: o card de ferramenta e painel, sem contorno
+          sobre fundo cinza-claro, em oito variações, com as réguas de altura e de ação ancorada
+          na base.</li>
+        <li><strong>Barra de topo especificada</strong>: logo principal em 56/44/36 px por
+          altura de barra, título da página em Playfair regular alinhado ao texto da logo,
+          itens em Inter 500.</li>
+        <li><strong>Tipografia</strong>: tokens novos de documentação (título de página e de
+          seção em Playfair medium, subtítulo em Inter medium) e a Playfair embarcada nos seis
+          pesos. Hero e chamada de impacto seguem no display bold.</li>
+      </ul>
+    </div>
+
+    <div class="versao">
+      <div class="cabeca"><span class="num">v1.1</span><span class="data">26 de agosto de 2026</span></div>
+      <h3>Regras da primeira leva de uso real</h3>
+      <p>Os primeiros materiais produzidos por terceiros com o sistema expuseram os erros que a
+        regra ainda não barrava. Esta versão fecha esses buracos.</p>
+      <ul>
+        <li>Componente novo: <strong>barra de topo</strong> de ferramenta e página interna, com fundo azul-meia-noite, logo e título da página, sem subtítulo.</li>
+        <li>Componente novo: <strong>número de passo</strong>. O número entra no próprio título, em Inter tabular; a bolinha colorida com número dentro virou veto.</li>
+        <li>Componente novo: <strong>caixa de seleção</strong>. Checkbox branco com marca em azul; checkbox em latão virou veto.</li>
+        <li>Regra nova: <strong>o latão é detalhe, não segunda cor</strong>, com veto a latão em
+          botão, rótulo, borda ou espalhado pela tela.</li>
+        <li>Regra nova: <strong>formulário sem caixa dentro de caixa</strong>. Grupo de campos
+          se marca com título e espaço, nunca com um segundo fundo cinza.</li>
+        <li>Regra nova: botão é um dos cinco declarados; botão inventado virou veto. Anexo usa
+          ícone Lucide, nunca emoji.</li>
+        <li>O catálogo anti-slop foi de 48 para 55 vetos.</li>
+      </ul>
+    </div>
+
+    <div class="versao">
+      <div class="cabeca"><span class="num">v1.0</span><span class="data">25 de agosto de 2026</span></div>
+      <h3>Lançamento do Design System</h3>
+      <p>O sistema sai do repositório interno e vira produto público, em domínio próprio, para
+        qualquer pessoa ou Claude da API Capital consumir.</p>
+      <ul>
+        <li>Primeiro upload para o GitHub, em repositório público, com GitHub Pages e HTTPS em
+          <strong>design.apicapital.com.br</strong>.</li>
+        <li><code>DESIGN.md</code> completo: tokens de cor com cadeia semântica, escala
+          tipográfica, espaço, forma e os componentes declarados.</li>
+        <li><code>ANTI_SLOP_VISUAL.md</code>: o catálogo de vetos visuais, com teste declarado
+          por veto.</li>
+        <li>Biblioteca de ativos: logos, ícones (com a Lucide completa), texturas, gradientes,
+          fotos, wallpapers, social e favicon: 2.147 arquivos indexados por URL no
+          <code>INDICE_ATIVOS.md</code>.</li>
+        <li>Folha única de consumo em código: <code>tokens/api-capital.css</code> (fontes,
+          variáveis e classes de componente).</li>
+        <li>Skill do Claude v3, ponteiro puro: lê o sistema deste endereço a cada trabalho, sem
+          cópia embutida.</li>
+      </ul>
+    </div>
+
+  </main>
+</div>
+
+<script>
+fetch('/nav.html', {cache: 'no-store'}).then(r => r.text()).then(html => {
+  document.getElementById('nav-lateral').outerHTML = html;
+  const atual = document.querySelector('[data-nav="atualizacoes"]');
+  if (atual) atual.classList.add('ativo');
+});
+</script>
+</body>
+</html>

@@ -8,14 +8,14 @@ https://design.apicapital.com.br/<caminho do arquivo>
 
 Exemplo: `https://design.apicapital.com.br/assets/logo/svg/api_capital_logo01_azul.svg`
 
-**A lista completa, com os 2147 arquivos, está em `ativos.json`** — no mesmo padrão de URL.
+**A lista completa, com os 2151 arquivos, está em `ativos.json`** — no mesmo padrão de URL.
 
 ## O que existe, por categoria
 
 | Categoria | Arquivos |
 |---|---|
 | `assets/favicon/` | 10 |
-| `assets/fonte/` | 13 |
+| `assets/fonte/` | 17 |
 | `assets/foto/` | 5 |
 | `assets/gradiente/` | 15 |
 | `assets/hero/` | 2 |

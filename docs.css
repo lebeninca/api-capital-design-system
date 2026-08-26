@@ -1,0 +1,65 @@
+/* Camada de documentação do design system (barra lateral + sub-cabeçalho).
+   Depende de tokens/api-capital.css. */
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--api-fundo); color: var(--api-texto);
+       font-family: var(--api-corpo-font-family); }
+
+/* topo do site: barra de topo clara de 72 px (padrão Sites e Aplicações · Barra de topo) */
+.topo { position: sticky; top: 0; z-index: 10; background: var(--api-fundo);
+        border-bottom: 1px solid var(--api-borda); height: 72px; padding: 0 40px;
+        display: flex; align-items: center; }
+.topo .dentro { display: flex; align-items: center; gap: 24px; width: 100%; }
+.topo img { height: 44px; display: block; }
+.topo .nome { font-family: var(--api-titulo-pagina-font-family); font-size: 24px;
+              font-weight: 400; color: var(--api-azul); text-decoration: none;
+              transform: translateY(1px); }
+.topo .acao { margin-left: auto; display: inline-flex; align-items: center;
+              height: 40px; padding: 0 20px; background: var(--api-acao);
+              color: var(--api-sobre-escuro); border-radius: var(--api-canto);
+              font-family: var(--api-botao-pequeno-font-family); font-size: 15px;
+              font-weight: 600; text-decoration: none; }
+.topo .acao:hover { background: var(--api-acao-hover); }
+
+/* casco: lateral + conteúdo */
+.casco { display: flex; align-items: flex-start; }
+
+.lateral { width: 280px; flex: none; padding: 32px 0 64px;
+           border-right: 1px solid var(--api-borda);
+           position: sticky; top: 73px; max-height: calc(100vh - 73px); overflow-y: auto; }
+.lateral ul { list-style: none; margin: 0; padding: 0; }
+.lateral li { margin: 0; }
+.lateral hr { border: 0; border-top: 1px solid var(--api-borda); margin: 16px 40px; }
+.lateral a, .lateral .nav-morto { display: block; padding: 8px 40px;
+       font-size: 14px; line-height: 1.35; text-decoration: none; }
+.lateral a { color: var(--api-texto); border-left: 2px solid transparent; padding-left: 38px; }
+.lateral a:hover { background: var(--api-fundo-secao); }
+.lateral a.ativo { border-left-color: var(--api-acao); font-weight: 600; color: var(--api-acao); }
+.nav-morto { color: var(--api-texto-fraco); cursor: default; }
+.nav-titulo { padding: 14px 40px 4px; font-size: 14px; font-weight: 600; color: var(--api-texto); }
+.nav-grupo ul a { padding-left: 54px; }
+.nav-grupo ul .nav-morto { padding-left: 56px; }
+.nav-sub a { padding-left: 70px !important; }
+.nav-sub .nav-morto { padding-left: 72px !important; }
+
+.conteudo { flex: 1; min-width: 0; padding: 48px 56px 96px; max-width: 1160px; }
+
+/* sub-cabeçalho de página interna, aos moldes da Visa */
+.subcabecalho { margin-bottom: 40px; }
+.subcabecalho h1 { font-family: var(--api-titulo-documento-font-family); font-size: var(--api-titulo-documento-font-size);
+                   font-weight: var(--api-titulo-documento-font-weight); letter-spacing: var(--api-titulo-documento-letter-spacing);
+                   color: var(--api-azul); margin: 0 0 8px; }
+.subcabecalho .linhafina { font-size: 17px; max-width: 72ch; color: var(--api-texto-fraco); margin: 0 0 24px; }
+.subcabecalho .fio { height: 1px; background: var(--api-azul); border: 0; margin: 0; }
+
+/* seções de exemplo */
+.secao-exemplo { margin: 48px 0 16px; font-size: 13px; font-weight: 600; letter-spacing: 2px;
+                 text-transform: uppercase; color: var(--api-texto-fraco); }
+.palco { background: var(--api-fundo-secao); border-radius: var(--api-canto); padding: 40px; }
+
+@media (max-width: 900px) {
+  .casco { display: block; }
+  .lateral { width: 100%; position: static; max-height: none;
+             border-right: 0; border-bottom: 1px solid var(--api-borda); }
+  .conteudo { padding: 32px 20px 64px; }
+}

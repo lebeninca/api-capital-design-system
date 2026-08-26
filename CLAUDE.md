@@ -50,3 +50,9 @@ um cabeçalho novo.
   gerados: edite o `DESIGN.md` e rode `python3 tokens/gerar_tokens.py`.
 - Acrescentar cor, fonte, tamanho ou efeito que não esteja no `DESIGN.md`.
 - Começar pelo ousado. O padrão é sóbrio; expressividade entra depois, e por pedido.
+
+## Ao publicar uma atualização
+
+**Toda publicação nova no GitHub ganha uma entrada em `atualizacoes/index.html`** (a página
+"O que há de novo?"): número da versão, data, um título curto e as mudanças em tópicos
+descritivos, a mais nova no topo. Publicar sem registrar a versão é erro.

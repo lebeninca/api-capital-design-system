@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cards de conteúdo · Design System API Capital</title>
+<link rel="icon" href="/assets/favicon/svg/api_capital_favicon.svg">
+<link rel="stylesheet" href="/tokens/api-capital.css">
+<link rel="stylesheet" href="/docs.css">
+<style>
+/* exemplos desta página */
+.ccard{background:var(--api-fundo);border-radius:var(--api-canto);padding:40px;}
+.ccard h2{font-family:var(--api-titulo-font-family);font-size:20px;font-weight:600;color:var(--api-azul);margin:0 0 4px;display:flex;align-items:center;gap:8px;}
+.ccard .linhafina{font-size:14px;color:var(--api-texto-fraco);margin-bottom:16px;}
+.ccard p{font-size:15px;line-height:1.6;margin:0 0 20px;}
+.acoes{display:flex;align-items:center;gap:20px;margin-top:24px;}
+.api-botao-primario{border:none;cursor:pointer;height:44px;font-size:15px;}
+.link-seta{display:inline-flex;align-items:center;gap:4px;color:var(--api-acao-secundaria);font-size:15px;font-weight:600;text-decoration:none;}
+svg.ic{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none;}
+svg.ic-g{width:40px;height:40px;stroke:var(--api-azul);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;margin-bottom:16px;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+@media(max-width:800px){.grid2,.grid3{grid-template-columns:1fr;}}
+.util{position:absolute;top:24px;right:24px;display:flex;gap:4px;}
+.util button{width:44px;height:44px;border:none;background:none;color:var(--api-acao);cursor:pointer;border-radius:var(--api-canto);display:inline-flex;align-items:center;justify-content:center;}
+.util button:hover{background:var(--api-fundo-bloco);}
+.pos{position:relative;}
+.clicavel{display:block;text-decoration:none;color:var(--api-texto);cursor:pointer;transition:background .15s;}
+.clicavel:hover{background:var(--api-fundo-bloco);}
+.clicavel:focus-visible{outline:3px solid var(--api-acao-secundaria);outline-offset:2px;}
+.desab,.desab p,.desab .linhafina{color:rgba(23,23,23,.4);}
+.desab h2{color:rgba(13,42,84,.4);}
+.categoria{display:inline-flex;align-items:center;gap:6px;font-size:14px;color:var(--api-texto-fraco);margin-bottom:16px;}
+.ccard.img{padding:0;overflow:hidden;}
+.ccard.img .foto{width:100%;height:180px;background:var(--api-areia) url('/assets/foto/png/api_capital_foto_ceu_nuvem.png') center/cover no-repeat;}
+.ccard.img .corpo-img{padding:32px 40px 40px;}
+.numero{font-family:Inter,system-ui,sans-serif;font-size:40px;font-weight:700;letter-spacing:-0.4px;font-feature-settings:"tnum";color:var(--api-azul);display:flex;align-items:baseline;gap:12px;}
+.tend{display:inline-flex;align-items:center;gap:4px;font-size:14px;font-weight:600;color:var(--api-ok);}
+.tend svg{width:14px;height:14px;stroke:var(--api-ok);}
+.rotulo-num{font-size:14px;color:var(--api-texto-fraco);margin-top:4px;}
+.regras{font-size:15px;line-height:1.6;}
+.regras li{margin-bottom:8px;}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="dentro">
+    <a href="/"><img src="/assets/logo/svg/api_capital_logo01_azul.svg" alt="API Capital"></a>
+    <a class="nome" href="/">Design System</a>
+    <a class="acao" href="/como-utilizar/usando-claude/">Baixar a skill</a>
+  </div>
+</header>
+
+<div class="casco">
+  <div id="nav-lateral"></div>
+
+  <main class="conteudo">
+    <div class="subcabecalho">
+      <h1>Cards de conteúdo</h1>
+      <p class="linhafina">O card de ferramenta, painel e página interna. Fundo da página em
+        cinza-claro, card branco sem contorno: quem separa é o degrau de fundo. Canto de 15,
+        zero sombra.</p>
+      <hr class="fio">
+    </div>
+
+    <div class="secao-exemplo">Padrão</div>
+    <div class="palco">
+      <div class="ccard" style="max-width:640px;">
+        <h2>Título do card</h2>
+        <div class="linhafina">Linha-fina opcional que descreve o título</div>
+        <p>Texto de corpo que desenvolve o assunto do card em uma ou duas frases, sem contorno
+          fino em volta de nada.</p>
+        <div class="acoes">
+          <button class="api-botao-primario">Ação principal</button>
+          <a class="link-seta" href="#">Ver detalhe <svg class="ic" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="secao-exemplo">Com botões de utilidade · Clicável · Desabilitado</div>
+    <div class="palco">
+      <div class="grid3">
+        <div class="ccard pos">
+          <div class="util">
+            <button title="Compartilhar"><svg class="ic" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" x2="12" y1="2" y2="15"/></svg></button>
+            <button title="Informação"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></button>
+          </div>
+          <h2>Com utilidade</h2>
+          <div class="linhafina">Até dois botões-ícone no canto</div>
+          <p>Ícones Lucide em botão-texto, 44 × 44.</p>
+        </div>
+        <a class="ccard clicavel" href="#">
+          <h2>Clicável <svg class="ic" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></h2>
+          <div class="linhafina">O card inteiro é o link</div>
+          <p>Sem botão dentro. Sobre: o fundo escurece pro cinza de quadro.</p>
+        </a>
+        <div class="ccard desab">
+          <h2 style="display:flex;align-items:center;gap:8px;">Desabilitado <svg class="ic" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></h2>
+          <div class="linhafina">Texto a 40%, cadeado no título</div>
+          <p>Recurso indisponível, sem cursor de mão.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="secao-exemplo">Com categoria · Com ícone</div>
+    <div class="palco">
+      <div class="grid2">
+        <div class="ccard">
+          <h2>Com categoria</h2>
+          <div class="categoria"><svg class="ic" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Consultoria de investimentos</div>
+          <p>A categoria entra abaixo do título, como linha-fina com ícone. Antetítulo é vetado
+            no sistema.</p>
+          <div class="acoes">
+            <button class="api-botao-primario">Ação principal</button>
+            <a class="link-seta" href="#">Ver detalhe <svg class="ic" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></a>
+          </div>
+        </div>
+        <div class="ccard">
+          <svg class="ic-g" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <h2>Com ícone</h2>
+          <p>Ícone Lucide de 40 px em azul no canto superior esquerdo; o conteúdo desce. A
+            variação com o ícone na base senta o ícone no canto inferior direito do card,
+            fora da margem interna.</p>
+          <a class="link-seta" href="#">Ver detalhe <svg class="ic" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="secao-exemplo">Com imagem · Número (dashboard)</div>
+    <div class="palco">
+      <div class="grid2">
+        <div class="ccard img">
+          <div class="foto"></div>
+          <div class="corpo-img">
+            <h2>Com imagem</h2>
+            <div class="linhafina">Imagem no topo, largura total, no máximo metade da altura</div>
+            <p>Depois, a anatomia normal do card.</p>
+            <div class="acoes">
+              <button class="api-botao-primario">Ação principal</button>
+              <a class="link-seta" href="#">Ver detalhe <svg class="ic" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="ccard">
+          <h2>Patrimônio sob consultoria</h2>
+          <div class="linhafina">Card de número, pro dashboard</div>
+          <div class="numero">R$ 48,2 mi
+            <span class="tend"><svg class="ic" viewBox="0 0 24 24"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>+4,1%</span>
+          </div>
+          <div class="rotulo-num">contra o mês anterior</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="secao-exemplo">Regras</div>
+    <ul class="regras">
+      <li>Em página de ferramenta o fundo é o cinza-claro <code>#F4F4F4</code> e o card é branco,
+        sem contorno. Grupo interno se marca com título e espaço, nunca com um segundo fundo.</li>
+      <li>Card com botão, ícone ou imagem é alto: o conteúdo respira na vertical. A ação ancora
+        na base do card, com respiro acima; antes do corpo entra um degrau de espaço.</li>
+      <li>Não existe a variação com faixa colorida na base. No card de número, verde e vermelho
+        só na tendência, sempre com o valor escrito ao lado.</li>
+      <li>Máximo de um card de destaque escuro por tela. Canto de 15 px, zero sombra, sempre.</li>
+    </ul>
+  </main>
+</div>
+
+<script>
+fetch('/nav.html', {cache: 'no-store'}).then(r => r.text()).then(html => {
+  const alvo = document.getElementById('nav-lateral');
+  alvo.outerHTML = html;
+  const atual = document.querySelector('[data-nav="cards-de-conteudo"]');
+  if (atual) atual.classList.add('ativo');
+});
+</script>
+</body>
+</html>

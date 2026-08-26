@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Barra de topo · Design System API Capital</title>
+<link rel="icon" href="/assets/favicon/svg/api_capital_favicon.svg">
+<link rel="stylesheet" href="/tokens/api-capital.css">
+<link rel="stylesheet" href="/docs.css">
+<style>
+/* hierarquia da página, nos tokens do sistema */
+.secao h2{font-family:var(--api-titulo-de-secao-font-family);font-size:var(--api-titulo-de-secao-font-size);font-weight:var(--api-titulo-de-secao-font-weight);
+  letter-spacing:var(--api-titulo-de-secao-letter-spacing);color:var(--api-azul);margin:120px 0 24px;}
+.secao h3{font-family:var(--api-subtitulo-font-family);font-size:var(--api-subtitulo-font-size);font-weight:var(--api-subtitulo-font-weight);
+  color:var(--api-azul);margin:60px 0 16px;}
+.secao p,.secao li{font-size:17px;line-height:1.6;color:var(--api-texto);max-width:72ch;}
+.secao ul{padding-left:22px;margin:0 0 24px;}
+.secao li{margin-bottom:12px;}
+.secao em.aka{color:var(--api-texto-fraco);font-style:normal;font-size:14px;}
+
+/* tabela do sistema: cabeçalho escuro, zebra, sem fio entre linhas */
+.espec{width:100%;border-collapse:collapse;font-size:15px;margin:24px 0 8px;}
+.espec th{background:var(--api-fundo-escuro);color:var(--api-sobre-escuro);
+  font-family:var(--api-rotulo-font-family);font-size:13px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;text-align:left;padding:12px 16px;}
+.espec td{padding:12px 16px;vertical-align:top;line-height:1.5;}
+.espec tbody tr:nth-child(even){background:var(--api-fundo-bloco);}
+.espec td:first-child{font-weight:600;white-space:nowrap;}
+
+/* palco de exemplo sobre a superfície de apoio */
+.palco{background:var(--api-fundo-secao);border-radius:var(--api-canto);padding:40px;margin:24px 0 4px;}
+.secao p.anota{font-family:var(--api-legenda-font-family);font-size:var(--api-legenda-font-size);line-height:var(--api-legenda-line-height);font-size:var(--api-legenda-font-size);color:var(--api-texto-fraco);max-width:none;margin:8px 0 32px;}
+
+/* exemplos de barra */
+.exemplo{border-radius:var(--api-canto);overflow:hidden;}
+.barra-clara,.barra-escura{height:72px;padding:0 40px;display:flex;align-items:center;gap:24px;}
+.barra-clara{background:var(--api-fundo);}
+.barra-escura{background:var(--api-fundo-escuro);}
+.barra-clara img,.barra-escura img{height:44px;display:block;}
+.tp{font-family:var(--api-titulo-pagina-font-family);font-size:24px;font-weight:400;transform:translateY(1px);}
+.barra-clara .tp{color:var(--api-azul);}
+.barra-escura .tp{color:var(--api-sobre-escuro);}
+.itens{display:flex;gap:32px;margin-left:auto;align-items:center;font-family:Inter,system-ui,sans-serif;font-size:15px;font-weight:500;}
+.barra-clara .itens a{color:var(--api-texto);text-decoration:none;padding:26px 0 24px;border-bottom:2px solid transparent;}
+.barra-clara .itens a.ativo{color:var(--api-acao);border-bottom-color:var(--api-acao);font-weight:600;}
+.barra-escura .itens a{color:var(--api-sobre-escuro);text-decoration:none;padding:26px 0 24px;border-bottom:2px solid transparent;}
+.barra-escura .itens a.ativo{border-bottom-color:var(--api-destaque);font-weight:600;}
+.acao-clara{background:var(--api-acao);color:var(--api-sobre-escuro);border:none;border-radius:var(--api-canto);height:40px;padding:0 20px;font-family:var(--api-botao-pequeno-font-family);font-size:15px;font-weight:600;cursor:pointer;}
+.acao-escura{background:var(--api-branco);color:var(--api-azul);border:none;border-radius:var(--api-canto);height:40px;padding:0 20px;font-size:15px;font-weight:600;cursor:pointer;}
+/* empilhada */
+.empilhada .nivel1{height:64px;padding:0 40px;display:flex;align-items:center;gap:24px;background:var(--api-fundo);}
+.empilhada .nivel2{height:56px;padding:0 40px;display:flex;align-items:center;gap:32px;background:var(--api-fundo);border-top:1px solid var(--api-borda);font-family:Inter,system-ui,sans-serif;font-size:15px;font-weight:500;}
+.empilhada .nivel2 a{color:var(--api-texto);text-decoration:none;padding:18px 0 16px;border-bottom:2px solid transparent;}
+.empilhada .nivel2 a.ativo{color:var(--api-acao);border-bottom-color:var(--api-acao);font-weight:600;}
+.empilhada .utils{margin-left:auto;display:flex;gap:8px;align-items:center;}
+.botao-icone{width:44px;height:44px;border:none;background:none;color:var(--api-acao);cursor:pointer;border-radius:var(--api-canto);display:inline-flex;align-items:center;justify-content:center;}
+.botao-icone:hover{background:var(--api-fundo-bloco);}
+svg.ic{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none;}
+/* menu suspenso aberto */
+.menu-demo{position:relative;display:inline-block;}
+.menu-demo .gatilho{display:inline-flex;align-items:center;gap:6px;font-family:Inter,system-ui,sans-serif;font-size:15px;font-weight:500;color:var(--api-texto);}
+.menu-caixa{margin-top:8px;background:var(--api-fundo);border:1px solid var(--api-borda);border-radius:var(--api-canto);min-width:240px;padding:8px 0;}
+.menu-caixa a{display:block;padding:10px 20px;font-size:15px;color:var(--api-texto);text-decoration:none;}
+.menu-caixa a:hover{background:var(--api-fundo-secao);}
+
+
+/* figura de anatomia */
+.anat{position:relative;}
+.anat .alvo{position:relative;display:inline-flex;align-items:center;align-self:stretch;}
+.anat .marca{position:absolute;top:-56px;left:50%;transform:translateX(-50%);width:24px;height:24px;border:1px solid var(--api-azul);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:Inter,system-ui,sans-serif;font-size:13px;font-weight:500;color:var(--api-azul);background:var(--api-fundo);}
+.anat .barra-clara{overflow:visible;margin-top:64px;border-radius:var(--api-canto);}
+.anat .linha{position:absolute;top:-32px;left:50%;width:1px;background:var(--api-azul);opacity:.35;}
+
+/* Certo / Errado: avisos do sistema (borda na cor do estado, texto junto da cor) */
+.par{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:24px 0;}
+@media(max-width:800px){.par{grid-template-columns:1fr;}}
+.veredito{background:var(--api-fundo);border:1px solid var(--api-borda);border-radius:var(--api-canto);padding:24px;}
+.veredito.ok{border-color:var(--api-ok);}
+.veredito.erro{border-color:var(--api-erro);}
+.veredito .selo{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;margin-bottom:12px;}
+.veredito.ok .selo{color:var(--api-ok);}
+.veredito.erro .selo{color:var(--api-erro);}
+.veredito p{margin:0;font-size:15px;}
+.veredito .mostra{background:var(--api-fundo-secao);border-radius:var(--api-canto);padding:20px;margin-bottom:14px;font-size:15px;}
+
+/* diretrizes relacionadas: content cards do sistema */
+.relacionadas{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:16px;}
+@media(max-width:800px){.relacionadas{grid-template-columns:1fr;}}
+.relacionadas .ccard{background:var(--api-fundo-secao);border-radius:var(--api-canto);padding:32px;}
+.relacionadas h4{font-family:var(--api-titulo-font-family);font-size:17px;font-weight:600;color:var(--api-azul);margin:0 0 8px;}
+.relacionadas p{font-size:14px;color:var(--api-texto-fraco);margin:0;}
+.chev{display:inline-flex;align-items:center;gap:10px;background:var(--api-fundo);border-radius:var(--api-canto);padding:14px 20px;font-size:15px;font-weight:600;color:var(--api-texto);}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="dentro">
+    <a href="/"><img src="/assets/logo/svg/api_capital_logo01_azul.svg" alt="API Capital"></a>
+    <a class="nome" href="/">Design System</a>
+    <a class="acao" href="/como-utilizar/usando-claude/">Baixar a skill</a>
+  </div>
+</header>
+
+<div class="casco">
+  <div id="nav-lateral"></div>
+
+  <main class="conteudo secao">
+    <div class="subcabecalho">
+      <h1>Barra de topo</h1>
+      <p class="linhafina">Menu fixo no topo de sites, ferramentas e aplicações da API Capital,
+        que identifica a experiência e leva às áreas principais. Não se inventa cabeçalho: toda
+        página abre com esta barra, clara ou escura.</p>
+      <hr class="fio">
+    </div>
+
+    <p>A barra de topo é o contêiner de navegação horizontal da casa. Em site institucional e
+      documentação a barra é <strong>clara</strong> (fundo branco com fio inferior); em
+      ferramenta, gerador e painel, é <strong>escura</strong> (azul-meia-noite).</p>
+    <p><em class="aka">Também conhecida como: navegação horizontal, menu horizontal, top
+      navigation bar, cabeçalho de aplicação.</em></p>
+
+    <h2>Anatomia</h2>
+
+    <div class="palco anat">
+      <div class="exemplo" style="overflow:visible;">
+        <div class="barra-clara" style="border:1px solid var(--api-borda);">
+          <span class="alvo"><span class="marca">A</span><i class="linha" style="height:42px"></i><img src="/assets/logo/svg/api_capital_logo01_azul.svg" alt="API Capital" style="height:44px;"></span>
+          <span class="alvo"><span class="marca">B</span><i class="linha" style="height:48px"></i><span class="tp">Design System</span></span>
+          <nav class="itens">
+            <span class="alvo"><span class="marca">C</span><i class="linha" style="height:54px"></i><a href="#" class="ativo">Componentes</a></span>
+            <span class="alvo"><span class="marca">D</span><i class="linha" style="height:54px"></i><a href="#" style="display:inline-flex;align-items:center;gap:6px;">Padrões <svg class="ic" viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="m6 9 6 6 6-6"/></svg></a></span>
+            <span class="alvo"><span class="marca">E</span><i class="linha" style="height:42px"></i><button class="botao-icone" title="Buscar"><svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></button></span>
+            <span class="alvo"><span class="marca">F</span><i class="linha" style="height:42px"></i><button class="botao-icone" title="Perfil"><svg class="ic" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></button></span>
+            <span class="alvo"><span class="marca">G</span><i class="linha" style="height:44px"></i><button class="acao-clara">Baixar a skill</button></span>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <ul>
+      <li><strong>A · Logo</strong> (obrigatória): a marca da API Capital. Leva à página inicial da experiência.</li>
+      <li><strong>B · Título da página</strong> (obrigatório em ferramenta): nomeia a aplicação
+        ou a página, ao lado da logo.</li>
+      <li><strong>C · Item de navegação</strong> (opcional): link com o nome da página de
+        destino.</li>
+      <li><strong>D · Menu de navegação</strong> (opcional): item que abre para mostrar links
+        aninhados sob uma categoria.</li>
+      <li><strong>E · Busca global</strong> (opcional): botão-ícone Lucide <code>search</code>
+        que abre a busca do site inteiro.</li>
+      <li><strong>F · Perfil do usuário</strong> (opcional, em aplicação logada): a conta de quem
+        usa.</li>
+      <li><strong>G · Uma ação</strong> (opcional): sempre à direita, a mesma em todos os
+        tamanhos. Nunca há uma segunda.</li>
+    </ul>
+
+    <h2>Uso</h2>
+    <table class="espec">
+      <thead><tr><th>Variação</th><th>Quando usar</th><th>Quando não usar</th></tr></thead>
+      <tbody>
+        <tr><td>Padrão</td><td>Sites e ferramentas com poucos itens principais de
+          navegação.</td><td>Quando os itens são muitos, longos ou têm dois níveis: a barra
+          fica apinhada.</td></tr>
+        <tr><td>Empilhada</td><td>Sites com mais itens, que pedem uma segunda linha só de
+          links.</td><td>Quando a navegação é curta e simples: a linha extra vira peso
+          morto.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Especificação</h2>
+    <table class="espec">
+      <thead><tr><th>Elemento</th><th>Especificação</th></tr></thead>
+      <tbody>
+        <tr><td>Altura da barra</td><td>96 px em tela cheia · 72 px em tablet · 64 px em
+          celular. Respiro lateral de 40 px. A barra permanece visível na rolagem.</td></tr>
+        <tr><td>Logo: arquivo</td><td>Todo arquivo de logo é justo: a altura do arquivo é a altura da arte. <strong>A logo da barra é a principal, <code>logo01</code></strong>: azul na barra clara, branca na escura. </td></tr>
+        <tr><td>Logo: tamanho</td><td>Arte de 40 a 44 px na barra de 96 · 30 a 34 px na de 72 ·
+          26 a 30 px na de 64. Nunca abaixo de 24 px: na dúvida, a logo é maior, nunca
+          menor.</td></tr>
+        <tr><td>Logo: posição</td><td>À esquerda, encostada no respiro lateral de 40 px,
+          centrada na vertical.</td></tr>
+        <tr><td>Título: tipo</td><td>Playfair Display <strong>regular</strong>, o peso da palavra "Capital" do logotipo. 26 px na barra de 96 · 24 px na de 72 · 22 px na de
+          64.</td></tr>
+        <tr><td>Título: cor</td><td><strong>Azul-meia-noite na barra clara</strong>, branco na
+          escura. Nunca quase-preto.</td></tr>
+        <tr><td>Título: posição</td><td>A <strong>24 px da logo</strong>, alinhado ao centro
+          vertical do conjunto "API Capital" do logotipo: ignorando o pelicano, que puxa o
+          centro geométrico pra fora da linha óptica do texto.</td></tr>
+        <tr><td>Item de navegação</td><td>Inter <strong>500</strong>, 15 px, quase-preto na barra clara e branco na escura, 32 px entre itens. O ativo sobe pra 600. O item ativo se marca com fio de 2 pt embaixo: azul na
+          clara, latão na escura: o único papel do latão na barra.</td></tr>
+        <tr><td>Ação</td><td>Botão do sistema em altura de barra (40 px): primário na clara,
+          branco com texto azul na escura.</td></tr>
+        <tr><td>O que não entra</td><td>Subtítulo, descrição ou qualquer outro texto junto do
+          título. Segunda ação. Latão em botão ou texto. Sombra.</td></tr>
+      </tbody>
+    </table>
+    <p class="anota">Fonte: DESIGN.md §Barra de topo, §Navegação e §Logo · Arquivos justos.</p>
+
+    <h2>Navegação horizontal padrão</h2>
+    <p>Uma linha só: logo, título, itens e no máximo uma ação. Um item pode linkar direto, abrir
+      um menu de navegação ou acionar a busca.</p>
+    <div class="palco">
+      <div class="exemplo">
+        <div class="barra-clara">
+          <img src="/assets/logo/svg/api_capital_logo01_azul.svg" alt="API Capital">
+          <span class="tp">Design System</span>
+          <nav class="itens">
+            <a href="#" class="ativo">Componentes</a>
+            <a href="#">Padrões</a>
+            <a href="#">Conteúdo</a>
+            <button class="acao-clara">Baixar a skill</button>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <p class="anota">Barra clara de 72 px: logo01 azul com 44 px, título Playfair regular 24 px em
+      azul-meia-noite a 24 px da logo, itens em Inter 500, ativo com fio azul de 2 pt.</p>
+
+    <div class="palco">
+      <div class="exemplo">
+        <div class="barra-escura">
+          <img src="/assets/logo/svg/api_capital_logo01_branco.svg" alt="API Capital">
+          <span class="tp">Gerador de Propostas</span>
+          <nav class="itens">
+            <a href="#" class="ativo">Propostas</a>
+            <a href="#">Modelos</a>
+            <button class="acao-escura">Nova proposta</button>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <p class="anota">Barra escura de 72 px, de ferramenta: logo01 branca com 44 px, título branco, item
+      ativo com fio latão, ação em branco com texto azul.</p>
+
+    <h2>Navegação empilhada</h2>
+    <p>Duas linhas: a primeira carrega logo, título e as funções (busca, perfil, ação); a
+      segunda, só os links de página. Use quando a linha única ficaria apinhada.</p>
+    <div class="palco">
+      <div class="exemplo empilhada">
+        <div class="nivel1">
+          <img src="/assets/logo/svg/api_capital_logo01_azul.svg" alt="API Capital" style="height:36px;">
+          <span class="tp" style="font-size:22px;">Portal do Consultor</span>
+          <div class="utils">
+            <button class="botao-icone" title="Buscar"><svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></button>
+            <button class="botao-icone" title="Perfil"><svg class="ic" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></button>
+          </div>
+        </div>
+        <div class="nivel2">
+          <a href="#" class="ativo">Clientes</a>
+          <a href="#">Carteiras</a>
+          <a href="#">Relatórios</a>
+          <a href="#">Propostas</a>
+          <a href="#">Agenda</a>
+        </div>
+      </div>
+    </div>
+    <p class="anota">Nível 1 com identidade e funções; nível 2 com os links, separados por fio
+      de 1 px no cinza de quadro.</p>
+
+    <h2>Menus de navegação</h2>
+    <p>Menu de navegação é o item que abre pra mostrar links aninhados. O rótulo de cima não
+      leva a página nenhuma e não muda com a escolha do usuário.</p>
+    <div class="palco">
+      <div class="menu-demo">
+        <span class="gatilho">Padrões <svg class="ic" viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></svg></span>
+        <div class="menu-caixa">
+          <a href="#">Formulários</a>
+          <a href="#">Sites e Aplicações</a>
+          <a href="#">Tabelas</a>
+          <a href="#">Feedback e status</a>
+        </div>
+      </div>
+    </div>
+    <p class="anota">Menu aberto: caixa branca com borda no cinza de quadro, canto de 15,
+      zero sombra.</p>
+
+    <div class="par">
+      <div class="veredito ok">
+        <span class="selo"><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Certo</span>
+        <div class="mostra"><strong>Relatórios</strong> · Mensal, Trimestral, Sob demanda</div>
+        <p>Agrupe links relacionados sob um rótulo que descreve o que há dentro.</p>
+      </div>
+      <div class="veredito erro">
+        <span class="selo"><svg class="ic" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg> Errado</span>
+        <div class="mostra"><strong>Relatórios</strong> · Mensal, Sair da conta, Imprimir</div>
+        <p>Não misture links e ações dentro do mesmo menu.</p>
+      </div>
+    </div>
+    <div class="par">
+      <div class="veredito ok">
+        <span class="selo"><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Certo</span>
+        <div class="mostra">O rótulo continua <strong>"Padrões"</strong> depois do clique.</div>
+        <p>O rótulo do menu é fixo e descritivo.</p>
+      </div>
+      <div class="veredito erro">
+        <span class="selo"><svg class="ic" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg> Errado</span>
+        <div class="mostra">O rótulo vira <strong>"Tabelas"</strong> porque foi o escolhido.</div>
+        <p>O rótulo não muda pra refletir a seleção do usuário: isso é papel do fio de item
+          ativo.</p>
+      </div>
+    </div>
+
+    <h2>Uso de ícones</h2>
+    <ul>
+      <li>Ícone em item de navegação é sempre da <strong>biblioteca Lucide</strong>, na cor do
+        texto do item. Emoji é vetado em qualquer papel.</li>
+      <li>Se um item do primeiro nível tem ícone, <strong>todos os do mesmo nível têm</strong>.
+        Item aninhado fica sem ícone; se for indispensável, todos os aninhados do nível
+        ganham.</li>
+      <li>Busca, notificação e perfil entram como botão-ícone de 44 × 44, nunca como texto.</li>
+    </ul>
+
+    <h2>Comportamentos</h2>
+    <h3>Direção do chevron</h3>
+    <p>O chevron diferencia o que está aberto do que está fechado: a direção comunica, não a
+      cor.</p>
+    <div class="palco" style="display:flex;gap:24px;flex-wrap:wrap;">
+      <span class="chev">Recolhido <svg class="ic" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span>
+      <span class="chev">Expandido <svg class="ic" viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></svg></span>
+    </div>
+    <p class="anota">Fechado aponta pra baixo (dá pra abrir); aberto aponta pra cima (dá pra
+      fechar).</p>
+
+    <h2>Considerações de plataforma</h2>
+    <h3>Web</h3>
+    <p>A barra responde ao tamanho da tela. Em tablet ela desce pra 72 px, os links vão pra um
+      menu (ícone <code>menu</code> do Lucide) e a logo <strong>continua à esquerda</strong>; a
+      ação continua visível. Tabela larga de conteúdo rola dentro do próprio bloco: a barra
+      nunca rola junto.</p>
+    <h3>Celular</h3>
+    <p>Em celular a barra vira a versão de 64 px: logo à esquerda com arte de 26 a 30 px, título
+      em 22 px, tudo que é função dentro do menu. Alvo de toque mínimo de 44 px em qualquer
+      item.</p>
+
+    <h2>Conteúdo</h2>
+    <ul>
+      <li>Tudo em caixa de frase: maiúscula só na primeira palavra e em nome próprio. Caixa
+        alta é papel de rótulo de seção, não de item de navegação.</li>
+      <li>Sem pontuação em item de navegação.</li>
+      <li>O rótulo do item tem o <strong>mesmo nome do título da página de destino</strong>.</li>
+      <li>Rótulo curto, de poucas palavras. Traduza o jargão: quem lê não é do mercado
+        financeiro.</li>
+      <li>No máximo sete itens na navegação principal, com a mesma ordem em toda a
+        aplicação.</li>
+    </ul>
+
+    <h2>Diretrizes relacionadas</h2>
+    <div class="relacionadas">
+      <div class="ccard">
+        <h4>Navegação vertical</h4>
+        <p>O painel lateral de navegação, usado nesta documentação. Página a criar.</p>
+      </div>
+      <div class="ccard">
+        <h4>Busca</h4>
+        <p>A busca global acionada pela barra. Página a criar.</p>
+      </div>
+      <div class="ccard">
+        <h4>Cards de conteúdo</h4>
+        <p><a href="/componentes/cards-de-conteudo/">O card de ferramenta e painel</a>, que vive
+          sob esta barra.</p>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+fetch('/nav.html', {cache: 'no-store'}).then(r => r.text()).then(html => {
+  document.getElementById('nav-lateral').outerHTML = html;
+  const atual = document.querySelector('[data-nav="barra-de-topo"]');
+  if (atual) atual.classList.add('ativo');
+});
+</script>
+</body>
+</html>

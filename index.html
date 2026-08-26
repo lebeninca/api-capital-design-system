@@ -6,135 +6,136 @@
 <title>Design System · API Capital</title>
 <link rel="icon" href="assets/favicon/svg/api_capital_favicon.svg">
 <link rel="stylesheet" href="tokens/api-capital.css">
+<link rel="stylesheet" href="docs.css">
 <style>
-  * { box-sizing: border-box; }
-  body { margin: 0; background: var(--api-fundo); color: var(--api-texto);
-         font-family: var(--api-corpo-font-family); }
-  .topo { position: sticky; top: 0; z-index: 10; background: var(--api-fundo);
-          border-bottom: 1px solid var(--api-borda); padding: 18px 24px; }
-  .topo .dentro { display: flex; align-items: center; gap: 18px; }
-  /* o SVG do logo tem folga interna: 18,7% à esquerda e a marca ocupa 30,4% da altura.
-     As margens negativas descontam essa folga para o desenho alinhar com o conteúdo. */
-  .topo img { height: 99px; display: block; margin: -36px 0 -33px -39px; }
-  .topo span { font-family: var(--api-display-font-family); font-size: 24px; font-weight: 500;
-               color: var(--api-texto); letter-spacing: -0.01em; }
-  .faixa { padding: 96px 24px; }
-  .faixa--apoio { background: var(--api-fundo-secao); }
-  .hero { background: var(--api-fundo-secao); padding: 0 24px; }
-  .hero .dentro { position: relative; }
+  main.secao-home { max-width: none; }
+  .secao-home section:not(.hero), .secao-home footer {
+    max-width: 1180px; margin-left: auto; margin-right: auto; }
+  .hero { background: var(--api-fundo-secao); margin: -48px -56px 64px; padding: 0 24px; }
+  @media (max-width: 900px) { .hero { margin: -32px -20px 48px; } }
+  .hero .dentro { max-width: 1180px; margin: 0 auto; position: relative; }
   .hero .arte { width: 100%; aspect-ratio: 2880 / 1100; display: block;
                 background: url("assets/hero/api_capital_hero_design_system.png?v=2")
                             no-repeat center center; background-size: 100% 100%; }
   .hero .texto { position: absolute; left: 0; top: 50%; transform: translateY(-50%);
                  width: 39%; }
-  .hero h1 { margin-bottom: 2.4%; font-size: clamp(20px, 2.5vw, 36px); line-height: 1.1; }
-  .hero p { margin: 0; font-size: clamp(12px, 1.2vw, 18px); max-width: none; }
+  .hero h1 { margin: 0 0 16px; font-family: var(--api-display-font-family);
+             font-weight: var(--api-display-font-weight);
+             letter-spacing: -0.02em;
+             font-size: clamp(20px, 2.5vw, 36px); line-height: 1.1; color: var(--api-azul); }
+  .hero p { margin: 0; font-size: clamp(13px, 1.1vw, 17px); }
   @media (max-width: 1100px) {
-    .hero { padding: 80px 24px; }
     .hero .arte { display: none; }
+    .hero { padding: 48px 24px; }
     .hero .texto { position: static; transform: none; width: 100%; }
-    .hero h1 { font-size: 40px; } .hero p { font-size: 18px; }
   }
-  .faixa--escura { background: var(--api-fundo-escuro); color: var(--api-sobre-escuro); }
-  .dentro { max-width: 1180px; margin: 0 auto; }
-  h1, h2, h3 { margin: 0 0 24px; }
-  p { margin: 0 0 16px; max-width: 78ch; }
-  ol { margin: 0 0 24px; padding-left: 22px; }
-  li { margin-bottom: 12px; }
-  a { color: var(--api-acao-secundaria); }
-  .faixa--escura a { color: var(--api-sobre-escuro); }
+  .secao-home h2 { font-family: var(--api-titulo-de-secao-font-family);
+                   font-size: var(--api-titulo-de-secao-font-size);
+                   font-weight: var(--api-titulo-de-secao-font-weight);
+                   letter-spacing: var(--api-titulo-de-secao-letter-spacing);
+                   color: var(--api-azul); margin: 120px 0 24px; }
+  .secao-home p { margin: 0 0 16px; max-width: 72ch; font-size: 17px; line-height: 1.6; }
+  .secao-home ol { margin: 0 0 24px; padding-left: 22px; max-width: 72ch; }
+  .secao-home li { margin-bottom: 12px; font-size: 17px; line-height: 1.6; }
+  .secao-home a { color: var(--api-acao-secundaria); }
   .botao { display: inline-block; margin-top: 16px; text-decoration: none;
-           background: var(--api-acao); color: var(--api-sobre-escuro);
+           background: var(--api-acao); color: var(--api-sobre-escuro) !important;
            padding: 14px 28px; border-radius: var(--api-canto);
            font-family: var(--api-corpo-font-family); font-weight: 600; }
   .botao:hover { background: var(--api-acao-hover); }
   pre { background: var(--api-fundo-bloco); border-radius: var(--api-canto);
         padding: 24px; overflow-x: auto; font-size: 13px; line-height: 1.6;
-        white-space: pre-wrap; word-break: break-word; }
-  .faixa--escura pre { background: var(--api-azul-var); }
-  table { border-collapse: collapse; width: 100%; margin-bottom: 24px; }
-  td, th { text-align: left; padding: 12px 16px; }
-  tbody tr:nth-child(odd) { background: var(--api-fundo-bloco); }
+        white-space: pre-wrap; word-break: break-word; max-width: 860px; }
+  table { border-collapse: collapse; width: 100%; margin-bottom: 24px; max-width: 860px; }
+  td, th { text-align: left; padding: 12px 16px; font-size: 15px; }
+  tbody tr:nth-child(even) { background: var(--api-fundo-bloco); }
   th { background: var(--api-fundo-escuro); color: var(--api-sobre-escuro);
        font-family: var(--api-rotulo-font-family); font-size: 13px;
        letter-spacing: .08em; text-transform: uppercase; }
-  .rodape { padding: 40px 24px; }
+  .rodape { margin-top: 120px; }
+  .rodape p { font-family: var(--api-legenda-font-family); font-size: var(--api-legenda-font-size);
+              line-height: var(--api-legenda-line-height); color: var(--api-texto-fraco); }
 </style>
 </head>
 <body>
 
 <header class="topo">
   <div class="dentro">
-    <img src="assets/logo/svg/api_capital_logo03_azul.svg" alt="API Capital">
-    <span>Design System</span>
+    <a href="/"><img src="assets/logo/svg/api_capital_logo01_azul.svg" alt="API Capital"></a>
+    <a class="nome" href="/">Design System</a>
+    <a class="acao" href="/como-utilizar/usando-claude/">Baixar a skill</a>
   </div>
 </header>
 
-<section class="hero">
-  <div class="dentro">
-    <div class="arte" aria-hidden="true"></div>
-    <div class="texto">
-      <h1 class="api-display">Sistema de Design API Capital</h1>
-      <p class="api-corpo-grande">Tudo o que é preciso para produzir peças no padrão visual da
-        API Capital.</p>
-    </div>
-  </div>
-</section>
+<div class="casco">
+  <div id="nav-lateral"></div>
 
-<section class="faixa">
-  <div class="dentro">
-    <h2 class="api-titulo">Trabalhar com o Claude</h2>
-    <p class="api-corpo">Instale uma vez e peça as peças em português, todo dia, em qualquer
-      conversa: <em>“faz uma proposta comercial com a cara da API Capital”</em>.</p>
-    <ol class="api-corpo">
-      <li>Baixe a skill no botão abaixo.</li>
-      <li>No Claude, abra <strong>Configurações → Recursos → Skills</strong> e suba o arquivo
-        <code>.zip</code>. Se a opção não aparecer, ligue <strong>execução de código</strong> na
-        mesma tela. Já tinha uma versão instalada? Apague a antiga antes de subir.</li>
-      <li>Pronto. É só pedir.</li>
-    </ol>
-    <p class="api-corpo-pequeno">A skill não guarda o design system dentro dela: lê tudo deste
-      endereço a cada trabalho. Mudou aqui, mudou na próxima peça, sem baixar nada de novo. Ela
-      só avisa quando a própria skill tiver versão nova.</p>
-    <a class="botao" href="skill/api-capital-claude-skill.zip">Baixar a skill</a>
-    <p class="api-corpo-pequeno" style="margin-top:24px">Prefere não instalar nada? O texto para
-      colar nas instruções de um Projeto está em <a href="PROMPT.md">PROMPT.md</a>.</p>
-  </div>
-</section>
+  <main class="conteudo secao-home">
 
-<section class="faixa faixa--apoio">
-  <div class="dentro">
-    <h2 class="api-titulo">O que tem aqui</h2>
-    <table class="api-corpo">
-      <thead><tr><th>Você quer</th><th>Abra</th></tr></thead>
-      <tbody>
-        <tr><td>As regras: cor, tipografia, layout, componentes</td><td><a href="DESIGN.md">DESIGN.md</a></td></tr>
-        <tr><td>O que <strong>não</strong> se faz</td><td><a href="ANTI_SLOP_VISUAL.md">ANTI_SLOP_VISUAL.md</a></td></tr>
-        <tr><td>A URL de cada logo, ícone, textura e foto</td><td><a href="INDICE_ATIVOS.md">INDICE_ATIVOS.md</a></td></tr>
-        <tr><td>Usar em código</td><td><a href="tokens/api-capital.css">tokens/api-capital.css</a></td></tr>
-        <tr><td>Baixar um arquivo de marca</td><td><a href="https://github.com/lebeninca/api-capital-design-system/tree/main/assets">assets/</a></td></tr>
-        <tr><td>Quem é dono de quê</td><td><a href="LICENSE.md">LICENSE.md</a></td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
+    <section class="hero">
+      <div class="dentro">
+        <div class="arte" aria-hidden="true"></div>
+        <div class="texto">
+          <h1>Sistema de Design API Capital</h1>
+          <p>Tudo o que é preciso para produzir peças no padrão visual da API Capital.</p>
+        </div>
+      </div>
+    </section>
 
-<section class="faixa faixa--escura">
-  <div class="dentro">
-    <h2 class="api-titulo">Em código, comece por esta linha</h2>
-    <p class="api-corpo">Ela traz as fontes, as variáveis de cor e as 23 classes de componente.
-      Consuma a variável, nunca escreva o valor.</p>
+    <section>
+      <h2 style="margin-top:0;">Trabalhar com o Claude</h2>
+      <p>Instale uma vez e peça as peças em português, todo dia, em qualquer conversa:
+        <em>“faz uma proposta comercial com a cara da API Capital”</em>.</p>
+      <ol>
+        <li>Baixe a skill no botão abaixo.</li>
+        <li>No Claude, abra <strong>Configurações → Recursos → Skills</strong> e suba o arquivo
+          <code>.zip</code>. Se a opção não aparecer, ligue <strong>execução de código</strong> na
+          mesma tela. Já tinha uma versão instalada? Apague a antiga antes de subir.</li>
+        <li>Pronto. É só pedir.</li>
+      </ol>
+      <p style="font-size:15px;">A skill não guarda o design system dentro dela: lê tudo deste
+        endereço a cada trabalho. Mudou aqui, mudou na próxima peça, sem baixar nada de novo. Ela
+        só avisa quando a própria skill tiver versão nova.</p>
+      <a class="botao" href="skill/api-capital-claude-skill.zip">Baixar a skill</a>
+      <p style="font-size:15px;margin-top:24px;">Prefere não instalar nada? O texto para colar nas
+        instruções de um Projeto está em <a href="PROMPT.md">PROMPT.md</a>.</p>
+    </section>
+
+    <section>
+      <h2>O que tem aqui</h2>
+      <table>
+        <thead><tr><th>Você quer</th><th>Abra</th></tr></thead>
+        <tbody>
+          <tr><td>As regras: cor, tipografia, layout, componentes</td><td><a href="DESIGN.md">DESIGN.md</a></td></tr>
+          <tr><td>O que <strong>não</strong> se faz</td><td><a href="ANTI_SLOP_VISUAL.md">ANTI_SLOP_VISUAL.md</a></td></tr>
+          <tr><td>A URL de cada logo, ícone, textura e foto</td><td><a href="INDICE_ATIVOS.md">INDICE_ATIVOS.md</a></td></tr>
+          <tr><td>Usar em código</td><td><a href="tokens/api-capital.css">tokens/api-capital.css</a></td></tr>
+          <tr><td>Baixar um arquivo de marca</td><td><a href="https://github.com/lebeninca/api-capital-design-system/tree/main/assets">assets/</a></td></tr>
+          <tr><td>Quem é dono de quê</td><td><a href="LICENSE.md">LICENSE.md</a></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Em código, comece por esta linha</h2>
+      <p>Ela traz as fontes, as variáveis de cor e as classes de componente. Consuma a variável,
+        nunca escreva o valor.</p>
 <pre>&lt;link rel="stylesheet" href="https://design.apicapital.com.br/tokens/api-capital.css"&gt;</pre>
-  </div>
-</section>
+    </section>
 
-<footer class="rodape">
-  <div class="dentro">
-    <p class="api-legenda">API Capital · consultoria de investimentos independente.
-      A marca é propriedade da API Capital; fontes, ícones e fotos seguem as licenças descritas em
-      <a href="LICENSE.md">LICENSE.md</a>.</p>
-  </div>
-</footer>
+    <footer class="rodape">
+      <p>API Capital · consultoria de investimentos independente. A marca é propriedade da API
+        Capital; fontes, ícones e fotos seguem as licenças descritas em
+        <a href="LICENSE.md">LICENSE.md</a>.</p>
+    </footer>
 
+  </main>
+</div>
+
+<script>
+fetch('/nav.html', {cache: 'no-store'}).then(r => r.text()).then(html => {
+  document.getElementById('nav-lateral').outerHTML = html;
+});
+</script>
 </body>
 </html>

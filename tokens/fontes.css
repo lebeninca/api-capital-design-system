@@ -18,6 +18,30 @@
   src: url("../assets/fonte/playfair-display/PlayfairDisplay-Bold-latino.woff2") format("woff2"),
        url("../assets/fonte/playfair-display/PlayfairDisplay-Bold.otf") format("opentype");
 }
+@font-face {
+  font-family: "Playfair Display";
+  font-weight: 500;
+  src: url("../assets/fonte/playfair-display/PlayfairDisplay-Medium-latino.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Playfair Display";
+  font-weight: 600;
+  src: url("../assets/fonte/playfair-display/PlayfairDisplay-SemiBold-latino.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Playfair Display";
+  font-weight: 800;
+  src: url("../assets/fonte/playfair-display/PlayfairDisplay-ExtraBold-latino.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Playfair Display";
+  font-weight: 900;
+  src: url("../assets/fonte/playfair-display/PlayfairDisplay-Black-latino.woff2") format("woff2");
+  font-display: swap;
+}
 
 @font-face {
   font-family: "Playfair Display";

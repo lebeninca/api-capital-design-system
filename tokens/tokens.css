@@ -66,6 +66,26 @@
   --api-titulo-font-weight: 600;
   --api-titulo-line-height: 1.3;
   --api-titulo-letter-spacing: 0;
+  --api-titulo-documento-font-family: 'Playfair Display', Georgia, serif;
+  --api-titulo-documento-font-size: 36px;
+  --api-titulo-documento-font-weight: 500;
+  --api-titulo-documento-line-height: 1.2;
+  --api-titulo-documento-letter-spacing: -0.4px;
+  --api-titulo-de-secao-font-family: 'Playfair Display', Georgia, serif;
+  --api-titulo-de-secao-font-size: 28px;
+  --api-titulo-de-secao-font-weight: 500;
+  --api-titulo-de-secao-line-height: 1.25;
+  --api-titulo-de-secao-letter-spacing: -0.4px;
+  --api-subtitulo-font-family: Inter, system-ui, sans-serif;
+  --api-subtitulo-font-size: 19px;
+  --api-subtitulo-font-weight: 500;
+  --api-subtitulo-line-height: 1.35;
+  --api-subtitulo-letter-spacing: 0;
+  --api-titulo-pagina-font-family: 'Playfair Display', Georgia, serif;
+  --api-titulo-pagina-font-size: 26px;
+  --api-titulo-pagina-font-weight: 400;
+  --api-titulo-pagina-line-height: 1.2;
+  --api-titulo-pagina-letter-spacing: 0;
   --api-citacao-font-family: 'Playfair Display', Georgia, serif;
   --api-citacao-font-size: 22px;
   --api-citacao-font-weight: 400;
@@ -144,6 +164,34 @@
   font-weight: var(--api-titulo-font-weight);
   line-height: var(--api-titulo-line-height);
   letter-spacing: var(--api-titulo-letter-spacing);
+}
+.api-titulo-documento {
+  font-family: var(--api-titulo-documento-font-family);
+  font-size: var(--api-titulo-documento-font-size);
+  font-weight: var(--api-titulo-documento-font-weight);
+  line-height: var(--api-titulo-documento-line-height);
+  letter-spacing: var(--api-titulo-documento-letter-spacing);
+}
+.api-titulo-de-secao {
+  font-family: var(--api-titulo-de-secao-font-family);
+  font-size: var(--api-titulo-de-secao-font-size);
+  font-weight: var(--api-titulo-de-secao-font-weight);
+  line-height: var(--api-titulo-de-secao-line-height);
+  letter-spacing: var(--api-titulo-de-secao-letter-spacing);
+}
+.api-subtitulo {
+  font-family: var(--api-subtitulo-font-family);
+  font-size: var(--api-subtitulo-font-size);
+  font-weight: var(--api-subtitulo-font-weight);
+  line-height: var(--api-subtitulo-line-height);
+  letter-spacing: var(--api-subtitulo-letter-spacing);
+}
+.api-titulo-pagina {
+  font-family: var(--api-titulo-pagina-font-family);
+  font-size: var(--api-titulo-pagina-font-size);
+  font-weight: var(--api-titulo-pagina-font-weight);
+  line-height: var(--api-titulo-pagina-line-height);
+  letter-spacing: var(--api-titulo-pagina-letter-spacing);
 }
 .api-citacao {
   font-family: var(--api-citacao-font-family);

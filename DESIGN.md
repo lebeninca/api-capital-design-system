@@ -1,5 +1,5 @@
 ---
-version: "3.2"
+version: "3.3"
 name: "API Capital"
 description: "Consultoria de investimentos independente. Clássico moderno e autoridade tranquila: azul-meia-noite e latão sobre branco puro, Playfair Display em título e Inter em todo o resto, incluindo cada número apresentado. Zero sombra, canto de 15, grade de 12 colunas. O sistema atende impresso e tela com a mesma régua, e o padrão é sempre o registro mais sóbrio."
 
@@ -61,6 +61,30 @@ typography:
     fontSize: 28px
     fontWeight: 600
     lineHeight: 1.3
+    letterSpacing: 0
+  titulo-documento:
+    fontFamily: "'Playfair Display', Georgia, serif"
+    fontSize: 36px
+    fontWeight: 500
+    lineHeight: 1.2
+    letterSpacing: -0.4px
+  titulo-de-secao:
+    fontFamily: "'Playfair Display', Georgia, serif"
+    fontSize: 28px
+    fontWeight: 500
+    lineHeight: 1.25
+    letterSpacing: -0.4px
+  subtitulo:
+    fontFamily: "Inter, system-ui, sans-serif"
+    fontSize: 19px
+    fontWeight: 500
+    lineHeight: 1.35
+    letterSpacing: 0
+  titulo-pagina:
+    fontFamily: "'Playfair Display', Georgia, serif"
+    fontSize: 26px
+    fontWeight: 400
+    lineHeight: 1.2
     letterSpacing: 0
   citacao:
     fontFamily: "'Playfair Display', Georgia, serif"
@@ -303,9 +327,21 @@ components:
   barra-topo:
     backgroundColor: "{colors.fundo-escuro}"
     textColor: "{colors.sobre-escuro}"
-    typography: "{typography.titulo}"
+    typography: "{typography.titulo-pagina}"
     padding: 0 40px
     height: 96px
+  content-card:
+    backgroundColor: "{colors.fundo}"
+    textColor: "{colors.texto}"
+    typography: "{typography.corpo}"
+    rounded: "{rounded.canto}"
+    padding: 40px
+  content-card-numero:
+    backgroundColor: "{colors.fundo}"
+    textColor: "{colors.azul}"
+    typography: "{typography.numero-grande}"
+    rounded: "{rounded.canto}"
+    padding: 40px
   numero-passo:
     backgroundColor: transparent
     textColor: "{colors.azul}"
@@ -325,7 +361,7 @@ zona: publica
 dominio: design
 bandeira: 06_marketing_api_capital
 produto: api_capital
-versao: 3.2
+versao: 3.3
 resumo: >-
   Especificação de design da API Capital, no formato design.md: tokens de cor, tipografia,
   espaço, forma e componente, mais as regras de layout, logo, ícone, imagem, estado e veto.
@@ -418,6 +454,20 @@ rótulo, borda de campo ou espalhado por vários elementos da mesma tela é veto
 (`latao-segunda-cor`). Na dúvida, a cor é azul ou neutra — nunca latão.
 | `{colors.realce}` | `{colors.areia}` | Caixa de destaque com texto de leitura |
 
+### Alinhamento
+
+🔴 **Toda borda de alinhamento é UMA linha só.** O que declara alinhamento à esquerda senta na
+mesma vertical: logo da barra de topo, itens da navegação lateral, título da página e corpo do
+conteúdo compartilham a mesma borda esquerda (a régua do respiro lateral, 40 px). O mesmo vale
+à direita. **Elemento fora da vertical dos vizinhos é defeito, não variação** — se dois blocos
+começam a 16 px de diferença, um dos dois está errado.
+
+- Recuo de hierarquia (item de grupo, subitem) é degrau declarado da escala de espaço, nunca um
+  valor solto.
+- Fio de item ativo, borda e marcador não deslocam o texto: compensam a própria espessura.
+- Antes de entregar qualquer tela, conferir as verticais: topo, lateral e conteúdo alinhados
+  entre si.
+
 ### Ritmo de superfície em peça longa
 
 Peça de rolagem longa — apresentação em seções, relatório, proposta, página de muitas dobras —
@@ -476,13 +526,22 @@ no lugar da Inter. Nenhuma terceira família entra no sistema, nem como substitu
 ### Escala em tela
 
 ⬦ Quatro níveis vêm da folha de tokens do arquivo de desenho e estão aprovados: display 48,
-título 28, corpo 17 e legenda 14. Os demais nove níveis e todo o tracking são derivação.
+título 28, corpo 17 e legenda 14. Os demais níveis e todo o tracking são derivação.
+
+Em página de documentação, o título pesa MENOS: página e seção em Playfair **medium** (500).
+**Hero, abertura de peça e chamada gritante seguem no `{typography.display}` bold** — o medium é
+régua de leitura de documento, não de impacto. A Playfair embarcada cobre os seis pesos (400 a 900) e os dois
+itálicos; consuma o peso que o token declara, nunca um sintetizado.
 
 | Token | Tamanho | Peso | Entrelinha | Tracking | Uso |
 |---|---|---|---|---|---|
 | `{typography.display}` | 48px | 700 | 1,15 | -0,96px | Título de abertura |
 | `{typography.secao}` | 36px | 700 | 1,20 | -0,72px | Título de seção |
 | `{typography.titulo}` | 28px | 600 | 1,30 | 0 | Título de bloco e de card. **Inter**, não Playfair |
+| `{typography.titulo-documento}` | 36px | 500 | 1,20 | -0,4px | Título de página de documentação. Playfair medium |
+| `{typography.titulo-de-secao}` | 28px | 500 | 1,25 | -0,4px | Título de seção em página de documentação. Playfair medium |
+| `{typography.subtitulo}` | 19px | 500 | 1,35 | 0 | Subtítulo dentro de seção. Inter medium |
+| `{typography.titulo-pagina}` | 26px | 400 | 1,20 | 0 | Título de página na barra de topo. Playfair regular |
 | `{typography.citacao}` | 22px | 400 itálico | 1,45 | 0 | Citação, frase isolada |
 | `{typography.corpo-grande}` | 19px | 400 | 1,60 | 0 | Parágrafo de abertura |
 | `{typography.corpo}` | 17px | 400 | 1,60 | 0 | Leitura corrida |
@@ -624,6 +683,22 @@ Doze versões: oito montagens bicolores e quatro vazadas de uma cor. O logotipo 
 **Os arquivos estão em `assets/logo/`**, em `svg/`, `png/` (1x, 2x e 4x) e `pdf/`. Cada versão vem
 em azul, branco e quase-preto. O nome diz tudo: `api_capital_logo03_branco.svg`.
 
+### Arquivos justos
+
+🔴 **Todo arquivo de logo é JUSTO: o canvas é a caixa exata da arte, sem margem embutida.**
+`height: 42px` significa arte de 42 px. (Até 2026-08-26 os arquivos embutiam a área livre no
+canvas e toda peça gerada saía com logo minúscula — eles foram substituídos, com os mesmos
+nomes.) A área livre é régua de APLICAÇÃO (§Área livre): quem monta a peça deixa o respiro em
+volta, ele não viaja dentro do arquivo.
+
+**Régua de tamanho da arte em tela:**
+
+- **Barra de topo e navegação:** a logo principal (`logo01`) com **56 px** na barra de 96;
+  44 px na de 72; 36 px na de 64.
+- **Rodapé:** 28 a 32 px.
+- **Mínimo absoluto em tela: 24 px de altura.** Logo menor que isso não entra — na dúvida, a
+  logo é MAIOR do que parece necessário, nunca menor.
+
 ### Área livre
 
 Deixe uma faixa livre em volta do logo. A medida é **metade da altura da letra A** do logotipo
@@ -753,6 +828,58 @@ erro. O rótulo do checkbox fica em `{typography.corpo}`, sem caixa alta.
 Respiro interno de 40 px em toda borda. Anatomia: título · fio · descrição · espaço · ícone no
 canto inferior direito.
 
+### Content card
+
+A família de card de **ferramenta, painel e página interna** — formulário em etapas, dashboard,
+gerador. É ela que se usa nesses territórios, nunca um bloco inventado.
+
+**A regra de superfície que sustenta a família:** em página de ferramenta, o fundo da página é
+`{colors.fundo-secao}` (`#F4F4F4`) e o content card é **branco, SEM borda** — é o degrau de fundo
+que separa o card da página, não contorno. Contorno fino em volta de card de ferramenta é veto.
+(O `{components.card-conteudo}` com borda no fio segue existindo para peça editorial sobre fundo
+branco.)
+
+Anatomia base, de cima para baixo: **título** em `{typography.titulo}` com `{colors.azul}` ·
+**linha-fina** opcional em `{typography.corpo-pequeno}` com `{colors.texto-fraco}` · **corpo** em
+`{typography.corpo}` · **ações**: `{components.botao-primario}` e, ao lado, link em
+`{colors.acao-secundaria}` com o ícone Lucide `chevron-right`. Respiro interno de 40 px; entre os
+elementos, a escala de `{spacing}`.
+
+Três réguas de respiro que valem em toda a família:
+
+- **O card é alto, não espremido.** Card com botão, ícone ou imagem ganha altura: o conteúdo
+  respira na vertical, nunca se comprime num retângulo baixo.
+- **A ação ancora na base do card**, com espaço livre acima dela — entre o corpo e a ação sempre
+  há respiro, e abaixo da ação vale a margem interna normal.
+- **Antes do corpo entra espaço.** Entre o bloco de título (com linha-fina ou categoria) e o
+  corpo há um degrau de respiro, maior que o entrelinhas.
+
+As variações — todas com a mesma base, mudando só o que está dito:
+
+| Variação | O que muda | Quando |
+|---|---|---|
+| **`{components.content-card}`** | Nada. É a base | Bloco padrão de ferramenta e painel |
+| **Com botões de utilidade** | Até dois `{components.botao-texto}` só-ícone (Lucide) no canto superior direito, 44 × 44 | Compartilhar, informação, fechar |
+| **Clicável** | O card inteiro é o link: sem botão dentro, o título carrega o `chevron-right`. Sobre: fundo vai a `{colors.fundo-bloco}`. Foco: anel de 3 px | Atalho de navegação |
+| **Desabilitado** | Texto a 40%, ícone Lucide `lock` ao lado do título, sem cursor de mão | Recurso indisponível |
+| **Com categoria** | Linha-fina de categoria **abaixo do título**, com ícone Lucide de 16 px na frente, em `{typography.corpo-pequeno}` com `{colors.texto-fraco}` | Card em coleção com tipos |
+| **Com ícone no alto** | Ícone Lucide de 40 px em `{colors.azul}` no canto superior esquerdo; o conteúdo desce | Card de recurso ou serviço |
+| **Com ícone na base** | Ícone Lucide em `{colors.azul}` que **desrespeita a margem interna e senta no canto inferior direito do card** | Card de recurso ou serviço |
+| **Com imagem** | Imagem no topo, largura total do card, cantos superiores de `{rounded.canto}`, máximo de metade da altura do card | Conteúdo editorial |
+| **`{components.content-card-numero}`** | Título · corpo opcional · **número** em `{typography.numero-grande}` com `{colors.azul}` e, ao lado, a variação com seta Lucide (`arrow-up`/`arrow-down`) e rótulo em `{typography.legenda}` | Dado de dashboard |
+
+Limites da família:
+
+- **Card de ferramenta não tem borda, não tem sombra, não tem fundo cinza interno** — o grupo
+  interno se marca com título e espaço (§Campo).
+- **Não existe a variação com faixa indicadora na base.** Faixa colorida em borda de card é veto
+  (`callout-faixa-lateral`), e aqui não há exceção.
+- Na variação com número, a seta e a variação percentual podem usar `{colors.ok}` e
+  `{colors.erro}` **porque comunicam dado, e sempre com o valor escrito ao lado** — a cor sozinha
+  não comunica.
+- Grade: os content cards de um painel assentam na grade de 12 colunas, com junta de
+  `{spacing.x6}` 24 px entre cards.
+
 ### Caixa de destaque
 
 **`{components.caixa-latao}`** tem fundo `{colors.destaque}` e carrega **só título grande ou
@@ -775,11 +902,17 @@ Em celular os itens viram menu; a ação continua visível.
 ### Barra de topo
 
 Toda ferramenta, gerador ou página interna abre com **`{components.barra-topo}`** — não se
-inventa cabeçalho novo. Fundo `{colors.fundo-escuro}`, título em `{typography.titulo}` com
-`{colors.sobre-escuro}`, subtítulo opcional em `{typography.legenda}` com o branco a 65%. Mesmas
-alturas da navegação: 96 px em tela cheia, 72 px em tablet, 64 px em celular; respiro lateral de
-40 px. Quando a logo entra, é a versão branca vazada, à esquerda; no máximo **uma ação à
-direita**, em `{components.botao-sobre-escuro}`.
+inventa cabeçalho novo. Fundo `{colors.fundo-escuro}`, e o conteúdo é **só isto: a logo da API
+(branca) à esquerda, e o título da página ao lado dela, em Playfair Display
+regular — o mesmo peso da palavra "Capital" do logotipo** — com `{colors.sobre-escuro}` (26 px
+na barra de 96), separados por 24 px. **Sem subtítulo, sem descrição, sem nenhum outro texto.**
+Mesmas alturas da navegação: 96 px em tela cheia, 72 px em tablet, 64 px em celular; respiro
+lateral de 40 px.
+
+**A logo da barra é a principal (`logo01`)** — 56 px na barra de 96, 44 na de 72, 36 na de
+64 (§Logo · Arquivos justos). **Item de navegação em Inter 500, 15 px**; o ativo sobe pra 600 e
+ganha o fio de 2 pt. **O título alinha pelo centro do conjunto "API Capital" da logo, ignorando o pelicano** —
+o desenho do pássaro puxa o centro geométrico pra fora da linha óptica do texto.
 
 ### Passo numerado
 

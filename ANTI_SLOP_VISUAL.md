@@ -89,6 +89,7 @@ peça.
 | `fora-da-coluna` | Elemento que começa ou termina no meio de uma coluna | Começar e terminar em coluna | `pen` `css`: cruzar as bordas com as posições da grade de 12 |
 | `margem-fora-da-regua` | Margem que não é a do formato | 20 mm no A4, nas duas orientações; 4% em tela | `pen` `css`: medir a caixa útil |
 | `elemento-esticado-para-tapar-buraco` | Elemento crescido para preencher o pé da página | Sobra branca no fim é aceitável | `—` |
+| `borda-serrilhada` | Elementos que declaram o mesmo alinhamento começando em verticais diferentes (logo a 40, menu a 24, texto a 56) | Uma borda de alinhamento é UMA linha: mesma vertical para todos, recuo só como degrau declarado de hierarquia | `css` `pen`: coletar a borda esquerda dos blocos de mesmo nível e acusar desvio maior que 2 px |
 | `box-dentro-de-box` | Contêiner de fundo cinza agrupando campos dentro de um card que já tem fundo e borda | Campos direto sobre o fundo do card; grupo se marca com título e espaço, nunca com um segundo fundo | `css`: bloco com `background` de apoio contendo inputs, dentro de elemento que já tem borda ou fundo próprio |
 | `passo-em-bolinha` | Número de passo dentro de disco ou bolinha colorida antes do título | Número no próprio título, Inter 700 tabular, na cor do título, seguido de ponto | `css`: elemento circular (`border-radius` ≥ 50%) de menos de 40 px contendo só um número |
 | `botao-inventado` | Botão fora dos cinco declarados: fundo novo, texto latão, borda improvisada | Um dos cinco de §Botão; utilidade pequena é o secundário em 40 px | `css`: elemento clicável cuja combinação fundo/texto/borda não bate com nenhum dos cinco botões |
@@ -155,7 +156,7 @@ viram documento passivo de novo, que é exatamente o que esta frente existe para
 
 | Estado | Contagem |
 |---|---|
-| Vetos catalogados | 55 |
-| Com teste declarado | 52 |
+| Vetos catalogados | 56 |
+| Com teste declarado | 53 |
 | Só olho humano (`—`) | 3 |
 | **Implementados no validador** | **0 (o validador ainda não existe)** |
