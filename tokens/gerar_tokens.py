@@ -147,7 +147,37 @@ def escrever_componentes(dados, destino):
         linhas += corpo
         linhas.append("}")
         linhas.append("")
+    linhas += escrever_utilitarios(dados)
     destino.write_text("\n".join(linhas), encoding="utf-8")
+
+
+def escrever_utilitarios(dados):
+    """Classes utilitarias de espaco, derivadas da escala spacing.
+    vao (gap) · margem (margin) · respiro (padding), por lado e por eixo."""
+    LADOS = {
+        "": "{p}", "topo": "{p}-top", "base": "{p}-bottom",
+        "esq": "{p}-left", "dir": "{p}-right",
+    }
+    linhas = ["/* utilitarios de espaco, derivados da escala spacing (DESIGN.md §Layout) */", ""]
+    escala = dados.get("spacing", {})
+    for k, v in escala.items():
+        var = f"var(--api-{k})"
+        linhas.append(f".api-vao-{k} {{ gap: {var}; }}")
+        linhas.append(f".api-vao-col-{k} {{ column-gap: {var}; }}")
+        linhas.append(f".api-vao-linha-{k} {{ row-gap: {var}; }}")
+    linhas.append("")
+    for nome, prop in (("margem", "margin"), ("respiro", "padding")):
+        for k, v in escala.items():
+            var = f"var(--api-{k})"
+            for sufixo, molde in LADOS.items():
+                cls = f".api-{nome}-{sufixo}-{k}" if sufixo else f".api-{nome}-{k}"
+                linhas.append(f"{cls} {{ {molde.format(p=prop)}: {var}; }}")
+            linhas.append(f".api-{nome}-h-{k} {{ {prop}-left: {var}; {prop}-right: {var}; }}")
+            linhas.append(f".api-{nome}-v-{k} {{ {prop}-top: {var}; {prop}-bottom: {var}; }}")
+        linhas.append("")
+    linhas.append(".api-margem-auto-h { margin-left: auto; margin-right: auto; }")
+    linhas.append("")
+    return linhas
 
 
 def escrever_json(dados, destino):

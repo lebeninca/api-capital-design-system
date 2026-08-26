@@ -1,5 +1,5 @@
 ---
-version: "3.3"
+version: "3.4"
 name: "API Capital"
 description: "Consultoria de investimentos independente. Clássico moderno e autoridade tranquila: azul-meia-noite e latão sobre branco puro, Playfair Display em título e Inter em todo o resto, incluindo cada número apresentado. Zero sombra, canto de 15, grade de 12 colunas. O sistema atende impresso e tela com a mesma régua, e o padrão é sempre o registro mais sóbrio."
 
@@ -361,7 +361,7 @@ zona: publica
 dominio: design
 bandeira: 06_marketing_api_capital
 produto: api_capital
-versao: 3.3
+versao: 3.4
 resumo: >-
   Especificação de design da API Capital, no formato design.md: tokens de cor, tipografia,
   espaço, forma e componente, mais as regras de layout, logo, ícone, imagem, estado e veto.
@@ -598,6 +598,21 @@ Base de 8 px, com 4 px para trabalho fino.
 
 Respiro interno de card: `{spacing.x10}` 40 px. Respiro interno de caixa e de aviso:
 `{spacing.x6}` 24 px. Altura de seção em tela: 64 a 96 px.
+
+### Utilitários de espaço
+
+Cada degrau da escala existe como classe utilitária, gerada junto com os componentes. Três
+famílias, nomeadas pelo que fazem:
+
+| Família | O que faz | Classes |
+|---|---|---|
+| `vao` | O vão entre itens de um contêiner (gap) | `.api-vao-x6` · `.api-vao-col-x6` (só colunas) · `.api-vao-linha-x6` (só linhas) |
+| `margem` | O espaço por fora do elemento | `.api-margem-x6` · por lado: `-topo` `-base` `-esq` `-dir` · por eixo: `-h` `-v` |
+| `respiro` | O espaço por dentro do elemento | `.api-respiro-x10` · por lado: `-topo` `-base` `-esq` `-dir` · por eixo: `-h` `-v` |
+
+O degrau entra no fim do nome: `.api-margem-topo-x6` é margem de 24 px no topo. Especial único:
+`.api-margem-auto-h` centra o bloco na horizontal. **Valor de espaço escrito à mão em peça é o
+mesmo erro que hex escrito à mão**: se a distância não é um degrau da escala, ela não existe.
 
 ### Grade e margem
 

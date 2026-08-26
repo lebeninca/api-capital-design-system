@@ -17,9 +17,12 @@ aqui, obedece ao que está escrito nele.
 ```
 
 Ela traz `fontes.css` (@font-face), `tokens.css` (variáveis e classes de tipografia) e
-`componentes.css` (as 23 classes `.api-*`).
+`componentes.css` (as classes `.api-*` de componente e os utilitários de espaço: `vao`,
+`margem` e `respiro` por degrau da escala, ex. `.api-respiro-x10`, `.api-margem-topo-x6`).
 
-Use `var(--api-acao)`, não `#0D2A54`. Use `.api-botao-primario`, não um botão novo.
+Use `var(--api-acao)`, não `#0D2A54`. Use `.api-botao-primario`, não um botão novo. Distância
+usa degrau da escala (utilitário ou variável): valor de espaço escrito à mão é o mesmo erro que
+hex escrito à mão.
 
 **Valor que não existe no `DESIGN.md` é erro.** Se faltar um valor, pergunte. Não invente.
 

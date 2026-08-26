@@ -13,6 +13,13 @@
 .degrau .barra{background:var(--api-acao-secundaria);height:24px;border-radius:2px;}
 .degrau .rot{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:14px;color:var(--api-texto);width:120px;flex:none;}
 .degrau .med{font-size:14px;color:var(--api-texto-fraco);}
+/* demos dos utilitários: caixas neutras que tornam o espaço visível */
+.demo{display:flex;flex-wrap:wrap;}
+.demo .item{background:var(--api-fundo);border:1px solid var(--api-fio);border-radius:var(--api-canto);padding:12px 20px;font-size:15px;}
+.demo-bloco{background:rgba(65,142,206,.16);border-radius:var(--api-canto);display:inline-block;}
+.demo-bloco .item{display:block;}
+.rot-demo{font-family:var(--api-rotulo-font-family);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--api-texto-fraco);margin:32px 0 12px;}
+.rot-demo:first-child{margin-top:0;}
 .pilha{display:flex;flex-direction:column;max-width:360px;background:var(--api-fundo);border-radius:var(--api-canto);padding:40px;}
 .pilha label{font-size:15px;font-weight:600;color:var(--api-texto);}
 .pilha .campo-d{height:48px;border:1px solid var(--api-borda);border-radius:var(--api-canto);}
@@ -38,8 +45,9 @@
   <main class="conteudo">
     <div class="subcabecalho">
       <h1>Espaçamento</h1>
-      <p class="linhafina">Base de 8 px, com 4 px para trabalho fino. Recuo e respiro são sempre
-        um degrau declarado da escala, nunca um valor solto.</p>
+      <p class="linhafina">Base de 8 px, com 4 px para trabalho fino. Toda distância é um degrau
+        declarado da escala: valor de espaço escrito à mão é o mesmo erro que hex escrito à
+        mão.</p>
       <hr class="fio">
     </div>
 
@@ -55,6 +63,82 @@
           <div class="degrau"><span class="rot">--api-x16</span><div class="barra" style="width:64px"></div><span class="med">64 px</span></div>
         </div>
       </div>
+      <p class="anota">Os seis degraus existem como variável (<code>var(--api-x6)</code>) e como
+        classe utilitária, nas três famílias abaixo.</p>
+    </div>
+
+    <div class="secao">
+      <h2>Vão</h2>
+      <p>O espaço entre os itens de um contêiner flex ou grid (gap). O degrau entra no fim do
+        nome.</p>
+      <div class="palco">
+        <div class="rot-demo">Vão padrão · .api-vao-x6</div>
+        <div class="demo-bloco"><div class="demo api-vao-x6"><span class="item">Item 1</span><span class="item">Item 2</span><span class="item">Item 3</span></div></div>
+        <div class="rot-demo">Só entre colunas · .api-vao-col-x10 (com linhas em x2)</div>
+        <div class="demo-bloco" style="max-width:420px"><div class="demo api-vao-col-x10 api-vao-linha-x2"><span class="item">Item 1</span><span class="item">Item 2</span><span class="item">Item 3</span><span class="item">Item 4</span><span class="item">Item 5</span></div></div>
+      </div>
+      <div class="codigo">&lt;div class="api-vao-x6" style="display:flex"&gt;…&lt;/div&gt;
+&lt;div class="api-vao-col-x10 api-vao-linha-x2" style="display:flex;flex-wrap:wrap"&gt;…&lt;/div&gt;</div>
+      <table class="espec">
+        <thead><tr><th>Classe</th><th>O que faz</th></tr></thead>
+        <tbody>
+          <tr><td>.api-vao-&lt;degrau&gt;</td><td><code>gap</code> nos dois eixos</td></tr>
+          <tr><td>.api-vao-col-&lt;degrau&gt;</td><td><code>column-gap</code>: só entre colunas</td></tr>
+          <tr><td>.api-vao-linha-&lt;degrau&gt;</td><td><code>row-gap</code>: só entre linhas</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="secao">
+      <h2>Margem</h2>
+      <p>O espaço por fora do elemento, contra os vizinhos.</p>
+      <div class="palco">
+        <div class="rot-demo">Margem no topo · .api-margem-topo-x6</div>
+        <div class="demo-bloco" style="display:block;max-width:280px">
+          <div class="item">Bloco de cima</div>
+          <div class="item api-margem-topo-x6">Bloco com margem no topo</div>
+        </div>
+        <div class="rot-demo">Centrado na horizontal · .api-margem-auto-h</div>
+        <div class="demo-bloco" style="display:block">
+          <div class="item api-margem-auto-h" style="width:200px;text-align:center">Bloco centrado</div>
+        </div>
+      </div>
+      <div class="codigo">&lt;div class="api-margem-topo-x6"&gt;…&lt;/div&gt;
+&lt;div class="api-margem-h-x4"&gt;…&lt;/div&gt;
+&lt;div class="api-margem-auto-h"&gt;…&lt;/div&gt;</div>
+      <table class="espec">
+        <thead><tr><th>Classe</th><th>O que faz</th></tr></thead>
+        <tbody>
+          <tr><td>.api-margem-&lt;degrau&gt;</td><td>Margem nos quatro lados</td></tr>
+          <tr><td>.api-margem-topo-&lt;degrau&gt; · -base-</td><td>Só no topo · só na base</td></tr>
+          <tr><td>.api-margem-esq-&lt;degrau&gt; · -dir-</td><td>Só à esquerda · só à direita</td></tr>
+          <tr><td>.api-margem-h-&lt;degrau&gt; · -v-</td><td>Nos dois lados do eixo: horizontal · vertical</td></tr>
+          <tr><td>.api-margem-auto-h</td><td>Centra o bloco na horizontal</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="secao">
+      <h2>Respiro</h2>
+      <p>O espaço por dentro do elemento (padding). É a família dos respiros declarados dos
+        componentes.</p>
+      <div class="palco">
+        <div class="rot-demo">Respiro de card · .api-respiro-x10</div>
+        <div class="demo-bloco" style="display:block;max-width:340px"><div class="api-respiro-x10" style="background:var(--api-fundo);border-radius:var(--api-canto)">O conteúdo respira 40 px em toda borda.</div></div>
+        <div class="rot-demo">Só na horizontal · .api-respiro-h-x16 (com vertical em x4)</div>
+        <div class="demo-bloco" style="display:block;max-width:340px"><div class="api-respiro-h-x16 api-respiro-v-x4" style="background:var(--api-fundo);border-radius:var(--api-canto)">Respiro largo dos lados, curto em cima e embaixo.</div></div>
+      </div>
+      <div class="codigo">&lt;div class="api-respiro-x10"&gt;…&lt;/div&gt;
+&lt;div class="api-respiro-h-x16 api-respiro-v-x4"&gt;…&lt;/div&gt;</div>
+      <table class="espec">
+        <thead><tr><th>Classe</th><th>O que faz</th></tr></thead>
+        <tbody>
+          <tr><td>.api-respiro-&lt;degrau&gt;</td><td>Respiro nos quatro lados</td></tr>
+          <tr><td>.api-respiro-topo-&lt;degrau&gt; · -base-</td><td>Só no topo · só na base</td></tr>
+          <tr><td>.api-respiro-esq-&lt;degrau&gt; · -dir-</td><td>Só à esquerda · só à direita</td></tr>
+          <tr><td>.api-respiro-h-&lt;degrau&gt; · -v-</td><td>Nos dois lados do eixo: horizontal · vertical</td></tr>
+        </tbody>
+      </table>
     </div>
 
     <div class="secao">
