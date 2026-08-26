@@ -79,6 +79,28 @@ body { margin: 0; background: var(--api-fundo); color: var(--api-texto);
 .espec td.num { text-align: right; font-family: Inter, system-ui, sans-serif; font-weight: 700;
   font-feature-settings: "tnum"; }
 
+/* par Faça / Não faça, na linguagem dos avisos: borda 1px na cor do estado */
+.dodont { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 24px 0 8px; }
+@media (max-width: 900px) { .dodont { grid-template-columns: 1fr; } }
+.dd-palco { background: var(--api-fundo-secao); border-radius: var(--api-canto); padding: 32px;
+  display: flex; align-items: center; justify-content: center; min-height: 150px; }
+.dd.faca .dd-palco { border: 1px solid var(--api-ok); }
+.dd.nao .dd-palco { border: 1px solid var(--api-erro); }
+.dd-rotulo { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600;
+  margin: 12px 0 4px; }
+.dd.faca .dd-rotulo { color: var(--api-ok); }
+.dd.nao .dd-rotulo { color: var(--api-erro); }
+.dd-rotulo svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2.5;
+  stroke-linecap: round; stroke-linejoin: round; }
+.dd-desc { font-size: 14px; line-height: 1.5; color: var(--api-texto); margin: 0; max-width: 52ch; }
+
+/* legenda de anatomia com letras, aos moldes da Visa */
+.anatomia-legenda { margin-top: 16px; font-size: 14px; color: var(--api-texto); line-height: 1.9; }
+.anatomia-legenda .letra { font-family: Inter, system-ui, sans-serif; font-weight: 700;
+  color: var(--api-acao-secundaria); }
+.marca-letra { font-family: Inter, system-ui, sans-serif; font-weight: 700; font-size: 13px;
+  color: var(--api-acao-secundaria); }
+
 /* anotação de exemplo e bloco de código */
 .anota { font-family: var(--api-legenda-font-family); font-size: var(--api-legenda-font-size);
   line-height: var(--api-legenda-line-height); color: var(--api-texto-fraco); margin: 8px 0 32px; }

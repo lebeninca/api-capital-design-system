@@ -8,12 +8,47 @@
 <link rel="stylesheet" href="/tokens/api-capital.css">
 <link rel="stylesheet" href="/docs.css">
 <style>
-.anatomia{display:flex;gap:6px;height:160px;background:var(--api-fundo);border-radius:var(--api-canto);padding:0 32px;}
-.anatomia .col{flex:1;background:rgba(65,142,206,.25);}
-.legenda-grid{display:flex;flex-wrap:wrap;gap:24px;margin-top:16px;font-size:14px;color:var(--api-texto-fraco);}
-.folha{width:100%;display:block;border-radius:var(--api-canto);border:1px solid var(--api-borda);}
-.duas-folhas{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;}
-@media(max-width:900px){.duas-folhas{grid-template-columns:1fr;}}
+/* anatomia: os dois formatos A4 com área útil e colunas de guia */
+.formatos{display:flex;gap:64px;flex-wrap:wrap;align-items:flex-start;}
+.formato .rotulo-f{font-family:var(--api-rotulo-font-family);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--api-texto-fraco);margin-bottom:12px;}
+.papel{background:var(--api-fundo);border:1px solid var(--api-borda);position:relative;padding:6.7%;}
+.papel.retrato{width:240px;aspect-ratio:210/297;padding:calc(240px*20/210);}
+.papel.paisagem{width:340px;aspect-ratio:297/210;padding:calc(340px*20/297);}
+.papel .util{width:100%;height:100%;outline:1px solid var(--api-erro);display:flex;gap:1.9%;position:relative;}
+.papel .col{flex:1;background:rgba(65,142,206,.28);}
+.papel .area-d{position:absolute;left:0;width:49.2%;top:14%;height:30%;background:rgba(23,23,23,.16);}
+.papel .marca-letra{position:absolute;}
+
+/* modelos de composição: barras na proporção real das colunas */
+.modelos{display:flex;flex-direction:column;gap:40px;}
+.modelo .cab{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:10px;}
+.modelo .nome{font-family:var(--api-rotulo-font-family);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--api-azul);}
+.modelo .medidas{font-family:var(--api-legenda-font-family);font-size:13px;color:var(--api-texto-fraco);font-feature-settings:"tnum";}
+.modelo .barras{display:flex;gap:1.5%;}
+.modelo .b{height:28px;}
+.b.azul{background:var(--api-azul);}
+.b.claro{background:var(--api-acao-secundaria);}
+.b.latao{background:var(--api-destaque);}
+
+/* na prática: as duas páginas de exemplo construídas em miniatura */
+.duas-paginas{display:grid;grid-template-columns:3fr 2.1fr;gap:24px;align-items:start;}
+@media(max-width:900px){.duas-paginas{grid-template-columns:1fr;}}
+.pagina{background:var(--api-fundo);border:1px solid var(--api-borda);padding:32px;}
+.pagina .titulo-p{font-family:var(--api-titulo-pagina-font-family);font-size:26px;font-weight:700;letter-spacing:-0.4px;color:var(--api-azul);margin:0 0 10px;}
+.pagina .fio-p{height:1px;background:var(--api-azul);margin-bottom:14px;}
+.pagina .abre{font-size:11px;line-height:1.55;color:var(--api-texto);margin:0 0 18px;max-width:34em;}
+.pagina .rot-s{font-family:var(--api-rotulo-font-family);font-size:8px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--api-azul);border-bottom:1px solid var(--api-borda);padding-bottom:4px;margin:16px 0 8px;}
+.pagina .col2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.pagina .col3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
+.pagina .txt{font-size:9px;line-height:1.55;color:var(--api-texto);margin:0;}
+.pagina table{width:100%;border-collapse:collapse;font-size:8.5px;}
+.pagina th{background:var(--api-fundo-escuro);color:var(--api-sobre-escuro);font-weight:600;text-align:left;padding:4px 6px;}
+.pagina th.dir,.pagina td.num{text-align:right;font-feature-settings:"tnum";}
+.pagina td{padding:4px 6px;}
+.pagina td:first-child{font-weight:600;color:var(--api-azul);}
+.pagina tbody tr:nth-child(even){background:var(--api-fundo-bloco);}
+.pagina .destaque-n{font-family:Inter,system-ui,sans-serif;font-size:16px;font-weight:700;letter-spacing:-0.2px;font-feature-settings:"tnum";color:var(--api-azul);margin:0 0 2px;}
+.pagina .destaque-l{font-size:8.5px;line-height:1.5;color:var(--api-texto);margin:0;}
 </style>
 </head>
 <body>
@@ -40,13 +75,30 @@
     <div class="secao">
       <h2>Anatomia</h2>
       <div class="palco">
-        <div class="anatomia">
-          <div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div>
+        <div class="formatos">
+          <div class="formato">
+            <div class="rotulo-f">A4 retrato · 210 × 297 mm</div>
+            <div class="papel retrato"><div class="util">
+              <div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div>
+            </div></div>
+          </div>
+          <div class="formato">
+            <div class="rotulo-f">A4 paisagem · 297 × 210 mm</div>
+            <div class="papel paisagem"><div class="util">
+              <div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div>
+              <div class="area-d"></div>
+              <span class="marca-letra" style="left:-9%;top:2%">A</span>
+              <span class="marca-letra" style="left:22%;top:52%">B</span>
+              <span class="marca-letra" style="left:56.5%;top:52%">C</span>
+              <span class="marca-letra" style="left:21%;top:20%;color:var(--api-texto)">D</span>
+            </div></div>
+          </div>
         </div>
-        <div class="legenda-grid">
-          <span><strong>Margem:</strong> o vazio nas bordas externas</span>
-          <span><strong>Coluna:</strong> as 12 guias verticais</span>
-          <span><strong>Medianiz:</strong> o vão entre colunas, que não é área útil</span>
+        <div class="anatomia-legenda">
+          <span class="letra">A.</span> <strong>Margem:</strong> o vazio nas bordas externas, 20 mm nos quatro lados ·
+          <span class="letra">B.</span> <strong>Coluna:</strong> as 12 guias verticais, que não se imprimem ·
+          <span class="letra">C.</span> <strong>Medianiz:</strong> o vão entre colunas, que não é área útil ·
+          <span class="letra">D.</span> <strong>Área de conteúdo:</strong> o bloco, que atravessa qualquer número de colunas inteiras
         </div>
       </div>
       <p class="anota">Quando o conteúdo não cabe, quem cede é a largura do bloco, nunca a
@@ -65,12 +117,6 @@
           <tr><td>A4 paisagem</td><td>3036 × 1914 px</td><td>17,75 mm (210 px)</td><td>5 a 7 colunas</td></tr>
         </tbody>
       </table>
-      <div class="palco">
-        <img class="folha" src="/exemplos/png/api_capital_ds_grade_e_margens.png" loading="lazy"
-          alt="Folha do sistema com a grade nos dois formatos A4: retrato e paisagem, com o contorno da área útil e as 12 colunas de guia">
-      </div>
-      <p class="anota">O contorno marca a área útil; as colunas são guia de composição e não se
-        imprimem.</p>
     </div>
 
     <div class="secao">
@@ -112,13 +158,36 @@
 
     <div class="secao">
       <h2>Modelos de composição</h2>
-      <p>Uma coluna · duas em 50/50 · três em terços · duas em 7+5 · duas em 9+3. Larguras
-        diferentes convivem na mesma página; o que não se admite é bloco que comece ou termine
-        no meio de uma coluna.</p>
+      <p>Elemento que pertence a uma coluna respeita a coluna. Os modelos valem nos dois
+        formatos: a proporção é a mesma, muda só a largura da coluna. Larguras diferentes
+        convivem na mesma página; o que não se admite é bloco que comece ou termine no meio de
+        uma coluna.</p>
       <div class="palco">
-        <img class="folha" src="/exemplos/png/api_capital_ds_colunas.png" loading="lazy"
-          alt="Folha do sistema com os cinco modelos de coluna desenhados em barras: uma coluna, duas em 50/50, três colunas, duas em 7+5 e duas em 9+3, com as larguras de cada formato">
+        <div class="modelos">
+          <div class="modelo">
+            <div class="cab"><span class="nome">Uma coluna</span><span class="medidas">paisagem 3036 · retrato 2008</span></div>
+            <div class="barras"><div class="b azul" style="width:100%"></div></div>
+          </div>
+          <div class="modelo">
+            <div class="cab"><span class="nome">Duas colunas · 50/50</span><span class="medidas">paisagem 1494 + 1494 · retrato 980 + 980</span></div>
+            <div class="barras"><div class="b azul" style="width:49.25%"></div><div class="b claro" style="width:49.25%"></div></div>
+          </div>
+          <div class="modelo">
+            <div class="cab"><span class="nome">Três colunas</span><span class="medidas">paisagem 981 + 981 + 981 · retrato 638 + 638 + 638</span></div>
+            <div class="barras"><div class="b azul" style="width:32.3%"></div><div class="b claro" style="width:32.3%"></div><div class="b latao" style="width:32.3%"></div></div>
+          </div>
+          <div class="modelo">
+            <div class="cab"><span class="nome">Duas colunas · 7 + 5</span><span class="medidas">paisagem 1751 + 1237 · retrato 1152 + 809</span></div>
+            <div class="barras"><div class="b azul" style="width:57.7%"></div><div class="b claro" style="width:40.8%"></div></div>
+          </div>
+          <div class="modelo">
+            <div class="cab"><span class="nome">Duas colunas · 9 + 3</span><span class="medidas">paisagem 2265 + 724 · retrato 1494 + 467</span></div>
+            <div class="barras"><div class="b azul" style="width:74.6%"></div><div class="b claro" style="width:23.9%"></div></div>
+          </div>
+        </div>
       </div>
+      <p class="anota">A medianiz não é área útil: nada entra nela. Quando o conteúdo não cabe,
+        quem cede é a largura do bloco.</p>
     </div>
 
     <div class="secao">
@@ -126,16 +195,79 @@
       <p>Duas páginas de exemplo, com texto fictício. Cada bloco usa um modelo de coluna, e
         nenhum começa ou termina no meio de uma.</p>
       <div class="palco">
-        <div class="duas-folhas">
-          <img class="folha" src="/exemplos/png/api_capital_ds_exemplo_paisagem.png" loading="lazy"
-            alt="Página de exemplo em A4 paisagem: seção O mês em duas colunas 50/50, tabela A carteira em uma coluna e Destaques em três colunas">
-          <img class="folha" src="/exemplos/png/api_capital_ds_exemplo_retrato.png" loading="lazy"
-            alt="Página de exemplo em A4 retrato: O plano e Próximos passos em duas colunas 50/50, tabela Posição em uma coluna e Indicadores em três colunas">
+        <div class="duas-paginas">
+
+          <div class="pagina">
+            <div class="titulo-p">Carta de setembro</div>
+            <div class="fio-p"></div>
+            <p class="abre">Página de exemplo em paisagem. Cada bloco usa um modelo de coluna.</p>
+            <div class="rot-s">O mês · duas colunas 50/50</div>
+            <div class="col2">
+              <p class="txt">O juro real seguiu acima de dois dígitos e a bolsa devolveu parte
+                da alta do trimestre. A carteira manteve a posição em renda fixa indexada à
+                inflação, que é onde o prêmio de hoje remunera o risco sem exigir acerto de
+                prazo.</p>
+              <p class="txt">Em ações, a ampliação foi gradual e concentrada em empresas com
+                caixa previsível. O critério de entrada não mudou: preço que faz sentido e
+                prazo compatível com o objetivo de quem investe.</p>
+            </div>
+            <div class="rot-s">A carteira · uma coluna</div>
+            <table>
+              <thead><tr><th>Ativo</th><th>Classe</th><th class="dir">Peso</th><th class="dir">12 meses</th></tr></thead>
+              <tbody>
+                <tr><td>Tesouro IPCA+ 2035</td><td>Renda fixa</td><td class="num">24,0%</td><td class="num">+11,4%</td></tr>
+                <tr><td>Fundo de crédito high grade</td><td>Renda fixa</td><td class="num">18,5%</td><td class="num">+12,1%</td></tr>
+                <tr><td>Fundo imobiliário de tijolo</td><td>Imobiliário</td><td class="num">16,0%</td><td class="num">+8,9%</td></tr>
+                <tr><td>Ações Brasil</td><td>Renda variável</td><td class="num">22,5%</td><td class="num">+16,3%</td></tr>
+              </tbody>
+            </table>
+            <div class="rot-s">Destaques · três colunas</div>
+            <div class="col3">
+              <div><p class="destaque-n">+11,4%</p><p class="destaque-l">Resultado da carteira nos últimos doze meses.</p></div>
+              <div><p class="destaque-n">0,00</p><p class="destaque-l">Comissão recebida de produto.</p></div>
+              <div><p class="destaque-n">4 anos</p><p class="destaque-l">Prazo médio da renda fixa indexada à inflação.</p></div>
+            </div>
+          </div>
+
+          <div class="pagina">
+            <div class="titulo-p">Planejamento Norte</div>
+            <div class="fio-p"></div>
+            <p class="abre">Página de exemplo em retrato, com os mesmos modelos.</p>
+            <div class="rot-s">O plano · duas colunas 50/50</div>
+            <div class="col2">
+              <p class="txt">O plano começa pela pergunta que dá nome à casa: por quem você
+                investe. A resposta define prazo, risco e liquidez, nessa ordem.</p>
+              <p class="txt">Só depois disso entra o produto. A carteira é consequência do
+                plano, e não o contrário.</p>
+            </div>
+            <div class="rot-s">Posição · uma coluna</div>
+            <table>
+              <thead><tr><th>Ativo</th><th class="dir">Peso</th><th class="dir">12 meses</th></tr></thead>
+              <tbody>
+                <tr><td>Tesouro IPCA+ 2035</td><td class="num">24,0%</td><td class="num">+11,4%</td></tr>
+                <tr><td>Fundo de crédito</td><td class="num">18,5%</td><td class="num">+12,1%</td></tr>
+                <tr><td>Fundo imobiliário</td><td class="num">16,0%</td><td class="num">+8,9%</td></tr>
+                <tr><td>Ações Brasil</td><td class="num">22,5%</td><td class="num">+16,3%</td></tr>
+              </tbody>
+            </table>
+            <div class="rot-s">Indicadores · três colunas</div>
+            <div class="col3">
+              <div><p class="destaque-n">+11,4%</p><p class="destaque-l">Resultado em doze meses.</p></div>
+              <div><p class="destaque-n">0,00</p><p class="destaque-l">Comissão de produto.</p></div>
+              <div><p class="destaque-n">4 anos</p><p class="destaque-l">Prazo médio da renda fixa.</p></div>
+            </div>
+            <div class="rot-s">Próximos passos · duas colunas 50/50</div>
+            <div class="col2">
+              <p class="txt">Revisar a reserva antes de qualquer aporte novo, e só então tratar
+                do prazo mais longo.</p>
+              <p class="txt">A próxima conversa fecha a parte de sucessão, que é onde o plano
+                ainda tem lacuna.</p>
+            </div>
+          </div>
+
         </div>
       </div>
-      <p class="anota">Paisagem: O MÊS em duas colunas 50/50 · A CARTEIRA em uma coluna ·
-        DESTAQUES em três. Retrato: O PLANO e PRÓXIMOS PASSOS em 50/50 · POSIÇÃO em uma ·
-        INDICADORES em três.</p>
+      <p class="anota">O rótulo de cada seção diz o modelo que ela usa.</p>
     </div>
   </main>
 </div>

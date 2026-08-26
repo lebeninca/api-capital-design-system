@@ -44,8 +44,13 @@ svg.ic{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;strok
       <h2>Anatomia</h2>
       <div class="palco">
         <div class="form-ex">
-          <label for="ex1">Nome completo</label>
+          <label for="ex1"><span class="marca-letra">A</span>&nbsp; Nome completo</label>
           <input class="api-campo" id="ex1" type="text" placeholder="Como está no documento">
+          <span><span class="marca-letra">B</span>&nbsp; <span style="font-size:14px;color:var(--api-texto-fraco)">Texto de apoio opcional, abaixo do campo</span></span>
+        </div>
+        <div class="anatomia-legenda">
+          <span class="letra">A.</span> <strong>Rótulo:</strong> sempre acima do campo, em peso 600 ·
+          <span class="letra">B.</span> <strong>Apoio:</strong> instrução ou mensagem de erro, escrita, nunca só a cor
         </div>
       </div>
       <p class="anota">Fundo branco, borda de 1 px em <code>--api-borda</code>, canto de 15,
@@ -84,6 +89,38 @@ svg.ic{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;strok
       </div>
       <p class="anota">Utilidade ao lado de um campo é o botão secundário em 40 px. Anexo usa o
         ícone Lucide <code>paperclip</code>, nunca emoji.</p>
+    </div>
+
+    <div class="secao">
+      <h2>Agrupamento</h2>
+      <p>Formulário vive direto sobre o fundo do card ou da seção. Grupo de campos se marca com
+        título de grupo e espaço, nunca com um segundo fundo.</p>
+      <div class="dodont">
+        <div class="dd faca">
+          <div class="dd-palco">
+            <div style="background:var(--api-fundo);border-radius:var(--api-canto);padding:24px;width:100%;max-width:300px">
+              <div style="font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--api-texto-fraco);margin-bottom:12px">Dados pessoais</div>
+              <div style="height:36px;border:1px solid var(--api-borda);border-radius:var(--api-canto);margin-bottom:12px"></div>
+              <div style="height:36px;border:1px solid var(--api-borda);border-radius:var(--api-canto)"></div>
+            </div>
+          </div>
+          <div class="dd-rotulo"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Faça</div>
+          <p class="dd-desc">Grupo marcado com título e espaço, campos direto sobre o card.</p>
+        </div>
+        <div class="dd nao">
+          <div class="dd-palco">
+            <div style="background:var(--api-fundo);border-radius:var(--api-canto);padding:24px;width:100%;max-width:300px">
+              <div style="background:var(--api-fundo-bloco);border-radius:var(--api-canto);padding:16px">
+                <div style="height:36px;background:var(--api-fundo);border:1px solid var(--api-borda);border-radius:var(--api-canto);margin-bottom:12px"></div>
+                <div style="height:36px;background:var(--api-fundo);border:1px solid var(--api-borda);border-radius:var(--api-canto)"></div>
+              </div>
+            </div>
+          </div>
+          <div class="dd-rotulo"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Não faça</div>
+          <p class="dd-desc">Contêiner cinza agrupando campos dentro do card: caixa dentro de
+            caixa é veto (<code>box-dentro-de-box</code>).</p>
+        </div>
+      </div>
     </div>
 
     <div class="secao">

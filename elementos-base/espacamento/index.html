@@ -13,6 +13,13 @@
 .degrau .barra{background:var(--api-acao-secundaria);height:24px;border-radius:2px;}
 .degrau .rot{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:14px;color:var(--api-texto);width:120px;flex:none;}
 .degrau .med{font-size:14px;color:var(--api-texto-fraco);}
+.pilha{display:flex;flex-direction:column;max-width:360px;background:var(--api-fundo);border-radius:var(--api-canto);padding:40px;}
+.pilha label{font-size:15px;font-weight:600;color:var(--api-texto);}
+.pilha .campo-d{height:48px;border:1px solid var(--api-borda);border-radius:var(--api-canto);}
+.pilha .botao-d{height:48px;background:var(--api-acao);color:var(--api-sobre-escuro);border-radius:var(--api-canto);display:inline-flex;align-items:center;justify-content:center;font-size:17px;font-weight:600;align-self:flex-start;padding:0 24px;}
+.cota{position:relative;background:rgba(65,142,206,.18);}
+.cota span{position:absolute;left:calc(100% + 12px);top:50%;transform:translateY(-50%);font-family:Inter,system-ui,sans-serif;font-size:12px;font-weight:700;color:var(--api-acao-secundaria);font-feature-settings:"tnum";white-space:nowrap;}
+.c2{height:8px;}.c6{height:24px;}.c10{height:40px;}
 </style>
 </head>
 <body>
@@ -61,6 +68,24 @@
           <tr><td>Junta entre cards de um painel</td><td><code>--api-x6</code> 24 px</td></tr>
         </tbody>
       </table>
+    </div>
+
+    <div class="secao">
+      <h2>Na prática</h2>
+      <p>Cada distância é um degrau da escala. Entre rótulo e campo, 8; entre campo e ação, 24;
+        o respiro interno do card, 40:</p>
+      <div class="palco">
+        <div class="pilha">
+          <label>Nome completo</label>
+          <div class="cota c2"><span>x2 · 8</span></div>
+          <div class="campo-d"></div>
+          <div class="cota c6"><span>x6 · 24</span></div>
+          <div class="botao-d">Enviar</div>
+          <div class="cota c10" style="margin-top:0"><span>x10 · 40</span></div>
+        </div>
+      </div>
+      <p class="anota">As faixas azuis marcam o espaço consumido da escala; a última é o respiro
+        interno do card até a borda.</p>
     </div>
 
     <div class="secao">
