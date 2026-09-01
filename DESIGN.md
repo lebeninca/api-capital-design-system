@@ -1,5 +1,5 @@
 ---
-version: "3.4"
+version: "3.5"
 name: "API Capital"
 description: "Consultoria de investimentos independente. Clássico moderno e autoridade tranquila: azul-meia-noite e latão sobre branco puro, Playfair Display em título e Inter em todo o resto, incluindo cada número apresentado. Zero sombra, canto de 15, grade de 12 colunas. O sistema atende impresso e tela com a mesma régua, e o padrão é sempre o registro mais sóbrio."
 
@@ -361,7 +361,7 @@ zona: publica
 dominio: design
 bandeira: 06_marketing_api_capital
 produto: api_capital
-versao: 3.4
+versao: 3.5
 resumo: >-
   Especificação de design da API Capital, no formato design.md: tokens de cor, tipografia,
   espaço, forma e componente, mais as regras de layout, logo, ícone, imagem, estado e veto.
@@ -561,10 +561,15 @@ itálicos; consuma o peso que o token declara, nunca um sintetizado.
 | Linha-fina | Inter Regular 44 / 1,40 |
 | Corpo | Inter Regular 34 / 1,62 |
 | Citação | Playfair Display Italic 56 |
+| Título de seção | Playfair Display **Regular** 84, com fio capilar sob o título |
 | Rótulo de seção | Inter SemiBold 28, tracking 4 |
 | Legenda | Inter Regular 24, em `{colors.texto-fraco}` |
 
 Alinhamento à esquerda, sem justificar.
+
+**Em peça editorial impressa (carta mensal, relatório), o título de seção é Playfair REGULAR
+(400)** — o bold fica pra capa e pra chamada. O fio sob o título e as linhas separadoras do
+miolo são **capilares** (0,5 pt · 2 px a 300 dpi); o fio grosso marca só a capa.
 
 ### Princípios
 
@@ -954,10 +959,20 @@ não entra fio.
 Texto à esquerda, número à direita em `{typography.numero}`. A tabela fecha com fonte e data de
 apuração em `{typography.legenda}`.
 
+**Tabela curta de comparação** (duas ou três linhas, com as classes lado a lado): título de
+coluna e valor ficam **centralizados**, o valor exatamente sob o seu título. O número à direita
+é régua de tabela longa de dados — aplicado numa tabela curta, título e valor caem cada um num
+canto e a peça desalinha.
+
 ### Gráfico
 
 Cores de série, nesta ordem: `{colors.azul}` · `{colors.latao}` · `{colors.azul-claro}` ·
 `{colors.preto}` · `{colors.areia}`.
+
+**A paleta serve à mensagem.** A ordem acima é o padrão, não camisa de força: em gráfico denso
+ou heatmap, cores de dado fora da marca (tons pastéis, verdes) entram quando melhoram a
+leitura. A identidade da peça fica na tipografia, no layout e na moldura — não na cor de cada
+série.
 
 Eixo Y sempre com valores, barra partindo do zero, rosca sempre com furo. Fecha com fonte e data
 de apuração.
