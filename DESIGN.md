@@ -529,8 +529,9 @@ no lugar da Inter. Nenhuma terceira família entra no sistema, nem como substitu
 título 28, corpo 17 e legenda 14. Os demais níveis e todo o tracking são derivação.
 
 Em página de documentação, o título pesa MENOS: página e seção em Playfair **medium** (500).
-**Hero, abertura de peça e chamada gritante seguem no `{typography.display}` bold** — o medium é
-régua de leitura de documento, não de impacto. A Playfair embarcada cobre os seis pesos (400 a 900) e os dois
+**O `{typography.display}` bold é registro de CHAMADA: anúncio, hero de campanha, peça
+gritante — e só isso.** Capa e abertura de peça editorial ficam no medium; o medium é a régua
+de leitura, o bold é a exceção de impacto. A Playfair embarcada cobre os seis pesos (400 a 900) e os dois
 itálicos; consuma o peso que o token declara, nunca um sintetizado.
 
 | Token | Tamanho | Peso | Entrelinha | Tracking | Uso |
@@ -557,7 +558,8 @@ itálicos; consuma o peso que o token declara, nunca um sintetizado.
 
 | Nível | Tamanho e entrelinha |
 |---|---|
-| Título | Playfair Display Bold 130 |
+| Título | Playfair Display **Medium** 130 |
+| Chamada gritante | Playfair Display Bold — só em chamada e anúncio, nunca em capa ou miolo editorial |
 | Linha-fina | Inter Regular 44 / 1,40 |
 | Corpo | Inter Regular 34 / 1,62 |
 | Citação | Playfair Display Italic 56 |
@@ -567,9 +569,10 @@ itálicos; consuma o peso que o token declara, nunca um sintetizado.
 
 Alinhamento à esquerda, sem justificar.
 
-**Em peça editorial impressa (carta mensal, relatório), o título de seção é Playfair REGULAR
-(400)** — o bold fica pra capa e pra chamada. O fio sob o título e as linhas separadoras do
-miolo são **capilares** (0,5 pt · 2 px a 300 dpi); o fio grosso marca só a capa.
+**Em peça editorial impressa (carta mensal, relatório), a capa e o título de abertura ficam em
+Playfair MEDIUM (500) e o título de seção em Playfair REGULAR (400). Playfair Bold é SÓ para
+chamada, anúncio e peça gritante** — não entra em capa nem em miolo editorial. O fio sob o
+título e as linhas separadoras do miolo são **capilares** (0,5 pt · 2 px a 300 dpi).
 
 ### Princípios
 
