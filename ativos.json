@@ -1,6 +1,6 @@
 {
  "base": "https://design.apicapital.com.br",
- "total": 2151,
+ "total": 2152,
  "categorias": {
   "favicon": [
    "assets/favicon/pdf/api_capital_favicon.pdf",
@@ -34,6 +34,7 @@
    "assets/fonte/playfair-display/PlayfairDisplay-SemiBold-latino.woff2"
   ],
   "foto": [
+   "assets/foto/cartas/api_capital_foto_ceu_aurora_pelicano.png",
    "assets/foto/png/api_capital_foto_ceu_aurora_pelicano.png",
    "assets/foto/png/api_capital_foto_ceu_aviao_rastro.png",
    "assets/foto/png/api_capital_foto_ceu_nevoa.png",
