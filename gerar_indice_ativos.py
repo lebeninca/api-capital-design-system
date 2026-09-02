@@ -11,7 +11,7 @@ import json, pathlib, collections
 
 RAIZ = pathlib.Path(__file__).parent
 BASE = "https://design.apicapital.com.br"
-EXT_OK = {".svg", ".png", ".pdf", ".woff2", ".otf", ".ttf", ".ase", ".gpl", ".json", ".txt", ".css"}
+EXT_OK = {".svg", ".png", ".jpg", ".jpeg", ".pdf", ".woff2", ".otf", ".ttf", ".ase", ".gpl", ".json", ".txt", ".css"}
 
 arquivos = sorted(
     p for p in (RAIZ / "assets").rglob("*")
