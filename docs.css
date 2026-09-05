@@ -5,17 +5,17 @@
 body { margin: 0; background: var(--api-fundo); color: var(--api-texto);
        font-family: var(--api-corpo-font-family); }
 
-/* topo do site: barra de topo clara de 72 px (padrão Sites e Aplicações · Barra de topo) */
+/* topo do site: barra de topo clara de 64 px — configuração 5 · Documentação */
 .topo { position: sticky; top: 0; z-index: 10; background: var(--api-fundo);
-        border-bottom: 1px solid var(--api-borda); height: 72px; padding: 0 40px;
+        border-bottom: 1px solid var(--api-borda); height: 64px; padding: 0 24px;
         display: flex; align-items: center; }
-.topo .dentro { display: flex; align-items: center; gap: 24px; width: 100%; }
-.topo img { height: 44px; display: block; }
-.topo .nome { font-family: var(--api-titulo-pagina-font-family); font-size: 24px;
+.topo .dentro { display: flex; align-items: center; gap: 20px; width: 100%; }
+.topo img { height: 31px; display: block; }
+.topo .nome { font-family: var(--api-titulo-pagina-font-family); font-size: 20px;
               font-weight: 400; color: var(--api-azul); text-decoration: none;
               transform: translateY(1px); }
 .topo .acao { margin-left: auto; display: inline-flex; align-items: center;
-              height: 40px; padding: 0 20px; background: var(--api-acao);
+              height: 36px; padding: 0 20px; background: var(--api-acao);
               color: var(--api-sobre-escuro); border-radius: var(--api-canto);
               font-family: var(--api-botao-pequeno-font-family); font-size: 15px;
               font-weight: 600; text-decoration: none; }
@@ -26,7 +26,7 @@ body { margin: 0; background: var(--api-fundo); color: var(--api-texto);
 
 .lateral { width: 280px; flex: none; padding: 32px 0 64px;
            border-right: 1px solid var(--api-borda);
-           position: sticky; top: 73px; max-height: calc(100vh - 73px); overflow-y: auto; }
+           position: sticky; top: 65px; max-height: calc(100vh - 65px); overflow-y: auto; }
 .lateral ul { list-style: none; margin: 0; padding: 0; }
 .lateral li { margin: 0; }
 .lateral hr { border: 0; border-top: 1px solid var(--api-borda); margin: 16px 40px; }
