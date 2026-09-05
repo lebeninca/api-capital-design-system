@@ -936,6 +936,10 @@ Todo site, painel, gerador e ferramenta abre com **`{components.barra-topo}`** (
 🔴 **Toda a barra tem o mesmo alinhamento central:** cada elemento, da logo à lua, senta no
 centro vertical da linha.
 
+**A logo e o último elemento da direita respeitam a margem da página, quando ela existe:** o
+respiro lateral da barra deixa de ser 24 px e passa a ser a própria margem do conteúdo. Não vale
+para página de conteúdo central (como o gerador de carta), que fica nos 24 px.
+
 **Medidas** (o desenho de referência é a folha `api_capital_ui_navegacao` do `.pen`; a página
 navegável é `design.apicapital.com.br/componentes/barra-de-topo/`):
 
