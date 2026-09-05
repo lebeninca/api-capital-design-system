@@ -960,21 +960,13 @@ O vazio no meio é que empurra o bloco da direita para a borda; nada mais ocupa 
 completo; o **selo isolado** quando existe título de página, para o nome da ferramenta ficar
 sendo o texto da barra. Nunca as duas coisas escritas.
 
-🔴 **Uma ação cheia por barra, no máximo.** Toda ação secundária é ícone ou botão de texto. Duas
-caixas cheias lado a lado é veto — foi assim que a barra do gerador de cartas virou uma fileira
-de quatro botões brancos.
-
-🔴 **Botão de barra tem 36 px**, não os 48 do botão de página.
-
-**Contexto não é título.** O nome do documento aberto ("Carta Agosto de 2026") fica à direita,
-antes dos ícones, em Inter 600 — nunca no lugar do título nem colado nele.
+🔴 **Toda a barra tem o mesmo alinhamento central:** cada elemento, da logo à lua, senta no
+centro vertical da linha.
 
 **Na versão escura**, fundo `{colors.fundo-escuro}`, logo branca, ícone e texto em
 `{colors.sobre-escuro}`, **a ação cheia inverte** (fundo branco, texto azul) e o campo de busca
 vai para `{colors.azul-var}` — um tom acima do fundo, nunca cinza-claro, que vira um bloco branco
 no meio da barra.
-
-**A lua é o último elemento da direita, sempre**, e é o único ícone menor que os outros.
 
 **O título alinha pelo centro do conjunto "API Capital" da logo, ignorando o pelicano** — o
 desenho do pássaro puxa o centro geométrico para fora da linha óptica do texto.
