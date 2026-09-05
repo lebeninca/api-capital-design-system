@@ -325,11 +325,17 @@ components:
     typography: "{typography.legenda}"
     padding: 64px 40px
   barra-topo:
+    backgroundColor: "{colors.fundo}"
+    textColor: "{colors.azul}"
+    typography: "{typography.titulo-pagina}"
+    padding: 0 24px
+    height: 64px
+  barra-topo-escura:
     backgroundColor: "{colors.fundo-escuro}"
     textColor: "{colors.sobre-escuro}"
     typography: "{typography.titulo-pagina}"
-    padding: 0 40px
-    height: 96px
+    padding: 0 24px
+    height: 64px
   content-card:
     backgroundColor: "{colors.fundo}"
     textColor: "{colors.texto}"
@@ -924,18 +930,58 @@ Em celular os itens viram menu; a ação continua visível.
 
 ### Barra de topo
 
-Toda ferramenta, gerador ou página interna abre com **`{components.barra-topo}`** — não se
-inventa cabeçalho novo. Fundo `{colors.fundo-escuro}`, e o conteúdo é **só isto: a logo da API
-(branca) à esquerda, e o título da página ao lado dela, em Playfair Display
-regular — o mesmo peso da palavra "Capital" do logotipo** — com `{colors.sobre-escuro}` (26 px
-na barra de 96), separados por 24 px. **Sem subtítulo, sem descrição, sem nenhum outro texto.**
-Mesmas alturas da navegação: 96 px em tela cheia, 72 px em tablet, 64 px em celular; respiro
-lateral de 40 px.
+Toda ferramenta, gerador, painel ou site abre com **`{components.barra-topo}`** (clara) ou
+**`{components.barra-topo-escura}`** — não se inventa cabeçalho novo. **Altura de 64 px, respiro
+lateral de 24 px, e as duas versões existem sempre: a peça nasce nas duas.**
 
-**A logo da barra é a principal (`logo01`)** — 56 px na barra de 96, 44 na de 72, 36 na de
-64 (§Logo · Arquivos justos). **Item de navegação em Inter 500, 15 px**; o ativo sobe pra 600 e
-ganha o fio de 2 pt. **O título alinha pelo centro do conjunto "API Capital" da logo, ignorando o pelicano** —
-o desenho do pássaro puxa o centro geométrico pra fora da linha óptica do texto.
+**A ordem é invariável, da esquerda para a direita:** menu (quando houver) · logo · título da
+página · *o vazio* · contexto · ícones de ação · ação cheia · **lua, sempre por último**.
+O vazio no meio é que empurra o bloco da direita para a borda; nada mais ocupa aquele espaço.
+
+**Medidas** (a folha `api_capital_ui_navegacao` do `.pen` é o desenho de referência):
+
+| Elemento | Medida |
+| --- | --- |
+| Altura da barra | 64 px |
+| Respiro lateral | 24 px |
+| Distância entre itens | 16 px em site · 20 px em aplicação |
+| Logo extensa (`logo03`) | 30 px de altura |
+| Selo isolado (`logo05`) | 31 px de altura |
+| Título da página | Playfair Display regular, 20 px |
+| Item de navegação | Inter 500, 15 px · ativo 600 com fio de 2 px |
+| Contexto (nome do documento aberto) | Inter 600, 15 px |
+| Ícone de ação | 21 px de desenho |
+| Lua (claro/escuro) | 15 px — 70% do ícone comum |
+| Avatar | 27 px, com anel de 1 px a 3 px da foto |
+| Campo de busca | 290 × 48 px, canto de 15 |
+| Ação cheia | 36 px de altura, canto de 15, Inter 600 15 |
+
+**Qual logo entra:** a **extensa** quando a barra não tem título de página (site) e no caso
+completo; o **selo isolado** quando existe título de página, para o nome da ferramenta ficar
+sendo o texto da barra. Nunca as duas coisas escritas.
+
+🔴 **Uma ação cheia por barra, no máximo.** Toda ação secundária é ícone ou botão de texto. Duas
+caixas cheias lado a lado é veto — foi assim que a barra do gerador de cartas virou uma fileira
+de quatro botões brancos.
+
+🔴 **Botão de barra tem 36 px**, não os 48 do botão de página.
+
+**Contexto não é título.** O nome do documento aberto ("Carta Agosto de 2026") fica à direita,
+antes dos ícones, em Inter 600 — nunca no lugar do título nem colado nele.
+
+**Na versão escura**, fundo `{colors.fundo-escuro}`, logo branca, ícone e texto em
+`{colors.sobre-escuro}`, **a ação cheia inverte** (fundo branco, texto azul) e o campo de busca
+vai para `{colors.azul-var}` — um tom acima do fundo, nunca cinza-claro, que vira um bloco branco
+no meio da barra.
+
+**A lua é o último elemento da direita, sempre**, e é o único ícone menor que os outros.
+
+**O título alinha pelo centro do conjunto "API Capital" da logo, ignorando o pelicano** — o
+desenho do pássaro puxa o centro geométrico para fora da linha óptica do texto.
+
+**Sete configurações fechadas** (site simples, site com navegação, painel com busca, gerador de
+documento, gerador de gráfico, documentação e completa) estão desenhadas e explicadas em
+**Padrões · Barra de topo**. Quem monta uma tela escolhe uma delas; não se inventa a oitava.
 
 ### Passo numerado
 

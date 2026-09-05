@@ -184,6 +184,88 @@ def escrever_json(dados, destino):
     destino.write_text(json.dumps(dados, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
+def resolver(dados, ref):
+    """{colors.azul} -> #0D2A54 (segue a cadeia ate o valor cru)."""
+    while isinstance(ref, str) and ref.startswith("{"):
+        grupo, chave = ref.strip("{}").split(".", 1)
+        ref = dados[grupo][chave]
+    return ref
+
+
+def escrever_tema_echarts(dados, destino):
+    """Emite tema-echarts.js: registra o tema 'api-capital' no ECharts a partir dos tokens.
+    E JS, nao JSON, porque <script src> nao sofre a trava de origem cruzada do fetch.
+    Regua: DESIGN.md §Grafico (ordem das series, eixo Y com valor, barra do zero, rosca com furo)."""
+    c = lambda k: resolver(dados, dados["colors"][k])
+    t = dados["typography"]
+    fonte = lambda k: t[k]["fontFamily"]
+    tam = lambda k: int(t[k]["fontSize"].rstrip("px"))
+    peso = lambda k: int(t[k]["fontWeight"])
+    eixo = {
+        "axisLine": {"show": True, "lineStyle": {"color": c("borda"), "width": 1}},
+        "axisTick": {"show": False},
+        "axisLabel": {"color": c("texto-fraco"), "fontFamily": fonte("legenda"),
+                      "fontSize": tam("legenda")},
+        "splitLine": {"show": True, "lineStyle": {"color": c("borda"), "width": 1}},
+        "splitArea": {"show": False},
+    }
+    tema = {
+        "color": [c("azul"), c("latao"), c("azul-claro"), c("preto"), c("areia")],
+        "backgroundColor": "transparent",
+        "textStyle": {"color": c("texto"), "fontFamily": fonte("corpo-pequeno"),
+                      "fontSize": tam("corpo-pequeno")},
+        "title": {
+            "textStyle": {"color": c("texto"), "fontFamily": fonte("titulo"),
+                          "fontSize": 20, "fontWeight": peso("titulo")},
+            "subtextStyle": {"color": c("texto-fraco"), "fontFamily": fonte("corpo-pequeno"),
+                             "fontSize": tam("corpo-pequeno"), "fontWeight": 400},
+        },
+        "legend": {"textStyle": {"color": c("texto"), "fontFamily": fonte("legenda"),
+                                 "fontSize": tam("legenda")},
+                   "icon": "rect", "itemWidth": 14, "itemHeight": 14},
+        "tooltip": {
+            "backgroundColor": c("fundo"), "borderColor": c("borda"), "borderWidth": 1,
+            "textStyle": {"color": c("texto"), "fontFamily": fonte("corpo-pequeno"),
+                          "fontSize": tam("corpo-pequeno")},
+            "axisPointer": {"lineStyle": {"color": c("texto-fraco"), "width": 1},
+                            "crossStyle": {"color": c("texto-fraco"), "width": 1}},
+        },
+        "categoryAxis": {**eixo, "splitLine": {"show": False}},
+        "valueAxis": {**eixo, "axisLine": {"show": False}, "scale": False},
+        "logAxis": eixo, "timeAxis": {**eixo, "splitLine": {"show": False}},
+        "line": {"lineStyle": {"width": 2}, "symbol": "circle", "symbolSize": 6,
+                 "smooth": False, "showSymbol": False},
+        "bar": {"barMaxWidth": 56, "itemStyle": {"borderRadius": 0}},
+        "pie": {"itemStyle": {"borderColor": c("fundo"), "borderWidth": 2},
+                "label": {"color": c("texto"), "fontFamily": fonte("legenda"),
+                          "fontSize": tam("legenda")}},
+        "candlestick": {"itemStyle": {"color": c("ok"), "color0": c("erro"),
+                                      "borderColor": c("ok"), "borderColor0": c("erro")}},
+        "scatter": {"symbolSize": 8},
+        "graph": {"lineStyle": {"color": c("borda")}},
+        "markLine": {"lineStyle": {"color": c("texto-fraco"), "type": "dashed", "width": 1},
+                     "label": {"color": c("texto"), "fontFamily": fonte("legenda"),
+                               "fontSize": tam("legenda")}},
+        "markPoint": {"itemStyle": {"color": c("destaque")},
+                      "label": {"color": c("sobre-escuro")}},
+        "visualMap": {"color": [c("azul"), c("azul-claro"), c("cinza-claro")]},
+        "dataZoom": {"borderColor": c("borda"), "fillerColor": "rgba(13,42,84,0.08)",
+                     "handleStyle": {"color": c("azul")}},
+    }
+    linhas = [
+        "/* Tema ECharts da API Capital. GERADO por tokens/gerar_tokens.py a partir de DESIGN.md.",
+        "   Nao edite este arquivo: edite o DESIGN.md e rode o gerador.",
+        "   Uso: carregue echarts, depois este arquivo, depois echarts.init(el, 'api-capital'). */",
+        "(function(){",
+        "  var tema = " + json.dumps(tema, indent=2, ensure_ascii=False).replace("\n", "\n  ") + ";",
+        "  if (typeof echarts !== 'undefined') echarts.registerTheme('api-capital', tema);",
+        "  if (typeof window !== 'undefined') window.API_CAPITAL_TEMA_ECHARTS = tema;",
+        "})();",
+        "",
+    ]
+    destino.write_text("\n".join(linhas), encoding="utf-8")
+
+
 def main():
     dados = parse(ler_frontmatter(DESIGN))
     faltando = [g for g in GRUPOS if g not in dados]
@@ -192,6 +274,7 @@ def main():
     escrever_css(dados, AQUI / "tokens.css")
     escrever_componentes(dados, AQUI / "componentes.css")
     escrever_json(dados, AQUI / "tokens.json")
+    escrever_tema_echarts(dados, AQUI / "tema-echarts.js")
     print(
         "gerado a partir de DESIGN.md: "
         + " · ".join(f"{g} {len(dados[g])}" for g in GRUPOS)
