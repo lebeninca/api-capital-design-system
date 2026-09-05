@@ -8,6 +8,12 @@ aqui, obedece ao que está escrito nele.
 1. Leia `DESIGN.md` inteiro. É a lei: tokens de cor, tipografia, layout, forma, componentes.
 2. Leia `ANTI_SLOP_VISUAL.md`. É a lista do que não se faz.
 
+## Componentes com código pronto
+
+**Barra de topo: não se desenha, copia-se.** O código das seis configurações (clara e escura)
+está em `componentes/barra-de-topo/codigo.html` — copie o CSS e uma das barras, e troque só
+textos, ícones e logo. Medida, cor e caixa ficam como estão.
+
 ## Ao produzir
 
 **Consuma token, nunca escreva valor.** Em peça de código, importe uma folha só:

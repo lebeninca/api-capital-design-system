@@ -930,50 +930,47 @@ Em celular os itens viram menu; a ação continua visível.
 
 ### Barra de topo
 
-Toda ferramenta, gerador, painel ou site abre com **`{components.barra-topo}`** (clara) ou
-**`{components.barra-topo-escura}`** — não se inventa cabeçalho novo. **Altura de 64 px, respiro
-lateral de 24 px, e as duas versões existem sempre: a peça nasce nas duas.**
-
-**A ordem é invariável, da esquerda para a direita:** menu (quando houver) · logo · título da
-página · *o vazio* · contexto · ícones de ação · ação cheia · **lua, sempre por último**.
-O vazio no meio é que empurra o bloco da direita para a borda; nada mais ocupa aquele espaço.
-
-**Medidas** (a folha `api_capital_ui_navegacao` do `.pen` é o desenho de referência):
-
-| Elemento | Medida |
-| --- | --- |
-| Altura da barra | 64 px |
-| Respiro lateral | 24 px |
-| Distância entre itens | 16 px em site · 20 px em aplicação |
-| Logo extensa (`logo03`) | 30 px de altura |
-| Selo isolado (`logo05`) | 31 px de altura |
-| Título da página | Playfair Display regular, 20 px |
-| Item de navegação | Inter 500, 15 px · ativo 600 com fio de 2 px |
-| Contexto (nome do documento aberto) | Inter 600, 15 px |
-| Ícone de ação | 21 px de desenho |
-| Lua (claro/escuro) | 15 px — 70% do ícone comum |
-| Avatar | 27 px, com anel de 1 px a 3 px da foto |
-| Campo de busca | 290 × 48 px, canto de 15 |
-| Ação cheia | 36 px de altura, canto de 15, Inter 600 15 |
-
-**Qual logo entra:** a **extensa** quando a barra não tem título de página (site) e no caso
-completo; o **selo isolado** quando existe título de página, para o nome da ferramenta ficar
-sendo o texto da barra. Nunca as duas coisas escritas.
+Todo site, painel, gerador e ferramenta abre com **`{components.barra-topo}`** (clara) ou
+**`{components.barra-topo-escura}`**. Altura de 64 px, respiro lateral de 24 px.
 
 🔴 **Toda a barra tem o mesmo alinhamento central:** cada elemento, da logo à lua, senta no
 centro vertical da linha.
 
+**Medidas** (o desenho de referência é a folha `api_capital_ui_navegacao` do `.pen`; a página
+navegável é `design.apicapital.com.br/componentes/barra-de-topo/`):
+
+| Elemento | Medida | Observação |
+| --- | --- | --- |
+| Altura da barra | 64 px | uma só, em qualquer tela |
+| Respiro lateral | 24 px | |
+| Distância entre itens | 16 · 20 px | 16 em site, 20 em aplicação |
+| Logo extensa (`logo03`) | 30 px | quando não há título de página |
+| Selo isolado (`logo05`) | 31 px | quando há título de página |
+| Título da página | Playfair regular 20 | alinha pelo "API Capital", ignorando o pelicano |
+| Item de navegação | Inter 500 · 15 | ativo em 600, com fio de 2 px |
+| Contexto | Inter 600 · 15 | nome do documento aberto |
+| Ícone de ação | 21 px | Lucide, traço de 2 |
+| Lua (claro/escuro) | 15 px | 70% do ícone comum |
+| Avatar | 27 px | anel de 1 px a 3 px da foto |
+| Campo de busca | 290 × 48 px | canto de 15 |
+| Ação cheia | 36 px de altura | canto de 15, Inter 600 15 |
+
+Em tela sensível ao toque, o alvo de cada ícone cresce para 44 px sem mudar o desenho.
+
+**Qual logo entra:**
+
+- **Logo extensa** — na esquerda ou no centro, quando a página não tem título.
+- **Selo isolado** (círculo do pelicano) — quando a página tem outro título.
+
 **Na versão escura**, fundo `{colors.fundo-escuro}`, logo branca, ícone e texto em
-`{colors.sobre-escuro}`, **a ação cheia inverte** (fundo branco, texto azul) e o campo de busca
-vai para `{colors.azul-var}` — um tom acima do fundo, nunca cinza-claro, que vira um bloco branco
-no meio da barra.
+`{colors.sobre-escuro}`, a ação cheia inverte (fundo branco, texto azul) e o campo de busca usa
+`{colors.azul-var}`.
 
-**O título alinha pelo centro do conjunto "API Capital" da logo, ignorando o pelicano** — o
-desenho do pássaro puxa o centro geométrico para fora da linha óptica do texto.
-
-**Sete configurações fechadas** (site simples, site com navegação, painel com busca, gerador de
-documento, gerador de gráfico, documentação e completa) estão desenhadas e explicadas em
-**Padrões · Barra de topo**. Quem monta uma tela escolhe uma delas; não se inventa a oitava.
+**Seis configurações prontas** — site simples, site com navegação, painel com busca, gerador de
+documento, documentação e completa — em **Padrões · Barra de topo**, cada uma em clara e escura.
+🔴 **Para montar uma barra, copie o código pronto de
+`design.apicapital.com.br/componentes/barra-de-topo/codigo.html` e troque só textos, ícones e
+logo. Não se desenha barra do zero.**
 
 ### Passo numerado
 
