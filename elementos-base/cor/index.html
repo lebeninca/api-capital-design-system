@@ -38,9 +38,8 @@
   <main class="conteudo">
     <div class="subcabecalho">
       <h1>Cor</h1>
-      <p class="linhafina">Azul-meia-noite como cor de autoridade e de ação, latão como o único
-        calor da paleta, branco como fundo padrão. Consuma o token de papel na peça, nunca o
-        hex escrito à mão.</p>
+      <p class="linhafina">Como usar as cores da API Capital para criar peças consistentes, em
+        documento, apresentação e tela.</p>
       <hr class="fio">
     </div>
 
@@ -59,8 +58,9 @@
 
     <div class="secao">
       <h2>Variações</h2>
-      <p>Uma por cor de marca. Servem para o estado sobre, para fundo de bloco sobre o próprio
-        fundo e para a textura. Os valores são fixos.</p>
+      <p>Cada cor da marca tem uma versão mais escura, de valor fixo. Ela é usada em três
+        situações: um botão sob o cursor, um bloco de fundo sobre um fundo da mesma cor, e o
+        desenho da textura. Não se cria uma variação nova nem se escurece a cor à mão.</p>
       <div class="paleta">
         <div class="amostra"><div class="par"><div style="background:#0D2A54"></div><div style="background:#152548"></div></div><div class="dados"><div class="nome">azul → azul-var</div><div class="hex">#0D2A54 → #152548</div></div></div>
         <div class="amostra"><div class="par"><div style="background:#AA7D41"></div><div style="background:#9A7239"></div></div><div class="dados"><div class="nome">latão → latão-var</div><div class="hex">#AA7D41 → #9A7239</div></div></div>
@@ -73,11 +73,13 @@
     </div>
 
     <div class="secao">
-      <h2>Papéis</h2>
-      <p>Use o token de papel na peça, não o de marca. Trocar uma cor da marca passa a ser uma
-        linha.</p>
+      <h2>Cores por função</h2>
+      <p>Cada cor da marca é aplicada por função: texto, fundo, ação, borda, destaque. Em código,
+        cada função tem um nome, e é esse nome que se usa na peça: <code>var(--api-acao)</code>
+        no botão, <code>var(--api-texto)</code> no texto de leitura. Quando uma cor da marca for
+        atualizada no sistema, toda peça que usa o nome da função recebe a cor nova.</p>
       <table class="espec">
-        <thead><tr><th>Token</th><th>Aponta para</th><th>Onde</th></tr></thead>
+        <thead><tr><th>Nome em código</th><th>Cor</th><th>Onde se usa</th></tr></thead>
         <tbody>
           <tr><td>--api-acao</td><td>azul</td><td>Botão cheio, link em destaque</td></tr>
           <tr><td>--api-acao-hover</td><td>azul-var</td><td>O mesmo botão sob o cursor</td></tr>
