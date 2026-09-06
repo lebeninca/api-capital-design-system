@@ -11,7 +11,7 @@ body { margin: 0; background: var(--api-fundo); color: var(--api-texto);
         display: flex; align-items: center; }
 .topo .dentro { display: flex; align-items: center; gap: 20px; width: 100%; }
 .topo img { height: 31px; display: block; }
-.topo .nome { font-family: var(--api-titulo-pagina-font-family); font-size: 20px;
+.topo .nome { font-family: var(--api-titulo-pagina-font-family); font-size: var(--api-titulo-pagina-font-size);
               font-weight: 400; color: var(--api-azul); text-decoration: none;
               transform: translateY(1px); }
 .topo .acao { margin-left: auto; display: inline-flex; align-items: center;
