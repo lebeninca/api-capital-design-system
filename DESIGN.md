@@ -590,8 +590,33 @@ itálicos; consuma o peso que o token declara, nunca um sintetizado.
 | `{typography.numero}` | 17px | 700 | 1,30 | 0 | Número em tabela e em texto de dado. Figuras tabulares |
 | `{typography.botao}` | 17px | 600 | 1,00 | 0 | Rótulo de botão |
 | `{typography.botao-pequeno}` | 15px | 600 | 1,00 | 0 | Rótulo de botão compacto |
-| `{typography.botao-utilidade}` | 14px | 600 | 1,00 | 0 | Rótulo do botão de ferramenta (§Página de ferramenta) |
+| `{typography.botao-utilidade}` | 14px | 600 | 1,00 | 0 | Rótulo do botão de ferramenta (§Densidade em ferramenta) |
 | `{typography.legenda}` | 14px | 400 | 1,40 | 0 | Fonte, nota, crédito |
+
+### Densidade em ferramenta
+
+Em sistema, gerador e painel (Pascal, gerador de carta, painel da API) **tudo desce um degrau
+em relação ao site**: o que vale para site (botão de 48, campo de 48, corpo 17 em toda parte)
+fica grande demais numa tela de trabalho. Cravado pelo Leandro em 2026-09-05, no crivo do
+Pascal, item a item. É régua de **tamanho, peso, espaço e cor** — não diz onde os elementos
+ficam na página; o layout é decisão de cada ferramenta.
+
+| Elemento | Em ferramenta | Token |
+|---|---|---|
+| Título de seção ("1 · Dados", "Prévia") | Inter 17 px, **700**, `{colors.azul}` | `{typography.corpo}` em negrito |
+| Rótulo de campo | 15 px, 600 | `{typography.corpo-pequeno}` |
+| Dica ao lado do rótulo, texto de apoio, rótulo de caixa de marcar | 15 px, 400; dica e apoio em `{colors.texto-fraco}` | `{typography.corpo-pequeno}` |
+| Texto dentro do campo | 15 px, campo de 40 px, respiro lateral 12 | `{components.campo-ferramenta}` |
+| Botão, todos, inclusive a ação principal | 32 px, 14 px, respiro 12, canto 10 | `{components.botao-utilidade}` / `-cheio` |
+| Caixa de marcar | 16 px, desenhada | `{components.checkbox}` |
+| Etiqueta de grupo ("BÁSICOS") | 13 px, caixa alta | `{typography.rotulo}` |
+| Tabela de dados, miúdos | 14 px | `{typography.legenda}` |
+
+Dentro da ferramenta não entra Playfair nem `{typography.titulo}` de 28: o título da página é o
+da barra de topo, e o título de seção é o corpo em negrito azul. Seções separadas por fio de
+1 px em `{colors.borda}`, com respiro interno de 32 × 24 px. Rolagem horizontal é veto em
+qualquer tela: `html, body` levam `overflow-x: clip` (nunca `hidden`, que mata `position:
+sticky`).
 
 ### Escala impressa (A4, 300 dpi)
 
@@ -702,51 +727,6 @@ A medianiz não é área útil: quando o conteúdo não cabe, cede a largura do 
 | 12 | 3036 | 2008 |
 
 Modelos: uma coluna · duas em 50/50 · três em terços · duas em 7+5 · duas em 9+3.
-
-### Página de ferramenta
-
-A régua de **sistema, gerador e painel** (Pascal, gerador de carta, Dash da API). Cravada pelo
-Leandro em 2026-09-05, no Pascal: *"é assim que uma página de sistema tem que ficar."* Vale
-inteira, sem adaptação, em toda página de ferramenta.
-
-**Estrutura.** Barra de topo do sistema (§Barra de topo, versão clara, 64 px, margem de 24 px).
-Abaixo dela, **duas colunas sobre fundo `{colors.fundo}` branco**: à esquerda, o **painel de
-controles**, uma barra branca inteira, **colada na borda esquerda da página, do topo ao fim,
-sem canto arredondado**, separada do lado direito por um **fio de 1 px em `{colors.borda}`**;
-à direita, a **área de resultado** (prévia, gráfico, documento), também sobre branco, sem card.
-Nenhum dos dois lados fica dentro de box: o fio é a única divisão.
-
-- **Margens:** o conteúdo dos dois lados respeita a mesma margem lateral da barra de topo
-  (24 px). A página é de largura total, nunca centralizada.
-- **O resultado fica fixo na tela** enquanto o painel da esquerda rola (`position: sticky`),
-  para toda alteração ser vista na hora. Resultado mais alto que a tela rola dentro do próprio
-  bloco.
-- **Rolagem horizontal é veto absoluto.** A prévia escala para caber na coluna (`transform:
-  scale`), e as colunas usam `minmax(0, …)` para nunca esticar com o conteúdo. O `html` e o
-  `body` levam `overflow-x: clip` — nunca `hidden`, que vira contêiner de rolagem e mata o
-  sticky (medido).
-- **Seções do painel** separadas por fio de 1 px em `{colors.borda}`, respiro interno de 32 ×
-  24 px, sem card e sem fundo próprio.
-- **Ações de saída** (baixar, exportar, gerar) alinhadas **à direita**, logo abaixo do resultado.
-- **Linha de metadado técnico** (tamanho em px, escala da prévia) não entra na tela.
-
-**Densidade.** Em ferramenta tudo desce um degrau em relação ao site:
-
-| Elemento | Em ferramenta | Token |
-|---|---|---|
-| Título de seção ("1 · Dados", "Prévia") | Inter 17 px, **700**, `{colors.azul}` | `{typography.corpo}` em negrito |
-| Rótulo de campo | 15 px, 600 | `{typography.corpo-pequeno}` |
-| Dica ao lado do rótulo, texto de apoio, opção com caixa | 15 px, 400, `{colors.texto-fraco}` na dica e no apoio | `{typography.corpo-pequeno}` |
-| Texto dentro do campo | 15 px, campo de 40 px | `{components.campo-ferramenta}` |
-| Botão, todos | 32 px, 14 px, canto 10 | `{components.botao-utilidade}` / `-cheio` |
-| Caixa de marcar | 16 px, desenhada | `{components.checkbox}` |
-| Etiqueta de grupo ("BÁSICOS") | 13 px, caixa alta | `{typography.rotulo}` |
-| Tabela de dados, miúdos | 14 px | `{typography.legenda}` |
-
-Título de página de ferramenta é o da barra de topo (`{typography.titulo-pagina}`); dentro da
-página não entra Playfair, nem `{typography.titulo}` de 28: o título de seção é o corpo em
-negrito azul. **O que vale para site (botão de 48, campo de 48, corpo 17 em toda parte) não vale
-aqui** — foi seguir a régua de site que fez o Pascal nascer "gigante".
 
 ## Profundidade
 
@@ -894,10 +874,9 @@ borda de 1 px em `{colors.acao}`, mesma geometria.
 **`{components.botao-utilidade}`** é o botão de ferramenta: contorno em `{colors.acao}`, tipo
 `{typography.botao-utilidade}` (14 px), altura **32 px**, respiro lateral de 12 px e canto
 `{rounded.canto-ferramenta}` (10 px — o canto de 15 num botão de 32 vira cápsula). A versão
-cheia é `{components.botao-utilidade-cheio}`. **Em página de ferramenta, TODO botão é de
-utilidade**, inclusive a ação principal (exportar, salvar, gerar). Os botões de 48 e 56 são de
-site e de chamada; num sistema, ficam grandes demais (cravado pelo Leandro em 2026-09-05, no
-Pascal).
+cheia é `{components.botao-utilidade-cheio}`. **Em ferramenta, TODO botão é de utilidade**,
+inclusive a ação principal (exportar, salvar, gerar). Os botões de 48 e 56 são de site e de
+chamada; num sistema, ficam grandes demais (§Densidade em ferramenta).
 
 Alturas: 56 px em abertura de página, 48 px no padrão, 40 px em barra e tabela, **32 px em
 ferramenta**. Em toque, mínimo de 44 px.
@@ -907,7 +886,7 @@ ferramenta**. Em toque, mínimo de 44 px.
 **`{components.campo}`** tem fundo `{colors.fundo}`, borda de 1 px em `{colors.borda}`, canto
 `{rounded.canto}`, altura 48 px e respiro lateral de `{spacing.x4}` 16 px.
 
-**`{components.campo-ferramenta}`** é o campo de página de ferramenta: mesma anatomia, altura
+**`{components.campo-ferramenta}`** é o campo de ferramenta: mesma anatomia, altura
 **40 px**, respiro lateral de 12 px e o texto digitado em `{typography.corpo-pequeno}` (15 px) —
 **texto dentro de caixa fica um degrau abaixo do corpo**, senão o campo grita mais que o
 rótulo. Textarea segue a mesma régua (respiro de 10 × 12 px).
@@ -939,7 +918,7 @@ nem qualquer outra cor fora de `{colors.acao}`.**
 
 Entre a caixa e o rótulo entra respiro de `{spacing.x2}` 8 px, sempre — caixa colada no texto é
 erro. O rótulo do checkbox fica em `{typography.corpo}` em site e em `{typography.corpo-pequeno}`
-em página de ferramenta, sem caixa alta.
+em ferramenta, sem caixa alta.
 
 ### Card
 
