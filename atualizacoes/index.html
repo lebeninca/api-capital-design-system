@@ -54,6 +54,22 @@
     <h2>Histórico de versões</h2>
 
     <div class="versao">
+      <div class="cabeca"><span class="num">v1.6</span><span class="data">5 de setembro de 2026</span></div>
+      <h3>Tema de gráficos para o Pascal</h3>
+      <p>O sistema passa a publicar o tema do motor de gráficos, gerado do DESIGN.md como os
+        demais tokens. É o que o Pascal, o gerador de gráficos da API, lê a cada abertura.</p>
+      <ul>
+        <li><strong><code>tokens/tema-echarts.js</code></strong>: registra o tema
+          <code>api-capital</code> no Apache ECharts — ordem das cores de série, tipografia,
+          eixos, grade, legenda, dica, rosca com furo, candlestick em ok/erro. Carregue o
+          ECharts, depois este arquivo, e inicie o gráfico com <code>echarts.init(el,
+          'api-capital')</code>.</li>
+        <li>O arquivo é gerado por <code>tokens/gerar_tokens.py</code>; não se edita à mão.
+          Mudou a cor ou a fonte no DESIGN.md, mudou o gráfico em toda ferramenta que lê daqui.</li>
+      </ul>
+    </div>
+
+    <div class="versao">
       <div class="cabeca"><span class="num">v1.5</span><span class="data">1º de setembro de 2026</span></div>
       <h3>As réguas da carta mensal</h3>
       <p>Três regras nasceram no desenho da carta mensal e viraram lei do sistema.</p>
