@@ -595,11 +595,9 @@ itálicos; consuma o peso que o token declara, nunca um sintetizado.
 
 ### Densidade em ferramenta
 
-Em sistema, gerador e painel (Pascal, gerador de carta, painel da API) **tudo desce um degrau
-em relação ao site**: o que vale para site (botão de 48, campo de 48, corpo 17 em toda parte)
-fica grande demais numa tela de trabalho. Cravado pelo Leandro em 2026-09-05, no crivo do
-Pascal, item a item. É régua de **tamanho, peso, espaço e cor** — não diz onde os elementos
-ficam na página; o layout é decisão de cada ferramenta.
+Ferramenta é toda tela de trabalho: formulário de geração, editor, painel de dados. Nela a
+escala é um nível menor que a de página pública. Esta seção define **tamanho, peso, espaço e
+cor** dos elementos em ferramenta; a disposição na página não é objeto do sistema.
 
 | Elemento | Em ferramenta | Token |
 |---|---|---|
@@ -612,11 +610,11 @@ ficam na página; o layout é decisão de cada ferramenta.
 | Etiqueta de grupo ("BÁSICOS") | 13 px, caixa alta | `{typography.rotulo}` |
 | Tabela de dados, miúdos | 14 px | `{typography.legenda}` |
 
-Dentro da ferramenta não entra Playfair nem `{typography.titulo}` de 28: o título da página é o
-da barra de topo, e o título de seção é o corpo em negrito azul. Seções separadas por fio de
-1 px em `{colors.borda}`, com respiro interno de 32 × 24 px. Rolagem horizontal é veto em
-qualquer tela: `html, body` levam `overflow-x: clip` (nunca `hidden`, que mata `position:
-sticky`).
+Em ferramenta não se usa Playfair nem `{typography.titulo}`: o título da página é o da barra
+de topo, e o título de seção é `{typography.corpo}` em peso 700 e `{colors.azul}`. Seções
+separadas por fio de 1 px em `{colors.borda}`, com respiro interno de 32 × 24 px. Rolagem
+horizontal é veto em qualquer tela: `html, body` com `overflow-x: clip` (`hidden` cria
+contêiner de rolagem e desativa `position: sticky`).
 
 ### Escala impressa (A4, 300 dpi)
 
@@ -874,9 +872,9 @@ borda de 1 px em `{colors.acao}`, mesma geometria.
 **`{components.botao-utilidade}`** é o botão de ferramenta: contorno em `{colors.acao}`, tipo
 `{typography.botao-utilidade}` (14 px), altura **32 px**, respiro lateral de 12 px e canto
 `{rounded.canto-ferramenta}` (10 px — o canto de 15 num botão de 32 vira cápsula). A versão
-cheia é `{components.botao-utilidade-cheio}`. **Em ferramenta, TODO botão é de utilidade**,
-inclusive a ação principal (exportar, salvar, gerar). Os botões de 48 e 56 são de site e de
-chamada; num sistema, ficam grandes demais (§Densidade em ferramenta).
+cheia é `{components.botao-utilidade-cheio}`. **Em ferramenta, todo botão é de utilidade**,
+inclusive a ação principal (exportar, salvar, gerar). Os botões de 48 e 56 px são de página
+pública e de chamada (§Densidade em ferramenta).
 
 Alturas: 56 px em abertura de página, 48 px no padrão, 40 px em barra e tabela, **32 px em
 ferramenta**. Em toque, mínimo de 44 px.
@@ -887,9 +885,9 @@ ferramenta**. Em toque, mínimo de 44 px.
 `{rounded.canto}`, altura 48 px e respiro lateral de `{spacing.x4}` 16 px.
 
 **`{components.campo-ferramenta}`** é o campo de ferramenta: mesma anatomia, altura
-**40 px**, respiro lateral de 12 px e o texto digitado em `{typography.corpo-pequeno}` (15 px) —
-**texto dentro de caixa fica um degrau abaixo do corpo**, senão o campo grita mais que o
-rótulo. Textarea segue a mesma régua (respiro de 10 × 12 px).
+**40 px**, respiro lateral de 12 px e o texto digitado em `{typography.corpo-pequeno}` (15 px):
+texto dentro de campo fica um nível abaixo do corpo. Textarea segue a mesma régua (respiro de
+10 × 12 px).
 
 **O rótulo fica sempre acima do campo**, em `{typography.corpo-pequeno}` com peso 600; a dica
 ao lado do rótulo e o texto de apoio ficam em `{typography.corpo-pequeno}` com peso 400 em
@@ -910,10 +908,10 @@ Lucide `paperclip`, nunca emoji.
 ### Caixa de seleção
 
 **`{components.checkbox}`** é a caixa de marcar: **16 × 16 px**, fundo `{colors.fundo}`, borda de
-1 px em `{colors.borda}`, canto de 4 px, e a marca em `{colors.acao}`. **A caixa se desenha
-(`appearance: none`), não se usa a nativa do navegador:** o macOS renderiza a nativa gorda e
-pesada, mesmo em 16 px (medido no Pascal, 2026-09-05). Marcada: fundo `{colors.acao}` e tique
-branco de 2 px. Rádio segue a mesma régua, redondo. **Checkbox nunca é latão,
+1 px em `{colors.borda}`, canto de 4 px, e a marca em `{colors.acao}`. **A caixa é desenhada
+(`appearance: none`); o controle nativo do navegador não se usa**, porque a renderização varia
+por sistema e não respeita a medida. Marcada: fundo `{colors.acao}` e tique branco de 2 px.
+Rádio segue a mesma régua, redondo. **Checkbox nunca é latão,
 nem qualquer outra cor fora de `{colors.acao}`.**
 
 Entre a caixa e o rótulo entra respiro de `{spacing.x2}` 8 px, sempre — caixa colada no texto é
@@ -1094,7 +1092,7 @@ série.
 Eixo Y sempre com valores, barra partindo do zero (linha pode escalar: a régua é de barra),
 rosca sempre com furo. Fecha com fonte e data de apuração.
 
-**Moldura e rótulo, cravados no Pascal (2026-09-05):**
+**Moldura e rótulo:**
 
 - **Título como frase** que diz o que o gráfico mostra, em `{typography.titulo}` reduzido (20 px
   numa peça de 600 px, crescendo com a peça); subtítulo com o que é medido, unidade e período;
@@ -1106,9 +1104,9 @@ rosca sempre com furo. Fecha com fonte e data de apuração.
 - **Rótulo nunca atravessa a borda de uma barra**: ou fica inteiro fora, em `{colors.texto}`,
   ou inteiro dentro, em branco. Rótulo de linha que colidiria com o rótulo da barra desce para
   baixo do ponto.
-- **Sem animação** em peça exportada: com ela ligada, o PNG sai meio desenhado.
-- O tema do motor (Apache ECharts) sai de `tokens/tema-echarts.js`, gerado deste arquivo;
-  ferramenta que desenha gráfico lê de lá, nunca copia valor.
+- **Animação desligada** em peça exportada.
+- O tema do motor de gráficos (Apache ECharts) é `tokens/tema-echarts.js`, gerado deste
+  arquivo; toda ferramenta que desenha gráfico carrega o tema pelo endereço, sem copiar valor.
 
 ## Estados
 

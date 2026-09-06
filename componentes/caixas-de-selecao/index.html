@@ -46,9 +46,10 @@
     <div class="secao">
       <h2>Anatomia</h2>
       <p>Caixa de 16 × 16 px, fundo branco, borda de 1 px em <code>--api-borda</code>, canto de
-        4 px; marcada, fundo <code>--api-acao</code> com tique branco de 2 px. <strong>A caixa se
-        desenha</strong> (<code>appearance: none</code>), não se usa a nativa do navegador: o
-        macOS renderiza a nativa gorda mesmo em 16 px. Rádio segue a mesma régua, redondo.</p>
+        4 px; marcada, fundo <code>--api-acao</code> com tique branco de 2 px. <strong>A caixa é
+        desenhada</strong> (<code>appearance: none</code>); o controle nativo do navegador não se
+        usa, porque a renderização varia por sistema e não respeita a medida. Rádio segue a mesma
+        régua, redondo.</p>
       <div class="palco">
         <div class="duas">
           <div>
@@ -100,7 +101,7 @@
           erro.</li>
         <li>O rótulo fica em corpo (17 px) em site e em corpo-pequeno (15 px) em ferramenta,
           sem caixa alta.</li>
-        <li>A caixa é desenhada, 16 × 16 px. A nativa do navegador não entra.</li>
+        <li>A caixa é desenhada, 16 × 16 px. O controle nativo do navegador não se usa.</li>
         <li><strong>Checkbox nunca é latão</strong>, nem qualquer outra cor fora de
           <code>--api-acao</code>. Checkbox colorido é veto.</li>
       </ul>
