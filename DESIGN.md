@@ -82,7 +82,7 @@ typography:
     letterSpacing: 0
   titulo-pagina:
     fontFamily: "'Playfair Display', Georgia, serif"
-    fontSize: 28px
+    fontSize: 26px
     fontWeight: 400
     lineHeight: 1.2
     letterSpacing: 0
@@ -950,7 +950,7 @@ navegável é `design.apicapital.com.br/componentes/barra-de-topo/`):
 | Distância entre itens | 16 · 20 px | 16 em site, 20 em aplicação |
 | Logo extensa (`logo03`) | 30 px | quando não há título de página |
 | Selo isolado (`logo05`) | 31 px | quando há título de página |
-| Título da página | Playfair regular 28 | alinha pelo "API Capital", ignorando o pelicano |
+| Título da página | Playfair regular 26 | alinha pelo "API Capital", ignorando o pelicano |
 | Item de navegação | Inter 500 · 15 | ativo em 600, com fio de 2 px |
 | Contexto | Inter 600 · 15 | nome do documento aberto |
 | Ícone de ação | 21 px | Lucide, traço de 2 |
