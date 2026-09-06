@@ -101,6 +101,41 @@
   justify-content: center;
 }
 
+.api-botao-utilidade {
+  font-family: var(--api-botao-utilidade-font-family);
+  font-size: var(--api-botao-utilidade-font-size);
+  font-weight: var(--api-botao-utilidade-font-weight);
+  line-height: var(--api-botao-utilidade-line-height);
+  letter-spacing: var(--api-botao-utilidade-letter-spacing);
+  background-color: var(--api-fundo);
+  color: var(--api-acao);
+  border-color: var(--api-acao);
+  border-width: 1px;
+  border-radius: var(--api-canto-ferramenta);
+  padding: 0 12px;
+  height: 32px;
+  border-style: solid;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.api-botao-utilidade-cheio {
+  font-family: var(--api-botao-utilidade-font-family);
+  font-size: var(--api-botao-utilidade-font-size);
+  font-weight: var(--api-botao-utilidade-font-weight);
+  line-height: var(--api-botao-utilidade-line-height);
+  letter-spacing: var(--api-botao-utilidade-letter-spacing);
+  background-color: var(--api-acao);
+  color: var(--api-sobre-escuro);
+  border-radius: var(--api-canto-ferramenta);
+  padding: 0 12px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .api-campo {
   font-family: var(--api-corpo-font-family);
   font-size: var(--api-corpo-font-size);
@@ -114,6 +149,25 @@
   border-radius: var(--api-canto);
   padding: 0 16px;
   height: 48px;
+  border-style: solid;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.api-campo-ferramenta {
+  font-family: var(--api-corpo-pequeno-font-family);
+  font-size: var(--api-corpo-pequeno-font-size);
+  font-weight: var(--api-corpo-pequeno-font-weight);
+  line-height: var(--api-corpo-pequeno-line-height);
+  letter-spacing: var(--api-corpo-pequeno-letter-spacing);
+  background-color: var(--api-fundo);
+  color: var(--api-texto);
+  border-color: var(--api-borda);
+  border-width: 1px;
+  border-radius: var(--api-canto);
+  padding: 0 12px;
+  height: 40px;
   border-style: solid;
   display: inline-flex;
   align-items: center;
@@ -413,8 +467,8 @@
   border-width: 1px;
   accent-color: var(--api-acao);
   border-radius: 4px;
-  height: 18px;
-  width: 18px;
+  height: 16px;
+  width: 16px;
   border-style: solid;
   display: inline-flex;
   align-items: center;

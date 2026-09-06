@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="/docs.css">
 <style>
 button{border:none;cursor:pointer;}
-button.api-botao-secundario{border:1px solid var(--api-acao);}
+button.api-botao-secundario,button.api-botao-utilidade{border:1px solid var(--api-acao);}
 .fila{display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start;}
 .caso{display:flex;flex-direction:column;gap:12px;align-items:flex-start;}
 .rot{font-family:var(--api-rotulo-font-family);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--api-texto-fraco);}
@@ -34,8 +34,8 @@ button.api-botao-secundario{border:1px solid var(--api-acao);}
   <main class="conteudo">
     <div class="subcabecalho">
       <h1>Botões</h1>
-      <p class="linhafina">Cinco botões cobrem toda ação do sistema. Botão fora dos cinco é
-        veto, e o latão nunca é clicável.</p>
+      <p class="linhafina">Cinco botões cobrem toda ação de site, e um sexto, o de utilidade,
+        cobre toda ação de ferramenta. Botão fora desses é veto, e o latão nunca é clicável.</p>
       <hr class="fio">
     </div>
 
@@ -62,8 +62,25 @@ button.api-botao-secundario{border:1px solid var(--api-acao);}
           <tr><td>botao-azul-claro</td><td><code>--api-acao-secundaria</code></td><td>branco</td><td>Ação secundária</td></tr>
           <tr><td>botao-sobre-escuro</td><td>branco</td><td><code>--api-azul</code></td><td>Ação sobre fundo escuro</td></tr>
           <tr><td>botao-texto</td><td>transparente</td><td><code>--api-acao</code></td><td>Ação sem caixa</td></tr>
+          <tr><td>botao-utilidade</td><td>branco, borda de 1 px em <code>--api-acao</code></td><td><code>--api-acao</code></td><td>Todo botão de página de ferramenta (32 px)</td></tr>
+          <tr><td>botao-utilidade-cheio</td><td><code>--api-acao</code></td><td>branco</td><td>A ação de saída em ferramenta: exportar, salvar, gerar</td></tr>
         </tbody>
       </table>
+    </div>
+
+    <div class="secao">
+      <h2>Em ferramenta</h2>
+      <div class="palco">
+        <div class="fila">
+          <div class="caso"><span class="rot">Utilidade</span><button class="api-botao-utilidade">Abrir CSV do computador</button></div>
+          <div class="caso"><span class="rot">Utilidade cheio</span><button class="api-botao-utilidade-cheio">Baixar PNG (2x)</button></div>
+        </div>
+      </div>
+      <p class="anota">32 px de altura, fonte de 14 px, respiro lateral de 12 px, canto de 10 px
+        (o canto de 15 num botão de 32 vira cápsula). Em página de ferramenta, sistema, gerador e
+        painel, <strong>todo botão é de utilidade</strong>, inclusive a ação principal. Os botões
+        de 48 e 56 são de site e de chamada. Régua completa em
+        <a href="/padroes/sites-e-aplicacoes/pagina-de-ferramenta/">Página de ferramenta</a>.</p>
     </div>
 
     <div class="secao">
@@ -73,6 +90,7 @@ button.api-botao-secundario{border:1px solid var(--api-acao);}
           <div class="caso"><span class="rot">Abertura · 56</span><button class="api-botao-primario" style="height:56px">Começar</button></div>
           <div class="caso"><span class="rot">Padrão · 48</span><button class="api-botao-primario">Começar</button></div>
           <div class="caso"><span class="rot">Barra e tabela · 40</span><button class="api-botao-primario" style="height:40px;font-size:15px">Começar</button></div>
+          <div class="caso"><span class="rot">Ferramenta · 32</span><button class="api-botao-utilidade-cheio">Começar</button></div>
         </div>
       </div>
       <p class="anota">Em toque, mínimo de 44 px.</p>
@@ -104,11 +122,13 @@ button.api-botao-secundario{border:1px solid var(--api-acao);}
     <div class="secao">
       <h2>Regras</h2>
       <ul>
-        <li>Botão fora dos cinco declarados é veto (<code>botao-inventado</code>).</li>
+        <li>Botão fora dos declarados é veto (<code>botao-inventado</code>).</li>
+        <li><strong>Em página de ferramenta, todo botão é o de utilidade</strong> (32 px, canto de 10).
+          Botão de 48 numa ferramenta é erro de escala.</li>
         <li>Texto de botão nunca é latão; o latão nunca é clicável.</li>
-        <li>Utilidade pequena ao lado de um campo («Hoje», «Anexar arquivo», «Limpar») é o
-          secundário em altura 40 px.</li>
-        <li>Cápsula é vetada: o canto é 15 px.</li>
+        <li>Em site, utilidade pequena ao lado de um campo («Hoje», «Anexar arquivo», «Limpar») é o
+          secundário em altura 40 px; em ferramenta, é o de utilidade.</li>
+        <li>Cápsula é vetada: o canto é 15 px (10 px no botão de 32).</li>
       </ul>
     </div>
   </main>

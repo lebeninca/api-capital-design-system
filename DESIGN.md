@@ -1,5 +1,5 @@
 ---
-version: "3.5"
+version: "3.6"
 name: "API Capital"
 description: "Consultoria de investimentos independente. Clássico moderno e autoridade tranquila: azul-meia-noite e latão sobre branco puro, Playfair Display em título e Inter em todo o resto, incluindo cada número apresentado. Zero sombra, canto de 15, grade de 12 colunas. O sistema atende impresso e tela com a mesma régua, e o padrão é sempre o registro mais sóbrio."
 
@@ -138,6 +138,12 @@ typography:
     fontWeight: 600
     lineHeight: 1
     letterSpacing: 0
+  botao-utilidade:
+    fontFamily: "Inter, system-ui, sans-serif"
+    fontSize: 14px
+    fontWeight: 600
+    lineHeight: 1.0
+    letterSpacing: 0
   botao-pequeno:
     fontFamily: "Inter, system-ui, sans-serif"
     fontSize: 15px
@@ -154,6 +160,7 @@ typography:
 rounded:
   canto-vivo: 0px
   canto: 15px
+  canto-ferramenta: 10px
 
 spacing:
   x1: 4px
@@ -208,6 +215,22 @@ components:
     rounded: "{rounded.canto-vivo}"
     padding: 0
     height: 48px
+  botao-utilidade:
+    backgroundColor: "{colors.fundo}"
+    textColor: "{colors.acao}"
+    borderColor: "{colors.acao}"
+    borderWidth: 1px
+    typography: "{typography.botao-utilidade}"
+    rounded: "{rounded.canto-ferramenta}"
+    padding: 0 12px
+    height: 32px
+  botao-utilidade-cheio:
+    backgroundColor: "{colors.acao}"
+    textColor: "{colors.sobre-escuro}"
+    typography: "{typography.botao-utilidade}"
+    rounded: "{rounded.canto-ferramenta}"
+    padding: 0 12px
+    height: 32px
   campo:
     backgroundColor: "{colors.fundo}"
     textColor: "{colors.texto}"
@@ -217,6 +240,15 @@ components:
     rounded: "{rounded.canto}"
     padding: 0 16px
     height: 48px
+  campo-ferramenta:
+    backgroundColor: "{colors.fundo}"
+    textColor: "{colors.texto}"
+    borderColor: "{colors.borda}"
+    borderWidth: 1px
+    typography: "{typography.corpo-pequeno}"
+    rounded: "{rounded.canto}"
+    padding: 0 12px
+    height: 40px
   campo-foco:
     backgroundColor: "{colors.fundo}"
     textColor: "{colors.texto}"
@@ -358,8 +390,8 @@ components:
     borderWidth: 1px
     accentColor: "{colors.acao}"
     rounded: 4px
-    height: 18px
-    width: 18px
+    height: 16px
+    width: 16px
 
 tipo: diretriz
 status: ativo
@@ -367,7 +399,7 @@ zona: publica
 dominio: design
 bandeira: 06_marketing_api_capital
 produto: api_capital
-versao: 3.5
+versao: 3.6
 resumo: >-
   Especificação de design da API Capital, no formato design.md: tokens de cor, tipografia,
   espaço, forma e componente, mais as regras de layout, logo, ícone, imagem, estado e veto.
@@ -558,6 +590,7 @@ itálicos; consuma o peso que o token declara, nunca um sintetizado.
 | `{typography.numero}` | 17px | 700 | 1,30 | 0 | Número em tabela e em texto de dado. Figuras tabulares |
 | `{typography.botao}` | 17px | 600 | 1,00 | 0 | Rótulo de botão |
 | `{typography.botao-pequeno}` | 15px | 600 | 1,00 | 0 | Rótulo de botão compacto |
+| `{typography.botao-utilidade}` | 14px | 600 | 1,00 | 0 | Rótulo do botão de ferramenta (§Página de ferramenta) |
 | `{typography.legenda}` | 14px | 400 | 1,40 | 0 | Fonte, nota, crédito |
 
 ### Escala impressa (A4, 300 dpi)
@@ -669,6 +702,51 @@ A medianiz não é área útil: quando o conteúdo não cabe, cede a largura do 
 | 12 | 3036 | 2008 |
 
 Modelos: uma coluna · duas em 50/50 · três em terços · duas em 7+5 · duas em 9+3.
+
+### Página de ferramenta
+
+A régua de **sistema, gerador e painel** (Pascal, gerador de carta, Dash da API). Cravada pelo
+Leandro em 2026-09-05, no Pascal: *"é assim que uma página de sistema tem que ficar."* Vale
+inteira, sem adaptação, em toda página de ferramenta.
+
+**Estrutura.** Barra de topo do sistema (§Barra de topo, versão clara, 64 px, margem de 24 px).
+Abaixo dela, **duas colunas sobre fundo `{colors.fundo}` branco**: à esquerda, o **painel de
+controles**, uma barra branca inteira, **colada na borda esquerda da página, do topo ao fim,
+sem canto arredondado**, separada do lado direito por um **fio de 1 px em `{colors.borda}`**;
+à direita, a **área de resultado** (prévia, gráfico, documento), também sobre branco, sem card.
+Nenhum dos dois lados fica dentro de box: o fio é a única divisão.
+
+- **Margens:** o conteúdo dos dois lados respeita a mesma margem lateral da barra de topo
+  (24 px). A página é de largura total, nunca centralizada.
+- **O resultado fica fixo na tela** enquanto o painel da esquerda rola (`position: sticky`),
+  para toda alteração ser vista na hora. Resultado mais alto que a tela rola dentro do próprio
+  bloco.
+- **Rolagem horizontal é veto absoluto.** A prévia escala para caber na coluna (`transform:
+  scale`), e as colunas usam `minmax(0, …)` para nunca esticar com o conteúdo. O `html` e o
+  `body` levam `overflow-x: clip` — nunca `hidden`, que vira contêiner de rolagem e mata o
+  sticky (medido).
+- **Seções do painel** separadas por fio de 1 px em `{colors.borda}`, respiro interno de 32 ×
+  24 px, sem card e sem fundo próprio.
+- **Ações de saída** (baixar, exportar, gerar) alinhadas **à direita**, logo abaixo do resultado.
+- **Linha de metadado técnico** (tamanho em px, escala da prévia) não entra na tela.
+
+**Densidade.** Em ferramenta tudo desce um degrau em relação ao site:
+
+| Elemento | Em ferramenta | Token |
+|---|---|---|
+| Título de seção ("1 · Dados", "Prévia") | Inter 17 px, **700**, `{colors.azul}` | `{typography.corpo}` em negrito |
+| Rótulo de campo | 15 px, 600 | `{typography.corpo-pequeno}` |
+| Dica ao lado do rótulo, texto de apoio, opção com caixa | 15 px, 400, `{colors.texto-fraco}` na dica e no apoio | `{typography.corpo-pequeno}` |
+| Texto dentro do campo | 15 px, campo de 40 px | `{components.campo-ferramenta}` |
+| Botão, todos | 32 px, 14 px, canto 10 | `{components.botao-utilidade}` / `-cheio` |
+| Caixa de marcar | 16 px, desenhada | `{components.checkbox}` |
+| Etiqueta de grupo ("BÁSICOS") | 13 px, caixa alta | `{typography.rotulo}` |
+| Tabela de dados, miúdos | 14 px | `{typography.legenda}` |
+
+Título de página de ferramenta é o da barra de topo (`{typography.titulo-pagina}`); dentro da
+página não entra Playfair, nem `{typography.titulo}` de 28: o título de seção é o corpo em
+negrito azul. **O que vale para site (botão de 48, campo de 48, corpo 17 em toda parte) não vale
+aqui** — foi seguir a régua de site que fez o Pascal nascer "gigante".
 
 ## Profundidade
 
@@ -813,15 +891,30 @@ borda de 1 px em `{colors.acao}`, mesma geometria.
 
 **`{components.botao-texto}`** é o botão sem caixa, em `{colors.acao}`.
 
-Alturas: 56 px em abertura de página, 48 px no padrão, 40 px em barra e tabela. Em toque, mínimo
-de 44 px.
+**`{components.botao-utilidade}`** é o botão de ferramenta: contorno em `{colors.acao}`, tipo
+`{typography.botao-utilidade}` (14 px), altura **32 px**, respiro lateral de 12 px e canto
+`{rounded.canto-ferramenta}` (10 px — o canto de 15 num botão de 32 vira cápsula). A versão
+cheia é `{components.botao-utilidade-cheio}`. **Em página de ferramenta, TODO botão é de
+utilidade**, inclusive a ação principal (exportar, salvar, gerar). Os botões de 48 e 56 são de
+site e de chamada; num sistema, ficam grandes demais (cravado pelo Leandro em 2026-09-05, no
+Pascal).
+
+Alturas: 56 px em abertura de página, 48 px no padrão, 40 px em barra e tabela, **32 px em
+ferramenta**. Em toque, mínimo de 44 px.
 
 ### Campo
 
 **`{components.campo}`** tem fundo `{colors.fundo}`, borda de 1 px em `{colors.borda}`, canto
 `{rounded.canto}`, altura 48 px e respiro lateral de `{spacing.x4}` 16 px.
 
-**O rótulo fica sempre acima do campo.** Em foco, `{components.campo-foco}` acrescenta anel de
+**`{components.campo-ferramenta}`** é o campo de página de ferramenta: mesma anatomia, altura
+**40 px**, respiro lateral de 12 px e o texto digitado em `{typography.corpo-pequeno}` (15 px) —
+**texto dentro de caixa fica um degrau abaixo do corpo**, senão o campo grita mais que o
+rótulo. Textarea segue a mesma régua (respiro de 10 × 12 px).
+
+**O rótulo fica sempre acima do campo**, em `{typography.corpo-pequeno}` com peso 600; a dica
+ao lado do rótulo e o texto de apoio ficam em `{typography.corpo-pequeno}` com peso 400 em
+`{colors.texto-fraco}`. Em foco, `{components.campo-foco}` acrescenta anel de
 3 px, afastado 2 px. Em erro, `{components.campo-erro}` troca a borda
 por `{colors.erro}`, **com a mensagem escrita ao lado**.
 
@@ -837,13 +930,16 @@ Lucide `paperclip`, nunca emoji.
 
 ### Caixa de seleção
 
-**`{components.checkbox}`** é a caixa de marcar: 18 × 18 px, fundo `{colors.fundo}`, borda de
-1 px em `{colors.borda}`, canto de 4 px, e a marca em `{colors.acao}` — em HTML,
-`accent-color: var(--api-acao)`. Rádio segue a mesma régua, redondo. **Checkbox nunca é latão,
+**`{components.checkbox}`** é a caixa de marcar: **16 × 16 px**, fundo `{colors.fundo}`, borda de
+1 px em `{colors.borda}`, canto de 4 px, e a marca em `{colors.acao}`. **A caixa se desenha
+(`appearance: none`), não se usa a nativa do navegador:** o macOS renderiza a nativa gorda e
+pesada, mesmo em 16 px (medido no Pascal, 2026-09-05). Marcada: fundo `{colors.acao}` e tique
+branco de 2 px. Rádio segue a mesma régua, redondo. **Checkbox nunca é latão,
 nem qualquer outra cor fora de `{colors.acao}`.**
 
 Entre a caixa e o rótulo entra respiro de `{spacing.x2}` 8 px, sempre — caixa colada no texto é
-erro. O rótulo do checkbox fica em `{typography.corpo}`, sem caixa alta.
+erro. O rótulo do checkbox fica em `{typography.corpo}` em site e em `{typography.corpo-pequeno}`
+em página de ferramenta, sem caixa alta.
 
 ### Card
 
@@ -1016,8 +1112,24 @@ ou heatmap, cores de dado fora da marca (tons pastéis, verdes) entram quando me
 leitura. A identidade da peça fica na tipografia, no layout e na moldura — não na cor de cada
 série.
 
-Eixo Y sempre com valores, barra partindo do zero, rosca sempre com furo. Fecha com fonte e data
-de apuração.
+Eixo Y sempre com valores, barra partindo do zero (linha pode escalar: a régua é de barra),
+rosca sempre com furo. Fecha com fonte e data de apuração.
+
+**Moldura e rótulo, cravados no Pascal (2026-09-05):**
+
+- **Título como frase** que diz o que o gráfico mostra, em `{typography.titulo}` reduzido (20 px
+  numa peça de 600 px, crescendo com a peça); subtítulo com o que é medido, unidade e período;
+  **vão de 12 px entre os dois**.
+- **Legenda de séries centrada** sobre o gráfico, com respiro generoso até o topo da área de
+  dados (56 px numa peça de 600 px).
+- **Rótulo de valor nunca tem contorno nem sombra.** Sobre fundo escuro (dentro de uma barra),
+  só a cor muda para branco.
+- **Rótulo nunca atravessa a borda de uma barra**: ou fica inteiro fora, em `{colors.texto}`,
+  ou inteiro dentro, em branco. Rótulo de linha que colidiria com o rótulo da barra desce para
+  baixo do ponto.
+- **Sem animação** em peça exportada: com ela ligada, o PNG sai meio desenhado.
+- O tema do motor (Apache ECharts) sai de `tokens/tema-echarts.js`, gerado deste arquivo;
+  ferramenta que desenha gráfico lê de lá, nunca copia valor.
 
 ## Estados
 

@@ -41,6 +41,7 @@
   /* rounded */
   --api-canto-vivo: 0px;
   --api-canto: 15px;
+  --api-canto-ferramenta: 10px;
 
   /* spacing */
   --api-x1: 4px;
@@ -130,6 +131,11 @@
   --api-botao-font-weight: 600;
   --api-botao-line-height: 1;
   --api-botao-letter-spacing: 0;
+  --api-botao-utilidade-font-family: Inter, system-ui, sans-serif;
+  --api-botao-utilidade-font-size: 14px;
+  --api-botao-utilidade-font-weight: 600;
+  --api-botao-utilidade-line-height: 1.0;
+  --api-botao-utilidade-letter-spacing: 0;
   --api-botao-pequeno-font-family: Inter, system-ui, sans-serif;
   --api-botao-pequeno-font-size: 15px;
   --api-botao-pequeno-font-weight: 600;
@@ -252,6 +258,13 @@
   font-weight: var(--api-botao-font-weight);
   line-height: var(--api-botao-line-height);
   letter-spacing: var(--api-botao-letter-spacing);
+}
+.api-botao-utilidade {
+  font-family: var(--api-botao-utilidade-font-family);
+  font-size: var(--api-botao-utilidade-font-size);
+  font-weight: var(--api-botao-utilidade-font-weight);
+  line-height: var(--api-botao-utilidade-line-height);
+  letter-spacing: var(--api-botao-utilidade-letter-spacing);
 }
 .api-botao-pequeno {
   font-family: var(--api-botao-pequeno-font-family);

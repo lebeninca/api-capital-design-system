@@ -17,6 +17,7 @@
       "fontSize": 15
     },
     "title": {
+      "itemGap": 12,
       "textStyle": {
         "color": "#171717",
         "fontFamily": "Inter, system-ui, sans-serif",
@@ -36,6 +37,7 @@
         "fontFamily": "Inter, system-ui, sans-serif",
         "fontSize": 14
       },
+      "left": "center",
       "icon": "rect",
       "itemWidth": 14,
       "itemHeight": 14
@@ -164,12 +166,20 @@
       "symbol": "circle",
       "symbolSize": 6,
       "smooth": false,
-      "showSymbol": false
+      "showSymbol": false,
+      "label": {
+        "textBorderWidth": 0,
+        "textShadowBlur": 0
+      }
     },
     "bar": {
       "barMaxWidth": 56,
       "itemStyle": {
         "borderRadius": 0
+      },
+      "label": {
+        "textBorderWidth": 0,
+        "textShadowBlur": 0
       }
     },
     "pie": {

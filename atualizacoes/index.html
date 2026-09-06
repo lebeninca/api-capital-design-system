@@ -54,6 +54,30 @@
     <h2>Histórico de versões</h2>
 
     <div class="versao">
+      <div class="cabeca"><span class="num">v1.7</span><span class="data">5 de setembro de 2026</span></div>
+      <h3>Página de ferramenta: a régua de sistema</h3>
+      <p>Cravada pelo Leandro no Pascal: <em>"é assim que uma página de sistema tem que ficar"</em>.
+        Tudo um degrau menor do que no site, painel à esquerda, resultado fixo à direita.</p>
+      <ul>
+        <li><strong>Novo padrão <a href="/padroes/sites-e-aplicacoes/pagina-de-ferramenta/">Página de
+          ferramenta</a></strong>: estrutura em duas colunas sobre branco, painel colado à esquerda
+          com fio de 1 px, resultado fixo na rolagem, margens da barra de topo, rolagem horizontal
+          vetada, hierarquia de texto e densidade.</li>
+        <li><strong><code>botao-utilidade</code> e <code>botao-utilidade-cheio</code></strong>: o
+          botão de ferramenta, 32 px, fonte 14, canto de 10 (<code>rounded.canto-ferramenta</code>).
+          Em ferramenta, todo botão é este.</li>
+        <li><strong><code>campo-ferramenta</code></strong>: 40 px, texto em corpo-pequeno. Texto
+          dentro de caixa fica um degrau abaixo do corpo.</li>
+        <li><strong>Caixa de seleção</strong> passa a 16 px e a ser desenhada (a nativa do navegador
+          sai gorda). Rádio idem.</li>
+        <li><strong>Gráfico</strong>: legenda centrada com respiro, vão entre título e subtítulo,
+          rótulo sem contorno (branco quando cai sobre barra escura, nunca atravessando a borda),
+          sem animação em peça exportada. O <code>tema-echarts.js</code> já sai assim.</li>
+        <li>DESIGN.md interno v3.6; páginas de Botões, Campos e Caixas de seleção atualizadas.</li>
+      </ul>
+    </div>
+
+    <div class="versao">
       <div class="cabeca"><span class="num">v1.6</span><span class="data">5 de setembro de 2026</span></div>
       <h3>Tema de gráficos para o Pascal</h3>
       <p>O sistema passa a publicar o tema do motor de gráficos, gerado do DESIGN.md como os
