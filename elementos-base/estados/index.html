@@ -32,21 +32,20 @@
   <main class="conteudo">
     <div class="subcabecalho">
       <h1>Estados</h1>
-      <p class="linhafina">Nenhum elemento clicável entra na peça sem os cinco estados. Cada um
-        se mostra sempre do mesmo jeito, em todo componente.</p>
+      <p class="linhafina">Como um botão, um campo ou um link se mostra em repouso, sob o cursor,
+        em foco e desabilitado.</p>
       <hr class="fio">
     </div>
 
     <div class="secao">
-      <h2>Os cinco estados</h2>
+      <h2>Os quatro estados</h2>
       <table class="espec">
         <thead><tr><th>Estado</th><th>Como se mostra</th></tr></thead>
         <tbody>
-          <tr><td>Normal</td><td>A cor de papel do elemento</td></tr>
-          <tr><td>Sobre</td><td>Escurece 18%. O cursor vira mão</td></tr>
-          <tr><td>Foco</td><td>Anel de 3 px, afastado 2 px. Chega pelo teclado</td></tr>
-          <tr><td>Carregando</td><td>O rótulo troca e o elemento trava</td></tr>
-          <tr><td>Desabilitado</td><td>Fundo <code>--api-fundo-bloco</code>, texto a 40%</td></tr>
+          <tr><td>Normal</td><td>A cor do elemento</td></tr>
+          <tr><td>Sobre</td><td>A variação da cor (<code>--api-acao-hover</code> no botão). O cursor vira mão</td></tr>
+          <tr><td>Foco</td><td>Anel de 3 px em <code>--api-acao-secundaria</code>, afastado 2 px. Aparece na navegação por teclado</td></tr>
+          <tr><td>Desabilitado</td><td>Fundo <code>--api-fundo-bloco</code>, texto em <code>--api-texto-fraco</code>, sem cursor de mão</td></tr>
         </tbody>
       </table>
       <div class="palco">
@@ -54,18 +53,16 @@
           <div class="caso"><span class="rot">Normal</span><button class="api-botao-primario">Enviar proposta</button></div>
           <div class="caso"><span class="rot">Sobre</span><button class="api-botao-primario-hover" style="border:none">Enviar proposta</button></div>
           <div class="caso"><span class="rot">Foco</span><button class="api-botao-primario foco-demo">Enviar proposta</button></div>
-          <div class="caso"><span class="rot">Carregando</span><button class="api-botao-primario" disabled>Enviando…</button></div>
           <div class="caso"><span class="rot">Desabilitado</span><button class="api-botao-primario desab-demo" disabled>Enviar proposta</button></div>
         </div>
       </div>
     </div>
 
     <div class="secao">
-      <h2>Alvo de interação</h2>
+      <h2>Acessibilidade</h2>
       <ul>
-        <li><strong>Foco nunca some.</strong> <code>outline: none</code> sem substituto é erro.</li>
-        <li><strong>Alvo de toque de 44 px</strong> de altura, e 44 × 44 quando for só ícone.</li>
-        <li><strong>Erro, sucesso e alerta se dizem em texto</strong>, não só em cor.</li>
+        <li>O anel de foco não se remove. <code>outline: none</code> só com outro indicador de foco no lugar.</li>
+        <li>Erro, sucesso e alerta se escrevem em texto, além da cor.</li>
       </ul>
     </div>
   </main>

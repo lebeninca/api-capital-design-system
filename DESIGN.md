@@ -538,17 +538,10 @@ Os limites, que são o que impede a válvula de virar carnaval:
 
 ### Gradiente
 
-Use sobre fundo complexo, como textura ou foto, para ajudar na legibilidade ou para criar uma
-área limpa onde o logo entra.
-
-| | |
-|---|---|
-| Cor | Uma, do transparente ao cheio. Nunca entre duas |
-| Famílias | `{colors.branco}`, `{colors.azul}`, `{colors.preto}` |
-| Direção | Qualquer uma, inclusive diagonal |
-| Curva | Branco: 0 · 31% · 61% · 82% · 95% · cheio. Azul e preto: 0 · 25% · 79% · cheio |
-| Onde | Fundo de peça. Nunca em texto, botão, ícone, caixa ou elemento de interface |
-| Arquivos | `assets/gradiente/`, nas três famílias |
+Três gradientes oficiais, em `{colors.branco}`, `{colors.azul}` e `{colors.preto}`, cada um de
+uma cor só, do transparente ao cheio, na direção horizontal. Uso: sobre foto ou textura, para
+abrir uma área limpa onde entra texto ou logo. Curva: branco 0 · 31% · 61% · 82% · 95% · cheio;
+azul e preto 0 · 25% · 79% · cheio. Arquivos em `assets/gradiente/`.
 
 ## Tipografia
 
@@ -667,7 +660,7 @@ Base de 8 px, com 4 px para trabalho fino.
 `{spacing.x16}` 64.
 
 Respiro interno de card: `{spacing.x10}` 40 px. Respiro interno de caixa e de aviso:
-`{spacing.x6}` 24 px. Altura de seção em tela: 64 a 96 px.
+`{spacing.x6}` 24 px. Respiro lateral de campo: `{spacing.x4}` 16 px.
 
 ### Utilitários de espaço
 
@@ -686,58 +679,39 @@ mesmo erro que hex escrito à mão**: se a distância não é um degrau da escal
 
 ### Grade e margem
 
-Doze colunas, medianiz de 4 mm, margem de 20 mm nos quatro lados, nos dois formatos impressos.
+Doze colunas nos dois territórios.
 
-| Formato | Área útil (300 dpi) | Coluna | Medida de linha |
-|---|---|---|---|
-| A4 retrato | 2008 × 3036 px | 10,5 mm (124 px) | 6 a 8 colunas |
-| A4 paisagem | 3036 × 1914 px | 17,75 mm (210 px) | 5 a 7 colunas |
+**Impresso:** página A4, retrato ou paisagem. Margem de 40 mm nas laterais e de 20 mm no topo e
+na base.
 
-Em tela: margem de 4% da largura, 12 colunas, medianiz de um quarto da coluna.
-
-Margem e espaçamento se medem a partir da **altura de maiúscula** do texto, não da caixa
-delimitadora. A distância entre o topo da caixa e o topo da maiúscula, a 300 dpi: Playfair Display
-130 = 39 px · Inter 44 = 14 px · Inter 28 = 6 px.
+**Tela:** doze colunas; a margem lateral é a da barra de topo, 24 px.
 
 ### Espaçamento entre blocos
 
-Blocos de texto, imagem, gráfico ou tabela têm espaçamento mínimo de **120 px**. A exceção é
-linha-fina, subtítulo e legenda, que podem ter **60 px**.
+Quando sobra espaço entre o último bloco e a margem, ele se distribui como respiro entre as
+seções, mantendo a proporção entre elas. Os elementos não crescem para preencher.
 
 ### Coluna
 
-Todo bloco começa e termina em borda de coluna. Larguras diferentes convivem na mesma página.
-A medianiz não é área útil: quando o conteúdo não cabe, cede a largura do bloco.
-
-| Colunas | Paisagem | Retrato |
-|---|---|---|
-| 1 | 210 | 124 |
-| 2 | 467 | 295 |
-| 3 | 724 | 467 |
-| 4 | 981 | 638 |
-| 5 | 1237 | 809 |
-| 6 | 1494 | 980 |
-| 7 | 1751 | 1152 |
-| 8 | 2008 | 1323 |
-| 9 | 2265 | 1494 |
-| 10 | 2522 | 1665 |
-| 11 | 2779 | 1837 |
-| 12 | 3036 | 2008 |
-
-Modelos: uma coluna · duas em 50/50 · três em terços · duas em 7+5 · duas em 9+3.
+Um bloco começa na borda de uma coluna e termina na borda de outra, ocupando de uma a doze
+colunas inteiras. Se o conteúdo não couber, o bloco ganha uma coluna a mais; a medianiz não
+muda e nada entra nela. Blocos de larguras diferentes convivem na mesma página. Divisões mais
+usadas: uma coluna · duas em 50/50 · três em terços · duas em 7+5 · duas em 9+3.
 
 ## Profundidade
 
-| Nível | Tratamento | Uso |
-|---|---|---|
-| 0 | Plano | Superfície padrão |
-| 1 | Linha de 1 px em `{colors.borda}` | Campo, bloco neutro |
-| 2 | Linha de 1 px em `{colors.fio}` | Card de conteúdo, contorno de destaque |
-| 3 | Fundo sólido: `{colors.fundo-bloco}`, `{colors.fundo-quente}` ou `{colors.fundo-escuro}` | Card de dado, bloco de respiro, card de destaque |
+O sistema não usa sombra, em card, botão, painel flutuante ou logo sobre foto. Uma superfície
+se separa da outra de duas formas:
 
-**Sombra não existe neste sistema, em nenhum nível.** Nem em card, nem em botão, nem em painel
-flutuante, nem em logo sobre foto. Onde a separação for insuficiente, sobe-se um nível de
-profundidade.
+| Como | Onde |
+|---|---|
+| Linha de 1 px em `{colors.borda}` | Campo, caixa, aviso, divisória |
+| Linha de 1 px em `{colors.fio}` | Card de conteúdo em peça editorial |
+| Fundo `{colors.fundo-bloco}` | Card de dado, zebra de tabela |
+| Fundo `{colors.fundo-escuro}` | Card de destaque, cabeçalho de tabela |
+
+Em página de ferramenta e painel, o fundo da página é `{colors.fundo-secao}` e o card é branco,
+sem linha: o fundo separa.
 
 ## Forma
 
@@ -752,13 +726,14 @@ profundidade.
 
 ### Canto
 
-`{rounded.canto}` 15 px em tela, em card, botão, campo, aviso e amostra de cor. `{rounded.canto-vivo}` no
-impresso. Cápsula (`9999px`) é vetada.
+Em tela, card, botão, campo, aviso e amostra de cor têm `{rounded.canto}` (15 px); o botão de
+utilidade tem `{rounded.canto-ferramenta}` (10 px). No impresso, `{rounded.canto-vivo}`. Cápsula
+(canto igual à metade da altura) não se usa.
 
 ### Divisória
 
-A horizontal atravessa as 12 colunas. A vertical separa colunas de texto e tem sempre 1 pt. Entre
-linhas de tabela não entra fio: use separação de zebra.
+A divisória horizontal é o fio fino, na largura do bloco. Entre linhas de tabela não entra fio:
+as linhas alternam fundo (zebra).
 
 ## Logo
 
@@ -876,8 +851,7 @@ cheia é `{components.botao-utilidade-cheio}`. **Em ferramenta, todo botão é d
 inclusive a ação principal (exportar, salvar, gerar). Os botões de 48 e 56 px são de página
 pública e de chamada (§Densidade em ferramenta).
 
-Alturas: 56 px em abertura de página, 48 px no padrão, 40 px em barra e tabela, **32 px em
-ferramenta**. Em toque, mínimo de 44 px.
+Alturas: 48 px no padrão, 36 px na barra de topo, 32 px em ferramenta.
 
 ### Campo
 
@@ -900,10 +874,9 @@ cinza para agrupar campos dentro de um card: caixa dentro de caixa é veto
 (`box-dentro-de-box`). Grupo de campos se marca com título de grupo e espaço, nunca com um
 segundo fundo.
 
-**Botão dentro de formulário é um dos cinco declarados em §Botão.** Utilidade pequena ao lado de
-um campo — "Hoje", "Anexar arquivo", "Limpar" — é `{components.botao-secundario}` em altura
-40 px. Não se inventa botão novo, e texto de botão nunca é latão. Anexo de arquivo usa o ícone
-Lucide `paperclip`, nunca emoji.
+**Botão dentro de formulário é um dos declarados em §Botão.** Botão ao lado de um campo —
+"Hoje", "Anexar arquivo", "Limpar" — é `{components.botao-secundario}` em site e
+`{components.botao-utilidade}` em ferramenta. Anexo de arquivo usa o ícone Lucide `paperclip`.
 
 ### Caixa de seleção
 
@@ -949,25 +922,22 @@ elementos, a escala de `{spacing}`.
 
 Três réguas de respiro que valem em toda a família:
 
-- **O card é alto, não espremido.** Card com botão, ícone ou imagem ganha altura: o conteúdo
-  respira na vertical, nunca se comprime num retângulo baixo.
-- **A ação ancora na base do card**, com espaço livre acima dela — entre o corpo e a ação sempre
-  há respiro, e abaixo da ação vale a margem interna normal.
-- **Antes do corpo entra espaço.** Entre o bloco de título (com linha-fina ou categoria) e o
-  corpo há um degrau de respiro, maior que o entrelinhas.
+- **A ação fica na base do card**, com espaço acima dela.
+- **Entre o bloco de título (com linha-fina ou categoria) e o corpo entra espaço**, maior que o
+  entrelinhas.
 
 As variações — todas com a mesma base, mudando só o que está dito:
 
 | Variação | O que muda | Quando |
 |---|---|---|
 | **`{components.content-card}`** | Nada. É a base | Bloco padrão de ferramenta e painel |
-| **Com botões de utilidade** | Até dois `{components.botao-texto}` só-ícone (Lucide) no canto superior direito, 44 × 44 | Compartilhar, informação, fechar |
+| **Com botões de utilidade** | Até dois `{components.botao-texto}` só-ícone (Lucide) no canto superior direito | Compartilhar, informação, fechar |
 | **Clicável** | O card inteiro é o link: sem botão dentro, o título carrega o `chevron-right`. Sobre: fundo vai a `{colors.fundo-bloco}`. Foco: anel de 3 px | Atalho de navegação |
 | **Desabilitado** | Texto a 40%, ícone Lucide `lock` ao lado do título, sem cursor de mão | Recurso indisponível |
 | **Com categoria** | Linha-fina de categoria **abaixo do título**, com ícone Lucide de 16 px na frente, em `{typography.corpo-pequeno}` com `{colors.texto-fraco}` | Card em coleção com tipos |
 | **Com ícone no alto** | Ícone Lucide de 40 px em `{colors.azul}` no canto superior esquerdo; o conteúdo desce | Card de recurso ou serviço |
 | **Com ícone na base** | Ícone Lucide em `{colors.azul}` que **desrespeita a margem interna e senta no canto inferior direito do card** | Card de recurso ou serviço |
-| **Com imagem** | Imagem no topo, largura total do card, cantos superiores de `{rounded.canto}`, máximo de metade da altura do card | Conteúdo editorial |
+| **Com imagem** | Imagem no topo, na largura do card, cantos superiores de `{rounded.canto}` | Conteúdo editorial |
 | **`{components.content-card-numero}`** | Título · corpo opcional · **número** em `{typography.numero-grande}` com `{colors.azul}` e, ao lado, a variação com seta Lucide (`arrow-up`/`arrow-down`) e rótulo em `{typography.legenda}` | Dado de dashboard |
 
 Limites da família:
@@ -992,14 +962,10 @@ Máximo de uma caixa quente por página.
 
 ### Navegação
 
-**`{components.nav-clara}`** e **`{components.nav-escura}`**: altura de 96 px em tela cheia, 72 px
-em tablet e 64 px em celular. Respiro lateral de 40 px, distância de 32 px entre itens. Logo à
-esquerda, itens no meio, **uma ação à direita**, a mesma em todos os tamanhos.
-
-O item ativo se marca com fio de 2 pt embaixo: `{colors.acao}` no fundo claro, `{colors.destaque}`
-no escuro. No fundo escuro o logo entra na versão branca vazada, nunca na azul.
-
-Em celular os itens viram menu; a ação continua visível.
+A navegação de site é a barra de topo com itens de menu (configuração "site com navegação",
+§Barra de topo): 64 px, respiro lateral de 24 px, itens em Inter 500 15 px, o ativo em 600 com
+fio de 2 px (`{colors.acao}` no fundo claro, `{colors.destaque}` no escuro), uma ação à direita
+de 36 px. No fundo escuro o logo entra na versão branca.
 
 ### Barra de topo
 
@@ -1112,33 +1078,22 @@ rosca sempre com furo. Fecha com fonte e data de apuração.
 
 | Estado | Como se mostra |
 |---|---|
-| Normal | A cor de papel do elemento |
-| Sobre | Escurece 18%. O cursor vira mão |
-| Foco | Anel de 3 px, afastado 2 px. Chega pelo teclado |
-| Carregando | O rótulo troca e o elemento trava |
-| Desabilitado | Fundo `{colors.fundo-bloco}`, texto a 40% |
-
-Nenhum elemento clicável entra na peça sem os cinco.
+| Normal | A cor do elemento |
+| Sobre | A variação da cor (`{colors.acao-hover}` no botão). O cursor vira mão |
+| Foco | Anel de 3 px em `{colors.acao-secundaria}`, afastado 2 px. Aparece na navegação por teclado |
+| Desabilitado | Fundo `{colors.fundo-bloco}`, texto em `{colors.texto-fraco}`, sem cursor de mão |
 
 ## Acessibilidade
 
-- **Foco nunca some.** `outline: none` sem substituto é erro.
-- **⬦ Alvo de toque de 44 px** de altura, e 44 × 44 quando for só ícone.
+- **O anel de foco não se remove.** `outline: none` só com outro indicador de foco no lugar.
 - **Erro, sucesso e alerta se dizem em texto**, não só em cor.
 - **Texto alternativo em toda imagem que carrega informação.** Imagem decorativa entra com
   alternativo vazio.
 
 ## Comportamento responsivo
 
-| Faixa | Largura | Mudanças |
-|---|---|---|
-| Tela cheia | > 1024 px | 12 colunas, margem 4%, nav 96 px, display 48 px |
-| Tablet | 640 a 1024 px | 2 colunas, margem 24, nav 72 px, display 36 px |
-| Celular | < 640 px | 1 coluna, margem 16, nav 64 px, display 28 px |
-
-⬦ O título desce em degrau 48 → 36 → 28 px. Card de três colunas vira duas e depois uma. Botão sobe
-para 44 px de altura mínima em toque. Tabela larga rola na horizontal dentro do próprio bloco, em
-vez de encolher a fonte.
+Em tela estreita, um bloco de três colunas passa a duas, depois a uma. Tabela larga rola na
+horizontal dentro do próprio bloco. A barra de topo mantém 64 px em qualquer largura.
 
 ## Vetos
 

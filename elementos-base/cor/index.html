@@ -89,7 +89,7 @@
           <tr><td>--api-sobre-escuro</td><td>branco</td><td>Texto sobre fundo escuro</td></tr>
           <tr><td>--api-fundo</td><td>branco</td><td>Fundo de página</td></tr>
           <tr><td>--api-fundo-bloco</td><td>quadro</td><td>Zebra de tabela, card de dado, campo, caixa de apoio</td></tr>
-          <tr><td>--api-fundo-quente</td><td>creme</td><td>Bloco de respiro entre seções frias. Nunca como faixa de seção em peça longa</td></tr>
+          <tr><td>--api-fundo-quente</td><td>creme</td><td>Bloco de fundo creme. Não se usa como faixa de seção em peça longa</td></tr>
           <tr><td>--api-fundo-secao</td><td>cinza-claro #F4F4F4</td><td>Faixa de seção em peça longa</td></tr>
           <tr><td>--api-fundo-escuro</td><td>azul</td><td>Card de destaque, cabeçalho de tabela, navegação escura</td></tr>
           <tr><td>--api-borda</td><td>quadro</td><td>Borda de campo e de bloco neutro</td></tr>
@@ -103,10 +103,9 @@
 
     <div class="secao">
       <h2>O latão é detalhe, não segunda cor</h2>
-      <p>Numa tela ele aparece poucas vezes: um número que importa, o fio do item ativo, no
-        máximo uma caixa quente. Latão em botão, checkbox, texto de rótulo, borda de campo ou
-        espalhado por vários elementos da mesma tela é veto (<code>latao-segunda-cor</code>).
-        Na dúvida, a cor é azul ou neutra, nunca latão.</p>
+      <p>O latão aparece poucas vezes numa peça: um número em destaque, o fio do item ativo, no
+        máximo uma caixa de fundo colorido. Não se usa em botão, checkbox, rótulo, borda de campo
+        nem repetido em vários elementos da mesma tela. Na dúvida, a cor é azul ou neutra.</p>
       <div class="dodont">
         <div class="dd faca">
           <div class="dd-palco">
@@ -143,9 +142,9 @@
 
     <div class="secao">
       <h2>Gradiente</h2>
-      <p>Só como véu de legibilidade: uma cor, do transparente ao cheio, sobre fundo complexo,
-        para o texto ou o logo entrarem limpos. Nunca entre duas cores, nunca em texto, botão,
-        ícone, caixa ou elemento de interface.</p>
+      <p>Três gradientes oficiais, em branco, azul e preto, cada um de uma cor só, do transparente ao
+        cheio, na direção horizontal. Uso: sobre foto ou textura, para abrir uma área limpa onde
+        entra texto ou logo. Os arquivos estão em <code>assets/gradiente/</code>.</p>
       <div class="palco">
         <div class="veu"><img src="/assets/logo/svg/api_capital_logo01_branco.svg" alt="API Capital"></div>
       </div>

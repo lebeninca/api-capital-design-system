@@ -24,8 +24,8 @@
   <main class="conteudo">
     <div class="subcabecalho">
       <h1>Tokens</h1>
-      <p class="linhafina">Todo valor do sistema (cor, tipografia, espaço, forma) vive em uma
-        folha única de estilo. Consuma o token, nunca escreva o valor.</p>
+      <p class="linhafina">Como usar o sistema em código: uma folha de estilo traz as fontes, as
+        cores, os tamanhos e os componentes.</p>
       <hr class="fio">
     </div>
 
@@ -35,18 +35,20 @@
         de componente:</p>
       <div class="codigo">&lt;link rel="stylesheet" href="https://design.apicapital.com.br/tokens/api-capital.css"&gt;</div>
       <p class="anota">A folha importa <code>fontes.css</code>, <code>tokens.css</code> e
-        <code>componentes.css</code>. A peça bebe do endereço, não de cópia.</p>
+        <code>componentes.css</code>. Use o endereço acima, sem copiar os arquivos: mudou aqui,
+        muda na peça.</p>
     </div>
 
     <div class="secao">
       <h2>Passo 2: consumir variável</h2>
-      <p>Toda variável tem o prefixo <code>--api-</code>. Use a variável de papel, nunca o hex:</p>
+      <p>Toda variável tem o prefixo <code>--api-</code>. Use a variável com o nome da função
+        (ação, texto, fundo), não o código da cor:</p>
       <div class="codigo">color: var(--api-texto);
 background: var(--api-fundo-bloco);
 border-radius: var(--api-canto);
 gap: var(--api-x6);</div>
-      <p class="anota"><code>var(--api-acao)</code>, não <code>#0D2A54</code>. Valor que não
-        existe no sistema é erro. Se faltar um, pergunte, não invente.</p>
+      <p class="anota"><code>var(--api-acao)</code>, não <code>#0D2A54</code>. Toda cor,
+        tamanho e distância de uma peça é um valor do sistema.</p>
     </div>
 
     <div class="secao">

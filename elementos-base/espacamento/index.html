@@ -45,9 +45,8 @@
   <main class="conteudo">
     <div class="subcabecalho">
       <h1>Espaçamento</h1>
-      <p class="linhafina">Base de 8 px, com 4 px para trabalho fino. Toda distância é um degrau
-        declarado da escala: valor de espaço escrito à mão é o mesmo erro que hex escrito à
-        mão.</p>
+      <p class="linhafina">A escala de distâncias do sistema e as classes prontas para aplicar
+        cada uma em código.</p>
       <hr class="fio">
     </div>
 
@@ -63,8 +62,9 @@
           <div class="degrau"><span class="rot">--api-x16</span><div class="barra" style="width:64px"></div><span class="med">64 px</span></div>
         </div>
       </div>
-      <p class="anota">Os seis degraus existem como variável (<code>var(--api-x6)</code>) e como
-        classe utilitária, nas três famílias abaixo.</p>
+      <p class="anota">Base de 8 px, com 4 px para ajuste fino. Toda distância de uma peça é um
+        destes seis valores. Cada um existe como variável (<code>var(--api-x6)</code>) e como
+        classe pronta, nas três famílias abaixo.</p>
     </div>
 
     <div class="secao">
@@ -142,14 +142,13 @@
     </div>
 
     <div class="secao">
-      <h2>Respiros declarados</h2>
+      <h2>Respiro dos componentes</h2>
       <table class="espec">
         <thead><tr><th>Onde</th><th>Medida</th></tr></thead>
         <tbody>
-          <tr><td>Respiro interno de card</td><td><code>--api-x10</code> 40 px</td></tr>
-          <tr><td>Respiro interno de caixa e de aviso</td><td><code>--api-x6</code> 24 px</td></tr>
-          <tr><td>Altura de seção em tela</td><td>64 a 96 px</td></tr>
-          <tr><td>Junta entre cards de um painel</td><td><code>--api-x6</code> 24 px</td></tr>
+          <tr><td>Dentro de card</td><td><code>--api-x10</code> 40 px</td></tr>
+          <tr><td>Dentro de caixa de destaque e de aviso</td><td><code>--api-x6</code> 24 px</td></tr>
+          <tr><td>Dentro de campo, lateral</td><td><code>--api-x4</code> 16 px</td></tr>
         </tbody>
       </table>
     </div>
@@ -173,12 +172,10 @@
     </div>
 
     <div class="secao">
-      <h2>Entre blocos, no impresso</h2>
-      <p>Blocos de texto, imagem, gráfico ou tabela têm espaçamento mínimo de <strong>120 px</strong>
-        a 300 dpi. A exceção é linha-fina, subtítulo e legenda, que podem ter
-        <strong>60 px</strong>.</p>
-      <p>Espaço que sobra até a margem vira respiro entre as seções, mantendo a proporção do
-        ritmo, nunca elemento maior.</p>
+      <h2>Sobra de espaço</h2>
+      <p>Quando sobra espaço entre o último bloco e a margem, ele se distribui como respiro
+        entre as seções, mantendo a proporção entre elas. Os elementos não crescem para
+        preencher.</p>
     </div>
   </main>
 </div>

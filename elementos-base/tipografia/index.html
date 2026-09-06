@@ -39,9 +39,8 @@
   <main class="conteudo">
     <div class="subcabecalho">
       <h1>Tipografia</h1>
-      <p class="linhafina">Duas famílias em par fixo: Playfair Display em título e abertura,
-        Inter em todo o resto, incluindo cada número apresentado. Uma terceira família quebra
-        o sistema.</p>
+      <p class="linhafina">As duas famílias do sistema, a escala de tamanhos em tela e no impresso,
+        e como escrever número, moeda e data.</p>
       <hr class="fio">
     </div>
 
@@ -67,9 +66,9 @@
 
     <div class="secao">
       <h2>Escala em tela</h2>
-      <p>Em página de documentação, o título pesa menos: página e seção em Playfair medium.
-        O display bold é registro de chamada — anúncio, hero de campanha, peça gritante, e só
-        isso; capa e abertura de peça editorial ficam no medium.</p>
+      <p>Cada nível tem nome, tamanho, peso e entrelinha fixos. Em página de documentação, título
+        de página e de seção usam Playfair medium. O nível <code>display</code>, em bold, é para
+        chamada e anúncio; capa e abertura de peça editorial ficam no medium.</p>
       <div class="ramp">
         <div class="nivel"><div class="esp api-display">Título de abertura</div><div class="meta"><span class="tok">display</span>Playfair 48 · 700 · entrelinha 1,15 · tracking −0,96px</div></div>
         <div class="nivel"><div class="esp api-secao">Título de seção</div><div class="meta"><span class="tok">secao</span>Playfair 36 · 700 · 1,20 · −0,72px</div></div>
@@ -130,24 +129,20 @@
           <tr><td>Legenda</td><td>Inter Regular 24, em texto fraco</td></tr>
         </tbody>
       </table>
-      <p class="anota">Alinhamento à esquerda, sem justificar. Em peça editorial impressa
+      <p class="anota">Texto alinhado à esquerda, sem justificar. Em peça editorial impressa
         (carta mensal, relatório), capa e abertura ficam em Playfair medium e o título de
-        seção em regular, com separadores capilares no miolo. Bold é só de chamada e
-        anúncio.</p>
+        seção em regular, com separadores capilares no miolo. Bold é para chamada e anúncio.</p>
     </div>
 
     <div class="secao">
       <h2>Princípios</h2>
       <ul>
-        <li><strong>Tracking negativo no título.</strong> De −0,96 px em 48 px até 0 no corpo,
-          proporcional ao tamanho. É o que dá acabamento ao título grande.</li>
-        <li><strong>Figuras tabulares em número.</strong> <code>font-feature-settings: "tnum"</code>
-          em toda célula com dinheiro, contagem ou percentual. Sem isso, a coluna de número dança.</li>
-        <li><strong>Número apresentado sai em Inter.</strong> A exceção é o número dentro de uma
-          frase que já esteja em Playfair.</li>
-        <li><strong>Duas famílias.</strong> Uma terceira quebra o sistema. A Playfair embarcada
-          cobre os seis pesos e os dois itálicos; consuma o peso que o token declara, nunca um
-          sintetizado.</li>
+        <li><strong>Tracking negativo no título grande.</strong> −0,96 px em 48 px, diminuindo até 0 no corpo.</li>
+        <li><strong>Número em Inter, com figuras tabulares</strong> (<code>font-feature-settings: "tnum"</code>).
+          Em tabela, os algarismos ficam alinhados coluna a coluna. A exceção é o número dentro de
+          uma frase em Playfair.</li>
+        <li><strong>Só as duas famílias.</strong> A Playfair embarcada tem os seis pesos e os dois
+          itálicos; use o peso que o nível declara, sem peso sintetizado pelo navegador.</li>
       </ul>
     </div>
 

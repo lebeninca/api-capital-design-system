@@ -34,8 +34,7 @@ button.api-botao-secundario,button.api-botao-utilidade{border:1px solid var(--ap
   <main class="conteudo">
     <div class="subcabecalho">
       <h1>Botões</h1>
-      <p class="linhafina">Cinco botões cobrem toda ação de site, e um sexto, o de utilidade,
-        cobre toda ação de ferramenta. Botão fora desses é veto, e o latão nunca é clicável.</p>
+      <p class="linhafina">Os botões do sistema: cinco para site e peça, um para ferramenta.</p>
       <hr class="fio">
     </div>
 
@@ -62,7 +61,7 @@ button.api-botao-secundario,button.api-botao-utilidade{border:1px solid var(--ap
           <tr><td>botao-azul-claro</td><td><code>--api-acao-secundaria</code></td><td>branco</td><td>Ação secundária</td></tr>
           <tr><td>botao-sobre-escuro</td><td>branco</td><td><code>--api-azul</code></td><td>Ação sobre fundo escuro</td></tr>
           <tr><td>botao-texto</td><td>transparente</td><td><code>--api-acao</code></td><td>Ação sem caixa</td></tr>
-          <tr><td>botao-utilidade</td><td>branco, borda de 1 px em <code>--api-acao</code></td><td><code>--api-acao</code></td><td>Todo botão de página de ferramenta (32 px)</td></tr>
+          <tr><td>botao-utilidade</td><td>branco, borda de 1 px em <code>--api-acao</code></td><td><code>--api-acao</code></td><td>Todo botão de ferramenta (32 px)</td></tr>
           <tr><td>botao-utilidade-cheio</td><td><code>--api-acao</code></td><td>branco</td><td>A ação de saída em ferramenta: exportar, salvar, gerar</td></tr>
         </tbody>
       </table>
@@ -78,8 +77,8 @@ button.api-botao-secundario,button.api-botao-utilidade{border:1px solid var(--ap
       </div>
       <p class="anota">32 px de altura, tipografia <code>botao-utilidade</code> (14/600), respiro
         lateral de 12 px, canto de 10 px (<code>canto-ferramenta</code>). Em ferramenta,
-        <strong>todo botão é de utilidade</strong>, inclusive a ação principal. Os botões de 48 e
-        56 px são de página pública e de chamada. Ver
+        <strong>todo botão é de utilidade</strong>, inclusive a ação principal. O botão de 48 px é
+        de página pública e de chamada. Ver
         <a href="/elementos-base/tipografia/">Tipografia · Densidade em ferramenta</a>.</p>
     </div>
 
@@ -87,13 +86,12 @@ button.api-botao-secundario,button.api-botao-utilidade{border:1px solid var(--ap
       <h2>Alturas</h2>
       <div class="palco">
         <div class="alturas">
-          <div class="caso"><span class="rot">Abertura · 56</span><button class="api-botao-primario" style="height:56px">Começar</button></div>
           <div class="caso"><span class="rot">Padrão · 48</span><button class="api-botao-primario">Começar</button></div>
-          <div class="caso"><span class="rot">Barra e tabela · 40</span><button class="api-botao-primario" style="height:40px;font-size:15px">Começar</button></div>
+          <div class="caso"><span class="rot">Barra de topo · 36</span><button class="api-botao-primario" style="height:36px;font-size:15px;padding:0 20px">Começar</button></div>
           <div class="caso"><span class="rot">Ferramenta · 32</span><button class="api-botao-utilidade-cheio">Começar</button></div>
         </div>
       </div>
-      <p class="anota">Em toque, mínimo de 44 px.</p>
+
     </div>
 
     <div class="secao">
@@ -109,12 +107,12 @@ button.api-botao-secundario,button.api-botao-utilidade{border:1px solid var(--ap
         <div class="dd faca">
           <div class="dd-palco"><button class="api-botao-primario">Enviar proposta</button></div>
           <div class="dd-rotulo"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Faça</div>
-          <p class="dd-desc">Um dos cinco botões declarados: azul, canto de 15 px.</p>
+          <p class="dd-desc">Botão do sistema: azul, canto de 15 px.</p>
         </div>
         <div class="dd nao">
           <div class="dd-palco"><span style="display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 24px;background:var(--api-acao);color:var(--api-sobre-escuro);border-radius:9999px;font-size:17px;font-weight:600">Enviar proposta</span></div>
           <div class="dd-rotulo"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Não faça</div>
-          <p class="dd-desc">Cápsula. O canto do sistema é 15 px, e <code>9999px</code> é veto.</p>
+          <p class="dd-desc">Cápsula.</p>
         </div>
       </div>
     </div>
@@ -122,13 +120,10 @@ button.api-botao-secundario,button.api-botao-utilidade{border:1px solid var(--ap
     <div class="secao">
       <h2>Regras</h2>
       <ul>
-        <li>Botão fora dos declarados é veto (<code>botao-inventado</code>).</li>
-        <li><strong>Em ferramenta, todo botão é o de utilidade</strong> (32 px, canto de 10).
-          Botão de 48 numa ferramenta é erro de escala.</li>
-        <li>Texto de botão nunca é latão; o latão nunca é clicável.</li>
-        <li>Em site, utilidade pequena ao lado de um campo («Hoje», «Anexar arquivo», «Limpar») é o
-          secundário em altura 40 px; em ferramenta, é o de utilidade.</li>
-        <li>Cápsula é vetada: o canto é 15 px; 10 px no botão de utilidade.</li>
+        <li>Toda ação usa um dos botões desta página.</li>
+        <li>Em ferramenta, todo botão é o de utilidade (32 px).</li>
+        <li>Botão não é latão: o branco sobre latão não passa no contraste (3,67:1).</li>
+        <li>Canto de 15 px; 10 px no botão de utilidade. Sem cápsula.</li>
       </ul>
     </div>
   </main>

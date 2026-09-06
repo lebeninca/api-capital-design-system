@@ -67,8 +67,7 @@
   <main class="conteudo">
     <div class="subcabecalho">
       <h1>Grid e margens</h1>
-      <p class="linhafina">Doze colunas nos dois territórios: no impresso, com margem de 20 mm;
-        em tela, com margem de 4% da largura. Todo bloco começa e termina em borda de coluna.</p>
+      <p class="linhafina">Como organizar uma página em colunas, no impresso e em tela.</p>
       <hr class="fio">
     </div>
 
@@ -95,105 +94,63 @@
           </div>
         </div>
         <div class="anatomia-legenda">
-          <span class="letra">A.</span> <strong>Margem:</strong> o vazio nas bordas externas, 20 mm nos quatro lados ·
+          <span class="letra">A.</span> <strong>Margem:</strong> o vazio nas bordas externas: 40 mm nas laterais, 20 mm no topo e na base ·
           <span class="letra">B.</span> <strong>Coluna:</strong> as 12 guias verticais, que não se imprimem ·
           <span class="letra">C.</span> <strong>Medianiz:</strong> o vão entre colunas, que não é área útil ·
-          <span class="letra">D.</span> <strong>Área de conteúdo:</strong> o bloco, que atravessa qualquer número de colunas inteiras
+          <span class="letra">D.</span> <strong>Bloco de conteúdo:</strong> ocupa colunas inteiras, de uma a doze
         </div>
       </div>
-      <p class="anota">Quando o conteúdo não cabe, quem cede é a largura do bloco, nunca a
-        medianiz.</p>
+      <p class="anota">Um bloco começa na borda de uma coluna e termina na borda de outra. Se o
+        conteúdo não couber, o bloco ganha uma coluna a mais; a medianiz não muda.</p>
     </div>
 
     <div class="secao">
       <h2>Impresso</h2>
-      <p>Margem de 20 mm nos quatro lados, medianiz de 4 mm, nos dois formatos. Margem e
-        espaçamento se medem a partir da altura de maiúscula do texto, não da caixa
-        delimitadora.</p>
-      <table class="espec">
-        <thead><tr><th>Formato</th><th>Área útil (300 dpi)</th><th>Coluna</th><th>Medida de linha</th></tr></thead>
-        <tbody>
-          <tr><td>A4 retrato</td><td>2008 × 3036 px</td><td>10,5 mm (124 px)</td><td>6 a 8 colunas</td></tr>
-          <tr><td>A4 paisagem</td><td>3036 × 1914 px</td><td>17,75 mm (210 px)</td><td>5 a 7 colunas</td></tr>
-        </tbody>
-      </table>
+      <p>Página A4, retrato ou paisagem. Doze colunas. Margem de 40 mm nas laterais e de 20 mm
+        no topo e na base.</p>
     </div>
 
     <div class="secao">
       <h2>Em tela</h2>
-      <p>Margem de 4% da largura, 12 colunas, medianiz de um quarto da coluna. A grade responde
-        em três faixas:</p>
-      <table class="espec">
-        <thead><tr><th>Faixa</th><th>Largura</th><th>Mudanças</th></tr></thead>
-        <tbody>
-          <tr><td>Tela cheia</td><td>&gt; 1024 px</td><td>12 colunas, margem 4%, nav 96 px, display 48 px</td></tr>
-          <tr><td>Tablet</td><td>640 a 1024 px</td><td>2 colunas, margem 24, nav 72 px, display 36 px</td></tr>
-          <tr><td>Celular</td><td>&lt; 640 px</td><td>1 coluna, margem 16, nav 64 px, display 28 px</td></tr>
-        </tbody>
-      </table>
-      <p class="anota">Card de três colunas vira duas e depois uma. Tabela larga rola na
-        horizontal dentro do próprio bloco, em vez de encolher a fonte.</p>
+      <p>Doze colunas. A margem lateral é a mesma da <a href="/componentes/barra-de-topo/">barra de
+        topo</a>: 24 px. Em tela estreita, um bloco de três colunas passa a duas, depois a uma;
+        tabela larga rola na horizontal dentro do próprio bloco.</p>
     </div>
 
     <div class="secao">
-      <h2>Larguras de coluna no impresso</h2>
-      <table class="espec">
-        <thead><tr><th>Colunas</th><th style="text-align:right">Paisagem (px)</th><th style="text-align:right">Retrato (px)</th></tr></thead>
-        <tbody>
-          <tr><td class="num">1</td><td class="num">210</td><td class="num">124</td></tr>
-          <tr><td class="num">2</td><td class="num">467</td><td class="num">295</td></tr>
-          <tr><td class="num">3</td><td class="num">724</td><td class="num">467</td></tr>
-          <tr><td class="num">4</td><td class="num">981</td><td class="num">638</td></tr>
-          <tr><td class="num">5</td><td class="num">1.237</td><td class="num">809</td></tr>
-          <tr><td class="num">6</td><td class="num">1.494</td><td class="num">980</td></tr>
-          <tr><td class="num">7</td><td class="num">1.751</td><td class="num">1.152</td></tr>
-          <tr><td class="num">8</td><td class="num">2.008</td><td class="num">1.323</td></tr>
-          <tr><td class="num">9</td><td class="num">2.265</td><td class="num">1.494</td></tr>
-          <tr><td class="num">10</td><td class="num">2.522</td><td class="num">1.665</td></tr>
-          <tr><td class="num">11</td><td class="num">2.779</td><td class="num">1.837</td></tr>
-          <tr><td class="num">12</td><td class="num">3.036</td><td class="num">2.008</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="secao">
-      <h2>Modelos de composição</h2>
-      <p>Elemento que pertence a uma coluna respeita a coluna. Os modelos valem nos dois
-        formatos: a proporção é a mesma, muda só a largura da coluna. Larguras diferentes
-        convivem na mesma página; o que não se admite é bloco que comece ou termine no meio de
-        uma coluna.</p>
+      <h2>Divisões mais usadas</h2>
+      <p>Exemplos de divisão da página em blocos. Blocos de larguras diferentes convivem na
+        mesma página; cada um ocupa colunas inteiras.</p>
       <div class="palco">
         <div class="modelos">
           <div class="modelo">
-            <div class="cab"><span class="nome">Uma coluna</span><span class="medidas">paisagem 3036 · retrato 2008</span></div>
+            <div class="cab"><span class="nome">Uma coluna</span></div>
             <div class="barras"><div class="b azul" style="width:100%"></div></div>
           </div>
           <div class="modelo">
-            <div class="cab"><span class="nome">Duas colunas · 50/50</span><span class="medidas">paisagem 1494 + 1494 · retrato 980 + 980</span></div>
+            <div class="cab"><span class="nome">Duas colunas · 50/50</span></div>
             <div class="barras"><div class="b azul" style="width:49.25%"></div><div class="b claro" style="width:49.25%"></div></div>
           </div>
           <div class="modelo">
-            <div class="cab"><span class="nome">Três colunas</span><span class="medidas">paisagem 981 + 981 + 981 · retrato 638 + 638 + 638</span></div>
+            <div class="cab"><span class="nome">Três colunas</span></div>
             <div class="barras"><div class="b azul" style="width:32.3%"></div><div class="b claro" style="width:32.3%"></div><div class="b latao" style="width:32.3%"></div></div>
           </div>
           <div class="modelo">
-            <div class="cab"><span class="nome">Duas colunas · 7 + 5</span><span class="medidas">paisagem 1751 + 1237 · retrato 1152 + 809</span></div>
+            <div class="cab"><span class="nome">Duas colunas · 7 + 5</span></div>
             <div class="barras"><div class="b azul" style="width:57.7%"></div><div class="b claro" style="width:40.8%"></div></div>
           </div>
           <div class="modelo">
-            <div class="cab"><span class="nome">Duas colunas · 9 + 3</span><span class="medidas">paisagem 2265 + 724 · retrato 1494 + 467</span></div>
+            <div class="cab"><span class="nome">Duas colunas · 9 + 3</span></div>
             <div class="barras"><div class="b azul" style="width:74.6%"></div><div class="b claro" style="width:23.9%"></div></div>
           </div>
         </div>
       </div>
-      <p class="anota">A medianiz não é área útil: nada entra nela. Quando o conteúdo não cabe,
-        quem cede é a largura do bloco.</p>
+      <p class="anota">Nada entra na medianiz.</p>
     </div>
 
     <div class="secao">
       <h2>Na prática</h2>
-      <p>Duas páginas de exemplo, com texto fictício. Cada bloco usa um modelo de coluna, e
-        nenhum começa ou termina no meio de uma.</p>
+      <p>Duas páginas de exemplo, com texto fictício. Cada bloco ocupa colunas inteiras.</p>
       <div class="palco">
         <div class="duas-paginas">
 

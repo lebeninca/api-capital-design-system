@@ -58,9 +58,7 @@ svg.ic-g{width:40px;height:40px;stroke:var(--api-azul);fill:none;stroke-width:1.
   <main class="conteudo">
     <div class="subcabecalho">
       <h1>Cards de conteúdo</h1>
-      <p class="linhafina">O card de ferramenta, painel e página interna. Fundo da página em
-        cinza-claro, card branco sem contorno: quem separa é o degrau de fundo. Canto de 15,
-        zero sombra.</p>
+      <p class="linhafina">O card de ferramenta, painel e página interna, e as suas variações.</p>
       <hr class="fio">
     </div>
 
@@ -69,8 +67,7 @@ svg.ic-g{width:40px;height:40px;stroke:var(--api-azul);fill:none;stroke-width:1.
       <div class="ccard" style="max-width:640px;">
         <h2>Título do card</h2>
         <div class="linhafina">Linha-fina opcional que descreve o título</div>
-        <p>Texto de corpo que desenvolve o assunto do card em uma ou duas frases, sem contorno
-          fino em volta de nada.</p>
+        <p>Texto de corpo que desenvolve o assunto do card em uma ou duas frases.</p>
         <div class="acoes">
           <button class="api-botao-primario">Ação principal</button>
           <a class="link-seta" href="#">Ver detalhe <svg class="ic" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></a>
@@ -88,7 +85,7 @@ svg.ic-g{width:40px;height:40px;stroke:var(--api-azul);fill:none;stroke-width:1.
           </div>
           <h2>Com utilidade</h2>
           <div class="linhafina">Até dois botões-ícone no canto</div>
-          <p>Ícones Lucide em botão-texto, 44 × 44.</p>
+          <p>Ícones Lucide em botão-texto.</p>
         </div>
         <a class="ccard clicavel" href="#">
           <h2>Clicável <svg class="ic" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></h2>
@@ -134,7 +131,7 @@ svg.ic-g{width:40px;height:40px;stroke:var(--api-azul);fill:none;stroke-width:1.
           <div class="foto"></div>
           <div class="corpo-img">
             <h2>Com imagem</h2>
-            <div class="linhafina">Imagem no topo, largura total, no máximo metade da altura</div>
+            <div class="linhafina">Imagem no topo, na largura do card</div>
             <p>Depois, a anatomia normal do card.</p>
             <div class="acoes">
               <button class="api-botao-primario">Ação principal</button>
@@ -155,13 +152,12 @@ svg.ic-g{width:40px;height:40px;stroke:var(--api-azul);fill:none;stroke-width:1.
 
     <div class="secao-exemplo">Regras</div>
     <ul class="regras">
-      <li>Em página de ferramenta o fundo é o cinza-claro <code>#F4F4F4</code> e o card é branco,
-        sem contorno. Grupo interno se marca com título e espaço, nunca com um segundo fundo.</li>
-      <li>Card com botão, ícone ou imagem é alto: o conteúdo respira na vertical. A ação ancora
-        na base do card, com respiro acima; antes do corpo entra um degrau de espaço.</li>
-      <li>Não existe a variação com faixa colorida na base. No card de número, verde e vermelho
-        só na tendência, sempre com o valor escrito ao lado.</li>
-      <li>Máximo de um card de destaque escuro por tela. Canto de 15 px, zero sombra, sempre.</li>
+      <li>Em página de ferramenta e painel, o fundo da página é cinza-claro
+        (<code>--api-fundo-secao</code>) e o card é branco, sem contorno. Grupo interno se marca
+        com título e espaço, sem um segundo fundo.</li>
+      <li>A ação fica na base do card, com espaço acima dela.</li>
+      <li>No card de número, verde e vermelho só na tendência, com o valor escrito ao lado.</li>
+      <li>Canto de 15 px, sem sombra, sem faixa colorida na borda.</li>
     </ul>
   </main>
 </div>

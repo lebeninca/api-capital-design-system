@@ -34,8 +34,8 @@
   <main class="conteudo">
     <div class="subcabecalho">
       <h1>Formas</h1>
-      <p class="linhafina">Quatro espessuras de fio, um raio de canto em tela e canto vivo no
-        impresso. Cápsula é vetada.</p>
+      <p class="linhafina">As espessuras de linha e os cantos usados nas peças, em tela e no
+        impresso.</p>
       <hr class="fio">
     </div>
 
@@ -64,8 +64,9 @@
 
     <div class="secao">
       <h2>Canto</h2>
-      <p><code>--api-canto</code> 15 px em tela, em card, botão, campo, aviso e amostra de cor.
-        Canto vivo no impresso. Cápsula (<code>9999px</code>) é vetada.</p>
+      <p>Em tela, todo card, botão, campo, aviso e amostra de cor tem canto de 15 px
+        (<code>--api-canto</code>). No impresso, o canto é vivo. Cápsula (canto igual à metade da
+        altura) não se usa.</p>
       <div class="palco">
         <div class="cantos">
           <div class="canto-ex" style="border-radius:var(--api-canto)"><strong>Tela:</strong> canto de 15 px</div>
@@ -75,9 +76,25 @@
     </div>
 
     <div class="secao">
+      <h2>Cápsula</h2>
+      <div class="dodont">
+        <div class="dd faca">
+          <div class="dd-palco"><button class="api-botao-primario" style="border:none">Enviar proposta</button></div>
+          <div class="dd-rotulo"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Faça</div>
+          <p class="dd-desc">Canto de 15 px.</p>
+        </div>
+        <div class="dd nao">
+          <div class="dd-palco"><span style="display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 24px;background:var(--api-acao);color:var(--api-sobre-escuro);border-radius:9999px;font-size:17px;font-weight:600">Enviar proposta</span></div>
+          <div class="dd-rotulo"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Não faça</div>
+          <p class="dd-desc">Cápsula.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="secao">
       <h2>Divisória</h2>
-      <p>A horizontal atravessa as 12 colunas. A vertical separa colunas de texto e tem sempre
-        1 pt. Entre linhas de tabela não entra fio: use separação de zebra.</p>
+      <p>A divisória horizontal é o fio fino, na largura do bloco. Entre linhas de tabela não
+        entra fio: as linhas alternam fundo (zebra).</p>
     </div>
   </main>
 </div>

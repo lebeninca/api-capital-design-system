@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="/docs.css">
 <style>
 .exemplo{border-radius:var(--api-canto);overflow:hidden;border:1px solid var(--api-borda);}
-.nav-ex{height:96px;padding:0 40px;display:flex;align-items:stretch;gap:32px;}
+.nav-ex{height:64px;padding:0 24px;display:flex;align-items:stretch;gap:20px;}
 .nav-ex.clara{background:var(--api-fundo);}
 .nav-ex.escura{background:var(--api-fundo-escuro);border:none;}
 .nav-ex img{height:56px;display:block;align-self:center;}
@@ -43,8 +43,8 @@ button{border:none;cursor:pointer;}
   <main class="conteudo">
     <div class="subcabecalho">
       <h1>Navegação</h1>
-      <p class="linhafina">Duas navegações, clara e escura: logo à esquerda, itens no meio, uma
-        ação à direita, a mesma em todos os tamanhos.</p>
+      <p class="linhafina">Como montar a navegação de um site: é a barra de topo com itens de
+        menu.</p>
       <hr class="fio">
     </div>
 
@@ -56,46 +56,26 @@ button{border:none;cursor:pointer;}
           <div class="nav-ex clara">
             <img src="/assets/logo/svg/api_capital_logo01_azul.svg" alt="API Capital">
             <div class="itens"><a href="#" class="ativo">Início</a><a href="#">Cartas</a><a href="#">Sobre</a></div>
-            <span class="acao-nav"><button class="api-botao-primario">Falar com a API</button></span>
+            <span class="acao-nav"><button class="api-botao-primario" style="height:36px;font-size:15px;padding:0 20px">Falar com a API</button></span>
           </div>
         </div>
         <div class="anatomia-legenda" style="margin-bottom:24px">
           <span class="letra">A.</span> <strong>Logo:</strong> à esquerda, na versão do fundo ·
-          <span class="letra">B.</span> <strong>Itens:</strong> Inter 500, o ativo com fio de 2 pt ·
-          <span class="letra">C.</span> <strong>Ação:</strong> uma só, à direita
+          <span class="letra">B.</span> <strong>Itens:</strong> Inter 500, 15 px; o ativo em 600, com fio de 2 px ·
+          <span class="letra">C.</span> <strong>Ação:</strong> uma, à direita, 36 px de altura
         </div>
         <div class="rot">Navegação escura</div>
         <div class="exemplo" style="border:none">
           <div class="nav-ex escura">
             <img src="/assets/logo/svg/api_capital_logo01_branco.svg" alt="API Capital">
             <div class="itens"><a href="#" class="ativo">Início</a><a href="#">Cartas</a><a href="#">Sobre</a></div>
-            <span class="acao-nav"><button class="api-botao-sobre-escuro">Falar com a API</button></span>
+            <span class="acao-nav"><button class="api-botao-sobre-escuro" style="height:36px;font-size:15px;padding:0 20px">Falar com a API</button></span>
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="secao">
-      <h2>Especificação</h2>
-      <table class="espec">
-        <thead><tr><th>O que</th><th>Medida</th></tr></thead>
-        <tbody>
-          <tr><td>Altura</td><td>96 px em tela cheia · 72 px em tablet · 64 px em celular</td></tr>
-          <tr><td>Respiro lateral</td><td>40 px</td></tr>
-          <tr><td>Entre itens</td><td>32 px</td></tr>
-          <tr><td>Item</td><td>Inter 500, 15 px; o ativo sobe pra 600</td></tr>
-          <tr><td>Item ativo</td><td>Fio de 2 pt embaixo: <code>--api-acao</code> no claro, <code>--api-destaque</code> no escuro</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="secao">
-      <h2>Regras</h2>
-      <ul>
-        <li>No fundo escuro o logo entra na versão branca vazada, nunca na azul.</li>
-        <li><strong>Uma ação à direita</strong>, a mesma em todos os tamanhos.</li>
-        <li>Em celular os itens viram menu; a ação continua visível.</li>
-      </ul>
+      <p class="anota">Medidas, logo e versão escura são as da <a href="/componentes/barra-de-topo/">barra
+        de topo</a>: 64 px de altura, respiro lateral de 24 px. A configuração completa está em
+        <a href="/padroes/sites-e-aplicacoes/barra-de-topo/">Padrões · Barra de topo · Site com navegação</a>.</p>
     </div>
   </main>
 </div>
