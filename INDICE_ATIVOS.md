@@ -28,13 +28,18 @@ Exemplo: `https://design.apicapital.com.br/assets/logo/svg/api_capital_logo01_az
 | `assets/textura/` | 12 |
 | `assets/wallpaper/` | 24 |
 
+## Para escolher vendo
+
+A galeria com prévia de cada ativo, os formatos e a URL pronta para copiar está em
+**https://design.apicapital.com.br/ativos/**. Ela lê este mesmo `ativos.json`, então nunca fica defasada.
+
 ## Os essenciais, com a URL pronta
 
 | O que é | URL |
 |---|---|
 | Logo principal, azul, para fundo claro | `https://design.apicapital.com.br/assets/logo/svg/api_capital_logo01_azul.svg` |
 | Logo principal, branco, para fundo escuro | `https://design.apicapital.com.br/assets/logo/svg/api_capital_logo01_branco.svg` |
-| Selo do pelicano, azul | `https://design.apicapital.com.br/assets/logo/svg/api_capital_logo05_azul.svg` |
+| Selo do pelicano, azul (todas as versões do pássaro em assets/logo/pelicano/) | `https://design.apicapital.com.br/assets/logo/pelicano/svg/api_capital_logo05_azul.svg` |
 | Ícone temático da API (24 deles em assets/icone/svg/) | `https://design.apicapital.com.br/assets/icone/svg/api_capital_icone_carteira.svg` |
 | Favicon | `https://design.apicapital.com.br/assets/favicon/svg/api_capital_favicon.svg` |
 | Ladrilho do ninho, azul | `https://design.apicapital.com.br/assets/textura/svg/api_capital_textura_ninho_azul.svg` |

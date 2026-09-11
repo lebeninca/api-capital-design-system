@@ -32,7 +32,8 @@ for p in arquivos:
 ESSENCIAIS = [
     ("Logo principal, azul, para fundo claro", "assets/logo/svg/api_capital_logo01_azul.svg"),
     ("Logo principal, branco, para fundo escuro", "assets/logo/svg/api_capital_logo01_branco.svg"),
-    ("Selo do pelicano, azul", "assets/logo/svg/api_capital_logo05_azul.svg"),
+    ("Selo do pelicano, azul (todas as versões do pássaro em assets/logo/pelicano/)",
+     "assets/logo/pelicano/svg/api_capital_logo05_azul.svg"),
     ("Ícone temático da API (24 deles em assets/icone/svg/)", "assets/icone/svg/api_capital_icone_carteira.svg"),
     ("Favicon", "assets/favicon/svg/api_capital_favicon.svg"),
     ("Ladrilho do ninho, azul", "assets/textura/svg/api_capital_textura_ninho_azul.svg"),
@@ -58,7 +59,15 @@ linhas = [
 ]
 for cat, itens in sorted(por_cat.items()):
     linhas.append(f"| `assets/{cat}/` | {len(itens)} |")
-linhas += ["", "## Os essenciais, com a URL pronta", "", "| O que é | URL |", "|---|---|"]
+linhas += [
+    "",
+    "## Para escolher vendo",
+    "",
+    f"A galeria com prévia de cada ativo, os formatos e a URL pronta para copiar está em",
+    f"**{BASE}/ativos/**. Ela lê este mesmo `ativos.json`, então nunca fica defasada.",
+    "",
+    "## Os essenciais, com a URL pronta", "", "| O que é | URL |", "|---|---|",
+]
 for nome, rel in ESSENCIAIS:
     existe = (RAIZ / rel).exists()
     linhas.append(f"| {nome} | `{BASE}/{rel}`{'' if existe else ' ⚠️ não encontrado'} |")

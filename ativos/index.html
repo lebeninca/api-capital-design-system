@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ativos · Design System API Capital</title>
+<link rel="icon" href="/assets/favicon/svg/api_capital_favicon.svg">
+<link rel="stylesheet" href="/tokens/api-capital.css">
+<link rel="stylesheet" href="/docs.css">
+<style>
+.ferramentas{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:24px 0 8px;}
+.busca{flex:1;min-width:240px;height:40px;padding:0 12px;border:1px solid var(--api-borda);
+  border-radius:var(--api-canto);background:var(--api-fundo);color:var(--api-texto);
+  font-family:Inter,system-ui,sans-serif;font-size:15px;}
+.busca:focus{outline:3px solid var(--api-acao-secundaria);outline-offset:2px;border-color:var(--api-acao);}
+.contagem{font-size:13px;color:var(--api-texto-fraco);}
+
+.atalhos{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px;}
+.atalhos a{font-size:13px;font-weight:600;color:var(--api-acao);text-decoration:none;
+  padding:6px 12px;border:1px solid var(--api-borda);border-radius:var(--api-canto);}
+.atalhos a:hover{background:var(--api-fundo-bloco);}
+
+.grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;margin:16px 0 8px;}
+.item{display:flex;gap:16px;align-items:center;padding:12px;border:1px solid var(--api-borda);
+  border-radius:var(--api-canto);background:var(--api-fundo);}
+.item .palco{flex:0 0 88px;width:88px;height:88px;border-radius:10px;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;background:var(--api-fundo-bloco);}
+.item .palco.escuro{background:var(--api-azul);}
+.item .palco.xadrez{background:
+  linear-gradient(45deg,#E6E7E8 25%,transparent 25%,transparent 75%,#E6E7E8 75%),
+  linear-gradient(45deg,#E6E7E8 25%,#FFFFFF 25%,#FFFFFF 75%,#E6E7E8 75%);
+  background-size:16px 16px;background-position:0 0,8px 8px;}
+.item .palco img{max-width:76px;max-height:76px;object-fit:contain;}
+.item .palco.cheio{background-position:center;background-size:cover;background-repeat:no-repeat;}
+.item .palco svg{flex:none;width:26px;height:26px;color:var(--api-texto-fraco);}
+.item .palco .amostra-fonte{font-size:34px;line-height:1;color:var(--api-azul);}
+.item .corpo{min-width:0;flex:1;}
+.item .nome{font-size:15px;font-weight:600;color:var(--api-texto);line-height:1.3;
+  overflow-wrap:anywhere;}
+.item .formatos{display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:8px;}
+.item .formatos a{font-size:13px;color:var(--api-acao-secundaria);text-decoration:none;
+  font-weight:500;white-space:nowrap;}
+.item .formatos a:hover{text-decoration:underline;}
+.item .copiar{display:inline-flex;align-items:center;gap:5px;margin-top:8px;padding:0;border:0;
+  background:none;cursor:pointer;font-family:Inter,system-ui,sans-serif;font-size:13px;
+  font-weight:500;color:var(--api-texto-fraco);}
+.item .copiar:hover{color:var(--api-acao);}
+.item .copiar svg{width:13px;height:13px;}
+
+.banco{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:12px;margin:16px 0 8px;}
+.banco .capa{display:block;width:100%;height:100px;border-radius:10px;object-fit:cover;
+  background:var(--api-fundo-bloco);}
+.banco .credito{font-size:13px;font-weight:600;color:var(--api-texto);margin-top:6px;line-height:1.35;}
+.banco .formatos{display:flex;flex-wrap:wrap;gap:2px 10px;margin-top:3px;}
+.banco .formatos a{font-size:13px;color:var(--api-acao-secundaria);text-decoration:none;font-weight:500;}
+.banco .formatos a:hover{text-decoration:underline;}
+
+.vazio{font-size:15px;color:var(--api-texto-fraco);padding:24px 0;}
+.carregando{font-size:15px;color:var(--api-texto-fraco);padding:40px 0;}
+.falha{border:1px solid var(--api-erro);border-radius:var(--api-canto);padding:16px;
+  font-size:15px;color:var(--api-texto);}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="dentro">
+    <a href="/"><img src="/assets/logo/svg/api_capital_logo05_azul.svg" alt="API Capital"></a>
+    <a class="nome" href="/">Design System</a>
+    <a class="acao" href="/como-utilizar/usando-claude/">Baixar a skill</a>
+  </div>
+</header>
+
+<div class="casco">
+  <div id="nav-lateral"></div>
+
+  <main class="conteudo">
+    <div class="subcabecalho">
+      <h1>Ativos</h1>
+      <p class="linhafina">Logo, pelicano, ícone, textura, gradiente, foto e fonte da API Capital,
+        cada um com endereço público e estável. Esta página lê a lista direto do repositório: o que
+        aparece aqui é o que existe lá, sempre.</p>
+      <hr class="fio">
+    </div>
+
+    <div class="secao">
+      <p>Em peça de tela, <strong>referencie o ativo pela URL</strong> — não copie o arquivo e não
+        redesenhe nada. O botão de copiar entrega o endereço pronto; o nome de cada formato baixa o
+        arquivo, para quem trabalha em Illustrator, Canva ou apresentação.</p>
+
+      <div class="ferramentas">
+        <input class="busca" id="busca" type="search" placeholder="Buscar por nome — pelicano, ninho, carteira, aurora…"
+          autocomplete="off" aria-label="Buscar ativo pelo nome">
+        <span class="contagem" id="contagem"></span>
+      </div>
+      <div class="atalhos" id="atalhos"></div>
+    </div>
+
+    <div id="saida"><p class="carregando">Carregando a lista de ativos…</p></div>
+
+    <div class="secao">
+      <h2>Os 1.767 ícones da Lucide</h2>
+      <p>A biblioteca completa da Lucide viaja junto com o sistema, em
+        <code>assets/icone/lucide/</code>, e fica fora desta página para não afogar os ativos da
+        casa. Procure o ícone em <a href="https://lucide.dev/icons/">lucide.dev/icons</a> e monte a
+        URL com o nome dele:</p>
+      <pre class="codigo">https://design.apicapital.com.br/assets/icone/lucide/chevron-right.svg</pre>
+      <p class="anota">Os 24 ícones temáticos da API, acima, vêm primeiro: use-os sempre que
+        cobrirem o caso. Traço de 2 px, sem preenchimento.</p>
+    </div>
+  </main>
+</div>
+
+<script>
+fetch('/nav.html', {cache: 'no-store'}).then(r => r.text()).then(html => {
+  const alvo = document.getElementById('nav-lateral');
+  alvo.outerHTML = html;
+  const atual = document.querySelector('[data-nav="ativos"]');
+  if (atual) atual.classList.add('ativo');
+});
+
+const CATEGORIAS = [
+  {id:'logo',      titulo:'Logo',            desc:'As oito montagens oficiais, cada uma em azul, branco e quase-preto. O logotipo nunca se remonta à mão.'},
+  {id:'pelicano',  titulo:'Pelicano',        desc:'O selo dentro do disco e o pássaro solto, reunidos em <code>assets/logo/pelicano/</code>. Área livre: um quarto do diâmetro do disco.'},
+  {id:'tagline',   titulo:'Tagline',         desc:'“Por que(m) você investe?”, na versão curta e na longa, em azul e em latão.'},
+  {id:'icone',     titulo:'Ícones da API',   desc:'Os 24 ícones escolhidos para os usos recorrentes da marca. Use estes antes de ir à biblioteca Lucide completa.'},
+  {id:'favicon',   titulo:'Favicon',         desc:'Quadrado branco de canto arredondado com as letras API em azul-meia-noite.'},
+  {id:'textura',   titulo:'Textura',         desc:'O ladrilho do ninho e as texturas de superfície. Sempre tom sobre tom, em preenchimento sólido.'},
+  {id:'gradiente', titulo:'Gradiente',       desc:'Uma cor só, do transparente ao cheio. Véu de legibilidade sobre fundo complexo — nunca em texto, botão ou elemento de interface.'},
+  {id:'paleta',    titulo:'Paleta',          desc:'As cores da marca prontas para Illustrator, Photoshop, InDesign, Inkscape e Krita.'},
+  {id:'wallpaper', titulo:'Wallpaper',       desc:'Papel de parede em 16:9, ultrawide e celular, com e sem logo.'},
+  {id:'social',    titulo:'Social',          desc:'Fotos de perfil e capas de YouTube, LinkedIn e Facebook, em azul e em branco.'},
+  {id:'splash',    titulo:'Splash screen',   desc:'As quatro opções de tela de pré-login do app do BTG para os clientes da API.'},
+  {id:'foto',      titulo:'Fotografia',      desc:'As 46 capas da carta mensal, cada uma em versão para web e para impressão, mais as cinco fotos de céu do acervo da marca. Todas do Unsplash, com o crédito no nome do arquivo.'},
+  {id:'fonte',     titulo:'Fontes',          desc:'Playfair Display e Inter, com licença livre para uso comercial. WOFF2 para web, OTF e TTF para instalar.'},
+];
+
+const ORDEM_FMT = ['SVG','PNG','PNG 1x','PNG 2x','PNG 4x','JPG','PDF','WOFF2','TTF','OTF','ASE','GPL','JSON','TXT','CSS'];
+const PASTAS_FORMATO = new Set(['svg','png','pdf']);
+
+const ACENTOS = {
+  alocacao:'alocação', educacao:'educação', equilibrio:'equilíbrio', familia:'família',
+  imovel:'imóvel', instituicao:'instituição', patrimonio:'patrimônio', protecao:'proteção',
+  relatorio:'relatório', estrategia:'estratégia', latao:'latão', aviao:'avião', nevoa:'névoa',
+  ocre:'ocre', '16x9':'16:9',
+};
+
+const FAMILIAS = {'inter':'Inter', 'playfair-display':'Playfair Display'};
+
+function analisar(caminho) {
+  const partes = caminho.split('/');
+  const arquivo = partes[partes.length - 1];
+  const corte = arquivo.lastIndexOf('.');
+  const ext = arquivo.slice(corte + 1).toLowerCase();
+  const semExt = arquivo.slice(0, corte);
+  const escala = semExt.match(/^(.*)@(\d)x$/);
+  const base = escala ? escala[1] : semExt;
+  const sub = partes.slice(2, -1).filter(s => !PASTAS_FORMATO.has(s));
+  return {
+    cat: partes[1],
+    sub: sub.join('/'),
+    base,
+    ext,
+    rotulo: ext.toUpperCase() + (escala ? ' ' + escala[2] + 'x' : ''),
+    url: '/' + caminho.split('/').map(encodeURIComponent).join('/'),
+  };
+}
+
+function acentuar(texto) {
+  return texto.split(' ').map(p => ACENTOS[p] || p).join(' ')
+    .replace(/quase preto/g, 'quase-preto').replace(/meia noite/g, 'meia-noite');
+}
+
+function nomear(cat, sub, base, titulo) {
+  let n = base.replace(/^api_capital_/, '');
+  if (cat === 'foto' && sub === 'cartas') {
+    return n.replace(/^(HTML |PDF )?Foto de /, '').replace(/ na Unsplash.*$/, '');
+  }
+  if (cat === 'fonte') return n.replace(/[-_]/g, ' ');
+  const numerada = n.match(/^logo(\d+)_(.+)$/);
+  if (numerada) return 'Logo ' + numerada[1] + ' · ' + acentuar(numerada[2].replace(/_/g, ' '));
+  n = n.replace(/^(tagline|icone|textura|gradiente|wallpaper|social|splash_screen|favicon|foto|paleta)_?/, '');
+  n = acentuar(n.replace(/_/g, ' ').trim());
+  if (!n) return titulo;
+  if (/^\d/.test(n)) return titulo + ' ' + n;
+  return n.charAt(0).toUpperCase() + n.slice(1);
+}
+
+function montar(lista) {
+  const grupos = new Map();
+  for (const caminho of lista) {
+    if (caminho.includes('/lucide/')) continue;
+    const a = analisar(caminho);
+    if (a.cat === 'hero') continue;
+    const cat = (a.cat === 'logo' && a.sub === 'pelicano') ? 'pelicano' : a.cat;
+    const familia = cat === 'fonte';
+    const carta = cat === 'foto' && a.sub === 'cartas';
+    const usoCarta = carta ? (a.base.startsWith('PDF ') ? 'Impressão' : 'Web') : null;
+    if (carta) a.base = a.base.replace(/^(HTML|PDF) /, '');
+    const chave = familia ? cat + '|' + a.sub : cat + '|' + a.sub + '|' + a.base;
+    if (!grupos.has(chave)) {
+      const titulo = (CATEGORIAS.find(c => c.id === cat) || {titulo: cat}).titulo;
+      const nome = familia ? FAMILIAS[a.sub] || a.sub : nomear(cat, a.sub, a.base, titulo);
+      grupos.set(chave, {cat, sub: a.sub, base: familia ? a.sub : a.base, nome, formatos: []});
+    }
+    const rotulo = familia
+      ? a.base.replace(/^(Inter|PlayfairDisplay)-?/, '').replace(/[-_]/g, ' ').trim()
+          .replace(/^$/, 'Variável') + ' · ' + a.ext.toUpperCase()
+      : usoCarta || a.rotulo;
+    grupos.get(chave).formatos.push({rotulo, url: a.url, ext: a.ext});
+  }
+  const noPelicano = new Set([...grupos.values()].filter(g => g.cat === 'pelicano').map(g => g.base));
+  for (const [chave, g] of grupos) {
+    if (g.cat === 'logo' && noPelicano.has(g.base)) grupos.delete(chave);
+  }
+  for (const g of grupos.values()) {
+    if (g.cat === 'fonte') g.formatos.sort((x, y) => x.rotulo.localeCompare(y.rotulo, 'pt-BR'));
+    else g.formatos.sort((x, y) => {
+      const ix = ORDEM_FMT.indexOf(x.rotulo), iy = ORDEM_FMT.indexOf(y.rotulo);
+      return (ix < 0 ? 99 : ix) - (iy < 0 ? 99 : iy);
+    });
+    const previa = g.formatos.find(f => f.ext === 'svg')
+                || g.formatos.find(f => f.rotulo === 'PNG 1x')
+                || g.formatos.find(f => f.rotulo === 'Web')
+                || g.formatos.find(f => f.ext === 'jpg' || f.ext === 'png');
+    g.previa = previa ? previa.url : null;
+    g.urlCanonica = (g.formatos.find(f => f.ext === 'svg') || g.formatos[0]).url;
+    const cat = CATEGORIAS.find(c => c.id === g.cat);
+    g.busca = (g.nome + ' ' + g.base + ' ' + (cat ? cat.titulo : g.cat)).toLowerCase();
+  }
+  return [...grupos.values()];
+}
+
+const ICONE_ARQUIVO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v5h5"/></svg>';
+const ICONE_LINK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.8 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>';
+
+const CHEIO = new Set(['textura','gradiente','wallpaper','social','splash','foto']);
+
+function esc(s) {
+  return s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+}
+
+function cartao(g) {
+  const cheio = CHEIO.has(g.cat) && g.previa;
+  const escuro = /branc[oa]|_claro/.test(g.base) && !cheio;
+  const classes = ['palco'];
+  let estilo = '';
+  if (cheio) { classes.push('cheio'); estilo = ' style="background-image:url(' + g.previa + ')"'; }
+  else if (escuro) classes.push('escuro');
+  else if (g.cat === 'favicon') classes.push('xadrez');
+  const miolo = cheio ? ''
+    : g.cat === 'fonte'
+      ? '<span class="amostra-fonte" style="font-family:' + (g.base === 'inter' ? 'Inter' : "'Playfair Display'") + '">Aa</span>'
+    : g.previa ? '<img src="' + g.previa + '" alt="" loading="lazy">'
+    : ICONE_ARQUIVO;
+  let pngAberto = false;
+  const links = g.formatos.map(f => {
+    let rotulo = f.rotulo;
+    const escalado = /^PNG \dx$/.test(rotulo);
+    if (escalado && pngAberto) rotulo = rotulo.slice(4);
+    pngAberto = escalado;
+    return '<a href="' + f.url + '" download>' + rotulo + '</a>';
+  }).join('');
+  return '<div class="item" data-busca="' + esc(g.busca) + '">'
+    + '<div class="' + classes.join(' ') + '"' + estilo + '>' + miolo + '</div>'
+    + '<div class="corpo"><div class="nome">' + esc(g.nome) + '</div>'
+    + '<div class="formatos">' + links + '</div>'
+    + '<button class="copiar" type="button" data-url="' + g.urlCanonica + '">'
+    + ICONE_LINK + '<span>copiar URL</span></button>'
+    + '</div></div>';
+}
+
+function cartaoBanco(g) {
+  const links = g.formatos
+    .map(f => '<a href="' + f.url + '" download>' + f.rotulo + '</a>')
+    .join('');
+  return '<div class="capa-item" data-busca="' + esc(g.busca) + '">'
+    + '<img class="capa" src="' + g.previa + '" alt="" loading="lazy">'
+    + '<div class="credito">' + esc(g.nome) + '</div>'
+    + '<div class="formatos">' + links + '</div></div>';
+}
+
+function desenhar(ativos) {
+  const saida = document.getElementById('saida');
+  const atalhos = document.getElementById('atalhos');
+  let html = '', navHtml = '';
+  for (const cat of CATEGORIAS) {
+    const doGrupo = ativos.filter(g => g.cat === cat.id);
+    if (!doGrupo.length) continue;
+    doGrupo.sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'));
+    navHtml += '<a href="#' + cat.id + '">' + cat.titulo + ' <span style="color:var(--api-texto-fraco)">'
+      + doGrupo.length + '</span></a>';
+    const banco = cat.id === 'foto';
+    html += '<div class="secao" id="' + cat.id + '" data-cat="' + cat.id + '">'
+      + '<h2>' + cat.titulo + '</h2><p>' + cat.desc + '</p>'
+      + '<div class="' + (banco ? 'banco' : 'grade') + '">'
+      + doGrupo.map(banco ? cartaoBanco : cartao).join('')
+      + '</div><p class="vazio" hidden>Nenhum ativo desta categoria bate com a busca.</p></div>';
+  }
+  saida.innerHTML = html;
+  atalhos.innerHTML = navHtml;
+  document.getElementById('contagem').textContent = ativos.length + ' ativos';
+
+  saida.addEventListener('click', ev => {
+    const botao = ev.target.closest('.copiar');
+    if (!botao) return;
+    const url = location.origin + botao.dataset.url;
+    navigator.clipboard.writeText(url).then(() => {
+      const texto = botao.querySelector('span');
+      texto.textContent = 'copiado';
+      setTimeout(() => { texto.textContent = 'copiar URL'; }, 1600);
+    });
+  });
+}
+
+function filtrar(termo) {
+  const alvo = termo.trim().toLowerCase();
+  for (const secao of document.querySelectorAll('#saida .secao')) {
+    let visiveis = 0;
+    for (const item of secao.querySelectorAll('[data-busca]')) {
+      const bate = !alvo || item.dataset.busca.includes(alvo);
+      item.hidden = !bate;
+      if (bate) visiveis++;
+    }
+    secao.querySelector('.vazio').hidden = visiveis > 0;
+    secao.hidden = alvo && visiveis === 0;
+  }
+}
+
+document.getElementById('busca').addEventListener('input', ev => filtrar(ev.target.value));
+
+fetch('/ativos.json', {cache: 'no-store'})
+  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  .then(d => {
+    const todos = Object.values(d.categorias).flat();
+    desenhar(montar(todos));
+  })
+  .catch(() => {
+    document.getElementById('saida').innerHTML =
+      '<div class="falha"><strong>A lista de ativos não carregou.</strong> Ela vem de '
+      + '<code>/ativos.json</code>, no repositório do sistema. Tente recarregar a página; se '
+      + 'continuar, os arquivos seguem acessíveis em '
+      + '<a href="https://github.com/lebeninca/api-capital-design-system/tree/main/assets">github.com/lebeninca/api-capital-design-system</a>.</div>';
+  });
+</script>
+</body>
+</html>
