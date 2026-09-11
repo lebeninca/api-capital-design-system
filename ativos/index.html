@@ -20,17 +20,25 @@
   padding:6px 12px;border:1px solid var(--api-borda);border-radius:var(--api-canto);}
 .atalhos a:hover{background:var(--api-fundo-bloco);}
 
-.grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;margin:16px 0 8px;}
+.grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:16px;margin:16px 0 8px;}
+.subgrupo{font-size:15px;font-weight:600;color:var(--api-azul);margin:24px 0 0;}
+.subgrupo:first-of-type{margin-top:8px;}
 .item{display:flex;gap:16px;align-items:center;padding:12px;border:1px solid var(--api-borda);
   border-radius:var(--api-canto);background:var(--api-fundo);}
-.item .palco{flex:0 0 88px;width:88px;height:88px;border-radius:10px;overflow:hidden;
+.item .palco{flex:0 0 176px;width:176px;height:176px;border-radius:10px;overflow:hidden;
   display:flex;align-items:center;justify-content:center;background:var(--api-fundo-bloco);}
+.grade.mini{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));}
+.grade.mini .palco{flex:0 0 88px;width:88px;height:88px;}
+.grade.mini .palco img{max-width:64px;max-height:64px;}
+.grade.larga{grid-template-columns:1fr;}
+.grade.larga .palco{flex:0 0 320px;width:320px;height:220px;}
+.grade.larga .palco img{max-width:300px;max-height:200px;}
 .item .palco.escuro{background:var(--api-azul);}
 .item .palco.xadrez{background:
   linear-gradient(45deg,#E6E7E8 25%,transparent 25%,transparent 75%,#E6E7E8 75%),
   linear-gradient(45deg,#E6E7E8 25%,#FFFFFF 25%,#FFFFFF 75%,#E6E7E8 75%);
   background-size:16px 16px;background-position:0 0,8px 8px;}
-.item .palco img{max-width:76px;max-height:76px;object-fit:contain;}
+.item .palco img{max-width:152px;max-height:152px;object-fit:contain;}
 .item .palco.cheio{background-position:center;background-size:cover;background-repeat:no-repeat;}
 .item .palco svg{flex:none;width:26px;height:26px;color:var(--api-texto-fraco);}
 .item .palco .amostra-fonte{font-size:34px;line-height:1;color:var(--api-azul);}
@@ -47,8 +55,8 @@
 .item .copiar:hover{color:var(--api-acao);}
 .item .copiar svg{width:13px;height:13px;}
 
-.banco{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:12px;margin:16px 0 8px;}
-.banco .capa{display:block;width:100%;height:100px;border-radius:10px;object-fit:cover;
+.banco{display:grid;grid-template-columns:repeat(auto-fill,minmax(296px,1fr));gap:16px;margin:16px 0 8px;}
+.banco .capa{display:block;width:100%;height:200px;border-radius:10px;object-fit:cover;
   background:var(--api-fundo-bloco);}
 .banco .credito{font-size:13px;font-weight:600;color:var(--api-texto);margin-top:6px;line-height:1.35;}
 .banco .formatos{display:flex;flex-wrap:wrap;gap:2px 10px;margin-top:3px;}
@@ -81,9 +89,10 @@
     </div>
 
     <div class="secao">
-      <p>Em peça de tela, <strong>referencie o ativo pela URL</strong> — não copie o arquivo e não
-        redesenhe nada. O botão de copiar entrega o endereço pronto; o nome de cada formato baixa o
-        arquivo, para quem trabalha em Illustrator, Canva ou apresentação.</p>
+      <p>Para uso em tela (sites, sistemas, HTML, etc) não copie o arquivo nem redesenhe — apenas
+        referencie pela URL.<br>
+        Para uso em editores (Canva, Illustrator, Photoshop, Powerpoint, etc) utilize a versão
+        apropriada clicando no nome do formato (SVG, PNG ou PDF).</p>
 
       <div class="ferramentas">
         <input class="busca" id="busca" type="search" placeholder="Buscar por nome — pelicano, ninho, carteira, aurora…"
@@ -105,15 +114,56 @@ fetch('/nav.html', {cache: 'no-store'}).then(r => r.text()).then(html => {
   if (atual) atual.classList.add('ativo');
 });
 
+const CURADORIA = {
+  logo: {
+    grupos: ['Montada', 'Vertical', 'Horizontal', 'Horizontal curta'],
+    itens: {
+      api_capital_logo01_azul:        ['Montada', 'Azul'],
+      api_capital_logo01_branco:      ['Montada', 'Branco'],
+      api_capital_logo01_quase_preto: ['Montada', 'Preto'],
+      api_capital_logo02_azul:        ['Vertical', 'Azul'],
+      api_capital_logo02_branco:      ['Vertical', 'Branco'],
+      api_capital_logo02_quase_preto: ['Vertical', 'Preto'],
+      api_capital_logo03_azul:        ['Horizontal', 'Azul'],
+      api_capital_logo03_branco:      ['Horizontal', 'Branco'],
+      api_capital_logo03_quase_preto: ['Horizontal', 'Preto'],
+      api_capital_logo04_azul:        ['Horizontal curta', 'Azul'],
+      api_capital_logo04_branco:      ['Horizontal curta', 'Branco'],
+      api_capital_logo04_quase_preto: ['Horizontal curta', 'Preto'],
+    },
+  },
+  pelicano: {
+    grupos: ['Negativo', 'Positivo', 'Bicolor'],
+    itens: {
+      api_capital_logo05_azul:        ['Negativo', 'Azul'],
+      api_capital_logo05_quase_preto: ['Negativo', 'Preto'],
+      api_capital_logo05_branco:      ['Negativo', 'Branco'],
+      api_capital_logo06_azul:        ['Positivo', 'Azul'],
+      api_capital_logo06_quase_preto: ['Positivo', 'Preto'],
+      api_capital_logo06_branco:      ['Positivo', 'Branco'],
+      api_capital_logo05_bicolor_a:   ['Bicolor', 'Dois azuis'],
+      api_capital_logo05_bicolor_b:   ['Bicolor', 'Latão com azul'],
+    },
+  },
+  tagline: {
+    itens: {
+      api_capital_tagline_curta_azul:  [null, 'Por que(m)? Azul e vermelho'],
+      api_capital_tagline_curta_latao: [null, 'Por que(m)? Branco e latão'],
+      api_capital_tagline_longa_azul:  [null, 'Por que(m) você investe? Azul e vermelho'],
+      api_capital_tagline_longa_latao: [null, 'Por que(m) você investe? Branco e latão'],
+    },
+  },
+};
+
 const CATEGORIAS = [
   {id:'logo',      titulo:'Logo'},
   {id:'pelicano',  titulo:'Pelicano'},
-  {id:'tagline',   titulo:'Tagline'},
-  {id:'icone',     titulo:'Ícones da API'},
+  {id:'tagline',   titulo:'Tagline · Por que(m)?'},
+  {id:'icone',     titulo:'Ícones da API', grade:'mini'},
   {id:'favicon',   titulo:'Favicon'},
   {id:'textura',   titulo:'Textura'},
   {id:'gradiente', titulo:'Gradiente'},
-  {id:'paleta',    titulo:'Paleta'},
+  {id:'paleta',    titulo:'Paleta de cores', grade:'larga'},
   {id:'wallpaper-16x9',      titulo:'Wallpaper 16:9'},
   {id:'wallpaper-ultrawide', titulo:'Wallpaper ultrawide'},
   {id:'wallpaper-celular',   titulo:'Wallpaper celular'},
@@ -187,6 +237,8 @@ function montar(lista) {
       cat = 'wallpaper-' + formato[1];
       a.base = a.base.replace(/wallpaper_(16x9|ultrawide|celular)_/, 'wallpaper_');
     }
+    const curado = CURADORIA[cat];
+    if (curado && !curado.itens[a.base]) continue;
     const familia = cat === 'fonte';
     const carta = cat === 'foto' && a.sub === 'cartas';
     const usoCarta = carta ? (a.base.startsWith('PDF ') ? 'Impressão' : 'Web') : null;
@@ -194,13 +246,17 @@ function montar(lista) {
     const chave = familia ? cat + '|' + a.sub : cat + '|' + a.sub + '|' + a.base;
     if (!grupos.has(chave)) {
       const titulo = (CATEGORIAS.find(c => c.id === cat) || {titulo: cat}).titulo;
-      const nome = familia ? FAMILIAS[a.sub] || a.sub : nomear(cat, a.sub, a.base, titulo);
-      grupos.set(chave, {cat, sub: a.sub, base: familia ? a.sub : a.base, nome, formatos: []});
+      const nome = curado ? curado.itens[a.base][1]
+        : familia ? FAMILIAS[a.sub] || a.sub
+        : nomear(cat, a.sub, a.base, titulo);
+      grupos.set(chave, {cat, sub: a.sub, base: familia ? a.sub : a.base, nome,
+        grupo: curado ? curado.itens[a.base][0] : null, formatos: []});
     }
+    if (a.rotulo === 'PNG 1x' || a.rotulo === 'PNG 2x') continue;
     const rotulo = familia
       ? a.base.replace(/^(Inter|PlayfairDisplay)-?/, '').replace(/[-_]/g, ' ').trim()
           .replace(/^$/, 'Variável') + ' · ' + a.ext.toUpperCase()
-      : usoCarta || a.rotulo;
+      : usoCarta || (a.rotulo === 'PNG 4x' ? 'PNG' : a.rotulo);
     grupos.get(chave).formatos.push({rotulo, url: a.url, ext: a.ext});
   }
   const noPelicano = new Set([...grupos.values()].filter(g => g.cat === 'pelicano').map(g => g.base));
@@ -214,7 +270,6 @@ function montar(lista) {
       return (ix < 0 ? 99 : ix) - (iy < 0 ? 99 : iy);
     });
     const previa = g.formatos.find(f => f.ext === 'svg')
-                || g.formatos.find(f => f.rotulo === 'PNG 1x')
                 || g.formatos.find(f => f.rotulo === 'Web')
                 || g.formatos.find(f => f.ext === 'jpg' || f.ext === 'png');
     g.previa = previa ? previa.url : null;
@@ -248,14 +303,9 @@ function cartao(g) {
       ? '<span class="amostra-fonte" style="font-family:' + (g.base === 'inter' ? 'Inter' : "'Playfair Display'") + '">Aa</span>'
     : g.previa ? '<img src="' + g.previa + '" alt="" loading="lazy">'
     : ICONE_ARQUIVO;
-  let pngAberto = false;
-  const links = g.formatos.map(f => {
-    let rotulo = f.rotulo;
-    const escalado = /^PNG \dx$/.test(rotulo);
-    if (escalado && pngAberto) rotulo = rotulo.slice(4);
-    pngAberto = escalado;
-    return '<a href="' + f.url + '" download>' + rotulo + '</a>';
-  }).join('');
+  const links = g.formatos
+    .map(f => '<a href="' + f.url + '" download>' + f.rotulo + '</a>')
+    .join('');
   return '<div class="item" data-busca="' + esc(g.busca) + '">'
     + '<div class="' + classes.join(' ') + '"' + estilo + '>' + miolo + '</div>'
     + '<div class="corpo"><div class="nome">' + esc(g.nome) + '</div>'
@@ -282,16 +332,31 @@ function desenhar(ativos) {
   for (const cat of CATEGORIAS) {
     const doGrupo = ativos.filter(g => g.cat === cat.id);
     if (!doGrupo.length) continue;
-    doGrupo.sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'));
+    const ordemCurada = CURADORIA[cat.id] && Object.keys(CURADORIA[cat.id].itens);
+    if (ordemCurada) doGrupo.sort((a, b) => ordemCurada.indexOf(a.base) - ordemCurada.indexOf(b.base));
+    else doGrupo.sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'));
     navHtml += '<a href="#' + cat.id + '">' + cat.titulo + ' <span style="color:var(--api-texto-fraco)">'
       + doGrupo.length + '</span></a>';
     const banco = cat.id === 'foto';
+    const classeGrade = 'grade' + (cat.grade ? ' ' + cat.grade : '');
+    const curado = CURADORIA[cat.id];
+    let miolo = '';
+    if (curado && curado.grupos) {
+      for (const nomeGrupo of curado.grupos) {
+        const doSub = doGrupo.filter(g => g.grupo === nomeGrupo);
+        if (!doSub.length) continue;
+        miolo += '<h3 class="subgrupo">' + nomeGrupo + '</h3>'
+          + '<div class="' + classeGrade + '">' + doSub.map(cartao).join('') + '</div>';
+      }
+    } else {
+      miolo = '<div class="' + (banco ? 'banco' : classeGrade) + '">'
+        + doGrupo.map(banco ? cartaoBanco : cartao).join('') + '</div>';
+    }
     html += '<div class="secao" id="' + cat.id + '" data-cat="' + cat.id + '">'
       + '<h2>' + cat.titulo + '</h2>'
       + (cat.desc ? '<p>' + cat.desc + '</p>' : '')
-      + '<div class="' + (banco ? 'banco' : 'grade') + '">'
-      + doGrupo.map(banco ? cartaoBanco : cartao).join('')
-      + '</div><p class="vazio" hidden>Nenhum ativo desta categoria bate com a busca.</p></div>';
+      + miolo
+      + '<p class="vazio" hidden>Nenhum ativo desta categoria bate com a busca.</p></div>';
   }
   saida.innerHTML = html;
   atalhos.innerHTML = navHtml;
@@ -317,6 +382,12 @@ function filtrar(termo) {
       const bate = !alvo || item.dataset.busca.includes(alvo);
       item.hidden = !bate;
       if (bate) visiveis++;
+    }
+    for (const grade of secao.querySelectorAll('.grade')) {
+      const cheia = grade.querySelector('[data-busca]:not([hidden])');
+      grade.hidden = !cheia;
+      const titulo = grade.previousElementSibling;
+      if (titulo && titulo.classList.contains('subgrupo')) titulo.hidden = !cheia;
     }
     secao.querySelector('.vazio').hidden = visiveis > 0;
     secao.hidden = alvo && visiveis === 0;
