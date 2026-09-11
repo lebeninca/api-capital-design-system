@@ -77,9 +77,6 @@
   <main class="conteudo">
     <div class="subcabecalho">
       <h1>Ativos</h1>
-      <p class="linhafina">Logo, pelicano, ícone, textura, gradiente, foto e fonte da API Capital,
-        cada um com endereço público e estável. Esta página lê a lista direto do repositório: o que
-        aparece aqui é o que existe lá, sempre.</p>
       <hr class="fio">
     </div>
 
@@ -97,17 +94,6 @@
     </div>
 
     <div id="saida"><p class="carregando">Carregando a lista de ativos…</p></div>
-
-    <div class="secao">
-      <h2>Os 1.767 ícones da Lucide</h2>
-      <p>A biblioteca completa da Lucide viaja junto com o sistema, em
-        <code>assets/icone/lucide/</code>, e fica fora desta página para não afogar os ativos da
-        casa. Procure o ícone em <a href="https://lucide.dev/icons/">lucide.dev/icons</a> e monte a
-        URL com o nome dele:</p>
-      <pre class="codigo">https://design.apicapital.com.br/assets/icone/lucide/chevron-right.svg</pre>
-      <p class="anota">Os 24 ícones temáticos da API, acima, vêm primeiro: use-os sempre que
-        cobrirem o caso. Traço de 2 px, sem preenchimento.</p>
-    </div>
   </main>
 </div>
 
@@ -120,18 +106,19 @@ fetch('/nav.html', {cache: 'no-store'}).then(r => r.text()).then(html => {
 });
 
 const CATEGORIAS = [
-  {id:'logo',      titulo:'Logo',            desc:'As oito montagens oficiais, cada uma em azul, branco e quase-preto. O logotipo nunca se remonta à mão.'},
-  {id:'pelicano',  titulo:'Pelicano',        desc:'O selo dentro do disco e o pássaro solto, reunidos em <code>assets/logo/pelicano/</code>. Área livre: um quarto do diâmetro do disco.'},
-  {id:'tagline',   titulo:'Tagline',         desc:'“Por que(m) você investe?”, na versão curta e na longa, em azul e em latão.'},
-  {id:'icone',     titulo:'Ícones da API',   desc:'Os 24 ícones escolhidos para os usos recorrentes da marca. Use estes antes de ir à biblioteca Lucide completa.'},
-  {id:'favicon',   titulo:'Favicon',         desc:'Quadrado branco de canto arredondado com as letras API em azul-meia-noite.'},
-  {id:'textura',   titulo:'Textura',         desc:'O ladrilho do ninho e as texturas de superfície. Sempre tom sobre tom, em preenchimento sólido.'},
-  {id:'gradiente', titulo:'Gradiente',       desc:'Uma cor só, do transparente ao cheio. Véu de legibilidade sobre fundo complexo — nunca em texto, botão ou elemento de interface.'},
-  {id:'paleta',    titulo:'Paleta',          desc:'As cores da marca prontas para Illustrator, Photoshop, InDesign, Inkscape e Krita.'},
-  {id:'wallpaper', titulo:'Wallpaper',       desc:'Papel de parede em 16:9, ultrawide e celular, com e sem logo.'},
-  {id:'social',    titulo:'Social',          desc:'Fotos de perfil e capas de YouTube, LinkedIn e Facebook, em azul e em branco.'},
-  {id:'splash',    titulo:'Splash screen',   desc:'As quatro opções de tela de pré-login do app do BTG para os clientes da API.'},
-  {id:'foto',      titulo:'Fotografia',      desc:'As 46 capas da carta mensal, cada uma em versão para web e para impressão, mais as cinco fotos de céu do acervo da marca. Todas do Unsplash, com o crédito no nome do arquivo.'},
+  {id:'logo',      titulo:'Logo'},
+  {id:'pelicano',  titulo:'Pelicano'},
+  {id:'tagline',   titulo:'Tagline'},
+  {id:'icone',     titulo:'Ícones da API'},
+  {id:'favicon',   titulo:'Favicon'},
+  {id:'textura',   titulo:'Textura'},
+  {id:'gradiente', titulo:'Gradiente'},
+  {id:'paleta',    titulo:'Paleta'},
+  {id:'wallpaper-16x9',      titulo:'Wallpaper 16:9'},
+  {id:'wallpaper-ultrawide', titulo:'Wallpaper ultrawide'},
+  {id:'wallpaper-celular',   titulo:'Wallpaper celular'},
+  {id:'social',    titulo:'Social'},
+  {id:'foto',      titulo:'Fotografia',      desc:'Use o crédito <strong>“Foto por [nome], Unsplash”</strong> sempre que utilizar as fotos. O nome do arquivo é o nome do criador da foto.'},
   {id:'fonte',     titulo:'Fontes',          desc:'Playfair Display e Inter, com licença livre para uso comercial. WOFF2 para web, OTF e TTF para instalar.'},
 ];
 
@@ -191,8 +178,15 @@ function montar(lista) {
   for (const caminho of lista) {
     if (caminho.includes('/lucide/')) continue;
     const a = analisar(caminho);
-    if (a.cat === 'hero') continue;
-    const cat = (a.cat === 'logo' && a.sub === 'pelicano') ? 'pelicano' : a.cat;
+    if (a.cat === 'hero' || a.cat === 'splash') continue;
+    let cat = a.cat;
+    if (a.cat === 'logo' && a.sub === 'pelicano') cat = 'pelicano';
+    if (a.cat === 'wallpaper') {
+      const formato = a.base.match(/wallpaper_(16x9|ultrawide|celular)_/);
+      if (!formato) continue;
+      cat = 'wallpaper-' + formato[1];
+      a.base = a.base.replace(/wallpaper_(16x9|ultrawide|celular)_/, 'wallpaper_');
+    }
     const familia = cat === 'fonte';
     const carta = cat === 'foto' && a.sub === 'cartas';
     const usoCarta = carta ? (a.base.startsWith('PDF ') ? 'Impressão' : 'Web') : null;
@@ -234,14 +228,15 @@ function montar(lista) {
 const ICONE_ARQUIVO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v5h5"/></svg>';
 const ICONE_LINK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.8 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>';
 
-const CHEIO = new Set(['textura','gradiente','wallpaper','social','splash','foto']);
+const CHEIO = new Set(['textura','gradiente','social','foto']);
+const ehCheio = cat => CHEIO.has(cat) || cat.startsWith('wallpaper-');
 
 function esc(s) {
   return s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 }
 
 function cartao(g) {
-  const cheio = CHEIO.has(g.cat) && g.previa;
+  const cheio = ehCheio(g.cat) && g.previa;
   const escuro = /branc[oa]|_claro/.test(g.base) && !cheio;
   const classes = ['palco'];
   let estilo = '';
@@ -292,7 +287,8 @@ function desenhar(ativos) {
       + doGrupo.length + '</span></a>';
     const banco = cat.id === 'foto';
     html += '<div class="secao" id="' + cat.id + '" data-cat="' + cat.id + '">'
-      + '<h2>' + cat.titulo + '</h2><p>' + cat.desc + '</p>'
+      + '<h2>' + cat.titulo + '</h2>'
+      + (cat.desc ? '<p>' + cat.desc + '</p>' : '')
       + '<div class="' + (banco ? 'banco' : 'grade') + '">'
       + doGrupo.map(banco ? cartaoBanco : cartao).join('')
       + '</div><p class="vazio" hidden>Nenhum ativo desta categoria bate com a busca.</p></div>';
