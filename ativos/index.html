@@ -294,9 +294,12 @@ function montar(lista) {
 const ICONE_ARQUIVO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v5h5"/></svg>';
 const ICONE_LINK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.8 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>';
 
-const CHEIO = new Set(['textura','social','foto']);
+const CHEIO = new Set(['textura','social','foto','gradiente']);
 /* Ativo com fundo transparente: o xadrez mostra que o arquivo nao tem fundo proprio. */
 const TRANSPARENTE = new Set(['logo','pelicano','tagline','gradiente']);
+const XADREZ_CAMADAS =
+  'linear-gradient(45deg,#C7C9CB 25%,transparent 25%,transparent 75%,#C7C9CB 75%),'
+  + 'linear-gradient(45deg,#C7C9CB 25%,#E9EAEB 25%,#E9EAEB 75%,#C7C9CB 75%)';
 const PACOTE_FONTE = {
   'inter': '/assets/fonte/api_capital_fonte_inter.zip',
   'playfair-display': '/assets/fonte/api_capital_fonte_playfair_display.zip',
@@ -312,7 +315,16 @@ function cartao(g) {
   const transparente = TRANSPARENTE.has(g.cat);
   const classes = ['palco'];
   let estilo = '';
-  if (cheio) { classes.push('cheio'); estilo = ' style="background-image:url(' + g.previa + ')"'; }
+  if (cheio) {
+    classes.push('cheio');
+    /* Ativo com alfa (gradiente): a imagem entra por cima do xadrez, na mesma pilha de fundo. */
+    estilo = transparente
+      ? ' style="background-image:url(' + g.previa + '),' + XADREZ_CAMADAS + ';'
+        + 'background-size:cover,16px 16px,16px 16px;'
+        + 'background-position:center,0 0,8px 8px;'
+        + 'background-repeat:no-repeat,repeat,repeat"'
+      : ' style="background-image:url(' + g.previa + ')"';
+  }
   else if (transparente || g.cat === 'favicon') classes.push('xadrez');
   const fonte = g.cat === 'fonte';
   if (fonte) classes.push('amostra');
