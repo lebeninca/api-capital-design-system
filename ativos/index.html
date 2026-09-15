@@ -33,11 +33,11 @@
 .grade.larga{grid-template-columns:1fr;}
 .grade.larga .palco{flex:0 0 320px;width:320px;height:220px;}
 .grade.larga .palco img{max-width:300px;max-height:200px;}
-.item .palco.escuro{background:var(--api-azul);}
 .item .palco.xadrez{background:
-  linear-gradient(45deg,#E6E7E8 25%,transparent 25%,transparent 75%,#E6E7E8 75%),
-  linear-gradient(45deg,#E6E7E8 25%,#FFFFFF 25%,#FFFFFF 75%,#E6E7E8 75%);
+  linear-gradient(45deg,#C7C9CB 25%,transparent 25%,transparent 75%,#C7C9CB 75%),
+  linear-gradient(45deg,#C7C9CB 25%,#E9EAEB 25%,#E9EAEB 75%,#C7C9CB 75%);
   background-size:16px 16px;background-position:0 0,8px 8px;}
+.grade.larga .palco.xadrez{background-size:24px 24px;background-position:0 0,12px 12px;}
 .item .palco img{max-width:152px;max-height:152px;object-fit:contain;}
 .item .palco.cheio{background-position:center;background-size:cover;background-repeat:no-repeat;}
 .item .palco svg{flex:none;width:26px;height:26px;color:var(--api-texto-fraco);}
@@ -143,6 +143,8 @@ const CURADORIA = {
       api_capital_logo06_branco:      ['Positivo', 'Branco'],
       api_capital_logo05_bicolor_a:   ['Bicolor', 'Dois azuis'],
       api_capital_logo05_bicolor_b:   ['Bicolor', 'Latão com azul'],
+      api_capital_logo05_bicolor_c:   ['Bicolor', 'Azul sobre branco'],
+      api_capital_logo05_bicolor_d:   ['Bicolor', 'Branco sobre azul'],
     },
   },
   tagline: {
@@ -283,7 +285,9 @@ function montar(lista) {
 const ICONE_ARQUIVO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v5h5"/></svg>';
 const ICONE_LINK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.8 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>';
 
-const CHEIO = new Set(['textura','gradiente','social','foto']);
+const CHEIO = new Set(['textura','social','foto']);
+/* Ativo com fundo transparente: o xadrez mostra que o arquivo nao tem fundo proprio. */
+const TRANSPARENTE = new Set(['logo','pelicano','tagline','gradiente']);
 const ehCheio = cat => CHEIO.has(cat) || cat.startsWith('wallpaper-');
 
 function esc(s) {
@@ -292,12 +296,11 @@ function esc(s) {
 
 function cartao(g) {
   const cheio = ehCheio(g.cat) && g.previa;
-  const escuro = /branc[oa]|_claro/.test(g.base) && !cheio;
+  const transparente = TRANSPARENTE.has(g.cat);
   const classes = ['palco'];
   let estilo = '';
   if (cheio) { classes.push('cheio'); estilo = ' style="background-image:url(' + g.previa + ')"'; }
-  else if (escuro) classes.push('escuro');
-  else if (g.cat === 'favicon') classes.push('xadrez');
+  else if (transparente || g.cat === 'favicon') classes.push('xadrez');
   const miolo = cheio ? ''
     : g.cat === 'fonte'
       ? '<span class="amostra-fonte" style="font-family:' + (g.base === 'inter' ? 'Inter' : "'Playfair Display'") + '">Aa</span>'
