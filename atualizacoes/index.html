@@ -54,87 +54,27 @@
     <h2>Histórico de versões</h2>
 
     <div class="versao">
-      <div class="cabeca"><span class="num">v1.12</span><span class="data">15 de setembro de 2026</span></div>
-      <h3>O cartão de ativo em duas metades</h3>
-      <ul>
-        <li>Na página de <a href="/ativos/">Ativos</a>, o cartão passa a ser dividido ao meio: a
-          prévia ocupa a metade esquerda inteira, sem caixa interna, e nome, formatos e endereço
-          ficam na metade direita. Vale para logo, pelicano, tagline, ícone, textura, gradiente,
-          favicon, wallpaper e social.</li>
-        <li><strong>Fontes</strong>: a prévia mostra a família em uso — Aa, uma frase e o alfabeto —
-          e o download é um <strong>pacote único por família</strong> (WOFF2, OTF ou TTF e a
-          licença), no lugar dos arquivos soltos.</li>
-      </ul>
-    </div>
-
-    <div class="versao">
-      <div class="cabeca"><span class="num">v1.11</span><span class="data">15 de setembro de 2026</span></div>
-      <h3>Prévia sobre xadrez e o pelicano bicolor em azul e branco</h3>
-      <ul>
-        <li>Na página de <a href="/ativos/">Ativos</a>, logo, pelicano, tagline e gradiente aparecem
-          sobre fundo <strong>xadrez</strong>, que mostra que o arquivo não tem fundo próprio. Antes,
-          a versão branca aparecia sobre azul, o que fazia o ativo parecer de duas cores.</li>
-        <li>Os três <strong>gradientes</strong> foram refeitos com transparência real: cada um vai
-          do transparente à cor, na mesma curva. Os arquivos anteriores tinham a transparência
-          achatada sobre um fundo sólido — o azul terminava em branco e o branco, em azul. SVG com
-          <code>linearGradient</code> nativo (1,7 KB no lugar de 55 KB) e PNG 1x/2x/4x em RGBA.</li>
-        <li>Duas versões novas do pelicano bicolor: <strong>Azul sobre branco</strong> e
-          <strong>Branco sobre azul</strong>, em SVG, PNG 1x/2x/4x e PDF, em
-          <code>assets/logo/</code> e <code>assets/logo/pelicano/</code>.</li>
-      </ul>
-    </div>
-
-    <div class="versao">
-      <div class="cabeca"><span class="num">v1.10</span><span class="data">11 de setembro de 2026</span></div>
-      <h3>Cada versão do logo ganhou nome</h3>
-      <p>Na página de <a href="/ativos/">Ativos</a>, logo, pelicano e tagline deixam de ser
-        numerados e passam a ser chamados pelo que são.</p>
-      <ul>
-        <li><strong>Logo</strong>, em quatro montagens: <em>Montada</em>, <em>Vertical</em>,
-          <em>Horizontal</em> e <em>Horizontal curta</em>, cada uma em azul, branco e preto.</li>
-        <li><strong>Pelicano</strong>, em três famílias: <em>Negativo</em> (o pássaro vazado no
-          disco) e <em>Positivo</em> (o pássaro sólido, sem disco), ambos em azul, preto e branco;
-          e <em>Bicolor</em>, com dois azuis e com latão sobre azul.</li>
-        <li><strong>Tagline</strong> pelo que está escrito nela: <em>Por que(m)?</em> e
-          <em>Por que(m) você investe?</em>, cada uma em azul e vermelho ou em branco e latão.</li>
-        <li><strong>PNG virou um link só</strong>, que baixa a versão maior (4x) — quem precisar de
-          menor, redimensiona. As prévias dobraram de tamanho, e a paleta de cores ocupa a
-          largura inteira.</li>
-      </ul>
-    </div>
-
-    <div class="versao">
-      <div class="cabeca"><span class="num">v1.9</span><span class="data">11 de setembro de 2026</span></div>
+      <div class="cabeca"><span class="num">v1.8</span><span class="data">15 de setembro de 2026</span></div>
       <h3>A página de ativos</h3>
-      <p>Pegar um arquivo de marca deixa de ser garimpo no GitHub. A página
-        <a href="/ativos/">Ativos</a> mostra cada um deles com prévia, os formatos ao lado e o
-        endereço a um clique.</p>
+      <p>Pegar um arquivo de marca deixa de ser garimpo no repositório. A página
+        <a href="/ativos/">Ativos</a> reúne logo, pelicano, tagline, ícone, favicon, textura,
+        gradiente, paleta, wallpaper, social, fotografia e fontes, cada um com prévia, os formatos
+        ao lado e o endereço a um clique.</p>
       <ul>
-        <li><strong>Uma seção por categoria</strong>: logo, pelicano, tagline, ícones da API,
-          favicon, textura, gradiente, paleta, wallpaper (16:9, ultrawide e celular), social,
-          fotografia e fontes.</li>
-        <li><strong>Busca por nome</strong>, e o botão <em>copiar URL</em> entrega o endereço
-          público pronto para colar na peça — que é como o sistema manda usar o ativo.</li>
-        <li><strong>A lista vem de <code>ativos.json</code></strong>, gerado do próprio
-          <code>assets/</code>: a página não tem cópia de nada e não envelhece. Ativo novo no
-          repositório aparece aqui sozinho.</li>
-        <li>Em fotografia, o crédito é obrigatório: <strong>“Foto por [nome], Unsplash”</strong>,
-          e o nome do arquivo é o nome de quem fez a foto.</li>
-      </ul>
-    </div>
-
-    <div class="versao">
-      <div class="cabeca"><span class="num">v1.8</span><span class="data">11 de setembro de 2026</span></div>
-      <h3>O pelicano numa pasta só</h3>
-      <p>Quem procura o pássaro sozinho tinha de garimpá-lo no meio das 26 versões de logo.
-        Agora ele tem endereço próprio.</p>
-      <ul>
-        <li><strong><code>assets/logo/pelicano/</code></strong>: as oito versões do pelicano
-          reunidas — o selo dentro do disco (<code>logo05</code>, em azul, branco, quase-preto e
-          os dois bicolores) e o pelicano solto, sem disco (<code>logo06</code>, em azul, branco e
-          quase-preto). Cada um em SVG, PNG 1x/2x/4x e PDF.</li>
-        <li>São <strong>cópias</strong>, com os mesmos nomes dos originais em
-          <code>assets/logo/</code> — a pasta facilita achar, não substitui a fonte.</li>
+        <li><strong>Busca por nome</strong> e atalho por categoria.</li>
+        <li><strong>Copiar URL</strong> entrega o endereço público pronto para colar na peça — que
+          é como o sistema manda usar o ativo.</li>
+        <li><strong>Prévia sobre xadrez</strong> em logo, pelicano, tagline e gradiente: o xadrez
+          mostra que o arquivo não tem fundo próprio.</li>
+        <li><strong>Fontes</strong>: amostra da família em uso e download em pacote único por
+          família (WOFF2, OTF ou TTF e a licença).</li>
+        <li><strong>Pelicano</strong> em nove versões, entre elas as bicolores <em>Azul sobre
+          branco</em> e <em>Branco sobre azul</em>, com endereço próprio em
+          <code>assets/logo/pelicano/</code>.</li>
+        <li><strong>Gradientes</strong> refeitos com transparência real: cada um vai do transparente
+          à cor.</li>
+        <li>A lista vem de <code>ativos.json</code>, gerado do próprio <code>assets/</code>: ativo
+          novo no repositório aparece na página sozinho.</li>
       </ul>
     </div>
 
